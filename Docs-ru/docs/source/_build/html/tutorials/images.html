@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Изображения &mdash; документация Microbit-Русская документация 0.1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Buttons" href="buttons.html" />
+    <link rel="prev" title="Первая программа Hello, World!" href="hello.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+            <a href="../index.html" class="icon icon-home"> Microbit-Русская документация
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Основные команды</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Инструкция</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hello.html">Первая программа Hello, World!</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Изображения</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Собственные изображения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Анимация</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="buttons.html">Buttons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output Pins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="music.html">Music</a></li>
+<li class="toctree-l1"><a class="reference internal" href="random.html">Random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movement.html">Movement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gestures.html">Gestures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="direction.html">Direction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speech.html">Speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network.html">Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="radio.html">Radio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="next.html">Next Steps</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Microbit-Русская документация</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Изображения</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/images.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Изображения<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Microbit имеет дисплей красных светодиодов 5х5. Вы можете выводить <strong>изображение</strong> на него
+и создавать интересную <strong>анимацию</strong>.</p>
+<p>MicroPython имеет много встроенных изображений например «Счастливый смайлик»:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Давайте вспомним что делает первая строка? Вторая строка использует команду объекта
+<code class="docutils literal notranslate"><span class="pre">display</span></code> под названием <code class="docutils literal notranslate"><span class="pre">show</span></code>. «Счастливый смайлик» является объектом типа (категории)
+<code class="docutils literal notranslate"><span class="pre">Image</span></code> и называется <code class="docutils literal notranslate"><span class="pre">HAPPY</span></code>.
+<strong>Обратите внимание название указывается заглавными буквами</strong></p>
+<a class="reference internal image-reference" href="../_images/happy.png"><img alt="../_images/happy.png" class="align-center" src="../_images/happy.png" style="width: 300px;" /></a>
+<p>Остальные встроенные изображения:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.HEART</span></code> - Большое сердце</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.HEART_SMALL</span></code> - Малое сердце</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.HAPPY</span></code> - Счастливый смайлик</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.SMILE</span></code> - Улыбка</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.SAD</span></code> - Грустный смайлик</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.CONFUSED</span></code> - Смущенный смайлик</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.ANGRY</span></code> - Злой смайлик</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.ASLEEP</span></code> - Спящий смайлик</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.SURPRISED</span></code> - Удивленный смайлик</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.SILLY</span></code> - Глупый смайлик</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.FABULOUS</span></code> - Воодушевленный смайлик</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.MEH</span></code> -</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.YES</span></code> - Да</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.NO</span></code> - Нет</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.CLOCK1</span></code> - … - <code class="docutils literal notranslate"><span class="pre">Image.CLOCK12</span></code> - Стрелка часов</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.ARROW_N</span></code>, <code class="docutils literal notranslate"><span class="pre">Image.ARROW_NE</span></code>, <code class="docutils literal notranslate"><span class="pre">Image.ARROW_E</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Image.ARROW_SE</span></code>, <code class="docutils literal notranslate"><span class="pre">Image.ARROW_S</span></code>, <code class="docutils literal notranslate"><span class="pre">Image.ARROW_SW</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Image.ARROW_W</span></code>, <code class="docutils literal notranslate"><span class="pre">Image.ARROW_NW</span></code> - Стороны Света</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.TRIANGLE</span></code> - Треугольник смотрит вверх</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.TRIANGLE_LEFT</span></code> - Треугольник смотрит влево</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.CHESSBOARD</span></code> - Шахматная доска</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.DIAMOND</span></code> - Алмаз</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.DIAMOND_SMALL</span></code> - Маленький алмаз</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.SQUARE</span></code> - Квадрат</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.SQUARE_SMALL</span></code> - Маленький квадрат</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.RABBIT</span></code> - Кролик</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.COW</span></code> - Корова</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.MUSIC_CROTCHET</span></code> - Знак Ноты</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.MUSIC_QUAVER</span></code> - Дрожание</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.MUSIC_QUAVERS</span></code> - Дрожание</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.PITCHFORK</span></code> - Камертон (вилка)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.XMAS</span></code> - Рождество</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.PACMAN</span></code> - Пакмен</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.TARGET</span></code> - Цель</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.TSHIRT</span></code> - Футболка</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.ROLLERSKATE</span></code> - Коньки</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.DUCK</span></code> - Утка</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.HOUSE</span></code> - Дом</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.TORTOISE</span></code> - Черепаха</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.BUTTERFLY</span></code> - Бабочка</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.STICKFIGURE</span></code> - Фигура (рисунок)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.GHOST</span></code> - Призрак</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.SWORD</span></code> - Меч</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.GIRAFFE</span></code> - Жираф</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.SKULL</span></code> - Череп</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.UMBRELLA</span></code> - Зонтик</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image.SNAKE</span></code> - Змея</p></li>
+</ul>
+</div></blockquote>
+<p>Попробуйте различные изображения, указав команды друг в столбик. Измените аргумент с картинкой внутри команды:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">ANGRY</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">SKULL</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Далее Вы узнаете как эффективнее записать данный код</p>
+<section id="id2">
+<h2>Собственные изображения<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Давайте создадим собственное изображение</p>
+<p>Создается таблица <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">на</span> <span class="pre">5</span></code> из цифр 0-9. Если указан <code class="docutils literal notranslate"><span class="pre">0</span></code> светодиод выключен.
+Максимальная яркость <code class="docutils literal notranslate"><span class="pre">9</span></code>. Промежуточная яркость от <code class="docutils literal notranslate"><span class="pre">1</span></code> to <code class="docutils literal notranslate"><span class="pre">8</span></code></p>
+<p>Вот наш код:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">boat</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;02469:&quot;</span>
+             <span class="s2">&quot;02469:&quot;</span>
+             <span class="s2">&quot;02469:&quot;</span>
+             <span class="s2">&quot;02469:&quot;</span>
+             <span class="s2">&quot;02469&quot;</span><span class="p">)</span>
+
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">boat</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>На дисплее отобразится шкала яркости</p>
+<p>Напишите код и попробуйте запрограммировать Microbit. Получилось !!!
+Давайте обсуждать дальше. Вы создали объект <code class="docutils literal notranslate"><span class="pre">boat</span></code> - типа <code class="docutils literal notranslate"><span class="pre">Image</span></code> и указали
+в скобках параметр, который состоит из 5 строк. Каждая строка заканчивается <code class="docutils literal notranslate"><span class="pre">:</span></code>.
+Итого у Вас 5 строк по 5 цифр.</p>
+<p>Далее Вы подали объект в команду <code class="docutils literal notranslate"><span class="pre">show</span></code>. <strong>Имя объекта пишется без «»</strong></p>
+<p>Вы можете записать все и в одну строку, но так менее понятно:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">boat</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;05050:05050:05050:99999:09990&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">boat</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>Анимация<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>У Вас выше уже был опыт создания анимации (смена изображений). Теперь найчимся делать это эффективнее.</p>
+<p>Для этого Вы можете использовать <code class="docutils literal notranslate"><span class="pre">список</span></code>, в который укажите перечень изображений.
+В Python список указвается квадратными скобками (<code class="docutils literal notranslate"><span class="pre">[</span></code> и <code class="docutils literal notranslate"><span class="pre">]</span></code>) и элементы разделены запятой (<code class="docutils literal notranslate"><span class="pre">,</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">face</span> <span class="o">=</span> <span class="p">[</span><span class="n">Image</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span> <span class="n">Image</span><span class="o">.</span><span class="n">ANGRY</span><span class="p">,</span> <span class="n">Image</span><span class="o">.</span><span class="n">SKULL</span> <span class="p">]</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">face</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>В списках Вы можете хранить различные объекты: строки, числа, изображения  и т. д.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">primes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">primes</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Числа не нужно заключать в кавычки, так как они представляют значения. Если Вы напишите
+<code class="docutils literal notranslate"><span class="pre">&quot;2&quot;</span></code> число станет символом (строкой). Вы получите интересный эффект если напишите
+<code class="docutils literal notranslate"><span class="pre">&quot;2&quot;+&quot;2&quot;</span></code></p>
+</div>
+<p>Напишите:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="o">+</span><span class="s2">&quot;2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>В списке можно даже хранить различные элементы:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mixed_up_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hello!&quot;</span><span class="p">,</span> <span class="mf">1.234</span><span class="p">,</span> <span class="n">Image</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">]</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">mixed_up_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Давайте вернемся к анимации готовых изображений и добавим параметры <code class="docutils literal notranslate"><span class="pre">loop</span></code> и <code class="docutils literal notranslate"><span class="pre">delay</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">face</span> <span class="o">=</span> <span class="p">[</span><span class="n">Image</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span> <span class="n">Image</span><span class="o">.</span><span class="n">ANGRY</span><span class="p">,</span> <span class="n">Image</span><span class="o">.</span><span class="n">SKULL</span> <span class="p">]</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">face</span> <span class="p">,</span> <span class="n">loop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">loop</span></code> - Зацикливание анимации - значение <code class="docutils literal notranslate"><span class="pre">True</span></code> (правда), проиграть 1 раз - значение <code class="docutils literal notranslate"><span class="pre">False</span></code> (ложь)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delay</span></code> - время задержки между сменой изображений (милисекунды)</p></li>
+</ul>
+<p>Can you work out how to animate over the <code class="docutils literal notranslate"><span class="pre">Image.ALL_ARROWS</span></code> list? How do you
+avoid looping forever (hint: the opposite of <code class="docutils literal notranslate"><span class="pre">True</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code> although
+the default value for <code class="docutils literal notranslate"><span class="pre">loop</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>)? Can you change the speed of the
+animation?</p>
+<p>Finally, here’s how to create your own animation. In my example I’m going to
+make my boat sink into the bottom of the display:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">boat1</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;05050:&quot;</span>
+              <span class="s2">&quot;05050:&quot;</span>
+              <span class="s2">&quot;05050:&quot;</span>
+              <span class="s2">&quot;99999:&quot;</span>
+              <span class="s2">&quot;09990&quot;</span><span class="p">)</span>
+
+<span class="n">boat2</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;00000:&quot;</span>
+              <span class="s2">&quot;05050:&quot;</span>
+              <span class="s2">&quot;05050:&quot;</span>
+              <span class="s2">&quot;05050:&quot;</span>
+              <span class="s2">&quot;99999&quot;</span><span class="p">)</span>
+
+<span class="n">boat3</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;00000:&quot;</span>
+              <span class="s2">&quot;00000:&quot;</span>
+              <span class="s2">&quot;05050:&quot;</span>
+              <span class="s2">&quot;05050:&quot;</span>
+              <span class="s2">&quot;05050&quot;</span><span class="p">)</span>
+
+<span class="n">boat4</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;00000:&quot;</span>
+              <span class="s2">&quot;00000:&quot;</span>
+              <span class="s2">&quot;00000:&quot;</span>
+              <span class="s2">&quot;05050:&quot;</span>
+              <span class="s2">&quot;05050&quot;</span><span class="p">)</span>
+
+<span class="n">boat5</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;00000:&quot;</span>
+              <span class="s2">&quot;00000:&quot;</span>
+              <span class="s2">&quot;00000:&quot;</span>
+              <span class="s2">&quot;00000:&quot;</span>
+              <span class="s2">&quot;05050&quot;</span><span class="p">)</span>
+
+<span class="n">boat6</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;00000:&quot;</span>
+              <span class="s2">&quot;00000:&quot;</span>
+              <span class="s2">&quot;00000:&quot;</span>
+              <span class="s2">&quot;00000:&quot;</span>
+              <span class="s2">&quot;00000&quot;</span><span class="p">)</span>
+
+<span class="n">all_boats</span> <span class="o">=</span> <span class="p">[</span><span class="n">boat1</span><span class="p">,</span> <span class="n">boat2</span><span class="p">,</span> <span class="n">boat3</span><span class="p">,</span> <span class="n">boat4</span><span class="p">,</span> <span class="n">boat5</span><span class="p">,</span> <span class="n">boat6</span><span class="p">]</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">all_boats</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here’s how the code works:</p>
+<ul class="simple">
+<li><p>I create six <code class="docutils literal notranslate"><span class="pre">boat</span></code> images in exactly the same way I described above.</p></li>
+<li><p>Then, I put them all into a list that I call <code class="docutils literal notranslate"><span class="pre">all_boats</span></code>.</p></li>
+<li><p>Finally, I ask <code class="docutils literal notranslate"><span class="pre">display.show</span></code> to animate the list with a delay of 200 milliseconds.</p></li>
+<li><p>Since I’ve not set <code class="docutils literal notranslate"><span class="pre">loop=True</span></code> the boat will only sink once (thus making my animation scientifically accurate). :-)</p></li>
+</ul>
+<p>What would you animate? Can you animate special effects? How would you make an
+image fade out and then fade in again?</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="hello.html" class="btn btn-neutral float-left" title="Первая программа Hello, World!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="buttons.html" class="btn btn-neutral float-right" title="Buttons" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Maxim Bekurin, Read the Docs, Inc. &amp; contributors.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

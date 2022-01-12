@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speech &mdash; документация Microbit-Русская документация 0.1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Network" href="network.html" />
+    <link rel="prev" title="Storage" href="storage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+            <a href="../index.html" class="icon icon-home"> Microbit-Русская документация
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Основные команды</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Инструкция</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hello.html">Первая программа Hello, World!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buttons.html">Buttons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output Pins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="music.html">Music</a></li>
+<li class="toctree-l1"><a class="reference internal" href="random.html">Random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movement.html">Movement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gestures.html">Gestures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="direction.html">Direction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Speech</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dalek-poetry">DALEK Poetry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#say-something">Say Something</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#poetry-on-demand">Poetry on Demand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#phonemes">Phonemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sing-a-song-of-micro-bit">Sing A Song of Micro:bit</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network.html">Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="radio.html">Radio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="next.html">Next Steps</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Microbit-Русская документация</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Speech</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/speech.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="speech">
+<h1>Speech<a class="headerlink" href="#speech" title="Ссылка на этот заголовок"></a></h1>
+<p>Computers and robots that talk feel more «human».</p>
+<p>So often we learn about what a computer is up to through a graphical user
+interface (GUI). In the case of a BBC micro:bit the GUI is a 5x5 LED matrix,
+which leaves a lot to be desired.</p>
+<p>Getting the micro:bit talk to you is one way to express information in a fun,
+efficient and useful way. To this end, we have integrated a simple speech
+synthesiser based upon a reverse-engineered version of a synthesiser from the
+early 1980s. It sounds very cute, in an «all humans must die» sort of a way.</p>
+<p>With this in mind, we’re going to use the speech synthesiser to create…</p>
+<section id="dalek-poetry">
+<h2>DALEK Poetry<a class="headerlink" href="#dalek-poetry" title="Ссылка на этот заголовок"></a></h2>
+<img alt="../_images/dalek.jpg" src="../_images/dalek.jpg" />
+<p>It’s a little known fact that DALEKs enjoy poetry ~ especially limericks.
+They go wild for anapestic meter with a strict AABBA form. Who’d have thought?</p>
+<p>(Actually, as we’ll learn below, it’s The Doctor’s fault DALEKs like limericks,
+much to the annoyance of Davros.)</p>
+<p>In any case, we’re going to create a DALEK poetry recital on demand.</p>
+</section>
+<section id="say-something">
+<h2>Say Something<a class="headerlink" href="#say-something" title="Ссылка на этот заголовок"></a></h2>
+<p>If you have the latest micro:bit <strong>V2</strong> device, you can use the built-in
+speaker as well as or instead of connecting a speaker or set of headphones
+like this:</p>
+<a class="reference internal image-reference" href="../_images/pin0-gnd.png"><img alt="piezo connected to pin0 and GND" class="align-center" src="../_images/pin0-gnd.png" style="width: 250px;" /></a>
+<p>The simplest way to get the device to speak is to import the <code class="docutils literal notranslate"><span class="pre">speech</span></code> module
+and use the <code class="docutils literal notranslate"><span class="pre">say</span></code> function like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">speech</span>
+
+<span class="n">speech</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="s2">&quot;Hello, World&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>While this is cute it’s certainly not DALEK enough for our taste, so we need to
+change some of the parameters that the speech synthesiser uses to produce the
+voice. Our speech synthesiser is quite powerful in this respect because we can
+change four parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pitch</span></code> - how high or low the voice sounds (0 = high, 255 = low)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">speed</span></code> - how quickly the device talks (0 = fast, 255 = slow)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mouth</span></code> - how tight-lipped or overtly enunciating the voice sounds (0 = closed mouth, 255 = open mouth)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">throat</span></code> - how relaxed or tense is the tone of voice (0 = tense, 255 = relaxed)</p></li>
+</ul>
+<p>Collectively, these parameters control the quality of sound - a.k.a. the
+timbre. To be honest, the best way to get the tone of voice you want is to
+experiment, use your judgement and adjust.</p>
+<p>To adjust the settings you pass them in as arguments to the <code class="docutils literal notranslate"><span class="pre">say</span></code> function.
+More details can be found in the <code class="docutils literal notranslate"><span class="pre">speech</span></code> module’s API documentation.</p>
+<p>After some experimentation we’ve worked out this sounds quite DALEK-esque:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">speech</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="s2">&quot;I am a DALEK - EXTERMINATE&quot;</span><span class="p">,</span> <span class="n">speed</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">pitch</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">throat</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">mouth</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="poetry-on-demand">
+<h2>Poetry on Demand<a class="headerlink" href="#poetry-on-demand" title="Ссылка на этот заголовок"></a></h2>
+<p>Being Cyborgs DALEKs use their robot capabilities to compose poetry and it
+turns out that the algorithm they use is written in Python like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># DALEK poetry generator, by The Doctor</span>
+<span class="kn">import</span> <span class="nn">speech</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="n">sleep</span>
+
+<span class="c1"># Randomly select fragments to interpolate into the template.</span>
+<span class="n">location</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;brent&quot;</span><span class="p">,</span> <span class="s2">&quot;trent&quot;</span><span class="p">,</span> <span class="s2">&quot;kent&quot;</span><span class="p">,</span> <span class="s2">&quot;tashkent&quot;</span><span class="p">])</span>
+<span class="n">action</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;wrapped up&quot;</span><span class="p">,</span> <span class="s2">&quot;covered&quot;</span><span class="p">,</span> <span class="s2">&quot;sang to&quot;</span><span class="p">,</span> <span class="s2">&quot;played games with&quot;</span><span class="p">])</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;head&quot;</span><span class="p">,</span> <span class="s2">&quot;hand&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;foot&quot;</span><span class="p">])</span>
+<span class="n">prop</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;in a tent&quot;</span><span class="p">,</span> <span class="s2">&quot;with cement&quot;</span><span class="p">,</span> <span class="s2">&quot;with some scent&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;that was bent&quot;</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;it ran off&quot;</span><span class="p">,</span> <span class="s2">&quot;it glowed&quot;</span><span class="p">,</span> <span class="s2">&quot;it blew up&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;it turned blue&quot;</span><span class="p">])</span>
+<span class="n">attitude</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;in the park&quot;</span><span class="p">,</span> <span class="s2">&quot;like a shark&quot;</span><span class="p">,</span> <span class="s2">&quot;for a lark&quot;</span><span class="p">,</span>
+                         <span class="s2">&quot;with a bark&quot;</span><span class="p">])</span>
+<span class="n">conclusion</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;where it went&quot;</span><span class="p">,</span> <span class="s2">&quot;its intent&quot;</span><span class="p">,</span> <span class="s2">&quot;why it went&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;what it meant&quot;</span><span class="p">])</span>
+
+<span class="c1"># A template of the poem. The {} are replaced by the named fragments.</span>
+<span class="n">poem</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;there was a young man from </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">location</span><span class="p">),</span>
+    <span class="s2">&quot;who </span><span class="si">{}</span><span class="s2"> his </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">prop</span><span class="p">),</span>
+    <span class="s2">&quot;one night after dark&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">attitude</span><span class="p">),</span>
+    <span class="s2">&quot;and he never worked out </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">conclusion</span><span class="p">),</span>
+    <span class="s2">&quot;EXTERMINATE&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># Loop over each line in the poem and use the speech module to recite it.</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">poem</span><span class="p">:</span>
+    <span class="n">speech</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">speed</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">pitch</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">throat</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">mouth</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As the comments demonstrate, it’s a very simple in design:</p>
+<ul class="simple">
+<li><p>Named fragments (<code class="docutils literal notranslate"><span class="pre">location</span></code>, <code class="docutils literal notranslate"><span class="pre">prop</span></code>, <code class="docutils literal notranslate"><span class="pre">attitude</span></code> etc) are randomly generated from pre-defined lists of possible values. Note the use of <code class="docutils literal notranslate"><span class="pre">random.choice</span></code> to select a single item from a list.</p></li>
+<li><p>A template of a poem is defined as a list of stanzas with «holes» in them (denoted by <code class="docutils literal notranslate"><span class="pre">{}</span></code>) into which the named fragments will be put using the <code class="docutils literal notranslate"><span class="pre">format</span></code> method.</p></li>
+<li><p>Finally, Python loops over each item in the list of filled-in poetry stanzas and uses <code class="docutils literal notranslate"><span class="pre">speech.say</span></code> with the settings for the DALEK voice to recite the poem. A pause of 500 milliseconds is inserted between each line because even DALEKs need to take a breath.</p></li>
+</ul>
+<p>Interestingly the original poetry related routines were written by Davros in
+<a class="reference external" href="https://en.wikipedia.org/wiki/Fortran">FORTRAN</a> (an appropriate
+language for DALEKS since you type it ALL IN CAPITAL LETTERS). However, The
+Doctor went back in time to precisely the point between Davros’s
+<a class="reference external" href="https://en.wikipedia.org/wiki/Unit_testing">unit tests</a>
+passing and the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Continuous_delivery">deployment pipeline</a>
+kicking in. At this instant he was able to insert a MicroPython interpreter
+into the DALEK operating system and the code you see above into the DALEK
+memory banks as a sort of long hidden Time-Lord
+<a class="reference external" href="https://en.wikipedia.org/wiki/Easter_egg_(media)">Easter Egg</a> or
+<a class="reference external" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Rickroll</a>.</p>
+</section>
+<section id="phonemes">
+<h2>Phonemes<a class="headerlink" href="#phonemes" title="Ссылка на этот заголовок"></a></h2>
+<p>You’ll notice that sometimes, the <code class="docutils literal notranslate"><span class="pre">say</span></code> function doesn’t accurately translate
+from English words into the correct sound. To have fine grained control of the
+output, use phonemes: the building-block sounds of language.</p>
+<p>The advantage of using phonemes is that you don’t have to know how to spell!
+Rather, you only have to know how to say the word in order to spell it
+phonetically.</p>
+<p>A full list of the phonemes the speech synthesiser understands can be found in
+the API documentation for speech. Alternatively, save yourself a lot of time by
+passing in English words to the <code class="docutils literal notranslate"><span class="pre">translate</span></code> function. It’ll return a first
+approximation of the phonemes it would use to generate the audio. This result
+can be hand-edited to improve the accuracy, inflection and emphasis (so it
+sounds more natural).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">pronounce</span></code> function is used for phoneme output like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">speech</span><span class="o">.</span><span class="n">pronounce</span><span class="p">(</span><span class="s2">&quot;/HEH5EH4EH3EH2EH2EH3EH4EH5EHLP.”)</span>
+</pre></div>
+</div>
+<p>How could you improve on The Doctor’s code to make it use phonemes?</p>
+</section>
+<section id="sing-a-song-of-micro-bit">
+<h2>Sing A Song of Micro:bit<a class="headerlink" href="#sing-a-song-of-micro-bit" title="Ссылка на этот заголовок"></a></h2>
+<p>By changing the <code class="docutils literal notranslate"><span class="pre">pitch</span></code> setting and calling the <code class="docutils literal notranslate"><span class="pre">sing</span></code> function it’s
+possible to make the device sing (although it’s not going to win Eurovision any
+time soon).</p>
+<p>The mapping from pitch numbers to musical notes is shown below:</p>
+<img alt="speech-pitch.png" src="speech-pitch.png" />
+<p>The <code class="docutils literal notranslate"><span class="pre">sing</span></code> function must take phonemes and pitch as input like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">speech</span><span class="o">.</span><span class="n">sing</span><span class="p">(</span><span class="s2">&quot;#115DOWWWW&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Notice how the pitch to be sung is prepended to the phoneme with a hash
+(<code class="docutils literal notranslate"><span class="pre">#</span></code>). The pitch will remain the same for subsequent phonemes until a new
+pitch is annotated.</p>
+<p>The following example demonstrates how all three generative functions (<code class="docutils literal notranslate"><span class="pre">say</span></code>,
+<code class="docutils literal notranslate"><span class="pre">pronounce</span></code> and <code class="docutils literal notranslate"><span class="pre">sing</span></code>) can be used to produce speech like output:</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="storage.html" class="btn btn-neutral float-left" title="Storage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="network.html" class="btn btn-neutral float-right" title="Network" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Maxim Bekurin, Read the Docs, Inc. &amp; contributors.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

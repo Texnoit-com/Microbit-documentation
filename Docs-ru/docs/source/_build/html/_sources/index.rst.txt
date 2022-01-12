@@ -1,6 +1,5 @@
 BBC micro:bit MicroPython - на русском
-=============================================
-
+======================================
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -11,7 +10,22 @@ BBC micro:bit MicroPython - на русском
 
 Содержание:
 ==================
+.. toctree::
+   :maxdepth: 1
+   :caption: Основные команды
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   tutorials/introduction
+   tutorials/hello
+   tutorials/images
+   tutorials/buttons
+   tutorials/io
+   tutorials/music
+   tutorials/random
+   tutorials/movement
+   tutorials/gestures
+   tutorials/direction
+   tutorials/storage
+   tutorials/speech
+   tutorials/network
+   tutorials/radio
+   tutorials/next

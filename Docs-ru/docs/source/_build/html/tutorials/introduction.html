@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Инструкция &mdash; документация Microbit-Русская документация 0.1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Первая программа Hello, World!" href="hello.html" />
+    <link rel="prev" title="BBC micro:bit MicroPython - на русском" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+            <a href="../index.html" class="icon icon-home"> Microbit-Русская документация
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Основные команды</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Инструкция</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hello.html">Первая программа Hello, World!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buttons.html">Buttons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output Pins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="music.html">Music</a></li>
+<li class="toctree-l1"><a class="reference internal" href="random.html">Random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movement.html">Movement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gestures.html">Gestures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="direction.html">Direction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speech.html">Speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network.html">Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="radio.html">Radio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="next.html">Next Steps</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Microbit-Русская документация</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Инструкция</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/introduction.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Инструкция<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Мы ипользуем редактор кода <a class="reference external" href="http://codewith.mu/">Mu editor</a>. Поддержка Microbit встроена в редактор
+и пользоваться им удобно.</p>
+<p>После установки Mu подключите micro:bit к компьютеру через USB-кабель.</p>
+<p>Напишите свой код в окне редактора и нажмите кнопку «Flash» для переноса его на Microbit.
+Если код не загрузился, убедитесь что он отображается как USB-накопитель в проводнике
+файлов системы (имя: Microbit)</p>
+<p>Python — популярный язык программирования для самых разных компаний и организаций.
+Но знаете ли Вы, что можете использовать Python для написания кода для Микроконтроллеров.
+Использовать в Вашей повседневной жизни собирая умные устройства, которое состоит из датчиков,
+моторов, светодиодов, динамиков и других электронных устройств.</p>
+<p>Один из таких микроконтроллеров Microbit. Он использует версию Python под названием MicroPython.
+Вы также сможете использовать свои программы и на других устройствах, например Raspberry Pi.</p>
+<p>MicroPython не включает все стандартные библиотеки кода, поставляемые с «обычный» Python.
+Используется специальный модуль <code class="docutils literal notranslate"><span class="pre">microbit</span></code> в MicroPython, который позволяет вам управлять
+устройством.</p>
+<p>Python и MicroPython — бесплатное программное обеспечение.Вы можете внести свой вклад в Python
+сообщество. Это может быть код, документация, отчеты об ошибках, группа сообщества или написание
+учебных пособий (например, это). На самом деле, все Python соответствующие ресурсы для BBC micro:bit
+были созданы международным команда волонтеров, работающих в свободное время.</p>
+<p>Документация знакомят Вас с MicroPython и BBC. Не стесняйтесь принимать и адаптировать ее для своих
+уроках в классе и при создании умных устройств.</p>
+<p>Вы добьетесь наибольшего успеха, если будете исследовать, экспериментировать и создавать игры.
+Если Вы написали неправильный код - это не сломает микроконтроллер ;)</p>
+<p>Удачи в экспериментах!</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="../index.html" class="btn btn-neutral float-left" title="BBC micro:bit MicroPython - на русском" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="hello.html" class="btn btn-neutral float-right" title="Первая программа Hello, World!" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Maxim Bekurin, Read the Docs, Inc. &amp; contributors.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
