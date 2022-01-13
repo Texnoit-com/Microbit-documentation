@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Random &mdash; документация Microbit-Русская документация 0.1</title>
+  <title>Случайные числа &mdash; документация Microbit-Русская документация 0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Movement" href="movement.html" />
-    <link rel="prev" title="Music" href="music.html" /> 
+    <link rel="next" title="Акселерометр" href="movement.html" />
+    <link rel="prev" title="Мелодии" href="music.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,16 +42,16 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Инструкция</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hello.html">Первая программа Hello, World!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="images.html">Images</a></li>
-<li class="toctree-l1"><a class="reference internal" href="buttons.html">Buttons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output Pins</a></li>
-<li class="toctree-l1"><a class="reference internal" href="music.html">Music</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Random</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#random-numbers">Random Numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#seeds-of-chaos">Seeds of Chaos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="music.html">Мелодии</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Случайные числа</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Случайные числа</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Правда о случайности</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="movement.html">Movement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movement.html">Акселерометр</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gestures.html">Gestures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="direction.html">Direction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="storage.html">Storage</a></li>
@@ -75,7 +75,7 @@
           <div role="navigation" aria-label="Навигация по страницам">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Random</li>
+      <li>Случайные числа</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tutorials/random.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
       </li>
@@ -85,55 +85,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="random">
-<h1>Random<a class="headerlink" href="#random" title="Ссылка на этот заголовок"></a></h1>
-<p>Sometimes you want to leave things to chance, or mix it up a little: you want
-the device to act randomly.</p>
-<p>MicroPython comes with a <code class="docutils literal notranslate"><span class="pre">random</span></code> module to make it easy to introduce chance
-and a little chaos into your code. For example, here’s how to scroll a random
-name across the display:</p>
+  <section id="id1">
+<h1>Случайные числа<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>MicroPython имеет библиотеку <code class="docutils literal notranslate"><span class="pre">random</span></code>, которая может работать со случайными числами</p>
+<p>Например вывод случайной буквы:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
-<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mary&quot;</span><span class="p">,</span> <span class="s2">&quot;Yolanda&quot;</span><span class="p">,</span> <span class="s2">&quot;Damien&quot;</span><span class="p">,</span> <span class="s2">&quot;Alia&quot;</span><span class="p">,</span> <span class="s2">&quot;Kushal&quot;</span><span class="p">,</span> <span class="s2">&quot;Mei Xiu&quot;</span><span class="p">,</span> <span class="s2">&quot;Zoltan&quot;</span> <span class="p">]</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span> <span class="p">]</span>
 
 <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>The list (<code class="docutils literal notranslate"><span class="pre">names</span></code>) contains seven names defined as strings of characters.
-The final line is <em>nested</em> (the «onion» effect introduced earlier): the
-<code class="docutils literal notranslate"><span class="pre">random.choice</span></code> method takes the <code class="docutils literal notranslate"><span class="pre">names</span></code> list as an argument and returns
-an item chosen at random. This item (the randomly chosen name) is the argument
-for <code class="docutils literal notranslate"><span class="pre">display.scroll</span></code>.</p>
-<p>Can you modify the list to include your own set of names?</p>
-<section id="random-numbers">
-<h2>Random Numbers<a class="headerlink" href="#random-numbers" title="Ссылка на этот заголовок"></a></h2>
-<p>Random numbers are very useful. They’re common in games. Why else do we have
-dice?</p>
-<p>MicroPython comes with several useful random number methods. Here’s how to
-make a simple dice:</p>
+<p>Создаем список имен <code class="docutils literal notranslate"><span class="pre">names</span></code> и подаем его в функцию <code class="docutils literal notranslate"><span class="pre">random.choice</span></code>, которая выбирает случайную
+букву и выводит его на дисплей.</p>
+<p>Попробуйте создать вывод случайной картинки из определенного списка.</p>
+<section id="id2">
+<h2>Случайные числа<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Случайные числа часто используются в играх. Например <strong>игральные кости</strong></p>
+<p>MicroPython имеет команду <code class="docutils literal notranslate"><span class="pre">random.randint</span></code>, которая выводит случайное число в указанном диапазоне:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
-<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)))</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Every time the device is reset it displays a number between 1 and 6. You’re
-starting to get familiar with <em>nesting</em>, so it’s important to note that
-<code class="docutils literal notranslate"><span class="pre">random.randint</span></code> returns a whole number between the two arguments, inclusive
-(a whole number is also called an integer - hence the name of the method).
-Notice that because <code class="docutils literal notranslate"><span class="pre">display.show</span></code> expects a character then we use the
-<code class="docutils literal notranslate"><span class="pre">str</span></code> function to turn the numeric value into a character (we turn, for
-example, <code class="docutils literal notranslate"><span class="pre">6</span></code> into <code class="docutils literal notranslate"><span class="pre">&quot;6&quot;</span></code>).</p>
-<p>If you know you’ll always want a number between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">N</span></code> then use the
-<code class="docutils literal notranslate"><span class="pre">random.randrange</span></code> method. If you give it a single argument it’ll return
-random integers up to, but not including, the value of the argument <code class="docutils literal notranslate"><span class="pre">N</span></code>
-(this is different to the behaviour of <code class="docutils literal notranslate"><span class="pre">random.randint</span></code>).</p>
-<p>Sometimes you need numbers with a decimal point in them. These are called
-<em>floating point</em> numbers and it’s possible to generate such a number with the
-<code class="docutils literal notranslate"><span class="pre">random.random</span></code> method. This only returns values between <code class="docutils literal notranslate"><span class="pre">0.0</span></code> and <code class="docutils literal notranslate"><span class="pre">1.0</span></code>
-inclusive. If you need larger random floating point numbers add the results
-of <code class="docutils literal notranslate"><span class="pre">random.randrange</span></code> and <code class="docutils literal notranslate"><span class="pre">random.random</span></code> like this:</p>
+<p>Функция <code class="docutils literal notranslate"><span class="pre">random.randint</span></code> выводит только целые числа.`</p>
+<p>Также есть функция <code class="docutils literal notranslate"><span class="pre">random.randrange</span></code> она выводит случайное число не включая пограничные числа.</p>
+<p>Функция <code class="docutils literal notranslate"><span class="pre">random.random</span></code> возвращает случайную дробную часть в диапазоне от <code class="docutils literal notranslate"><span class="pre">0.0</span></code> до <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p>
+<p>Например нам нужно случайное число, которое состоит из целой и дробкой части:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
@@ -142,30 +122,23 @@ of <code class="docutils literal notranslate"><span class="pre">random.randrange
 </pre></div>
 </div>
 </section>
-<section id="seeds-of-chaos">
-<h2>Seeds of Chaos<a class="headerlink" href="#seeds-of-chaos" title="Ссылка на этот заголовок"></a></h2>
-<p>The random number generators used by computers are not truly random. They just
-give random like results given a starting <em>seed</em> value. The seed is often
-generated from random-ish values such as the current time and/or readings from
-sensors such as the thermometers built into chips.</p>
-<p>Sometimes you want to have repeatable random-ish behaviour: a source of
-randomness that is reproducible. It’s like saying that you need the same five
-random values each time you throw a dice.</p>
-<p>This is easy to achieve by setting the <em>seed</em> value. Given a known seed the
-random number generator will create the same set of random numbers. The seed is
-set with <code class="docutils literal notranslate"><span class="pre">random.seed</span></code> and any whole number (integer). This version of the
-dice program always produces the same results:</p>
+<section id="id3">
+<h2>Правда о случайности<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>На самом деле случайные числа <strong>не случаны :)</strong>. Это числа, которые тяжело предсказать заранее.
+В их расчетов используются множество псевдослучайнах параметров устройсва
+(время, температура микроконтроллера и т. д.)</p>
+<p>Есть функция <code class="docutils literal notranslate"><span class="pre">random.seed</span></code>, которая приостанавливает случайность. Именно она используется в расчетах.
+Если Вы самостоятельно присвоете ей значение - она вернет всегда одно и тоже число.</p>
+<p>Напишите программу, которая ломает случайность :)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
 <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1337</span><span class="p">)</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">button_a</span><span class="o">.</span><span class="n">was_pressed</span><span class="p">():</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)))</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Can you work out why this program needs us to press button A instead of reset
-the device as in the first dice example..?</p>
 </section>
 </section>
 
@@ -173,8 +146,8 @@ the device as in the first dice example..?</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="music.html" class="btn btn-neutral float-left" title="Music" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="movement.html" class="btn btn-neutral float-right" title="Movement" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="music.html" class="btn btn-neutral float-left" title="Мелодии" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="movement.html" class="btn btn-neutral float-right" title="Акселерометр" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

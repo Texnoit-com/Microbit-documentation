@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Input/Output Pins &mdash; документация Microbit-Русская документация 0.1</title>
+  <title>Контакты/Пины &mdash; документация Microbit-Русская документация 0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Music" href="music.html" />
-    <link rel="prev" title="Buttons" href="buttons.html" /> 
+    <link rel="next" title="Мелодии" href="music.html" />
+    <link rel="prev" title="Кнопки" href="buttons.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,15 +42,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Инструкция</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hello.html">Первая программа Hello, World!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="images.html">Images</a></li>
-<li class="toctree-l1"><a class="reference internal" href="buttons.html">Buttons</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Input/Output Pins</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ticklish-python">Ticklish Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bleeps-and-bloops">Bleeps and Bloops</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="music.html">Music</a></li>
-<li class="toctree-l1"><a class="reference internal" href="random.html">Random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buttons.html">Кнопки</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="music.html">Мелодии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="random.html">Случайные числа</a></li>
 <li class="toctree-l1"><a class="reference internal" href="movement.html">Movement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gestures.html">Gestures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="direction.html">Direction</a></li>
@@ -75,7 +71,7 @@
           <div role="navigation" aria-label="Навигация по страницам">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Input/Output Pins</li>
+      <li>Контакты/Пины</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tutorials/io.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
       </li>
@@ -85,102 +81,37 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="input-output-pins">
-<h1>Input/Output Pins<a class="headerlink" href="#input-output-pins" title="Ссылка на этот заголовок"></a></h1>
-<p>There are strips of metal along the bottom edge of the BBC micro:bit that make
-it look as if the device has teeth. These are the input/output pins (or I/O pins
-for short).</p>
+  <section id="id1">
+<h1>Контакты/Пины<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Вдоль нижнего края располагаются контакты/пины. Каждый пин имеет свой номер. Пять больших
+площадок и 20 тонких. Большие площадки подписаны: <strong>0,1,2,3V, GNG</strong>. К ним легко подключаться
+используя провода с зажимом типа <strong>крокодил</strong></p>
 <a class="reference internal image-reference" href="../_images/blue-microbit.png"><img alt="micro:bit with pins labelled" class="align-center" src="../_images/blue-microbit.png" style="width: 300px;" /></a>
-<p>Some of the pins are bigger than others so it’s possible to attach crocodile
-clips to them. These are the ones labelled 0, 1, 2, 3V and GND (computers
-always start counting from zero). If you attach an edge connector board to the
-device it’s possible to plug in wires connected to the other (smaller) pins.</p>
-<p>On the latest micro:bit <strong>V2</strong> the micro:bit logo can also be used as a touch
-input.</p>
-<p>In MicroPython, each pin on the BBC micro:bit is represented by an <em>object</em>
-called <code class="docutils literal notranslate"><span class="pre">pinN</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the number pf the pin.</p>
-<p>For example, to use the pin labelled 0 (zero), you can use the object called
-<code class="docutils literal notranslate"><span class="pre">pin0</span></code> in your script. The logo pin <strong>V2</strong> uses <code class="docutils literal notranslate"><span class="pre">pin_logo</span></code>.</p>
-<p>These objects have various <em>methods</em> associated with them depending upon what
-the specific pin is capable of eg. read, write or touch.</p>
-<section id="ticklish-python">
-<h2>Ticklish Python<a class="headerlink" href="#ticklish-python" title="Ссылка на этот заголовок"></a></h2>
-<p>The simplest example of input via the pins is a check to see if they are
-touched. So, you can tickle your micro:bit to make it laugh like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">pin0</span><span class="o">.</span><span class="n">is_touched</span><span class="p">():</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">SAD</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>With one hand, hold your micro:bit by the GND pin. Then, with your other hand,
-touch (or tickle) the 0 (zero) pin. You should see the display change from
-grumpy to happy!</p>
-<p>When you use the latest micro:bit <strong>V2</strong> you can also change the default
-behaviour of the pin, so that you don’t have to touch GND at all.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">pin0</span><span class="o">.</span><span class="n">set_touch_mode</span><span class="p">(</span><span class="n">pin0</span><span class="o">.</span><span class="n">CAPACITIVE</span><span class="p">)</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">pin0</span><span class="o">.</span><span class="n">is_touched</span><span class="p">():</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">SAD</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>The default for the edge connector pins is <cite>resistive</cite> and the logo pin
-<strong>V2</strong> is <cite>capacitive</cite>.</p>
-<p>This is a form of very basic input measurement. However, the fun really starts
-when you plug in circuits and other devices via the pins.</p>
-</section>
-<section id="bleeps-and-bloops">
-<h2>Bleeps and Bloops<a class="headerlink" href="#bleeps-and-bloops" title="Ссылка на этот заголовок"></a></h2>
-<p>The simplest thing we can attach to the micro:bit is a Piezo buzzer. We’re going
-to use it for output.</p>
-<a class="reference internal image-reference" href="../_images/piezo_buzzer.jpg"><img alt="piezo buzzer" class="align-center" src="../_images/piezo_buzzer.jpg" style="width: 250px;" /></a>
-<p>These small devices play a high-pitched bleep when connected to a circuit. To
-attach one to your BBC micro:bit you should attach crocodile clips to pin 0 and
-GND.</p>
-<a class="reference internal image-reference" href="../_images/pin0-gnd.png"><img alt="piezo connected to pin0 and GND" class="align-center" src="../_images/pin0-gnd.png" style="width: 250px;" /></a>
-<p>The wire from pin 0 should be attached to the positive connector on the buzzer
-and the wire from GND to the negative connector.</p>
-<p>The following program will cause the buzzer to make a sound:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">pin0</span><span class="o">.</span><span class="n">write_digital</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>This is fun for about 5 seconds and then you’ll want to make the horrible
-squeaking stop. Let’s improve our example and make the device bleep:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">pin0</span><span class="o">.</span><span class="n">write_digital</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-    <span class="n">pin0</span><span class="o">.</span><span class="n">write_digital</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mi">480</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Can you work out how this script works? Remember that <code class="docutils literal notranslate"><span class="pre">1</span></code> is «on» and <code class="docutils literal notranslate"><span class="pre">0</span></code>
-is «off» in the digital world.</p>
-<p>The device is put into an infinite loop and immediately switches pin 0 on. This
-causes the buzzer to emit a beep. While the buzzer is beeping, the device
-sleeps for twenty milliseconds and then switches pin 0 off. This gives the
-effect of a short bleep. Finally, the device sleeps for 480 milliseconds before
-looping back and starting all over again. This means you’ll get two bleeps per
-second (one every 500 milliseconds).</p>
-<p>We’ve made a very simple metronome!</p>
-</section>
+<p>Другие пины удобно использовать с шилдами - платы расширения</p>
+<p>В последней версии Microbit <strong>V2</strong> логотип micro:bit также можно использовать в качестве сенсорного экрана.</p>
+<p>В MicroPython каждый пин представлен как объект типа <code class="docutils literal notranslate"><span class="pre">pinN</span></code>, где <code class="docutils literal notranslate"><span class="pre">N</span></code>
+это номер пина.</p>
+<p>Пин с логотипом в Microbit <strong>V2</strong> называется <code class="docutils literal notranslate"><span class="pre">pin_logo</span></code>.</p>
+<p>Не все пины имеют одинаковые методы (команды). Это зависит от его функционала,
+который заложили разработчики</p>
+<a class="reference internal image-reference" href="../_images/Pins.jpg"><img alt="micro:bit pins" class="align-center" src="../_images/Pins.jpg" style="width: 600px;" /></a>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PN</span></code> - номер пина в линейке</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Led</span> <span class="pre">colN</span></code> - пин дублируется в управлении дисплеем. Для его использования необходимо отключить дисплей</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Button</span> <span class="pre">N</span></code> - пин дублируется в управлении кнопок.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3V</span></code> - пин питания 3 вольта (+). Используется для питания устройств и датчиков</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GND</span></code> - пин земля (-)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AIN</span></code> - аналоговый пин.</p></li>
+</ul>
+<p>К пинам подсоединяются различные устройтва и датчики. Конкретнее это прописанно в статьях про устройтва</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="buttons.html" class="btn btn-neutral float-left" title="Buttons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="music.html" class="btn btn-neutral float-right" title="Music" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="buttons.html" class="btn btn-neutral float-left" title="Кнопки" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="music.html" class="btn btn-neutral float-right" title="Мелодии" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

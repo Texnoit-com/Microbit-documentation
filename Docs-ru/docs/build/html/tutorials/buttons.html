@@ -19,7 +19,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Input/Output Pins" href="io.html" />
+    <link rel="next" title="Контакты/Пины" href="io.html" />
     <link rel="prev" title="Изображения" href="images.html" /> 
 </head>
 
@@ -48,9 +48,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#id7">Обработка событий</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output Pins</a></li>
-<li class="toctree-l1"><a class="reference internal" href="music.html">Music</a></li>
-<li class="toctree-l1"><a class="reference internal" href="random.html">Random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="music.html">Мелодии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="random.html">Случайные числа</a></li>
 <li class="toctree-l1"><a class="reference internal" href="movement.html">Movement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gestures.html">Gestures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="direction.html">Direction</a></li>
@@ -147,55 +147,22 @@
 </section>
 <section id="id7">
 <h2>Обработка событий<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h2>
-<p>If we want MicroPython to react to button press events we should put it into
-an infinite loop and check if the button <code class="docutils literal notranslate"><span class="pre">is_pressed</span></code>.</p>
-<p>An infinite loop is easy:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="c1"># Do stuff</span>
-</pre></div>
-</div>
-<p>(Remember, <code class="docutils literal notranslate"><span class="pre">while</span></code> checks if something is <code class="docutils literal notranslate"><span class="pre">True</span></code> to work out if it should
-run its block of code. Since <code class="docutils literal notranslate"><span class="pre">True</span></code> is obviously <code class="docutils literal notranslate"><span class="pre">True</span></code> for all time, you
-get an infinite loop!)</p>
-<p>Let’s make a very simple cyber-pet. It’s always sad unless you’re pressing
-button <code class="docutils literal notranslate"><span class="pre">A</span></code>. If you press button <code class="docutils literal notranslate"><span class="pre">B</span></code> it dies. (I realise this isn’t a very
-pleasant game, so perhaps you can figure out how to improve it.):</p>
+<p>Если Вы хотите написать программу, которая реагирует на нажатие на кнопки, используйте
+Условие <code class="docutils literal notranslate"><span class="pre">if</span></code> и метод <code class="docutils literal notranslate"><span class="pre">is_pressed</span></code>.</p>
+<p>Зацикливание программы на постоянную проверку событий:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">button_a</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">():</span>
         <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">button_b</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">():</span>
-        <span class="k">break</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">SAD</span><span class="p">)</span>
-
-<span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Can you see how we check what buttons are pressed? We used <code class="docutils literal notranslate"><span class="pre">if</span></code>,
-<code class="docutils literal notranslate"><span class="pre">elif</span></code> (short for «else if») and <code class="docutils literal notranslate"><span class="pre">else</span></code>. These are called <em>conditionals</em>
-and work like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">something</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="c1"># do one thing</span>
-<span class="k">elif</span> <span class="n">some</span> <span class="n">other</span> <span class="n">thing</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="c1"># do another thing</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="c1"># do yet another thing.</span>
-</pre></div>
-</div>
-<p>This is remarkably similar to English!</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">is_pressed</span></code> method only produces two results: <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.
-If you’re pressing the button it returns <code class="docutils literal notranslate"><span class="pre">True</span></code>, otherwise it returns
-<code class="docutils literal notranslate"><span class="pre">False</span></code>. The code above is saying, in English, «for ever and ever, if
-button A is pressed then show a happy face, else if button B is pressed break
-out of the loop, otherwise display a sad face.» We break out of the loop (stop
-the program running for ever and ever) with the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement.</p>
-<p>At the very end, when the cyber-pet is dead, we <code class="docutils literal notranslate"><span class="pre">clear</span></code> the display.</p>
-<p>Can you think of ways to make this game less tragic? How would you check if
-<em>both</em> buttons are pressed? (Hint: Python has <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> and <code class="docutils literal notranslate"><span class="pre">not</span></code>
-logical operators to help check multiple truth statements (things that
-produce either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> results).</p>
+<p>Если кнопка нажата отображается <strong>счастливый смайлик</strong>, иначе <strong>грустный</strong>.
+Метод <code class="docutils literal notranslate"><span class="pre">is_pressed</span></code> дает только два результата: <code class="docutils literal notranslate"><span class="pre">True</span></code> или <code class="docutils literal notranslate"><span class="pre">False</span></code>.
+Если вы нажимаете кнопку, она возвращает <code class="docutils literal notranslate"><span class="pre">True</span></code>, в противном случае возвращается
+<code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </section>
 </section>
 
@@ -204,7 +171,7 @@ produce either <code class="docutils literal notranslate"><span class="pre">True
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
         <a href="images.html" class="btn btn-neutral float-left" title="Изображения" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="io.html" class="btn btn-neutral float-right" title="Input/Output Pins" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="io.html" class="btn btn-neutral float-right" title="Контакты/Пины" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

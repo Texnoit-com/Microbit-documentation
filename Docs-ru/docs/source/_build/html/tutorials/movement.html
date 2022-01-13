@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Movement &mdash; документация Microbit-Русская документация 0.1</title>
+  <title>Акселерометр &mdash; документация Microbit-Русская документация 0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -20,7 +20,7 @@
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="Gestures" href="gestures.html" />
-    <link rel="prev" title="Random" href="random.html" /> 
+    <link rel="prev" title="Случайные числа" href="random.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,13 +42,14 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Инструкция</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hello.html">Первая программа Hello, World!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="images.html">Images</a></li>
-<li class="toctree-l1"><a class="reference internal" href="buttons.html">Buttons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output Pins</a></li>
-<li class="toctree-l1"><a class="reference internal" href="music.html">Music</a></li>
-<li class="toctree-l1"><a class="reference internal" href="random.html">Random</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Movement</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#musical-mayhem">Musical Mayhem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="music.html">Мелодии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="random.html">Случайные числа</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Акселерометр</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Музыкальный инструмент</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Жесты</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gestures.html">Gestures</a></li>
@@ -74,7 +75,7 @@
           <div role="navigation" aria-label="Навигация по страницам">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Movement</li>
+      <li>Акселерометр</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tutorials/movement.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
       </li>
@@ -84,20 +85,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="movement">
-<h1>Movement<a class="headerlink" href="#movement" title="Ссылка на этот заголовок"></a></h1>
-<p>Your BBC micro:bit comes with an accelerometer. It measures movement along
-three axes:</p>
+  <section id="id1">
+<h1>Акселерометр<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>В микроконтроллере Microbit встроен датчик - акселерометр. Он измеряет движение вдоль осей:</p>
 <ul class="simple">
-<li><p>X - tilting from left to right.</p></li>
-<li><p>Y - tilting forwards and backwards.</p></li>
-<li><p>Z - moving up and down.</p></li>
+<li><p>X - наклон влево и вправо.</p></li>
+<li><p>Y - наклоны вперед и назад.</p></li>
+<li><p>Z - движение вверх и вниз.</p></li>
 </ul>
-<p>There is a method for each axis that returns a positive or negative number
-indicating a measurement in milli-g’s. When the reading is 0 you are «level»
-along that particular axis.</p>
-<p>For example, here’s a very simple spirit-level that uses <code class="docutils literal notranslate"><span class="pre">get_x</span></code> to measure
-how level the device is along the X axis:</p>
+<p>Для каждой оси есть метод, который возвращает положительное или отрицательное число.
+Единица измерения акселерометра мм/с. Акселерометр может фиксировать: вибрации,
+рывки, наклонное положение, столкновения и движение объекта.</p>
+<p>Например измерение отклонений по оси <strong>X</strong> и отображения буквы <code class="docutils literal notranslate"><span class="pre">R</span></code> - отклонение вправо,
+<code class="docutils literal notranslate"><span class="pre">L</span></code> - отклонение на лево:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -110,33 +110,20 @@ how level the device is along the X axis:</p>
         <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you hold the device flat it should display <code class="docutils literal notranslate"><span class="pre">-</span></code>; however, rotate it left or
-right and it’ll show <code class="docutils literal notranslate"><span class="pre">L</span></code> and <code class="docutils literal notranslate"><span class="pre">R</span></code> respectively.</p>
-<p>We want the device to constantly react to change, so we use an
-infinite <code class="docutils literal notranslate"><span class="pre">while</span></code> loop. The first thing to happen <em>within the body of the
-loop</em> is a measurement along the X axis which is called <code class="docutils literal notranslate"><span class="pre">reading</span></code>. Because
-the accelerometer is <em>so</em> sensitive I’ve made level +/-20 in range. It’s why
-the <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">elif</span></code> conditionals check for <code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">20</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;</span> <span class="pre">-20</span></code>. The
-<code class="docutils literal notranslate"><span class="pre">else</span></code> statement means that if the <code class="docutils literal notranslate"><span class="pre">reading</span></code> is between -20 and 20 then
-we consider it level. For each of these conditions we use the display to show
-the appropriate character.</p>
-<p>There is also a <code class="docutils literal notranslate"><span class="pre">get_y</span></code> method for the Y axis and a <code class="docutils literal notranslate"><span class="pre">get_z</span></code> method for the
-Z axis.</p>
-<p>If you’ve ever wondered how a mobile phone knows which up to show the images on
-its screen, it’s because it uses an accelerometer in exactly the same way as
-the program above. Game controllers also contain accelerometers to help you
-steer and move around in games.</p>
-<section id="musical-mayhem">
-<h2>Musical Mayhem<a class="headerlink" href="#musical-mayhem" title="Ссылка на этот заголовок"></a></h2>
-<p>One of the most wonderful aspects of MicroPython on the BBC micro:bit is how it
-lets you easily link different capabilities of the device together. For
-example, let’s turn it into a musical instrument (of sorts).</p>
-<p>Connect a speaker as you did in the music tutorial. Use crocodile clips to
-attach pin 0 and GND to the positive and negative inputs on the speaker - it
-doesn’t matter which way round they are connected to the speaker.</p>
+<p>В строке <code class="docutils literal notranslate"><span class="pre">reading</span> <span class="pre">=</span> <span class="pre">accelerometer.get_x()</span></code> записана переменная, которая хранит
+значение функции считывания отклонения по оси <code class="docutils literal notranslate"><span class="pre">X</span></code>.Далее прописано условие реагирование
+на события отклонения вправо и влено на 20.</p>
+<p>Для отслеживания отклонений по другим осям используйте функции``get_y`` по оси <code class="docutils literal notranslate"><span class="pre">Y</span></code>
+и  <code class="docutils literal notranslate"><span class="pre">get_z</span></code> по оси <code class="docutils literal notranslate"><span class="pre">Z</span></code>.</p>
+<p>Современные устройства тоже содержат датчик акселерометр: телефоны, планшеты, электронные книги,
+игровые устройства и т. д.</p>
+<section id="id2">
+<h2>Музыкальный инструмент<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Давайте создадим устройство, которое проигрывает звук, который зависит от отклонения по оси <code class="docutils literal notranslate"><span class="pre">Y</span></code>.
+Отклонение меняет воспроизводимую частоту.</p>
+<p>Подключите динамик к микроконтроллеру, если у Вас версия <code class="docutils literal notranslate"><span class="pre">V1</span></code>.</p>
 <img alt="../_images/pin0-gnd.png" src="../_images/pin0-gnd.png" />
-<p>What happens if we take the readings from the accelerometer and play them as
-pitches? Let’s find out:</p>
+<p>Напишите программный код:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">music</span>
 
@@ -144,16 +131,44 @@ pitches? Let’s find out:</p>
     <span class="n">music</span><span class="o">.</span><span class="n">pitch</span><span class="p">(</span><span class="n">accelerometer</span><span class="o">.</span><span class="n">get_y</span><span class="p">(),</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The key line is at the end and remarkably simple. We <em>nest</em> the reading from
-the Y axis as the frequency to feed into the <code class="docutils literal notranslate"><span class="pre">music.pitch</span></code> method. We only
-let it play for 10 milliseconds because we want the tone to change quickly as
-the device is tipped. Because the device is in an infinite <code class="docutils literal notranslate"><span class="pre">while</span></code> loop it
-is constantly reacting to changes in the Y axis measurement.</p>
-<p>That’s it!</p>
-<p>Tip the device forwards and backwards. If the reading along the Y axis is
-positive it’ll change the pitch of the tone played by the micro:bit.</p>
-<p>Imagine a whole symphony orchestra of these devices. Can you play a tune? How
-would you improve the program to make the micro:bit sound more musical?</p>
+<p>Продолжительность проигрывание очень быстрая 10 милисекунд.</p>
+</section>
+<section id="id3">
+<h2>Жесты<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Акселерометр также предоставляет удобные функции для обнаружения жестов.
+Распознаваемые жесты:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">up</span></code> - логотипом вверх</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">down</span></code> - логотипом вниз</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span></code> - наклон влево</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right</span></code> - наклон вправо</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">up</span></code> - дисплеем верх</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">down</span></code> - дисплеем вниз</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">freefall</span></code> - свободное падение</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3g</span></code> - тряска с усилием 3g</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">6g</span></code> - тряска с усилием 6g</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">8g</span></code> - тряска с усилием 8g</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shake</span></code> - тряска базовая</p></li>
+</ul>
+<p>Используются метод <code class="docutils literal notranslate"><span class="pre">accelerometer.current_gesture(</span> <span class="pre">)</span></code> - Возвращает название текущего жеста.
+<code class="docutils literal notranslate"><span class="pre">accelerometer.is_gesture(</span> <span class="pre">имя</span> <span class="pre">)</span></code> - Возвратите значение <code class="docutils literal notranslate"><span class="pre">True</span></code> или <code class="docutils literal notranslate"><span class="pre">False</span></code>,если
+произошел указанный жест (вместо имя).</p>
+<p>Пример кода <strong>Волшебный шар</strong>, который выводит случайное сообщение при тряске:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">answers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Y&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;N&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;?&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;%&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s1">&#39;8&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">accelerometer</span><span class="o">.</span><span class="n">was_gesture</span><span class="p">(</span><span class="s1">&#39;shake&#39;</span><span class="p">):</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">answers</span><span class="p">))</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -161,7 +176,7 @@ would you improve the program to make the micro:bit sound more musical?</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="random.html" class="btn btn-neutral float-left" title="Random" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="random.html" class="btn btn-neutral float-left" title="Случайные числа" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
         <a href="gestures.html" class="btn btn-neutral float-right" title="Gestures" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

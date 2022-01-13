@@ -65,59 +65,20 @@
 Обработка событий
 +++++++++++++++++
 
-If we want MicroPython to react to button press events we should put it into
-an infinite loop and check if the button ``is_pressed``.
+Если Вы хотите написать программу, которая реагирует на нажатие на кнопки, используйте
+Условие ``if`` и метод ``is_pressed``.
 
-An infinite loop is easy::
-
-    while True:
-        # Do stuff
-
-(Remember, ``while`` checks if something is ``True`` to work out if it should
-run its block of code. Since ``True`` is obviously ``True`` for all time, you
-get an infinite loop!)
-
-Let's make a very simple cyber-pet. It's always sad unless you're pressing
-button ``A``. If you press button ``B`` it dies. (I realise this isn't a very
-pleasant game, so perhaps you can figure out how to improve it.)::
+Зацикливание программы на постоянную проверку событий::
 
     from microbit import *
 
     while True:
         if button_a.is_pressed():
             display.show(Image.HAPPY)
-        elif button_b.is_pressed():
-            break
         else:
             display.show(Image.SAD)
 
-    display.clear()
-
-Can you see how we check what buttons are pressed? We used ``if``,
-``elif`` (short for "else if") and ``else``. These are called *conditionals*
-and work like this::
-
-    if something is True:
-        # do one thing
-    elif some other thing is True:
-        # do another thing
-    else:
-        # do yet another thing.
-
-This is remarkably similar to English!
-
-The ``is_pressed`` method only produces two results: ``True`` or ``False``.
-If you're pressing the button it returns ``True``, otherwise it returns
-``False``. The code above is saying, in English, "for ever and ever, if
-button A is pressed then show a happy face, else if button B is pressed break
-out of the loop, otherwise display a sad face." We break out of the loop (stop
-the program running for ever and ever) with the ``break`` statement.
-
-At the very end, when the cyber-pet is dead, we ``clear`` the display.
-
-Can you think of ways to make this game less tragic? How would you check if
-*both* buttons are pressed? (Hint: Python has ``and``, ``or`` and ``not``
-logical operators to help check multiple truth statements (things that
-produce either ``True`` or ``False`` results).
-
-.. footer:: The image of Matrioshka dolls is licensed CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=69402
+Если кнопка нажата отображается **счастливый смайлик**, иначе **грустный**.
+Метод ``is_pressed`` дает только два результата: ``True`` или ``False``.
+Если вы нажимаете кнопку, она возвращает ``True``, в противном случае возвращается
+``False``. 
