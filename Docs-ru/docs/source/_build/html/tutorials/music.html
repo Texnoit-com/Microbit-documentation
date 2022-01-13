@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Music &mdash; документация Microbit-Русская документация 0.1</title>
+  <title>Мелодии &mdash; документация Microbit-Русская документация 0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -20,7 +20,7 @@
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="Random" href="random.html" />
-    <link rel="prev" title="Input/Output Pins" href="io.html" /> 
+    <link rel="prev" title="Контакты/Пины" href="io.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,12 +42,12 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Инструкция</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hello.html">Первая программа Hello, World!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="images.html">Images</a></li>
-<li class="toctree-l1"><a class="reference internal" href="buttons.html">Buttons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output Pins</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Music</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#wolfgang-amadeus-microbit">Wolfgang Amadeus Microbit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sound-effects">Sound Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Контакты/Пины</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Мелодии</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Собственные мелодии</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Звуковые Эффекты</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="random.html">Random</a></li>
@@ -75,7 +75,7 @@
           <div role="navigation" aria-label="Навигация по страницам">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Music</li>
+      <li>Мелодии</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tutorials/music.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
       </li>
@@ -85,28 +85,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="music">
-<h1>Music<a class="headerlink" href="#music" title="Ссылка на этот заголовок"></a></h1>
-<p>MicroPython on the BBC micro:bit comes with a powerful music and sound module.
-It’s very easy to generate bleeps and bloops from the device by attaching a
-speaker or set of wired headphones, or by using the built-in speaker <strong>V2</strong>.</p>
-<p>If you are attaching a speaker/headphones, you can use crocodile clips to
-attach pin 0 and GND to the positive and negative inputs on the speaker.</p>
+  <section id="id1">
+<h1>Мелодии<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>MicroPython на Microbit содержит мощный музыкальный и звуковой инструмент.
+Вы можете легко генерировать звуковые и музыкальные сигналы.
+В Microbit <code class="docutils literal notranslate"><span class="pre">V1</span></code> необходимо подключить динамик к пину <code class="docutils literal notranslate"><span class="pre">0</span></code> и <code class="docutils literal notranslate"><span class="pre">GND</span></code>
+В Microbit <code class="docutils literal notranslate"><span class="pre">V2</span></code> динамик уже встроен и Вы можете сразу переходит к коду.</p>
 <a class="reference internal image-reference" href="../_images/pin0-gnd.png"><img alt="piezo connected to pin0 and GND" class="align-center" src="../_images/pin0-gnd.png" style="width: 250px;" /></a>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>Do not attempt this with an active Piezo buzzer - such buzzers are only
-able to play a single tone.</p>
+<p>Для проигрывания необходимо использовать пассивный зумер. Нельзя использовать активный</p>
 </div>
-<p>Let’s play some music:</p>
+<p>Давайте проиграем мелодию:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">music</span>
 
 <span class="n">music</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">music</span><span class="o">.</span><span class="n">NYAN</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Notice that we import the <code class="docutils literal notranslate"><span class="pre">music</span></code> module. It contains methods used to make
-and control sound.</p>
-<p>MicroPython has quite a lot of built-in melodies. Here’s a complete list:</p>
+<p>Необходимо подключить библиотеку <code class="docutils literal notranslate"><span class="pre">music</span></code> и использовать команды указывая объект.</p>
+<p>MicroPython имеет довольно много встроенных мелодий:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">music.DADADADUM</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">music.ENTERTAINER</span></code></p></li>
@@ -130,29 +127,17 @@ and control sound.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">music.POWER_UP</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">music.POWER_DOWN</span></code></p></li>
 </ul>
-<p>Take the example code and change the melody. Which one is your favourite? How
-would you use such tunes as signals or cues?</p>
-<section id="wolfgang-amadeus-microbit">
-<h2>Wolfgang Amadeus Microbit<a class="headerlink" href="#wolfgang-amadeus-microbit" title="Ссылка на этот заголовок"></a></h2>
-<p>Creating your own tunes is easy!</p>
-<p>Each note has a name (like <code class="docutils literal notranslate"><span class="pre">C#</span></code> or <code class="docutils literal notranslate"><span class="pre">F</span></code>), an octave (telling MicroPython how
-high or low the note should be played) and a duration (how
-long it lasts through time). Octaves are indicated by a number ~ 0 is the
-lowest octave, 4 contains middle C and 8 is about as high as you’ll ever need
-unless you’re making music for dogs. Durations are also expressed as numbers.
-The higher the value of the duration the longer it will last. Such
-values are related to each other - for instance, a duration of <code class="docutils literal notranslate"><span class="pre">4</span></code> will last
-twice as long as a duration <code class="docutils literal notranslate"><span class="pre">2</span></code> (and so on). If you use the note name <code class="docutils literal notranslate"><span class="pre">R</span></code>
-then MicroPython will play a rest (i.e. silence) for the specified duration.</p>
-<p>Each note is expressed as a string of characters like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NOTE</span><span class="p">[</span><span class="n">octave</span><span class="p">][:</span><span class="n">duration</span><span class="p">]</span>
+<p>Обратите внимание встроенные мелодии также пишутся через объект <code class="docutils literal notranslate"><span class="pre">music</span></code></p>
+<section id="id2">
+<h2>Собственные мелодии<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>У каждой ноты есть свое имя (например <code class="docutils literal notranslate"><span class="pre">C#</span></code> или <code class="docutils literal notranslate"><span class="pre">F</span></code>), также указывается продолжительность
+проигрывания. Октавы обозначаются цифрами ~ 0 самая низкая, 4 средняя, 8 высокая.</p>
+<p>Каждая нота выражается в виде строки символов, подобных этому:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NOTE</span><span class="p">[</span><span class="n">Октава</span><span class="p">][:</span><span class="n">Длительность</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>For example, <code class="docutils literal notranslate"><span class="pre">&quot;A1:4&quot;</span></code> refers to the note named <code class="docutils literal notranslate"><span class="pre">A</span></code> in octave number <code class="docutils literal notranslate"><span class="pre">1</span></code>
-to be played for a duration of <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p>
-<p>Make a list of notes to create a melody (it’s equivalent to creating an
-animation with a list of images). For example, here’s how to make MicroPython
-play opening of «Frere Jaques»:</p>
+<p>Например <code class="docutils literal notranslate"><span class="pre">&quot;A1:4&quot;</span></code>, указывается нота <code class="docutils literal notranslate"><span class="pre">A</span></code>, октава <code class="docutils literal notranslate"><span class="pre">1</span></code>, воспроизводится <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p>
+<p>Можно использовать список для создания мелодии, например:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">music</span>
 
 <span class="n">tune</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;C4:4&quot;</span><span class="p">,</span> <span class="s2">&quot;D4:4&quot;</span><span class="p">,</span> <span class="s2">&quot;E4:4&quot;</span><span class="p">,</span> <span class="s2">&quot;C4:4&quot;</span><span class="p">,</span> <span class="s2">&quot;C4:4&quot;</span><span class="p">,</span> <span class="s2">&quot;D4:4&quot;</span><span class="p">,</span> <span class="s2">&quot;E4:4&quot;</span><span class="p">,</span> <span class="s2">&quot;C4:4&quot;</span><span class="p">,</span>
@@ -162,9 +147,7 @@ play opening of «Frere Jaques»:</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>MicroPython helps you to simplify such melodies. It’ll remember the octave
-and duration values until you next change them. As a result, the example
-above can be re-written as:</p>
+<p>MicroPython запоминает октаву и продолжительность, поэтому код можно переписать так:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">music</span>
 
 <span class="n">tune</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;C4:4&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;G:8&quot;</span><span class="p">,</span>
@@ -172,14 +155,12 @@ above can be re-written as:</p>
 <span class="n">music</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">tune</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Notice how the octave and duration values only change when they have to.
-It’s a lot less typing and simpler to read.</p>
 </div>
 </section>
-<section id="sound-effects">
-<h2>Sound Effects<a class="headerlink" href="#sound-effects" title="Ссылка на этот заголовок"></a></h2>
-<p>MicroPython lets you make tones that are not musical notes. For example, here’s
-how to create a Police siren effect:</p>
+<section id="id3">
+<h2>Звуковые Эффекты<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>MicroPython позволяет создавать звуки, не используя ноты. Например, так можно
+создать эффект полицейской сирены</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">music</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -189,26 +170,9 @@ how to create a Police siren effect:</p>
         <span class="n">music</span><span class="o">.</span><span class="n">pitch</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Notice how the <code class="docutils literal notranslate"><span class="pre">music.pitch</span></code> <em>method</em> is used in this instance. It expects a
-frequency. For example, the frequency of <code class="docutils literal notranslate"><span class="pre">440</span></code> is the same as a concert <code class="docutils literal notranslate"><span class="pre">A</span></code>
-used to tune a symphony orchestra.</p>
-<p>In the example above the <code class="docutils literal notranslate"><span class="pre">range</span></code> function is used to generate ranges of
-numeric values. These numbers are used to define the pitch of the tone. The
-three arguments for the <code class="docutils literal notranslate"><span class="pre">range</span></code> function are the start value, end value and
-step size. Therefore, the first use of <code class="docutils literal notranslate"><span class="pre">range</span></code> is saying, in English, «create
-a range of numbers between 880 and 1760 in steps of 16». The second use of
-<code class="docutils literal notranslate"><span class="pre">range</span></code> is saying, «create a range of values between 1760 and 880 in steps of
--16». This is how we get a range of frequencies that go up and down in pitch
-like a siren.</p>
-<p>Because the siren should last forever it’s wrapped in an infinite <code class="docutils literal notranslate"><span class="pre">while</span></code>
-loop.</p>
-<p>Importantly, we have introduced a new sort of a loop inside the <code class="docutils literal notranslate"><span class="pre">while</span></code>
-loop: the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. In English it’s like saying, «for each item in some
-collection, do some activity with it». Specifically in the example above, it’s
-saying, «for each frequency in the specified range of frequencies, play the
-pitch of that frequency for 6 milliseconds». Notice how the thing to do for
-each item in a for loop is indented (as discussed earlier) so Python knows
-exactly which code to run to handle the individual items.</p>
+<p>Команда <code class="docutils literal notranslate"><span class="pre">music.pitch</span></code> ожидает частоту и продолжительность. В коде используется цикл <code class="docutils literal notranslate"><span class="pre">for</span></code>
+для прохода по генератору (range), который выдает числа от 880 до 1760 с шагом 16.</p>
+<p>Сирена звучить вечно, она заключена в бесконечное <code class="docutils literal notranslate"><span class="pre">while</span></code>.</p>
 </section>
 </section>
 
@@ -216,7 +180,7 @@ exactly which code to run to handle the individual items.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="io.html" class="btn btn-neutral float-left" title="Input/Output Pins" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="io.html" class="btn btn-neutral float-left" title="Контакты/Пины" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
         <a href="random.html" class="btn btn-neutral float-right" title="Random" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

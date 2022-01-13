@@ -19,7 +19,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Buttons" href="buttons.html" />
+    <link rel="next" title="Кнопки" href="buttons.html" />
     <link rel="prev" title="Первая программа Hello, World!" href="hello.html" /> 
 </head>
 
@@ -47,8 +47,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#id3">Анимация</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="buttons.html">Buttons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output Pins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Контакты/Пины</a></li>
 <li class="toctree-l1"><a class="reference internal" href="music.html">Music</a></li>
 <li class="toctree-l1"><a class="reference internal" href="random.html">Random</a></li>
 <li class="toctree-l1"><a class="reference internal" href="movement.html">Movement</a></li>
@@ -225,64 +225,8 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">loop</span></code> - Зацикливание анимации - значение <code class="docutils literal notranslate"><span class="pre">True</span></code> (правда), проиграть 1 раз - значение <code class="docutils literal notranslate"><span class="pre">False</span></code> (ложь)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">delay</span></code> - время задержки между сменой изображений (милисекунды)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wait</span></code> - блокирование выполнения пока не кончиться анимация - значение <code class="docutils literal notranslate"><span class="pre">True</span></code> (правда)</p></li>
 </ul>
-<p>Can you work out how to animate over the <code class="docutils literal notranslate"><span class="pre">Image.ALL_ARROWS</span></code> list? How do you
-avoid looping forever (hint: the opposite of <code class="docutils literal notranslate"><span class="pre">True</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code> although
-the default value for <code class="docutils literal notranslate"><span class="pre">loop</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>)? Can you change the speed of the
-animation?</p>
-<p>Finally, here’s how to create your own animation. In my example I’m going to
-make my boat sink into the bottom of the display:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">boat1</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;05050:&quot;</span>
-              <span class="s2">&quot;05050:&quot;</span>
-              <span class="s2">&quot;05050:&quot;</span>
-              <span class="s2">&quot;99999:&quot;</span>
-              <span class="s2">&quot;09990&quot;</span><span class="p">)</span>
-
-<span class="n">boat2</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;00000:&quot;</span>
-              <span class="s2">&quot;05050:&quot;</span>
-              <span class="s2">&quot;05050:&quot;</span>
-              <span class="s2">&quot;05050:&quot;</span>
-              <span class="s2">&quot;99999&quot;</span><span class="p">)</span>
-
-<span class="n">boat3</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;00000:&quot;</span>
-              <span class="s2">&quot;00000:&quot;</span>
-              <span class="s2">&quot;05050:&quot;</span>
-              <span class="s2">&quot;05050:&quot;</span>
-              <span class="s2">&quot;05050&quot;</span><span class="p">)</span>
-
-<span class="n">boat4</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;00000:&quot;</span>
-              <span class="s2">&quot;00000:&quot;</span>
-              <span class="s2">&quot;00000:&quot;</span>
-              <span class="s2">&quot;05050:&quot;</span>
-              <span class="s2">&quot;05050&quot;</span><span class="p">)</span>
-
-<span class="n">boat5</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;00000:&quot;</span>
-              <span class="s2">&quot;00000:&quot;</span>
-              <span class="s2">&quot;00000:&quot;</span>
-              <span class="s2">&quot;00000:&quot;</span>
-              <span class="s2">&quot;05050&quot;</span><span class="p">)</span>
-
-<span class="n">boat6</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;00000:&quot;</span>
-              <span class="s2">&quot;00000:&quot;</span>
-              <span class="s2">&quot;00000:&quot;</span>
-              <span class="s2">&quot;00000:&quot;</span>
-              <span class="s2">&quot;00000&quot;</span><span class="p">)</span>
-
-<span class="n">all_boats</span> <span class="o">=</span> <span class="p">[</span><span class="n">boat1</span><span class="p">,</span> <span class="n">boat2</span><span class="p">,</span> <span class="n">boat3</span><span class="p">,</span> <span class="n">boat4</span><span class="p">,</span> <span class="n">boat5</span><span class="p">,</span> <span class="n">boat6</span><span class="p">]</span>
-<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">all_boats</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Here’s how the code works:</p>
-<ul class="simple">
-<li><p>I create six <code class="docutils literal notranslate"><span class="pre">boat</span></code> images in exactly the same way I described above.</p></li>
-<li><p>Then, I put them all into a list that I call <code class="docutils literal notranslate"><span class="pre">all_boats</span></code>.</p></li>
-<li><p>Finally, I ask <code class="docutils literal notranslate"><span class="pre">display.show</span></code> to animate the list with a delay of 200 milliseconds.</p></li>
-<li><p>Since I’ve not set <code class="docutils literal notranslate"><span class="pre">loop=True</span></code> the boat will only sink once (thus making my animation scientifically accurate). :-)</p></li>
-</ul>
-<p>What would you animate? Can you animate special effects? How would you make an
-image fade out and then fade in again?</p>
 </section>
 </section>
 
@@ -291,7 +235,7 @@ image fade out and then fade in again?</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
         <a href="hello.html" class="btn btn-neutral float-left" title="Первая программа Hello, World!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="buttons.html" class="btn btn-neutral float-right" title="Buttons" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="buttons.html" class="btn btn-neutral float-right" title="Кнопки" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

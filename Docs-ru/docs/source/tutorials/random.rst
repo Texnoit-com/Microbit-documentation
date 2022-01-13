@@ -1,5 +1,5 @@
-Random
-------
+Случайные числа
+---------------
 
 Sometimes you want to leave things to chance, or mix it up a little: you want
 the device to act randomly.

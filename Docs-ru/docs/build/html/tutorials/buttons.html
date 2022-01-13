@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Buttons &mdash; документация Microbit-Русская документация 0.1</title>
+  <title>Кнопки &mdash; документация Microbit-Русская документация 0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -20,7 +20,7 @@
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="Input/Output Pins" href="io.html" />
-    <link rel="prev" title="Images" href="images.html" /> 
+    <link rel="prev" title="Изображения" href="images.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,10 +42,10 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Инструкция</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hello.html">Первая программа Hello, World!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="images.html">Images</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Buttons</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#event-loops">Event Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#handling-an-event">Handling an Event</a></li>
+<li class="toctree-l1"><a class="reference internal" href="images.html">Изображения</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Кнопки</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Отслеживание событий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">Обработка событий</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output Pins</a></li>
@@ -75,7 +75,7 @@
           <div role="navigation" aria-label="Навигация по страницам">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Buttons</li>
+      <li>Кнопки</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tutorials/buttons.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
       </li>
@@ -85,121 +85,68 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="buttons">
-<h1>Buttons<a class="headerlink" href="#buttons" title="Ссылка на этот заголовок"></a></h1>
-<p>So far we have created code that makes the device do something. This is called
-<em>output</em>. However, we also need the device to react to things. Such things are
-called <em>inputs</em>.</p>
-<p>It’s easy to remember: output is what the device puts out to the world
-whereas input is what goes into the device for it to process.</p>
-<p>The most obvious means of input on the micro:bit are its two buttons, labelled
-<code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code>. Somehow, we need MicroPython to react to button presses.</p>
-<p>This is remarkably simple:</p>
+  <section id="id1">
+<h1>Кнопки<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Любая программа чаще всего имеет элементы вывода информации и элементы ввода.
+В микроконтроллерах часто используются для этого кнопки</p>
+<p><strong>Мicrobit</strong> имеет две кнопки на лицевой части. Они называются <code class="docutils literal notranslate"><span class="pre">A</span></code> и <code class="docutils literal notranslate"><span class="pre">B</span></code>.</p>
+<p>Напишите программу, которая выводит на дисплей информацию о кнопке <code class="docutils literal notranslate"><span class="pre">A</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">sleep</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
 <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">button_a</span><span class="o">.</span><span class="n">get_presses</span><span class="p">()))</span>
 </pre></div>
 </div>
-<p>All this script does is sleep for ten thousand milliseconds (i.e. 10 seconds)
-and then scrolls the number of times you pressed button <code class="docutils literal notranslate"><span class="pre">A</span></code>. That’s it!</p>
-<p>While it’s a pretty useless script, it introduces a couple of interesting new
-ideas:</p>
-<ol class="arabic simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">sleep</span></code> <em>function</em> will make the micro:bit sleep for a certain number
-of milliseconds. If you want a pause in your program, this is how to do it.
-A <em>function</em> is just like a <em>method</em>, but it isn’t attached by a dot to an
-<em>object</em>.</p></li>
-<li><p>There is an object called <code class="docutils literal notranslate"><span class="pre">button_a</span></code> and it allows you to get the number
-of times it has been pressed with the <code class="docutils literal notranslate"><span class="pre">get_presses</span></code> <em>method</em>.</p></li>
-</ol>
-<p>Since <code class="docutils literal notranslate"><span class="pre">get_presses</span></code> gives a numeric value and <code class="docutils literal notranslate"><span class="pre">display.scroll</span></code> only
-displays characters, we need to convert the numeric value into a string of
-characters. We do this with the <code class="docutils literal notranslate"><span class="pre">str</span></code> function (short for «string» ~ it
-converts things into strings of characters).</p>
-<p>The third line is a bit like an onion. If the parenthesis are the
-onion skins then you’ll notice that <code class="docutils literal notranslate"><span class="pre">display.scroll</span></code> contains <code class="docutils literal notranslate"><span class="pre">str</span></code> that
-itself contains <code class="docutils literal notranslate"><span class="pre">button_a.get_presses</span></code>. Python attempts to work out the
-inner-most answer first before starting on the next layer out. This is called
-<em>nesting</em> - the coding equivalent of a Russian Matrioshka doll.</p>
+<p>Микроконтроллер засыпает на 10 секунд (<code class="docutils literal notranslate"><span class="pre">sleep(10000)</span></code>). Вы нажимаете несколлько раз на кнопку
+Следующая команда выводит количество нажатий <code class="docutils literal notranslate"><span class="pre">button_a.get_presses()</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">button_a</span></code> - указывает на объект кнопка <code class="docutils literal notranslate"><span class="pre">A</span></code>. Кнопка <code class="docutils literal notranslate"><span class="pre">B</span></code> имеет указатель <code class="docutils literal notranslate"><span class="pre">button_b</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_presses()</span></code> - функция (команда), которая возвращает количество нажатий</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str()</span></code> - функция, которая переводит число в строку</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Функция <code class="docutils literal notranslate"><span class="pre">scroll()</span></code> принимает только строковые значения.</p>
+</div>
+<p>Функции можно вкладывать в друг друга. Они выполняются в порядке раскрывания ( в начале самая вложенная)
+Примером может служить <strong>Матрешка</strong>. В таком случае выполнение по росту от маленькой до большой.</p>
 <img alt="../_images/matrioshka.jpg" src="../_images/matrioshka.jpg" />
-<p>Let’s pretend you’ve pressed the button 10 times. Here’s how Python works out
-what’s happening on the third line:</p>
-<p>Python sees the complete line and gets the value of <code class="docutils literal notranslate"><span class="pre">get_presses</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">button_a</span><span class="o">.</span><span class="n">get_presses</span><span class="p">()))</span>
-</pre></div>
-</div>
-<p>Now that Python knows how many button presses there have been, it converts the
-numeric value into a string of characters:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>Finally, Python knows what to scroll across the display:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>While this might seem like a lot of work, MicroPython makes this happen
-extraordinarily fast.</p>
-<section id="event-loops">
-<h2>Event Loops<a class="headerlink" href="#event-loops" title="Ссылка на этот заголовок"></a></h2>
-<p>Often you need your program to hang around waiting for something to happen. To
-do this you make it loop around a piece of code that defines how to react to
-certain expected events such as a button press.</p>
-<p>To make loops in Python you use the <code class="docutils literal notranslate"><span class="pre">while</span></code> keyword. It checks if something
-is <code class="docutils literal notranslate"><span class="pre">True</span></code>. If it is, it runs a <em>block of code</em> called the <em>body</em> of the loop.
-If it isn’t, it breaks out of the loop (ignoring the body) and the rest of the
-program can continue.</p>
-<p>Python makes it easy to define blocks of code. Say I have a to-do list written
-on a piece of paper. It probably looks something like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Shopping</span>
-<span class="n">Fix</span> <span class="n">broken</span> <span class="n">gutter</span>
-<span class="n">Mow</span> <span class="n">the</span> <span class="n">lawn</span>
-</pre></div>
-</div>
-<p>If I wanted to break down my to-do list a bit further, I might write something
-like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Shopping</span><span class="p">:</span>
-    <span class="n">Eggs</span>
-    <span class="n">Bacon</span>
-    <span class="n">Tomatoes</span>
-<span class="n">Fix</span> <span class="n">broken</span> <span class="n">gutter</span><span class="p">:</span>
-    <span class="n">Borrow</span> <span class="n">ladder</span> <span class="kn">from</span> <span class="nn">next</span> <span class="n">door</span>
-    <span class="n">Find</span> <span class="n">hammer</span> <span class="ow">and</span> <span class="n">nails</span>
-    <span class="n">Return</span> <span class="n">ladder</span>
-<span class="n">Mow</span> <span class="n">the</span> <span class="n">lawn</span><span class="p">:</span>
-    <span class="n">Check</span> <span class="n">lawn</span> <span class="n">around</span> <span class="n">pond</span> <span class="k">for</span> <span class="n">frogs</span>
-    <span class="n">Check</span> <span class="n">mower</span> <span class="n">fuel</span> <span class="n">level</span>
-</pre></div>
-</div>
-<p>It’s obvious that the main tasks are broken down into sub-tasks that are
-<em>indented</em> underneath the main task to which they are related. So <code class="docutils literal notranslate"><span class="pre">Eggs</span></code>,
-<code class="docutils literal notranslate"><span class="pre">Bacon</span></code> and <code class="docutils literal notranslate"><span class="pre">Tomatoes</span></code> are obviously related to <code class="docutils literal notranslate"><span class="pre">Shopping</span></code>. By indenting
-things we make it easy to see, at a glance, how the tasks relate to each other.</p>
-<p>This is called <em>nesting</em>. We use nesting to define blocks of code like this:</p>
+<section id="id2">
+<h2>Отслеживание событий<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Часто необходимо создать ожидание события. Вы создаете цикл, который опрашивает устройство и
+ждет от него выполнения условия.</p>
+<p>Для создания такого цикла можно использовать <code class="docutils literal notranslate"><span class="pre">while</span></code>. Он проверяет, если условие
+события возвращает <code class="docutils literal notranslate"><span class="pre">True</span></code> он запускает <em>блок кода</em>, называемый <em>телом</em> цикла.
+Если возвращается <code class="docutils literal notranslate"><span class="pre">False</span></code>, он выходит из цикла и продолжает выполнять программу дальше:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 
-<span class="k">while</span> <span class="n">running_time</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">10000</span><span class="p">:</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">button_a</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">():</span>
     <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">ASLEEP</span><span class="p">)</span>
 
 <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">SURPRISED</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">running_time</span></code> function returns the number of milliseconds since the
-device started.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">running_time()</span> <span class="pre">&lt;</span> <span class="pre">10000:</span></code> line checks if the running time is less
-than 10000 milliseconds (i.e. 10 seconds). If it is, <em>and this is where we can
-see scoping in action</em>, then it’ll display <code class="docutils literal notranslate"><span class="pre">Image.ASLEEP</span></code>. Notice how this is
-indented underneath the <code class="docutils literal notranslate"><span class="pre">while</span></code> statement <em>just like in our to-do list</em>.</p>
-<p>Obviously, if the running time is equal to or greater than 10000 milliseconds
-then the display will show <code class="docutils literal notranslate"><span class="pre">Image.SURPRISED</span></code>. Why? Because the <code class="docutils literal notranslate"><span class="pre">while</span></code>
-condition will be False (<code class="docutils literal notranslate"><span class="pre">running_time</span></code> is no longer <code class="docutils literal notranslate"><span class="pre">&lt;</span> <span class="pre">10000</span></code>). In that
-case the loop is finished and the program will continue after the <code class="docutils literal notranslate"><span class="pre">while</span></code>
-loop’s block of code. It’ll look like your device is asleep for 10
-seconds before waking up with a surprised look on its face.</p>
-<p>Try it!</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">button_a.is_pressed()</span></code> - кнопка <code class="docutils literal notranslate"><span class="pre">A</span></code> <strong>не</strong> нажата (<code class="docutils literal notranslate"><span class="pre">not</span></code>), выводится изображение <code class="docutils literal notranslate"><span class="pre">Image.ASLEEP</span></code></dt><dd><p>иначе <code class="docutils literal notranslate"><span class="pre">Image.SURPRISED</span></code></p>
+<p>Вы можете использовать логические операторы для отслеживания нескольких событий:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="ow">not</span> <span class="n">button_a</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">()</span> <span class="ow">and</span>  <span class="ow">not</span> <span class="n">button_b</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">():</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">and</span></code> - логическая <code class="docutils literal notranslate"><span class="pre">И</span></code>. кнопка <code class="docutils literal notranslate"><span class="pre">A</span></code> <strong>и</strong> <a href="#id3"><span class="problematic" id="id4">``</span></a>B``**не нажата**</p>
+<blockquote>
+<div><p>while not button_a.is_pressed() or  not button_b.is_pressed():</p>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">or</span></code> - логическая <code class="docutils literal notranslate"><span class="pre">И</span></code>. кнопка <code class="docutils literal notranslate"><span class="pre">A</span></code> <strong>или</strong> <a href="#id5"><span class="problematic" id="id6">``</span></a>B``**не нажата**</p></li>
+</ul>
 </section>
-<section id="handling-an-event">
-<h2>Handling an Event<a class="headerlink" href="#handling-an-event" title="Ссылка на этот заголовок"></a></h2>
+<section id="id7">
+<h2>Обработка событий<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h2>
 <p>If we want MicroPython to react to button press events we should put it into
 an infinite loop and check if the button <code class="docutils literal notranslate"><span class="pre">is_pressed</span></code>.</p>
 <p>An infinite loop is easy:</p>
@@ -256,7 +203,7 @@ produce either <code class="docutils literal notranslate"><span class="pre">True
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="images.html" class="btn btn-neutral float-left" title="Images" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="images.html" class="btn btn-neutral float-left" title="Изображения" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
         <a href="io.html" class="btn btn-neutral float-right" title="Input/Output Pins" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

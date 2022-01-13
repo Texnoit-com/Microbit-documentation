@@ -1,12 +1,10 @@
-Music
+Мелодии
 -----
 
-MicroPython on the BBC micro:bit comes with a powerful music and sound module.
-It's very easy to generate bleeps and bloops from the device by attaching a
-speaker or set of wired headphones, or by using the built-in speaker **V2**.
-
-If you are attaching a speaker/headphones, you can use crocodile clips to
-attach pin 0 and GND to the positive and negative inputs on the speaker.
+MicroPython на Microbit содержит мощный музыкальный и звуковой инструмент.
+Вы можете легко генерировать звуковые и музыкальные сигналы. 
+В Microbit ``V1`` необходимо подключить динамик к пину ``0`` и ``GND``
+В Microbit ``V2`` динамик уже встроен и Вы можете сразу переходит к коду.
 
 .. image:: pin0-gnd.png
     :width: 250px
@@ -15,19 +13,17 @@ attach pin 0 and GND to the positive and negative inputs on the speaker.
 
 .. note::
 
-    Do not attempt this with an active Piezo buzzer - such buzzers are only
-    able to play a single tone.
+    Для проигрывания необходимо использовать пассивный зумер. Нельзя использовать активный
 
-Let's play some music::
+Давайте проиграем мелодию::
 
     import music
 
     music.play(music.NYAN)
 
-Notice that we import the ``music`` module. It contains methods used to make
-and control sound.
+Необходимо подключить библиотеку ``music`` и использовать команды указывая объект.
 
-MicroPython has quite a lot of built-in melodies. Here's a complete list:
+MicroPython имеет довольно много встроенных мелодий:
 
 * ``music.DADADADUM``
 * ``music.ENTERTAINER``
@@ -51,34 +47,21 @@ MicroPython has quite a lot of built-in melodies. Here's a complete list:
 * ``music.POWER_UP``
 * ``music.POWER_DOWN``
 
-Take the example code and change the melody. Which one is your favourite? How
-would you use such tunes as signals or cues?
+Обратите внимание встроенные мелодии также пишутся через объект ``music``
 
-Wolfgang Amadeus Microbit
-+++++++++++++++++++++++++
+Собственные мелодии
++++++++++++++++++++
 
-Creating your own tunes is easy!
+У каждой ноты есть свое имя (например ``C#`` или ``F``), также указывается продолжительность
+проигрывания. Октавы обозначаются цифрами ~ 0 самая низкая, 4 средняя, 8 высокая.
 
-Each note has a name (like ``C#`` or ``F``), an octave (telling MicroPython how
-high or low the note should be played) and a duration (how
-long it lasts through time). Octaves are indicated by a number ~ 0 is the
-lowest octave, 4 contains middle C and 8 is about as high as you'll ever need
-unless you're making music for dogs. Durations are also expressed as numbers.
-The higher the value of the duration the longer it will last. Such
-values are related to each other - for instance, a duration of ``4`` will last
-twice as long as a duration ``2`` (and so on). If you use the note name ``R``
-then MicroPython will play a rest (i.e. silence) for the specified duration.
+Каждая нота выражается в виде строки символов, подобных этому::
 
-Each note is expressed as a string of characters like this::
+    NOTE[Октава][:Длительность]
 
-    NOTE[octave][:duration]
+Например ``"A1:4"``, указывается нота ``A``, октава ``1``, воспроизводится ``4``.
 
-For example, ``"A1:4"`` refers to the note named ``A`` in octave number ``1``
-to be played for a duration of ``4``.
-
-Make a list of notes to create a melody (it's equivalent to creating an
-animation with a list of images). For example, here's how to make MicroPython
-play opening of "Frere Jaques"::
+Можно использовать список для создания мелодии, например::
 
     import music
 
@@ -88,9 +71,7 @@ play opening of "Frere Jaques"::
 
 .. note::
 
-    MicroPython helps you to simplify such melodies. It'll remember the octave
-    and duration values until you next change them. As a result, the example
-    above can be re-written as::
+    MicroPython запоминает октаву и продолжительность, поэтому код можно переписать так::
 
         import music
 
@@ -98,14 +79,11 @@ play opening of "Frere Jaques"::
                 "E:4", "F", "G:8"]
         music.play(tune)
 
-    Notice how the octave and duration values only change when they have to.
-    It's a lot less typing and simpler to read.
+Звуковые Эффекты
+++++++++++++++++
 
-Sound Effects
-+++++++++++++
-
-MicroPython lets you make tones that are not musical notes. For example, here's
-how to create a Police siren effect::
+MicroPython позволяет создавать звуки, не используя ноты. Например, так можно 
+создать эффект полицейской сирены ::
 
     import music
 
@@ -116,26 +94,7 @@ how to create a Police siren effect::
             music.pitch(freq, 6)
 
 
-Notice how the ``music.pitch`` *method* is used in this instance. It expects a
-frequency. For example, the frequency of ``440`` is the same as a concert ``A``
-used to tune a symphony orchestra.
+Команда ``music.pitch`` ожидает частоту и продолжительность. В коде используется цикл ``for``
+для прохода по генератору (range), который выдает числа от 880 до 1760 с шагом 16.
 
-In the example above the ``range`` function is used to generate ranges of
-numeric values. These numbers are used to define the pitch of the tone. The
-three arguments for the ``range`` function are the start value, end value and
-step size. Therefore, the first use of ``range`` is saying, in English, "create
-a range of numbers between 880 and 1760 in steps of 16". The second use of
-``range`` is saying, "create a range of values between 1760 and 880 in steps of
--16". This is how we get a range of frequencies that go up and down in pitch
-like a siren.
-
-Because the siren should last forever it's wrapped in an infinite ``while``
-loop.
-
-Importantly, we have introduced a new sort of a loop inside the ``while``
-loop: the ``for`` loop. In English it's like saying, "for each item in some
-collection, do some activity with it". Specifically in the example above, it's
-saying, "for each frequency in the specified range of frequencies, play the
-pitch of that frequency for 6 milliseconds". Notice how the thing to do for
-each item in a for loop is indented (as discussed earlier) so Python knows
-exactly which code to run to handle the individual items.
+Сирена звучить вечно, она заключена в бесконечное ``while``.
