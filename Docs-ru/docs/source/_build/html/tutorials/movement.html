@@ -19,7 +19,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Gestures" href="gestures.html" />
+    <link rel="next" title="Жесты - Акселерометр" href="gestures.html" />
     <link rel="prev" title="Случайные числа" href="random.html" /> 
 </head>
 
@@ -49,12 +49,11 @@
 <li class="toctree-l1"><a class="reference internal" href="random.html">Случайные числа</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Акселерометр</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">Музыкальный инструмент</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">Жесты</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="gestures.html">Gestures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="direction.html">Direction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gestures.html">Жесты - Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="direction.html">Компас</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage.html">Хранение информации</a></li>
 <li class="toctree-l1"><a class="reference internal" href="speech.html">Speech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network.html">Network</a></li>
 <li class="toctree-l1"><a class="reference internal" href="radio.html">Radio</a></li>
@@ -133,43 +132,6 @@
 </div>
 <p>Продолжительность проигрывание очень быстрая 10 милисекунд.</p>
 </section>
-<section id="id3">
-<h2>Жесты<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
-<p>Акселерометр также предоставляет удобные функции для обнаружения жестов.
-Распознаваемые жесты:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">up</span></code> - логотипом вверх</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">down</span></code> - логотипом вниз</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">left</span></code> - наклон влево</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">right</span></code> - наклон вправо</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">up</span></code> - дисплеем верх</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">down</span></code> - дисплеем вниз</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">freefall</span></code> - свободное падение</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">3g</span></code> - тряска с усилием 3g</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">6g</span></code> - тряска с усилием 6g</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">8g</span></code> - тряска с усилием 8g</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">shake</span></code> - тряска базовая</p></li>
-</ul>
-<p>Используются метод <code class="docutils literal notranslate"><span class="pre">accelerometer.current_gesture(</span> <span class="pre">)</span></code> - Возвращает название текущего жеста.
-<code class="docutils literal notranslate"><span class="pre">accelerometer.is_gesture(</span> <span class="pre">имя</span> <span class="pre">)</span></code> - Возвратите значение <code class="docutils literal notranslate"><span class="pre">True</span></code> или <code class="docutils literal notranslate"><span class="pre">False</span></code>,если
-произошел указанный жест (вместо имя).</p>
-<p>Пример кода <strong>Волшебный шар</strong>, который выводит случайное сообщение при тряске:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">answers</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;Y&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;N&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;?&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;%&#39;</span><span class="p">,</span>
-<span class="p">]</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s1">&#39;8&#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">accelerometer</span><span class="o">.</span><span class="n">was_gesture</span><span class="p">(</span><span class="s1">&#39;shake&#39;</span><span class="p">):</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">answers</span><span class="p">))</span>
-<span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
 </section>
 
 
@@ -177,7 +139,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
         <a href="random.html" class="btn btn-neutral float-left" title="Случайные числа" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="gestures.html" class="btn btn-neutral float-right" title="Gestures" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="gestures.html" class="btn btn-neutral float-right" title="Жесты - Акселерометр" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -1,28 +1,22 @@
-Storage
--------
+Хранение информации
+--------------------
 
-Sometimes you need to store useful information. Such information is stored as
-data: representation of information (in a digital form when stored on
-computers). If you store data on a computer it should persist, even if you
-switch the device off and on again.
-
-Happily MicroPython on the micro:bit allows you to do this with a very simple
-file system. Because of memory constraints **there is approximately 30k of
-storage available** on the file system. 
+Иногда нужно хранить полезную информацию на микроконтроллере. Если Вы храните данные 
+они сохранятся даже при включенном устройстве. Размер файла составляет 30 k.
 
 .. note::
 
-    The micropython file system should not be confused
-    with the micro:bit mass storage mode which presents the device as a USB drive. 
-    Mass storage mode is only intended for copying across a HEX file, so you won't
-    see files you create using the file system appearing on the MICROBIT drive.
+    Файловую систему Micropython не следует путать с режимом хранения Microbit, который
+    представляет устройство как USB-накопитель.Режим запоминающего устройства предназначен 
+    только для копирования в HEX-файл, поэтому вы не можете просматривать файлы, 
+    которые вы создаете, используя файловую систему, представленную на диске MICROBIT.
 
-What is a file system?
+Принцип работы айловой системой.
 
 It's a means of storing and organising data in a persistent manner - any data
 stored in a file system should survive restarts of the device. As the name
 suggests, data stored on a file system is organised into files.
-
+ 
 .. image:: files.jpg
 
 A computer file is a named digital resource that's stored on a file system.

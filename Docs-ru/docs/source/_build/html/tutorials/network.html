@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Network &mdash; документация Microbit-Русская документация 0.1</title>
+  <title>Организации сети &mdash; документация Microbit-Русская документация 0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -20,7 +20,7 @@
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="Radio" href="radio.html" />
-    <link rel="prev" title="Speech" href="speech.html" /> 
+    <link rel="prev" title="Речь" href="speech.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,22 +42,20 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Инструкция</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hello.html">Первая программа Hello, World!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="images.html">Images</a></li>
-<li class="toctree-l1"><a class="reference internal" href="buttons.html">Buttons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output Pins</a></li>
-<li class="toctree-l1"><a class="reference internal" href="music.html">Music</a></li>
-<li class="toctree-l1"><a class="reference internal" href="random.html">Random</a></li>
-<li class="toctree-l1"><a class="reference internal" href="movement.html">Movement</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gestures.html">Gestures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="direction.html">Direction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="storage.html">Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="speech.html">Speech</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Network</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#connection">Connection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#signal">Signal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#protocol">Protocol</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#message">Message</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#application">Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="music.html">Мелодии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="random.html">Случайные числа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movement.html">Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gestures.html">Жесты - Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="direction.html">Компас</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speech.html">Речь</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Организации сети</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Подключение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Сигнал</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Протокол</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Применение протокола</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-end-result">The End Result</a></li>
 </ul>
 </li>
@@ -79,7 +77,7 @@
           <div role="navigation" aria-label="Навигация по страницам">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Network</li>
+      <li>Организации сети</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tutorials/network.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
       </li>
@@ -89,69 +87,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="network">
-<h1>Network<a class="headerlink" href="#network" title="Ссылка на этот заголовок"></a></h1>
-<p>It is possible to connect devices together to send and receive
-messages to and from each other. This is called a network. A network of
-interconnected networks is called an internet. The Internet is an internet
-of all the internets.</p>
-<p>Networking is hard and this is reflected in the program described below.
-However, the beautiful thing about this project is it contains all the common
-aspects of network programming you need to know about. It’s also remarkably
-simple and fun.</p>
-<p>But first, let’s set the scene…</p>
-<section id="connection">
-<h2>Connection<a class="headerlink" href="#connection" title="Ссылка на этот заголовок"></a></h2>
-<p>Imagine a network as a series of layers. At the very bottom is the most
-fundamental aspect of communication: there needs to be some sort of way for
-a signal to get from one device to the other. Sometimes this is done via a
-radio connection, but in this example we’re simply going to use two wires.</p>
+  <section id="id1">
+<h1>Организации сети<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Вы можете соединять устройства с друг другом для отправки и получения сообщения.
+Представьте себе сеть в виде набора слоев. В самом нижнем слое самый должен быть какой-то
+способ для передачи сигнала от одного устройства к другому. Иногда это делается через
+радиосоединение, но в этом примере мы просто будем использовать два провода.</p>
+<section id="id2">
+<h2>Подключение<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Сетевой стек будем строить на этом уровне.</p>
 <img alt="../_images/network.png" src="../_images/network.png" />
-<p>It is upon this foundation that we can build all the other layers in the
-<em>network stack</em>.</p>
-<p>As the diagram shows, blue and red micro:bits are connected via crocodile
-leads. Both use pin 1 for output and pin 2 for input. The output from one
-device is connected to the input on the other. It’s a bit like knowing which
-way round to hold a telephone handset - one end has a microphone (the input)
-and the other a speaker (the output). The recording of your voice via your
-microphone is played out of the other person’s speaker. If you hold the
-phone the wrong way up, you’ll get strange results!</p>
-<p>It’s exactly the same in this instance: you must connect the wires properly!</p>
+<p>Контакт 1 используется для ввода сигналов, контакт 2 для вывода.Выход из одного
+устройство подключено ко входу на другом.</p>
 </section>
-<section id="signal">
-<h2>Signal<a class="headerlink" href="#signal" title="Ссылка на этот заголовок"></a></h2>
-<p>The next layer in the <em>network stack</em> is the signal. Often this will depend
-upon the characteristics of the connection. In our example it’s simply
-digital on and off signals sent down the wires via the IO pins.</p>
-<p>If you remember, it’s possible to use the IO pins like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pin1</span><span class="o">.</span><span class="n">write_digital</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># switch the signal on</span>
-<span class="n">pin1</span><span class="o">.</span><span class="n">write_digital</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># switch the signal off</span>
-<span class="nb">input</span> <span class="o">=</span> <span class="n">pin2</span><span class="o">.</span><span class="n">read_digital</span><span class="p">()</span>  <span class="c1"># read the value of the signal (either 1 or 0)</span>
+<section id="id3">
+<h2>Сигнал<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>В первом случае у Вас цифровой сигнал. Отправляется по проводам через контакты ввода-вывода.</p>
+<p>Вы можете использовать например такой код:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pin1</span><span class="o">.</span><span class="n">write_digital</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># включить сигнал</span>
+<span class="n">pin1</span><span class="o">.</span><span class="n">write_digital</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># выключить сигнал</span>
+<span class="nb">input</span> <span class="o">=</span> <span class="n">pin2</span><span class="o">.</span><span class="n">read_digital</span><span class="p">()</span>  <span class="c1"># команда чтения сигнала</span>
 </pre></div>
 </div>
-<p>The next step involves describing how to use and handle a signal. For that we
-need a…</p>
+<p>Следующий шаг включает в себя описание того, как использовать и обрабатывать сигнал. Для этого Вам
+нужены различные протоколы.</p>
 </section>
-<section id="protocol">
-<h2>Protocol<a class="headerlink" href="#protocol" title="Ссылка на этот заголовок"></a></h2>
-<p>If you ever meet the Queen there are expectations about how you ought to
-behave. For example, when she arrives you may bow or curtsey, if she offers her
-hand politely shake it, refer to her as «your majesty» and thereafter as
-«ma’am» and so on. This set of rules is called the royal protocol. A protocol
-explains how to behave given a specific situation (such as meeting the
-Queen). A protocol is pre-defined to ensure everyone understands what’s going
-on before a given situation arises.</p>
-<img alt="../_images/queen.jpg" src="../_images/queen.jpg" />
-<p>It is for this reason that we define and use protocols for communicating
-messages via a computer network. Computers need to agree before hand how to
-send and receive messages. Perhaps the best known protocol is the
-hypertext transfer protocol (HTTP) used by the world wide web.</p>
-<p>Another famous protocol for sending messages (that pre-dates computers) is
-Morse code. It defines how to send character-based messages via on/off signals
-of long or short durations. Often such signals are played as bleeps. Long
-durations are called dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>) whereas short durations are dots (<code class="docutils literal notranslate"><span class="pre">.</span></code>).
-By combining dashes and dots Morse defines a way to send characters. For
-example, here’s how the standard Morse alphabet is defined:</p>
+<section id="id4">
+<h2>Протокол<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<p>Протокол объясняет, как вести себя в конкретной ситуации. Протокол заранее определен,
+чтобы гарантировать гарантировать правильность передачи и приема сигналов.</p>
+<p>Известный протокол для отправки сообщений (предшествовавший компьютерам) —
+Азбука Морзе. Он определяет, как отправлять текстовые сообщения с помощью сигналов
+включения/выключения. Длительной или короткой продолжительности:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.-</span>    <span class="n">A</span>     <span class="o">.---</span>  <span class="n">J</span>     <span class="o">...</span>   <span class="n">S</span>     <span class="o">.----</span>  <span class="mi">1</span>      <span class="o">----.</span>  <span class="mi">9</span>
 <span class="o">-...</span>  <span class="n">B</span>     <span class="o">-.-</span>   <span class="n">K</span>     <span class="o">-</span>     <span class="n">T</span>     <span class="o">..---</span>  <span class="mi">2</span>      <span class="o">-----</span>  <span class="mi">0</span>
 <span class="o">-.-.</span>  <span class="n">C</span>     <span class="o">.-..</span>  <span class="n">L</span>     <span class="o">..-</span>   <span class="n">U</span>     <span class="o">...--</span>  <span class="mi">3</span>
@@ -163,61 +130,36 @@ example, here’s how the standard Morse alphabet is defined:</p>
 <span class="o">..</span>    <span class="n">I</span>     <span class="o">.-.</span>   <span class="n">R</span>
 </pre></div>
 </div>
-<p>Given the chart above, to send the character «H» the signal is switched on four
-times for a short duration, indicating four dots (<code class="docutils literal notranslate"><span class="pre">....</span></code>). For the letter
-«L» the signal is also switched on four times, but the second signal has a
-longer duration (<code class="docutils literal notranslate"><span class="pre">.-..</span></code>).</p>
-<p>Obviously, the timing of the signal is important: we need to tell a dot from a
-dash. That’s another point of a protocol, to agree such things so everyone’s
-implementation of the protocol will work with everyone elses. In this instance
-we’ll just say that:</p>
-<ul class="simple">
-<li><p>A signal with a duration less than 250 milliseconds is a dot.</p></li>
-<li><p>A signal with a duration from 250 milliseconds to less than 500 milliseconds is a dash.</p></li>
-<li><p>Any other duration of signal is ignored.</p></li>
-<li><p>A pause / gap in the signal of greater than 500 milliseconds indicates the end of a character.</p></li>
-</ul>
-<p>In this way, the sending of a letter «H» is defined as four «on» signals that
-last no longer than 250 milliseconds each, followed by a pause of greater than
-500 milliseconds (indicating the end of the character).</p>
-</section>
-<section id="message">
-<h2>Message<a class="headerlink" href="#message" title="Ссылка на этот заголовок"></a></h2>
-<p>We’re finally at a stage where we can build a message - a message that actually
-means something to us humans. This is the top-most layer of our <em>network
-stack</em>.</p>
-<p>Using the protocol defined above I can send the following sequence of signals
-down the physical wire to the other micro:bit:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...././.-../.-../---/.--/---/.-./.-../-..</span>
+<p>Учитывая приведенную выше диаграмму, для отправки символа «H» сигнал включается четыре раза.
+Короткие сигналы обозначают точки (<code class="docutils literal notranslate"><span class="pre">....</span></code>). Для письма «L» сигнал также включается четыре раза,
+но второй сигнал имеет большую продолжительность.</p>
+<p>Очевидно, важна синхронизация сигнала: нам нужно отличить точку от точки. Это еще один пункт
+протокола.  Укажим остальные пункты протокола:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* Сигнал длительностью менее 250 миллисекунд является точкой.
+* Сигнал длительностью от 250 мс до менее 500 мс — прочерк.
+* Любая другая продолжительность сигнала игнорируется.
+* Пауза/пробел в сигнале более 500 миллисекунд указывает на конец символа.
 </pre></div>
 </div>
-<p>Can you work out what it says?</p>
+<p>Таким образом, отправка буквы «Н» определяется как четыре сигнала «вкл.», которые
+имеют длительность не более 250 миллисекунд каждая, после чего следует пауза
+продолжительностью более 500 миллисекунд (указывает на конец символа).</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Русские буквы Microbit не поддерживает.</p>
+</div>
 </section>
-<section id="application">
-<h2>Application<a class="headerlink" href="#application" title="Ссылка на этот заголовок"></a></h2>
-<p>It’s all very well having a network stack, but you also need a way to
-interact with it - some form of application to send and receive messages.
-While HTTP is interesting <em>most</em> people don’t know about it and let their
-web-browser handle it - the underlying <em>network stack</em> of the world wide web
-is hidden (as it should be).</p>
-<p>So, what sort of application should we write for the BBC micro:bit? How should
-it work, from the user’s point of view?</p>
-<p>Obviously, to send a message you should be able to input dots and dashes (we
-can use button A for that). If we want to see the message we sent or just
-received we should be able to trigger it to scroll across the display (we can
-use button B for that). Finally, this being Morse code, if a speaker is
-attached, we should be able to play the beeps as a form of aural feedback while
-the user is entering their message.</p>
+<section id="id5">
+<h2>Применение протокола<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h2>
 </section>
 <section id="the-end-result">
 <h2>The End Result<a class="headerlink" href="#the-end-result" title="Ссылка на этот заголовок"></a></h2>
-<p>Here’s the program, in all its glory and annotated with plenty of comments so
-you can see what’s going on:</p>
+<p>Пример программы:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">music</span>
 
 
-<span class="c1"># A lookup table of morse codes and associated characters.</span>
+<span class="c1"># Закодированный словарь .</span>
 <span class="n">MORSE_CODE_LOOKUP</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;.-&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span>
     <span class="s2">&quot;-...&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span>
@@ -374,7 +316,7 @@ the same time? What might you do to handle this situation?</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="speech.html" class="btn btn-neutral float-left" title="Speech" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="speech.html" class="btn btn-neutral float-left" title="Речь" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
         <a href="radio.html" class="btn btn-neutral float-right" title="Radio" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
