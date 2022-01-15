@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gestures &mdash; документация Microbit-Русская документация 0.1</title>
+  <title>Жесты - Акселерометр &mdash; документация Microbit-Русская документация 0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Direction" href="direction.html" />
-    <link rel="prev" title="Movement" href="movement.html" /> 
+    <link rel="next" title="Компас" href="direction.html" />
+    <link rel="prev" title="Акселерометр" href="movement.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,20 +42,15 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Инструкция</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hello.html">Первая программа Hello, World!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="images.html">Images</a></li>
-<li class="toctree-l1"><a class="reference internal" href="buttons.html">Buttons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="io.html">Input/Output Pins</a></li>
-<li class="toctree-l1"><a class="reference internal" href="music.html">Music</a></li>
-<li class="toctree-l1"><a class="reference internal" href="random.html">Random</a></li>
-<li class="toctree-l1"><a class="reference internal" href="movement.html">Movement</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Gestures</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#magic-8">Magic-8</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="direction.html">Direction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="storage.html">Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="speech.html">Speech</a></li>
-<li class="toctree-l1"><a class="reference internal" href="network.html">Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="music.html">Мелодии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="random.html">Случайные числа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movement.html">Акселерометр</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Жесты - Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="direction.html">Компас</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speech.html">Речь</a></li>
 <li class="toctree-l1"><a class="reference internal" href="radio.html">Radio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="next.html">Next Steps</a></li>
 </ul>
@@ -74,7 +69,7 @@
           <div role="navigation" aria-label="Навигация по страницам">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Gestures</li>
+      <li>Жесты - Акселерометр</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tutorials/gestures.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
       </li>
@@ -84,98 +79,50 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="gestures">
-<h1>Gestures<a class="headerlink" href="#gestures" title="Ссылка на этот заголовок"></a></h1>
-<p>The really interesting side-effect of having an accelerometer is gesture
-detection. If you move your BBC micro:bit in a certain way (as a gesture) then
-MicroPython is able to detect this.</p>
-<p>MicroPython is able to recognise the following gestures: <code class="docutils literal notranslate"><span class="pre">up</span></code>, <code class="docutils literal notranslate"><span class="pre">down</span></code>,
-<code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">up</span></code>, <code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">down</span></code>, <code class="docutils literal notranslate"><span class="pre">freefall</span></code>, <code class="docutils literal notranslate"><span class="pre">3g</span></code>, <code class="docutils literal notranslate"><span class="pre">6g</span></code>,
-<code class="docutils literal notranslate"><span class="pre">8g</span></code>, <code class="docutils literal notranslate"><span class="pre">shake</span></code>. Gestures are always represented as strings. While most of
-the names should be obvious, the <code class="docutils literal notranslate"><span class="pre">3g</span></code>, <code class="docutils literal notranslate"><span class="pre">6g</span></code> and <code class="docutils literal notranslate"><span class="pre">8g</span></code> gestures apply when
-the device encounters these levels of g-force (like when an astronaut is
-launched into space).</p>
-<p>To get the current gesture use the <code class="docutils literal notranslate"><span class="pre">accelerometer.current_gesture</span></code> method.
-Its result is going to be one of the named gestures listed above. For example,
-this program will only make your device happy if it is face up:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">gesture</span> <span class="o">=</span> <span class="n">accelerometer</span><span class="o">.</span><span class="n">current_gesture</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">gesture</span> <span class="o">==</span> <span class="s2">&quot;face up&quot;</span><span class="p">:</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">ANGRY</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Once again, because we want the device to react to changing circumstances we
-use a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop. Within the <em>scope</em> of the loop the current gesture is
-read and put into <code class="docutils literal notranslate"><span class="pre">gesture</span></code>. The <code class="docutils literal notranslate"><span class="pre">if</span></code> conditional checks if <code class="docutils literal notranslate"><span class="pre">gesture</span></code> is
-equal to <code class="docutils literal notranslate"><span class="pre">&quot;face</span> <span class="pre">up&quot;</span></code> (Python uses <code class="docutils literal notranslate"><span class="pre">==</span></code> to test for equality, a single
-equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code> is used for assignment - just like how we assign the gesture
-reading to the <code class="docutils literal notranslate"><span class="pre">gesture</span></code> object). If the gesture is equal to <code class="docutils literal notranslate"><span class="pre">&quot;face</span> <span class="pre">up&quot;</span></code>
-then use the display to show a happy face. Otherwise, the device is made to
-look angry!</p>
-<section id="magic-8">
-<h2>Magic-8<a class="headerlink" href="#magic-8" title="Ссылка на этот заголовок"></a></h2>
-<p>A Magic-8 ball is a toy first invented in the 1950s. The idea is to ask
-it a yes/no question, shake it and wait for it to reveal the truth. It’s rather
-easy to turn into a program:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">random</span>
-
-<span class="n">answers</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s2">&quot;It is certain&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;It is decidedly so&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Without a doubt&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Yes, definitely&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;You may rely on it&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;As I see it, yes&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Most likely&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Outlook good&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Yes&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Signs point to yes&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Reply hazy try again&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Ask again later&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Better not tell you now&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Cannot predict now&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Concentrate and ask again&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Don&#39;t count on it&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;My reply is no&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;My sources say no&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Outlook not so good&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Very doubtful&quot;</span><span class="p">,</span>
+  <section id="id1">
+<h1>Жесты - Акселерометр<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Акселерометр также предоставляет удобные функции для обнаружения жестов.
+Распознаваемые жесты:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">up</span></code> - логотипом вверх</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">down</span></code> - логотипом вниз</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span></code> - наклон влево</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right</span></code> - наклон вправо</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">up</span></code> - дисплеем верх</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">down</span></code> - дисплеем вниз</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">freefall</span></code> - свободное падение</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3g</span></code> - тряска с усилием 3g</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">6g</span></code> - тряска с усилием 6g</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">8g</span></code> - тряска с усилием 8g</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shake</span></code> - тряска базовая</p></li>
+</ul>
+<p>Используются метод <code class="docutils literal notranslate"><span class="pre">accelerometer.current_gesture(</span> <span class="pre">)</span></code> - Возвращает название текущего жеста.
+<code class="docutils literal notranslate"><span class="pre">accelerometer.is_gesture(</span> <span class="pre">имя</span> <span class="pre">)</span></code> - Возвратите значение <code class="docutils literal notranslate"><span class="pre">True</span></code> или <code class="docutils literal notranslate"><span class="pre">False</span></code>,если
+произошел указанный жест (вместо имя).</p>
+<p>Пример кода <strong>Волшебный шар</strong>, который выводит случайное сообщение при тряске:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">answers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Y&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;N&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;?&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;%&#39;</span><span class="p">,</span>
 <span class="p">]</span>
-
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s2">&quot;8&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">accelerometer</span><span class="o">.</span><span class="n">was_gesture</span><span class="p">(</span><span class="s2">&quot;shake&quot;</span><span class="p">):</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">answers</span><span class="p">))</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s1">&#39;8&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">accelerometer</span><span class="o">.</span><span class="n">was_gesture</span><span class="p">(</span><span class="s1">&#39;shake&#39;</span><span class="p">):</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">answers</span><span class="p">))</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Most of the program is a list called <code class="docutils literal notranslate"><span class="pre">answers</span></code>. The actual game is in the
-<code class="docutils literal notranslate"><span class="pre">while</span></code> loop at the end.</p>
-<p>The default state of the game is to show the character <code class="docutils literal notranslate"><span class="pre">&quot;8&quot;</span></code>. However, the
-program needs to detect if it has been shaken. The <code class="docutils literal notranslate"><span class="pre">was_gesture</span></code> method uses
-its argument (in this case, the string <code class="docutils literal notranslate"><span class="pre">&quot;shake&quot;</span></code> because we want to detect
-a shake) to return a <code class="docutils literal notranslate"><span class="pre">True</span></code> / <code class="docutils literal notranslate"><span class="pre">False</span></code> response. If the device was shaken
-the <code class="docutils literal notranslate"><span class="pre">if</span></code> conditional drops into its block of code where it clears the screen,
-waits for a second (so the device appears to be thinking about your question)
-and displays a randomly chosen answer.</p>
-<p>Why not ask it if this is the greatest program ever written? What could you do
-to «cheat» and make the answer always positive or negative? (Hint: use the
-buttons.)</p>
-</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="movement.html" class="btn btn-neutral float-left" title="Movement" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="direction.html" class="btn btn-neutral float-right" title="Direction" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="movement.html" class="btn btn-neutral float-left" title="Акселерометр" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="direction.html" class="btn btn-neutral float-right" title="Компас" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

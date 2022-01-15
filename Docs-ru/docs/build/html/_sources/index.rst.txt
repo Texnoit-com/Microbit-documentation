@@ -24,8 +24,6 @@ BBC micro:bit MicroPython - на русском
    tutorials/movement
    tutorials/gestures
    tutorials/direction
-   tutorials/storage
    tutorials/speech
-   tutorials/network
    tutorials/radio
    tutorials/next
