@@ -58,11 +58,13 @@ BBC micro:bit MicroPython - на русском
    sensor/Analog_Gas
    sensor/Analog_Sound
    sensor/Analog_Temperature
+   sensor/Analog_Rotation
    sensor/Capacitive_Touch
    sensor/DHT11_Temperature
    sensor/Digital_IR_Receiver
    sensor/Digital_Push_Button
    sensor/Digital_Tilt
+   sensor/Crash_Sensor
    sensor/Flame
    sensor/GUVA-S12SD_3528_Ultraviolet
    sensor/Hall_Magnetic
