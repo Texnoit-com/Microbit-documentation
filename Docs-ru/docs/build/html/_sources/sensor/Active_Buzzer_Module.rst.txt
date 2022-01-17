@@ -1,4 +1,4 @@
-Активный зумер
+Активный зуммер
 ------------------------
 
 .. image:: images/Active_Buzzer_Module.png

@@ -26,7 +26,6 @@ BBC micro:bit MicroPython - на русском
    tutorials/direction
    tutorials/speech
    tutorials/radio
-   tutorials/next
 
 
 .. toctree::
