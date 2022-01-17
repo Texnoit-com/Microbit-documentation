@@ -1,108 +1,107 @@
-micro:bit Micropython API
+Microbit Micropython API
 *************************
 
 Модуль
 ======
 
-Everything directly related to interacting with the hardware lives in the `microbit` module.  For ease of use it's recommended you start all scripts with::
+Весь функционал расположен в библиотеке::
 
     from microbit import *
 
-The following documentation assumes you have done this.
+В дальнейщем в коде это строка указываться не будет. Вы ее подключаете самостоятельно
 
-There are a few functions available directly::
+Функции доступные на прямую::
 
-    # sleep for the given number of milliseconds.
+    # Задержка, указывается в миллисекундах.
     sleep(ms)
-    # returns the number of milliseconds since the micro:bit was last switched on.
+    # возвращает количество миллисекунд с момента последнего включения Microbit.
     running_time()
-    # makes the micro:bit enter panic mode (this usually happens when the DAL runs
-    # out of memory, and causes a sad face to be drawn on the display). The error
-    # code can be any arbitrary integer value.
+    # Переводит Microbit в режим ошибки выполнения.
     panic(error_code)
-    # resets the micro:bit.
+    # Перезагрузка Microbit.
     reset()
-    # sets the output volume (0-255) of the micro:bit speaker **V2** and
-    # external speaker or headphones connected to the edge connector pins.
+    # Устанавливает громкость динамиков.
     set_volume(128)    # V2
 
-The rest of the functionality is provided by objects and classes in the microbit module, as described below.
+Остальная функциональность обеспечивается объектами и классами в модуле микробит, как будет описано ниже.
 
-Note that the API exposes integers only (ie no floats are needed, but they may be accepted).  We thus use milliseconds for the standard time unit.
+Обратите внимание, что API предоставляет только целые числа (т. е. числа с плавающей запятой не нужны, 
+но они могут быть приняты). Таким образом, мы используем миллисекунды в качестве стандартной единицы времени.
 
 .. note::
-    You can see a list of all available modules by writing ``help('modules')`` in the REPL.
+    Вы можете увидеть список всех доступных модулей, написав ``help('modules')`` в REPL.
 
 Кнопки
 -------
 
-There are 2 buttons::
+На микробите встроены 2 кнопки::
 
     button_a
     button_b
 
-These are both objects and have the following methods::
+Объеккты имеют методы::
 
-    # returns True or False to indicate if the button is pressed at the time of
-    # the method call.
+    # возвращает True или False,обозначая была ли кнопка нажата во время вызов метода.
     button.is_pressed()
-    # returns True or False to indicate if the button was pressed since the device
-    # started or the last time this method was called.
+    # возвращает True или False, чтобы указать, была ли кнопка нажата после последнего вызова этой метода
     button.was_pressed()
-    # returns the running total of button presses, and resets this counter to zero
+    # возвращает общее количество нажатий на кнопоку и сбрасывает этот счетчик на ноль
     button.get_presses()
 
 Дисплей
 -------
 
-The LED display is exposed via the `display` object::
+Светодиодный дисплей выводится через объект `display`::
 
-    # gets the brightness of the pixel (x,y). Brightness can be from 0 (the pixel
-    # is off) to 9 (the pixel is at maximum brightness).
+    # Возвращает значения яркости пикселя ( от 0 до 9) по координатам x, y.
     display.get_pixel(x, y)
-    # sets the brightness of the pixel (x,y) to val (between 0 [off] and 9 [max
-    # brightness], inclusive).
+    # Устанавливает значения яркости пикселя ( от 0 до 9) по координатам x, y.
     display.set_pixel(x, y, val)
-    # clears the display.
+    # Очищает дисплей.
     display.clear()
-    # shows the image.
+    # Выводит изображение на дисплей.
     display.show(image, delay=0, wait=True, loop=False, clear=False)
-    # shows each image or letter in the iterable, with delay ms. in between each.
+    # Может выводить итерируемый объект с задержкой.
     display.show(iterable, delay=400, wait=True, loop=False, clear=False)
-    # scrolls a string across the display (more exciting than display.show for
-    # written messages).
+    # Бегущая строка.
     display.scroll(string, delay=400)
 
 Звук **V2**
 -----------------
-Sound events describe changes in the sound heard by the microphone::
+Команды описывающие работу со звуком::
 
-    # Value to represent the transition of sound events, from `quiet` to `loud`
-    # like clapping or shouting.
+    # Переключение режима работы (тихо, громко).
     SoundEvent.LOUD = SoundEvent('loud')
-    # Value to represent the transition of sound events, from `loud` to `quiet`
-    # like speaking or background music.
+    # Переключение в режим повышенных шумов.
     SoundEvent.QUIET = SoundEvent('quiet')
 
 Микрофон **V2**
 -----------------
 
-The Microphone is accessed via the `microphone` object::
+Доступ к микрофону осуществляется через объект `microphone`::
 
-    # Returns the name of the last recorded sound event.
+    # Возвращает имя последнего записанного звукового события
+
     current_event()
-    # A sound event,  such as `SoundEvent.LOUD` or `SoundEvent.QUIET`. 
-    # Returns`true` if sound was heard at least once since the last
-    # call, otherwise `false`.
+
+    # Отследить изменение событий `SoundEvent.LOUD`и `SoundEvent.QUIET`. 
+    # Возвращает true, если звук был слышен хотя бы один раз с момента последнего
+    # вызов, иначе `false`
+
     was_event(event)
-    # Returns a tuple of the event history. The most recent is listed last.
-    # Also clears the sound event history before returning.
+
+    # Кортеж историй звуковых событий
+
     get_events()
-    # The threshold level in the range 0-255. For example,
-    # `set_threshold(SoundEvent.LOUD, 250)` will only trigger if the
-    # sound is very loud (>= 250).
+
+    #Установка порогового уровня реагирования на звук в диапазоне 0-255. Например,
+    # `set_threshold(SoundEvent.LOUD, 250)` сработает, только если
+    # звук очень громкий (>= 250).
+
     set_threshold(128)
-    # Returns a representation of the sound pressure level in the range 0 to 255.
+
+    # Возвращает представление уровня звукового давления в диапазоне от 0 до 255.
+
     sound_level()
 
 Контакты

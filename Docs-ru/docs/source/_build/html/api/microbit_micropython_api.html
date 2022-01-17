@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>micro:bit Micropython API &mdash; документация Microbit-Русская документация 0.1</title>
+  <title>Microbit Micropython API &mdash; документация Microbit-Русская документация 0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -56,7 +56,7 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">micro:bit Micropython API</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Microbit Micropython API</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Модуль</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id2">Кнопки</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id3">Дисплей</a></li>
@@ -85,19 +85,19 @@
 <li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
 <li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
-<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="os.html">The <code class="docutils literal notranslate"><span class="pre">os</span></code>  Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pin.html">Input/Output Pins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="radio.html">Radio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="random.html">Random Number Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="speech.html">Speech</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spi.html">SPI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="uart.html">UART</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utime.html">utime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music.html">Музыка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel (Адресная светодиодная лента)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">Библиотека OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pin.html">Контакты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radio.html">Радио</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random (Генератор случайных чисел)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speaker.html">Генератор речи <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="speech.html">Генератор речи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spi.html">Протокол SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">Протокол UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime (модуль работы со временем)</a></li>
 </ul>
 </li>
 </ul>
@@ -121,7 +121,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../API.html">Справочник по API</a> &raquo;</li>
-      <li>micro:bit Micropython API</li>
+      <li>Microbit Micropython API</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/microbit_micropython_api.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
       </li>
@@ -131,16 +131,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="micro-bit-micropython-api">
-<h1>micro:bit Micropython API<a class="headerlink" href="#micro-bit-micropython-api" title="Ссылка на этот заголовок"></a></h1>
+  <section id="microbit-micropython-api">
+<h1>Microbit Micropython API<a class="headerlink" href="#microbit-micropython-api" title="Ссылка на этот заголовок"></a></h1>
 <section id="id1">
 <h2>Модуль<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
-<p>Everything directly related to interacting with the hardware lives in the <cite>microbit</cite> module.  For ease of use it’s recommended you start all scripts with:</p>
+<p>Весь функционал расположен в библиотеке:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
-<p>The following documentation assumes you have done this.</p>
-<p>There are a few functions available directly:</p>
+<p>В дальнейщем в коде это строка указываться не будет. Вы ее подключаете самостоятельно</p>
+<p>Функции доступные на прямую:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sleep for the given number of milliseconds.</span>
 <span class="n">sleep</span><span class="p">(</span><span class="n">ms</span><span class="p">)</span>
 <span class="c1"># returns the number of milliseconds since the micro:bit was last switched on.</span>

@@ -1,16 +1,16 @@
-micro:bit Micropython API
+Microbit Micropython API
 *************************
 
 Модуль
 ======
 
-Everything directly related to interacting with the hardware lives in the `microbit` module.  For ease of use it's recommended you start all scripts with::
+Весь функционал расположен в библиотеке::
 
     from microbit import *
 
-The following documentation assumes you have done this.
+В дальнейщем в коде это строка указываться не будет. Вы ее подключаете самостоятельно
 
-There are a few functions available directly::
+Функции доступные на прямую::
 
     # sleep for the given number of milliseconds.
     sleep(ms)
