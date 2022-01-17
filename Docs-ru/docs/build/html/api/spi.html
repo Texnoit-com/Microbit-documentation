@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPI &mdash; документация Microbit-Русская документация 0.1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="UART" href="uart.html" />
+    <link rel="prev" title="Speaker V2" href="speaker.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+            <a href="../index.html" class="icon icon-home"> Microbit-Русская документация
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Основные команды</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/introduction.html">Инструкция</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/hello.html">Первая программа Hello, World!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/io.html">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/music.html">Мелодии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/random.html">Случайные числа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/movement.html">Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gestures.html">Жесты - Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/direction.html">Компас</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/speech.html">Речь</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/radio.html">Радиосигнал</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audio.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">Buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compass.html">Compass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="display.html">Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Local Persistent File System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">I²C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">Machine</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="microbit.html">Microbit Module</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#classes">Classes</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="microbit.html#modules">Modules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="audio.html">Audio V2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="compass.html">Compass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="display.html">Display</a></li>
+<li class="toctree-l4"><a class="reference internal" href="i2c.html">I²C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">SPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uart.html">UART</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">The <code class="docutils literal notranslate"><span class="pre">os</span></code>  Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pin.html">Input/Output Pins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radio.html">Radio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random Number Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="speech.html">Speech</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SPI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Датчики</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sensor.html">Датчики</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Microbit-Русская документация</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../API.html">Справочник по API</a> &raquo;</li>
+          <li><a href="microbit.html">Microbit Module</a> &raquo;</li>
+      <li>SPI</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/spi.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-microbit.spi">
+<span id="spi"></span><h1>SPI<a class="headerlink" href="#module-microbit.spi" title="Ссылка на этот заголовок"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">spi</span></code> module lets you talk to a device connected to your board using
+a serial peripheral interface (SPI) bus. SPI uses a so-called master-slave
+architecture with a single master. You will need to specify the connections
+for three signals:</p>
+<ul class="simple">
+<li><p>SCLK : Serial Clock (output from master).</p></li>
+<li><p>MOSI : Master Output, Slave Input (output from master).</p></li>
+<li><p>MISO : Master Input, Slave Output (output from slave).</p></li>
+</ul>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="microbit.spi.init">
+<span class="sig-prename descclassname"><span class="pre">microbit.spi.</span></span><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">baudrate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sclk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">pin13</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mosi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">pin15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">miso</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">pin14</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.spi.init" title="Ссылка на это определение"></a></dt>
+<dd><p>Initialize SPI communication with the specified parameters on the
+specified <code class="docutils literal notranslate"><span class="pre">pins</span></code>. Note that for correct communication, the parameters
+have to be the same on both communicating devices.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">baudrate</span></code> defines the speed of communication.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">bits</span></code> defines the size of bytes being transmitted. Currently only
+<code class="docutils literal notranslate"><span class="pre">bits=8</span></code> is supported. However, this may change in the future.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">mode</span></code> determines the combination of clock polarity and phase
+according to the following convention, with polarity as the high order bit
+and phase as the low order bit:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 41%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>SPI Mode</p></th>
+<th class="head"><p>Polarity (CPOL)</p></th>
+<th class="head"><p>Phase (CPHA)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p>Polarity (aka CPOL) 0 means that the clock is at logic value 0 when idle
+and goes high (logic value 1) when active; polarity 1 means the clock is
+at logic value 1 when idle and goes low (logic value 0) when active. Phase
+(aka CPHA) 0 means that data is sampled on the leading edge of the clock,
+and 1 means on the trailing edge
+(viz. <a class="reference external" href="https://en.wikipedia.org/wiki/Signal_edge">https://en.wikipedia.org/wiki/Signal_edge</a>).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">sclk</span></code>, <code class="docutils literal notranslate"><span class="pre">mosi</span></code> and <code class="docutils literal notranslate"><span class="pre">miso</span></code> arguments specify the pins to use for
+each type of signal.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="microbit.spi.spi.read">
+<span class="sig-prename descclassname"><span class="pre">spi.</span></span><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nbytes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.spi.spi.read" title="Ссылка на это определение"></a></dt>
+<dd><p>Read at most <code class="docutils literal notranslate"><span class="pre">nbytes</span></code>. Returns what was read.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="microbit.spi.spi.write">
+<span class="sig-prename descclassname"><span class="pre">spi.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buffer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.spi.spi.write" title="Ссылка на это определение"></a></dt>
+<dd><p>Write the <code class="docutils literal notranslate"><span class="pre">buffer</span></code> of bytes to the bus.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="microbit.spi.spi.write_readinto">
+<span class="sig-prename descclassname"><span class="pre">spi.</span></span><span class="sig-name descname"><span class="pre">write_readinto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.spi.spi.write_readinto" title="Ссылка на это определение"></a></dt>
+<dd><p>Write the <code class="docutils literal notranslate"><span class="pre">out</span></code> buffer to the bus and read any response into the <code class="docutils literal notranslate"><span class="pre">in</span></code>
+buffer. The length of the buffers should be the same. The buffers can be
+the same object.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="speaker.html" class="btn btn-neutral float-left" title="Speaker V2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="uart.html" class="btn btn-neutral float-right" title="UART" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Maxim Bekurin, Read the Docs, Inc. &amp; contributors.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

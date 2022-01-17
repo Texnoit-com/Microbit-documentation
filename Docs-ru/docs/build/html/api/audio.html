@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audio &mdash; документация Microbit-Русская документация 0.1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Bluetooth" href="ble.html" />
+    <link rel="prev" title="Accelerometer" href="accelerometer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+            <a href="../index.html" class="icon icon-home"> Microbit-Русская документация
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Основные команды</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/introduction.html">Инструкция</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/hello.html">Первая программа Hello, World!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/io.html">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/music.html">Мелодии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/random.html">Случайные числа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/movement.html">Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gestures.html">Жесты - Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/direction.html">Компас</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/speech.html">Речь</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/radio.html">Радиосигнал</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Audio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-audio">Using audio</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#built-in-sounds-v2">Built-in sounds <strong>V2</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#technical-details">Technical Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">Buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compass.html">Compass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="display.html">Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Local Persistent File System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">I²C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">Machine</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="microbit.html">Microbit Module</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#attributes">Attributes</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="microbit.html#classes">Classes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="image.html">Image</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Sound</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="microbit.html#modules">Modules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Audio V2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="compass.html">Compass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="display.html">Display</a></li>
+<li class="toctree-l4"><a class="reference internal" href="i2c.html">I²C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="spi.html">SPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uart.html">UART</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">The <code class="docutils literal notranslate"><span class="pre">os</span></code>  Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pin.html">Input/Output Pins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radio.html">Radio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random Number Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="speech.html">Speech</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spi.html">SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Датчики</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sensor.html">Датчики</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Microbit-Русская документация</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../API.html">Справочник по API</a> &raquo;</li>
+      <li>Audio</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/audio.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-audio">
+<span id="audio"></span><h1>Audio<a class="headerlink" href="#module-audio" title="Ссылка на этот заголовок"></a></h1>
+<p>This module allows you to play your own sounds. If you are using a micro:bit
+<strong>V2</strong>, <code class="docutils literal notranslate"><span class="pre">audio</span></code> is also part of the <code class="docutils literal notranslate"><span class="pre">microbit</span></code> module.</p>
+<p>By default sound output will be via the edge connector on pin 0 and the
+<a class="reference internal" href="speaker.html"><span class="doc">built-in speaker</span></a> <strong>V2</strong>. You can connect wired headphones or
+a speaker to pin 0 and GND on the edge connector to hear the sounds.</p>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="audio.play">
+<span class="sig-prename descclassname"><span class="pre">audio.</span></span><span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">pin0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_pin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/audio.html#play"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#audio.play" title="Ссылка на это определение"></a></dt>
+<dd><p>Play the source to completion.</p>
+<ul class="simple">
+<li><p><strong>source</strong>: <code class="docutils literal notranslate"><span class="pre">Sound</span></code> - The <code class="docutils literal notranslate"><span class="pre">microbit</span></code> module contains a list of
+built-in sounds that your can pass to <code class="docutils literal notranslate"><span class="pre">audio.play()</span></code>.</p></li>
+<li><p><strong>source</strong>: <code class="docutils literal notranslate"><span class="pre">AudioFrame</span></code> - The source agrument can also be an iterable
+of <code class="docutils literal notranslate"><span class="pre">AudioFrame</span></code> elements as described below.</p></li>
+<li><p><strong>wait</strong>: If <code class="docutils literal notranslate"><span class="pre">wait</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, this function will block until the
+source is exhausted.</p></li>
+<li><p><strong>pin</strong>: An optional argument to specify the output pin can be used to</p></li>
+</ul>
+<p>override the default of <code class="docutils literal notranslate"><span class="pre">pin0</span></code>. If we do not want any sound to play
+we can use <code class="docutils literal notranslate"><span class="pre">pin=None</span></code>.</p>
+<ul class="simple">
+<li><p><strong>return_pin</strong>: specifies a differential edge connector pin to connect
+to an external speaker instead of ground. This is ignored for the <strong>V2</strong>
+revision.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="audio.is_playing">
+<span class="sig-prename descclassname"><span class="pre">audio.</span></span><span class="sig-name descname"><span class="pre">is_playing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/audio.html#is_playing"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#audio.is_playing" title="Ссылка на это определение"></a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if audio is playing, otherwise return <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="audio.stop">
+<span class="sig-prename descclassname"><span class="pre">audio.</span></span><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/audio.html#stop"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#audio.stop" title="Ссылка на это определение"></a></dt>
+<dd><p>Stops all audio playback.</p>
+</dd></dl>
+
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="audio.AudioFrame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">audio.</span></span><span class="sig-name descname"><span class="pre">AudioFrame</span></span><a class="reference internal" href="../_modules/audio.html#AudioFrame"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#audio.AudioFrame" title="Ссылка на это определение"></a></dt>
+<dd><p>An <code class="docutils literal notranslate"><span class="pre">AudioFrame</span></code> object is a list of 32 samples each of which is a signed byte
+(whole number between -128 and 127).</p>
+<p>It takes just over 4 ms to play a single frame.</p>
+</dd></dl>
+
+</section>
+<section id="using-audio">
+<h2>Using audio<a class="headerlink" href="#using-audio" title="Ссылка на этот заголовок"></a></h2>
+<p>You will need a sound source, as input to the <code class="docutils literal notranslate"><span class="pre">play</span></code> function. You can use
+the built-in sounds <strong>V2</strong> from the <code class="docutils literal notranslate"><span class="pre">microbit</span></code> module, <code class="docutils literal notranslate"><span class="pre">microbit.Sound</span></code>, or
+generate your own, like in <code class="docutils literal notranslate"><span class="pre">examples/waveforms.py</span></code>.</p>
+<section id="built-in-sounds-v2">
+<h3>Built-in sounds <strong>V2</strong><a class="headerlink" href="#built-in-sounds-v2" title="Ссылка на этот заголовок"></a></h3>
+<p>The built-in sounds can be called using <code class="docutils literal notranslate"><span class="pre">audio.play(Sound.NAME)</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Sound.GIGGLE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sound.HAPPY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sound.HELLO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sound.MYSTERIOUS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sound.SAD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sound.SLIDE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sound.SOARING</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sound.SPRING</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sound.TWINKLE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sound.YAWN</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="technical-details">
+<h2>Technical Details<a class="headerlink" href="#technical-details" title="Ссылка на этот заголовок"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>You don’t need to understand this section to use the <code class="docutils literal notranslate"><span class="pre">audio</span></code> module.
+It is just here in case you wanted to know how it works.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">audio</span></code> module consumes <code class="docutils literal notranslate"><span class="pre">AudioFrame</span></code> samples at 7812.5 Hz, and uses
+linear interpolation to output a PWM signal at 32.5 kHz, which gives tolerable
+sound quality.</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">play</span></code> fully copies all data from each <code class="docutils literal notranslate"><span class="pre">AudioFrame</span></code> before it
+calls <code class="docutils literal notranslate"><span class="pre">next()</span></code> for the next frame, so a sound source can use the same
+<code class="docutils literal notranslate"><span class="pre">AudioFrame</span></code> repeatedly.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">audio</span></code> module has an internal 64 sample buffer from which it reads
+samples. When reading reaches the start or the mid-point of the buffer, it
+triggers a callback to fetch the next <code class="docutils literal notranslate"><span class="pre">AudioFrame</span></code> which is then copied into
+the buffer. This means that a sound source has under 4ms to compute the next
+<code class="docutils literal notranslate"><span class="pre">AudioFrame</span></code>, and for reliable operation needs to take less 2ms (which is
+32000 cycles, so should be plenty).</p>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Ссылка на этот заголовок"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="accelerometer.html" class="btn btn-neutral float-left" title="Accelerometer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="ble.html" class="btn btn-neutral float-right" title="Bluetooth" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Maxim Bekurin, Read the Docs, Inc. &amp; contributors.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

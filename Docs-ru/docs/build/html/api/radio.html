@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radio &mdash; документация Microbit-Русская документация 0.1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Random Number Generation" href="random.html" />
+    <link rel="prev" title="The os Module" href="os.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+            <a href="../index.html" class="icon icon-home"> Microbit-Русская документация
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Основные команды</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/introduction.html">Инструкция</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/hello.html">Первая программа Hello, World!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/io.html">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/music.html">Мелодии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/random.html">Случайные числа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/movement.html">Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gestures.html">Жесты - Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/direction.html">Компас</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/speech.html">Речь</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/radio.html">Радиосигнал</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audio.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">Buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compass.html">Compass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="display.html">Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Local Persistent File System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">I²C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">The <code class="docutils literal notranslate"><span class="pre">os</span></code>  Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pin.html">Input/Output Pins</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Radio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#constants">Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random Number Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="speech.html">Speech</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spi.html">SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Датчики</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sensor.html">Датчики</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Microbit-Русская документация</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../API.html">Справочник по API</a> &raquo;</li>
+      <li>Radio</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/radio.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-radio">
+<span id="radio"></span><h1>Radio<a class="headerlink" href="#module-radio" title="Ссылка на этот заголовок"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">radio</span></code> module allows devices to work together via simple wireless
+networks.</p>
+<p>The radio module is conceptually very simple:</p>
+<ul class="simple">
+<li><p>Broadcast messages are of a certain configurable length (up to 251 bytes).</p></li>
+<li><p>Messages received are read from a queue of configurable size (the larger the queue the more RAM is used). If the queue is full, new messages are ignored. Reading a message removes it from the queue.</p></li>
+<li><p>Messages are broadcast and received on a preselected channel (numbered 0-83).</p></li>
+<li><p>Broadcasts are at a certain level of power - more power means more range.</p></li>
+<li><p>Messages are filtered by address (like a house number) and group (like a named recipient at the specified address).</p></li>
+<li><p>The rate of throughput can be one of three pre-determined settings.</p></li>
+<li><p>Send and receive bytes to work with arbitrary data.</p></li>
+<li><p>Use <cite>receive_full</cite> to obtain full details about an incoming message: the data, receiving signal strength, and a microsecond timestamp when the message arrived.</p></li>
+<li><p>As a convenience for children, it’s easy to send and receive messages as strings.</p></li>
+<li><p>The default configuration is both sensible and compatible with other platforms that target the BBC micro:bit.</p></li>
+</ul>
+<p>To access this module you need to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">radio</span>
+</pre></div>
+</div>
+<p>We assume you have done this for the examples below.</p>
+<section id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="radio.RATE_250KBIT">
+<span class="sig-prename descclassname"><span class="pre">radio.</span></span><span class="sig-name descname"><span class="pre">RATE_250KBIT</span></span><a class="headerlink" href="#radio.RATE_250KBIT" title="Ссылка на это определение"></a></dt>
+<dd><p>Constant used to indicate a throughput of 256 Kbit a second.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="radio.RATE_1MBIT">
+<span class="sig-prename descclassname"><span class="pre">radio.</span></span><span class="sig-name descname"><span class="pre">RATE_1MBIT</span></span><a class="headerlink" href="#radio.RATE_1MBIT" title="Ссылка на это определение"></a></dt>
+<dd><p>Constant used to indicate a throughput of 1 MBit a second.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="radio.RATE_2MBIT">
+<span class="sig-prename descclassname"><span class="pre">radio.</span></span><span class="sig-name descname"><span class="pre">RATE_2MBIT</span></span><a class="headerlink" href="#radio.RATE_2MBIT" title="Ссылка на это определение"></a></dt>
+<dd><p>Constant used to indicate a throughput of 2 MBit a second.</p>
+</dd></dl>
+
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="radio.on">
+<span class="sig-prename descclassname"><span class="pre">radio.</span></span><span class="sig-name descname"><span class="pre">on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/radio.html#on"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#radio.on" title="Ссылка на это определение"></a></dt>
+<dd><p>Turns the radio on. This needs to be explicitly called since the radio
+draws power and takes up memory that you may otherwise need.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="radio.off">
+<span class="sig-prename descclassname"><span class="pre">radio.</span></span><span class="sig-name descname"><span class="pre">off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/radio.html#off"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#radio.off" title="Ссылка на это определение"></a></dt>
+<dd><p>Turns off the radio, thus saving power and memory.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="radio.config">
+<span class="sig-prename descclassname"><span class="pre">radio.</span></span><span class="sig-name descname"><span class="pre">config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/radio.html#config"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#radio.config" title="Ссылка на это определение"></a></dt>
+<dd><p>Configures various keyword based settings relating to the radio. The
+available settings and their sensible default values are listed below.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">length</span></code> (default=32) defines the maximum length, in bytes, of a
+message sent via the radio. It can be up to 251 bytes long (254 - 3 bytes
+for S0, LENGTH and S1 preamble).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">queue</span></code> (default=3) specifies the number of messages that can be
+stored on the incoming message queue. If there are no spaces left on the
+queue for incoming messages, then the incoming message is dropped.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">channel</span></code> (default=7) can be an integer value from 0 to 83
+(inclusive) that defines an arbitrary «channel» to which the radio is
+tuned. Messages will be sent via this channel and only messages received
+via this channel will be put onto the incoming message queue. Each step is
+1MHz wide, based at 2400MHz.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">power</span></code> (default=6) is an integer value from 0 to 7 (inclusive) to
+indicate the strength of signal used when broadcasting a message. The
+higher the value the stronger the signal, but the more power is consumed
+by the device. The numbering translates to positions in the following list
+of dBm (decibel milliwatt) values: -30, -20, -16, -12, -8, -4, 0, 4.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">address</span></code> (default=0x75626974) is an arbitrary name, expressed as a
+32-bit address, that’s used to filter incoming packets at the hardware
+level, keeping only those that match the address you set. The default used
+by other micro:bit related platforms is the default setting used here.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">group</span></code> (default=0) is an 8-bit value (0-255) used with the
+<code class="docutils literal notranslate"><span class="pre">address</span></code> when filtering messages. Conceptually, «address» is like a
+house/office address and «group» is like the person at that address to
+which you want to send your message.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">data_rate</span></code> (default=radio.RATE_1MBIT) indicates the speed at which
+data throughput takes place. Can be one of the following contants defined
+in the <code class="docutils literal notranslate"><span class="pre">radio</span></code> module : <code class="docutils literal notranslate"><span class="pre">RATE_250KBIT</span></code>, <code class="docutils literal notranslate"><span class="pre">RATE_1MBIT</span></code> or
+<code class="docutils literal notranslate"><span class="pre">RATE_2MBIT</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">config</span></code> is not called then the defaults described above are assumed.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="radio.reset">
+<span class="sig-prename descclassname"><span class="pre">radio.</span></span><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/radio.html#reset"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#radio.reset" title="Ссылка на это определение"></a></dt>
+<dd><p>Reset the settings to their default values (as listed in the documentation
+for the <code class="docutils literal notranslate"><span class="pre">config</span></code> function above).</p>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>None of the following send or receive methods will work until the radio is
+turned on.</p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="radio.send_bytes">
+<span class="sig-prename descclassname"><span class="pre">radio.</span></span><span class="sig-name descname"><span class="pre">send_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/radio.html#send_bytes"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#radio.send_bytes" title="Ссылка на это определение"></a></dt>
+<dd><p>Sends a message containing bytes.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="radio.receive_bytes">
+<span class="sig-prename descclassname"><span class="pre">radio.</span></span><span class="sig-name descname"><span class="pre">receive_bytes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/radio.html#receive_bytes"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#radio.receive_bytes" title="Ссылка на это определение"></a></dt>
+<dd><p>Receive the next incoming message on the message queue. Returns <code class="docutils literal notranslate"><span class="pre">None</span></code> if
+there are no pending messages. Messages are returned as bytes.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="radio.receive_bytes_into">
+<span class="sig-prename descclassname"><span class="pre">radio.</span></span><span class="sig-name descname"><span class="pre">receive_bytes_into</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buffer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#radio.receive_bytes_into" title="Ссылка на это определение"></a></dt>
+<dd><p>Receive the next incoming message on the message queue. Copies the message
+into <code class="docutils literal notranslate"><span class="pre">buffer</span></code>, trimming the end of the message if necessary.
+Returns <code class="docutils literal notranslate"><span class="pre">None</span></code> if there are no pending messages, otherwise it returns the length
+of the message (which might be more than the length of the buffer).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="radio.send">
+<span class="sig-prename descclassname"><span class="pre">radio.</span></span><span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/radio.html#send"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#radio.send" title="Ссылка на это определение"></a></dt>
+<dd><p>Sends a message string. This is the equivalent of
+<code class="docutils literal notranslate"><span class="pre">send_bytes(bytes(message,</span> <span class="pre">'utf8'))</span></code> but with <code class="docutils literal notranslate"><span class="pre">b'\x01\x00\x01'</span></code>
+prepended to the front (to make it compatible with other platforms that
+target the micro:bit).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="radio.receive">
+<span class="sig-prename descclassname"><span class="pre">radio.</span></span><span class="sig-name descname"><span class="pre">receive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/radio.html#receive"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#radio.receive" title="Ссылка на это определение"></a></dt>
+<dd><p>Works in exactly the same way as <code class="docutils literal notranslate"><span class="pre">receive_bytes</span></code> but returns
+whatever was sent.</p>
+<p>Currently, it’s equivalent to <code class="docutils literal notranslate"><span class="pre">str(receive_bytes(),</span> <span class="pre">'utf8')</span></code> but with a
+check that the the first three bytes are <code class="docutils literal notranslate"><span class="pre">b'\x01\x00\x01'</span></code> (to make it
+compatible with other platforms that may target the micro:bit). It strips
+the prepended bytes before converting to a string.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> exception is raised if conversion to string fails.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="radio.receive_full">
+<span class="sig-prename descclassname"><span class="pre">radio.</span></span><span class="sig-name descname"><span class="pre">receive_full</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#radio.receive_full" title="Ссылка на это определение"></a></dt>
+<dd><p>Returns a tuple containing three values representing the next incoming
+message on the message queue. If there are no pending messages then
+<code class="docutils literal notranslate"><span class="pre">None</span></code> is returned.</p>
+<p>The three values in the tuple represent:</p>
+<ul class="simple">
+<li><p>the next incoming message on the message queue as bytes.</p></li>
+<li><p>the RSSI (signal strength): a value between 0 (strongest) and -255 (weakest) as measured in dBm.</p></li>
+<li><p>a microsecond timestamp: the value returned by <code class="docutils literal notranslate"><span class="pre">time.ticks_us()</span></code> when the message was received.</p></li>
+</ul>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">details</span> <span class="o">=</span> <span class="n">radio</span><span class="o">.</span><span class="n">receive_full</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">details</span><span class="p">:</span>
+    <span class="n">msg</span><span class="p">,</span> <span class="n">rssi</span><span class="p">,</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="n">details</span>
+</pre></div>
+</div>
+<p>This function is useful for providing information needed for triangulation
+and/or triliteration with other micro:bit devices.</p>
+</dd></dl>
+
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Ссылка на этот заголовок"></a></h3>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># A micro:bit Firefly.</span>
+<span class="c1"># By Nicholas H.Tollervey. Released to the public domain.</span>
+<span class="kn">import</span> <span class="nn">radio</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">button_a</span><span class="p">,</span> <span class="n">sleep</span>
+
+<span class="c1"># Анимация вспышка</span>
+<span class="n">flash</span> <span class="o">=</span> <span class="p">[</span><span class="n">Image</span><span class="p">()</span><span class="o">.</span><span class="n">invert</span><span class="p">()</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="c1"># Включить радиомодуль.</span>
+<span class="n">radio</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+
+<span class="c1"># Вечный цикл.</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># Если кнопка A нажата отправить сообщение.</span>
+    <span class="k">if</span> <span class="n">button_a</span><span class="o">.</span><span class="n">was_pressed</span><span class="p">():</span>
+        <span class="n">radio</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;flash&#39;</span><span class="p">)</span>
+    <span class="c1"># Читать входящие сообщения</span>
+    <span class="n">incoming</span> <span class="o">=</span> <span class="n">radio</span><span class="o">.</span><span class="n">receive</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">incoming</span> <span class="o">==</span> <span class="s1">&#39;flash&#39;</span><span class="p">:</span>
+        <span class="c1"># Если пришло сообщение&quot;flash&quot; проиграть анимацию после случайно задержки</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">350</span><span class="p">))</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">flash</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="c1"># Передать ответное сообщение.</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+            <span class="n">radio</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;flash&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="os.html" class="btn btn-neutral float-left" title="The os Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="random.html" class="btn btn-neutral float-right" title="Random Number Generation" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Maxim Bekurin, Read the Docs, Inc. &amp; contributors.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

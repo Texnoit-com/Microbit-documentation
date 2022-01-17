@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accelerometer &mdash; документация Microbit-Русская документация 0.1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Audio" href="audio.html" />
+    <link rel="prev" title="Справочник по API" href="../API.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+            <a href="../index.html" class="icon icon-home"> Microbit-Русская документация
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Основные команды</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/introduction.html">Инструкция</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/hello.html">Первая программа Hello, World!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/io.html">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/music.html">Мелодии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/random.html">Случайные числа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/movement.html">Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gestures.html">Жесты - Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/direction.html">Компас</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/speech.html">Речь</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/radio.html">Радиосигнал</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Accelerometer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="audio.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">Buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compass.html">Compass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="display.html">Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Local Persistent File System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">I²C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">Machine</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="microbit.html">Microbit Module</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#classes">Classes</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="microbit.html#modules">Modules</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Accelerometer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="audio.html">Audio V2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="compass.html">Compass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="display.html">Display</a></li>
+<li class="toctree-l4"><a class="reference internal" href="i2c.html">I²C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="spi.html">SPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uart.html">UART</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">The <code class="docutils literal notranslate"><span class="pre">os</span></code>  Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pin.html">Input/Output Pins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radio.html">Radio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random Number Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="speech.html">Speech</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spi.html">SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Датчики</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sensor.html">Датчики</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Microbit-Русская документация</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../API.html">Справочник по API</a> &raquo;</li>
+      <li>Accelerometer</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/accelerometer.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-microbit.accelerometer">
+<span id="accelerometer"></span><h1>Accelerometer<a class="headerlink" href="#module-microbit.accelerometer" title="Ссылка на этот заголовок"></a></h1>
+<p>This object gives you access to the on-board accelerometer. The accelerometer
+also provides convenience functions for detecting gestures. The
+recognised gestures are: <code class="docutils literal notranslate"><span class="pre">up</span></code>, <code class="docutils literal notranslate"><span class="pre">down</span></code>, <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">up</span></code>,
+<code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">down</span></code>, <code class="docutils literal notranslate"><span class="pre">freefall</span></code>, <code class="docutils literal notranslate"><span class="pre">3g</span></code>, <code class="docutils literal notranslate"><span class="pre">6g</span></code>, <code class="docutils literal notranslate"><span class="pre">8g</span></code>, <code class="docutils literal notranslate"><span class="pre">shake</span></code>.</p>
+<p>By default MicroPython sets the accelerometer range to +/- 2g, changing the
+accelerometer range is currently not possible in MicroPython.
+The accelerometer returns a value in the range 0..1024 for each axis, which is
+then scaled accordingly.</p>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="microbit.accelerometer.get_x">
+<span class="sig-prename descclassname"><span class="pre">microbit.accelerometer.</span></span><span class="sig-name descname"><span class="pre">get_x</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.accelerometer.get_x" title="Ссылка на это определение"></a></dt>
+<dd><p>Get the acceleration measurement in the <code class="docutils literal notranslate"><span class="pre">x</span></code> axis, as a positive or
+negative integer, depending on the direction. The measurement is given in
+milli-g. By default the accelerometer is configured with a range of +/- 2g,
+and so this method will return within the range of +/- 2000mg.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="microbit.accelerometer.get_y">
+<span class="sig-prename descclassname"><span class="pre">microbit.accelerometer.</span></span><span class="sig-name descname"><span class="pre">get_y</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.accelerometer.get_y" title="Ссылка на это определение"></a></dt>
+<dd><p>Get the acceleration measurement in the <code class="docutils literal notranslate"><span class="pre">y</span></code> axis, as a positive or
+negative integer, depending on the direction. The measurement is given in
+milli-g. By default the accelerometer is configured with a range of +/- 2g,
+and so this method will return within the range of +/- 2000mg.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="microbit.accelerometer.get_z">
+<span class="sig-prename descclassname"><span class="pre">microbit.accelerometer.</span></span><span class="sig-name descname"><span class="pre">get_z</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.accelerometer.get_z" title="Ссылка на это определение"></a></dt>
+<dd><p>Get the acceleration measurement in the <code class="docutils literal notranslate"><span class="pre">z</span></code> axis, as a positive or
+negative integer, depending on the direction. The measurement is given in
+milli-g. By default the accelerometer is configured with a range of +/- 2g,
+and so this method will return within the range of +/- 2000mg.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="microbit.accelerometer.get_values">
+<span class="sig-prename descclassname"><span class="pre">microbit.accelerometer.</span></span><span class="sig-name descname"><span class="pre">get_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.accelerometer.get_values" title="Ссылка на это определение"></a></dt>
+<dd><p>Get the acceleration measurements in all axes at once, as a three-element
+tuple of integers ordered as X, Y, Z.
+By default the accelerometer is configured with a range of +/- 2g, and so
+X, Y, and Z will be within the range of +/-2000mg.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="microbit.accelerometer.current_gesture">
+<span class="sig-prename descclassname"><span class="pre">microbit.accelerometer.</span></span><span class="sig-name descname"><span class="pre">current_gesture</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.accelerometer.current_gesture" title="Ссылка на это определение"></a></dt>
+<dd><p>Return the name of the current gesture.</p>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>MicroPython understands the following gesture names: <code class="docutils literal notranslate"><span class="pre">&quot;up&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;down&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;left&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;right&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;face</span> <span class="pre">up&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;face</span> <span class="pre">down&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;freefall&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;3g&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;6g&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;8g&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;shake&quot;</span></code>. Gestures are always
+represented as strings.</p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="microbit.accelerometer.is_gesture">
+<span class="sig-prename descclassname"><span class="pre">microbit.accelerometer.</span></span><span class="sig-name descname"><span class="pre">is_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.accelerometer.is_gesture" title="Ссылка на это определение"></a></dt>
+<dd><p>Return True or False to indicate if the named gesture is currently active.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="microbit.accelerometer.was_gesture">
+<span class="sig-prename descclassname"><span class="pre">microbit.accelerometer.</span></span><span class="sig-name descname"><span class="pre">was_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.accelerometer.was_gesture" title="Ссылка на это определение"></a></dt>
+<dd><p>Return True or False to indicate if the named gesture was active since the
+last call.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="microbit.accelerometer.get_gestures">
+<span class="sig-prename descclassname"><span class="pre">microbit.accelerometer.</span></span><span class="sig-name descname"><span class="pre">get_gestures</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.accelerometer.get_gestures" title="Ссылка на это определение"></a></dt>
+<dd><p>Return a tuple of the gesture history. The most recent is listed last.
+Also clears the gesture history before returning.</p>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Gestures are not updated in the background so there needs to be constant
+calls to some accelerometer method to do the gesture detection. Usually
+gestures can be detected using a loop with a small <a class="reference internal" href="microbit.html#microbit.sleep" title="microbit.sleep"><code class="xref py py-func docutils literal notranslate"><span class="pre">microbit.sleep()</span></code></a> delay.</p>
+</div>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Ссылка на этот заголовок"></a></h3>
+<p>A fortune telling magic 8-ball. Ask a question then shake the device for an
+answer.</p>
+<p>Simple Slalom. Move the device to avoid the obstacles.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="../API.html" class="btn btn-neutral float-left" title="Справочник по API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="audio.html" class="btn btn-neutral float-right" title="Audio" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Maxim Bekurin, Read the Docs, Inc. &amp; contributors.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

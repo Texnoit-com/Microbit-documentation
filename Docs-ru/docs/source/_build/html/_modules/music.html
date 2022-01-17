@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>music &mdash; документация Microbit-Русская документация 0.1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+            <a href="../index.html" class="icon icon-home"> Microbit-Русская документация
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Основные команды</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/introduction.html">Инструкция</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/hello.html">Первая программа Hello, World!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/io.html">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/music.html">Мелодии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/random.html">Случайные числа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/movement.html">Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gestures.html">Жесты - Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/direction.html">Компас</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/speech.html">Речь</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/radio.html">Радиосигнал</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../API.html">Справочник по API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Датчики</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sensor.html">Датчики</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Microbit-Русская документация</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Код модуля</a> &raquo;</li>
+      <li>music</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Исходный код music</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">unicode_literals</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">Tuple</span><span class="p">,</span>
+    <span class="n">Union</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">_AnaloguePin</span><span class="p">,</span>
+    <span class="n">pin0</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">_MusicalNote</span> <span class="o">=</span> <span class="nb">str</span>
+<span class="n">_Music</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="n">_MusicalNote</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="set_tempo"><a class="viewcode-back" href="../api/music.html#music.set_tempo">[документация]</a><span class="k">def</span> <span class="nf">set_tempo</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">bpm</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Make a beat last a &#39;number&#39; of ticks long and played at &#39;bpm&#39; beats per</span>
+<span class="sd">    minute.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="pitch"><a class="viewcode-back" href="../api/music.html#music.pitch">[документация]</a><span class="k">def</span> <span class="nf">pitch</span><span class="p">(</span>
+    <span class="n">freq</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">pin</span><span class="p">:</span> <span class="n">_AnaloguePin</span> <span class="o">=</span> <span class="n">pin0</span><span class="p">,</span>
+    <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Make micro:bit play a note at &#39;freq&#39; frequency for &#39;length&#39; milliseconds.</span>
+<span class="sd">    E.g. pitch(440, 1000) will play concert &#39;A&#39; for 1 second.</span>
+<span class="sd">    If length is a negative number the pitch is played continuously.</span>
+<span class="sd">    Use the optional pin argument to override the default output for the</span>
+<span class="sd">    speaker.</span>
+<span class="sd">    If wait is False the music will play in the background while the program</span>
+<span class="sd">    continues.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="play"><a class="viewcode-back" href="../api/music.html#music.play">[документация]</a><span class="k">def</span> <span class="nf">play</span><span class="p">(</span>
+    <span class="n">music</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">_Music</span><span class="p">,</span> <span class="n">_MusicalNote</span><span class="p">],</span>
+    <span class="n">pin</span><span class="p">:</span> <span class="n">_AnaloguePin</span> <span class="o">=</span> <span class="n">pin0</span><span class="p">,</span>
+    <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">loop</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Make micro:bit play &#39;music&#39; list of notes. Try out the built in music to</span>
+<span class="sd">    see how it works. E.g. music.play(music.PUNCHLINE).</span>
+<span class="sd">    Use the optional pin argument to override the default output for the</span>
+<span class="sd">    speaker.</span>
+<span class="sd">    If wait is False the music will play in the background while the program</span>
+<span class="sd">    continues.</span>
+<span class="sd">    If loop is True, the tune will repeat.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="get_tempo"><a class="viewcode-back" href="../api/music.html#music.get_tempo">[документация]</a><span class="k">def</span> <span class="nf">get_tempo</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the number of ticks in a beat and number of beats per minute.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="stop"><a class="viewcode-back" href="../api/music.html#music.stop">[документация]</a><span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="n">pin</span><span class="p">:</span> <span class="n">_AnaloguePin</span> <span class="o">=</span> <span class="n">pin0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Stops all music playback on the given pin.</span>
+<span class="sd">    If no pin is given, pin0 is assumed.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="reset"><a class="viewcode-back" href="../api/music.html#music.reset">[документация]</a><span class="k">def</span> <span class="nf">reset</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    If things go wrong, reset() the music to its default settings.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<span class="n">DADADADUM</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">ENTERTAINER</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">PRELUDE</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">ODE</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">NYAN</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">RINGTONE</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">FUNK</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">BLUES</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">BIRTHDAY</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">WEDDING</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">FUNERAL</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">PUNCHLINE</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">PYTHON</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">BADDY</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">CHASE</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">BA_DING</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">WAWAWAWAA</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">JUMP_UP</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">JUMP_DOWN</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">POWER_UP</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">POWER_DOWN</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Maxim Bekurin, Read the Docs, Inc. &amp; contributors.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

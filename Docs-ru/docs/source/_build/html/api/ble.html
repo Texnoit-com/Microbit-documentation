@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bluetooth &mdash; документация Microbit-Русская документация 0.1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Buttons" href="button.html" />
+    <link rel="prev" title="Audio" href="audio.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+            <a href="../index.html" class="icon icon-home"> Microbit-Русская документация
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Основные команды</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/introduction.html">Инструкция</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/hello.html">Первая программа Hello, World!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/io.html">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/music.html">Мелодии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/random.html">Случайные числа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/movement.html">Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gestures.html">Жесты - Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/direction.html">Компас</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/speech.html">Речь</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/radio.html">Радиосигнал</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audio.html">Audio</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Bluetooth</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#micro-bit-v1">micro:bit V1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#micro-bit-v2">micro:bit V2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">Buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compass.html">Compass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="display.html">Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Local Persistent File System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">I²C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">The <code class="docutils literal notranslate"><span class="pre">os</span></code>  Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pin.html">Input/Output Pins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radio.html">Radio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random Number Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="speech.html">Speech</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spi.html">SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Датчики</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sensor.html">Датчики</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Microbit-Русская документация</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../API.html">Справочник по API</a> &raquo;</li>
+      <li>Bluetooth</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/ble.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bluetooth">
+<h1>Bluetooth<a class="headerlink" href="#bluetooth" title="Ссылка на этот заголовок"></a></h1>
+<section id="micro-bit-v1">
+<h2>micro:bit V1<a class="headerlink" href="#micro-bit-v1" title="Ссылка на этот заголовок"></a></h2>
+<p>While the BBC micro:bit has hardware capable of allowing the device to work as
+a Bluetooth Low Energy (BLE) device, it only has 16k of RAM. The BLE stack
+alone takes up 12k RAM which means there’s not enough memory for MicroPython
+to support Bluetooth on a micro:bit V1.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>MicroPython uses the radio hardware with the <a class="reference internal" href="radio.html#module-radio" title="radio"><code class="xref py py-mod docutils literal notranslate"><span class="pre">radio</span></code></a> module. This
+allows users to create simple yet effective wireless networks of micro:bit
+devices.</p>
+<p>Furthermore, the protocol used in the <a class="reference internal" href="radio.html#module-radio" title="radio"><code class="xref py py-mod docutils literal notranslate"><span class="pre">radio</span></code></a> module is a lot simpler
+than BLE, making it far easier to use in an educational context.</p>
+</div>
+</section>
+<section id="micro-bit-v2">
+<h2>micro:bit V2<a class="headerlink" href="#micro-bit-v2" title="Ссылка на этот заголовок"></a></h2>
+<p>The nRF52833 used by the micro:bit V2 has 128k of RAM, allowing Micropython to make
+use of the BLE stack. Currently the only implemented feature is BLE flashing, allowing
+a user to update the firmware on the micro:bit over Bluetooth.</p>
+<p>At the time that this was written the <a class="reference external" href="https://infocenter.nordicsemi.com/topic/sdk_nrf5_v16.0.0/lib_bootloader_dfu_process.html">Nordic DFU service</a> is implemented, and partial flashing is currently working but in
+beta. The Nordic DFU service updates everything in flash and will take a (relatively) long
+time to complete, whereas the partial flashing service only updates the filesystem containing
+the user scripts.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="audio.html" class="btn btn-neutral float-left" title="Audio" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="button.html" class="btn btn-neutral float-right" title="Buttons" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Maxim Bekurin, Read the Docs, Inc. &amp; contributors.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -19,7 +19,7 @@
 Криптография — увлекательная тема, но к сожалению, выходит за рамки этого руководства.
 
 Программа "Светлячки"
-+++++++++
++++++++++++++++++++++
 
 Это "Светлячок":
 
@@ -56,5 +56,3 @@
 Результат выглядит так:
 
 .. image:: mb-firefly.gif
-
-.. footer:: The image of binary counting is released under the licensing details listed here: https://en.wikipedia.org/wiki/File:Binary_counter.gif

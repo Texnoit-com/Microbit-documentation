@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Persistent File System &mdash; документация Microbit-Русская документация 0.1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="I²C" href="i2c.html" />
+    <link rel="prev" title="Display" href="display.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+            <a href="../index.html" class="icon icon-home"> Microbit-Русская документация
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Основные команды</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/introduction.html">Инструкция</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/hello.html">Первая программа Hello, World!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/io.html">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/music.html">Мелодии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/random.html">Случайные числа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/movement.html">Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gestures.html">Жесты - Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/direction.html">Компас</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/speech.html">Речь</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/radio.html">Радиосигнал</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audio.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">Buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compass.html">Compass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="display.html">Display</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Local Persistent File System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">I²C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">Machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">The <code class="docutils literal notranslate"><span class="pre">os</span></code>  Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pin.html">Input/Output Pins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radio.html">Radio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random Number Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="speech.html">Speech</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spi.html">SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Датчики</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sensor.html">Датчики</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Microbit-Русская документация</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../API.html">Справочник по API</a> &raquo;</li>
+      <li>Local Persistent File System</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/filesystem.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="local-persistent-file-system">
+<span id="filesystem"></span><h1>Local Persistent File System<a class="headerlink" href="#local-persistent-file-system" title="Ссылка на этот заголовок"></a></h1>
+<p>It is useful to store data in a persistent manner so that it remains intact
+between restarts of the device. On traditional computers this is often achieved
+by a file system consisting of named files that hold raw data, and named
+directories that contain files. Python supports the various operations needed
+to work with such file systems.</p>
+<p>However, since the micro:bit is a limited device in terms of both hardware and
+storage capacity MicroPython provides a small subset of the functions needed
+to persist data on the device. Because of memory constraints <strong>there is
+approximately 30k of storage available</strong> on the file system.</p>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Re-flashing the device will DESTROY YOUR DATA.</p>
+<p>Since the file system is stored in the micro:bit’s flash memory and
+flashing the device rewrites all the available flash memory then all your
+data will be lost if you flash your device.</p>
+<p>However, if you switch your device off the data will remain intact until
+you either delete it (see below) or re-flash the device.</p>
+</div>
+<p>MicroPython on the micro:bit provides a flat file system; i.e. there is no
+notion of a directory hierarchy, the file system is just a list of named
+files. Reading and writing a file is achieved via the standard Python <code class="docutils literal notranslate"><span class="pre">open</span></code>
+function and the resulting file-like object (representing the file) of types
+<code class="docutils literal notranslate"><span class="pre">TextIO</span></code> or <code class="docutils literal notranslate"><span class="pre">BytesIO</span></code>. Operations for working with files on the file system
+(for example, listing or deleting files) are contained within the
+<a class="reference internal" href="os.html#module-os" title="os"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a> module.</p>
+<p>If a file ends in the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file extension then it can be imported. For
+example, a file named <code class="docutils literal notranslate"><span class="pre">hello.py</span></code> can be imported like this: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">hello</span></code>.</p>
+<p>An example session in the MicroPython REPL may look something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;hello.py&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">hello</span><span class="p">:</span>
+<span class="gp">... </span>   <span class="n">hello</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;print(&#39;Hello&#39;)&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">hello</span>
+<span class="go">Hello</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;hello.py&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">hello</span><span class="p">:</span>
+<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="n">hello</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="gp">...</span>
+<span class="go">print(&#39;Hello&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span>
+<span class="go">[&#39;hello.py&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;hello.py&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span>
+<span class="go">[]</span>
+</pre></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="open">
+<span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'r'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#open" title="Ссылка на это определение"></a></dt>
+<dd><p>Returns a file object representing the file named in the argument
+<code class="docutils literal notranslate"><span class="pre">filename</span></code>. The mode defaults to <code class="docutils literal notranslate"><span class="pre">'r'</span></code> which means open for reading in
+text mode. The other common mode is <code class="docutils literal notranslate"><span class="pre">'w'</span></code> for writing (overwriting the
+content of the file if it already exists). Two other modes are available
+to be used in conjunction with the ones describes above: <code class="docutils literal notranslate"><span class="pre">'t'</span></code> means
+text mode (for reading and writing strings) and <code class="docutils literal notranslate"><span class="pre">'b'</span></code> means binary mode
+(for reading and writing bytes). If these are not specified then <code class="docutils literal notranslate"><span class="pre">'t'</span></code>
+(text mode) is assumed. When in text mode the file object will be an
+instance of <code class="docutils literal notranslate"><span class="pre">TextIO</span></code>. When in binary mode the file object will be an
+instance of <code class="docutils literal notranslate"><span class="pre">BytesIO</span></code>. For example, use <code class="docutils literal notranslate"><span class="pre">'rb'</span></code> to read binary data from
+a file.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="TextIO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TextIO</span></span><a class="headerlink" href="#TextIO" title="Ссылка на это определение"></a></dt>
+<dt class="sig sig-object py" id="BytesIO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BytesIO</span></span><a class="headerlink" href="#BytesIO" title="Ссылка на это определение"></a></dt>
+<dd><p>Instances of these classes represent files in the micro:bit’s flat file
+system. The TextIO class is used to represent text files. The BytesIO
+class is used to represent binary files. They work in exactly the same
+except that TextIO works with strings and BytesIO works with bytes.</p>
+<p>You do not directly instantiate these classes. Rather, an appropriately
+configured instance of the class is returned by the <code class="docutils literal notranslate"><span class="pre">open</span></code> function
+described above.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="BytesIO.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BytesIO.close" title="Ссылка на это определение"></a></dt>
+<dd><p>Flush and close the file. This method has no effect if the file is
+already closed. Once the file is closed, any operation on the file
+(e.g. reading or writing) will raise an exception.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BytesIO.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BytesIO.name" title="Ссылка на это определение"></a></dt>
+<dd><p>Returns the name of the file the object represents. This will be the
+same as the <code class="docutils literal notranslate"><span class="pre">filename</span></code> argument passed into the call to the <code class="docutils literal notranslate"><span class="pre">open</span></code>
+function that instantiated the object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BytesIO.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BytesIO.read" title="Ссылка на это определение"></a></dt>
+<dd><p>Read and return at most <code class="docutils literal notranslate"><span class="pre">size</span></code> characters as a single string or
+<code class="docutils literal notranslate"><span class="pre">size</span></code> bytes from the file. As a convenience, if <code class="docutils literal notranslate"><span class="pre">size</span></code> is
+unspecified or -1, all the data contained in the file is returned.
+Fewer than <code class="docutils literal notranslate"><span class="pre">size</span></code> characters or bytes may be returned if there are
+less than <code class="docutils literal notranslate"><span class="pre">size</span></code> characters or bytes remaining to be read from
+the file.</p>
+<p>If 0 characters or bytes are returned, and <code class="docutils literal notranslate"><span class="pre">size</span></code> was not 0, this
+indicates end of file.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">MemoryError</span></code> exception will occur if <code class="docutils literal notranslate"><span class="pre">size</span></code> is larger than the
+available RAM.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BytesIO.readinto">
+<span class="sig-name descname"><span class="pre">readinto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BytesIO.readinto" title="Ссылка на это определение"></a></dt>
+<dd><p>Read characters or bytes into the buffer <code class="docutils literal notranslate"><span class="pre">buf</span></code>. If <code class="docutils literal notranslate"><span class="pre">n</span></code> is supplied,
+read <code class="docutils literal notranslate"><span class="pre">n</span></code> number of bytes or characters into the buffer <code class="docutils literal notranslate"><span class="pre">buf</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BytesIO.readline">
+<span class="sig-name descname"><span class="pre">readline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BytesIO.readline" title="Ссылка на это определение"></a></dt>
+<dd><p>Read and return one line from the file. If <code class="docutils literal notranslate"><span class="pre">size</span></code> is specified, at
+most <code class="docutils literal notranslate"><span class="pre">size</span></code> characters will be read.</p>
+<p>The line terminator is always <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> for strings or <code class="docutils literal notranslate"><span class="pre">b'\n'</span></code> for
+bytes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BytesIO.writable">
+<span class="sig-name descname"><span class="pre">writable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BytesIO.writable" title="Ссылка на это определение"></a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the file supports writing. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">write()</span></code>
+will raise <code class="docutils literal notranslate"><span class="pre">OSError</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BytesIO.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BytesIO.write" title="Ссылка на это определение"></a></dt>
+<dd><p>Write the string or bytes <code class="docutils literal notranslate"><span class="pre">buf</span></code> to the file and return the number of
+characters or bytes written.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="display.html" class="btn btn-neutral float-left" title="Display" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="i2c.html" class="btn btn-neutral float-right" title="I²C" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Maxim Bekurin, Read the Docs, Inc. &amp; contributors.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

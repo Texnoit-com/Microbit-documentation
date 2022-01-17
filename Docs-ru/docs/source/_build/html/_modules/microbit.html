@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>microbit &mdash; документация Microbit-Русская документация 0.1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+            <a href="../index.html" class="icon icon-home"> Microbit-Русская документация
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Основные команды</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/introduction.html">Инструкция</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/hello.html">Первая программа Hello, World!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/io.html">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/music.html">Мелодии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/random.html">Случайные числа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/movement.html">Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gestures.html">Жесты - Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/direction.html">Компас</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/speech.html">Речь</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/radio.html">Радиосигнал</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../API.html">Справочник по API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Датчики</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sensor.html">Датчики</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Microbit-Русская документация</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Код модуля</a> &raquo;</li>
+      <li>microbit</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Исходный код microbit</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">unicode_literals</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">NewType</span><span class="p">,</span>
+    <span class="n">Optional</span><span class="p">,</span>
+    <span class="n">Union</span><span class="p">,</span>
+    <span class="n">Tuple</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">_UARTParity</span> <span class="o">=</span> <span class="n">NewType</span><span class="p">(</span><span class="s2">&quot;_UARTParity&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="panic"><a class="viewcode-back" href="../api/microbit.html#microbit.panic">[документация]</a><span class="k">def</span> <span class="nf">panic</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Put micro:bit in panic() mode and display an unhappy face.</span>
+<span class="sd">    Press the reset button to exit panic() mode.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="sleep"><a class="viewcode-back" href="../api/microbit.html#microbit.sleep">[документация]</a><span class="k">def</span> <span class="nf">sleep</span><span class="p">(</span><span class="n">time</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Put micro:bit to sleep for some milliseconds (1 second = 1000 ms) of time.</span>
+<span class="sd">    sleep(2000) gives micro:bit a 2 second nap.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="running_time"><a class="viewcode-back" href="../api/microbit.html#microbit.running_time">[документация]</a><span class="k">def</span> <span class="nf">running_time</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return running_time() in milliseconds since micro:bit&#39;s last reset.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="temperature"><a class="viewcode-back" href="../api/microbit.html#microbit.temperature">[документация]</a><span class="k">def</span> <span class="nf">temperature</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return micro:bit&#39;s temperature in degrees Celcius.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+
+<span class="c1"># Accelerometer 3D orientation</span>
+<span class="k">class</span> <span class="nc">_Accelerometer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_x</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return micro:bit&#39;s tilt (X acceleration) in milli-g&#39;s.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">get_y</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return micro:bit&#39;s tilt (Y acceleration) in milli-g&#39;s.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">get_z</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return micro:bit&#39;s up-down motion (Z acceleration) in milli-g&#39;s.</span>
+<span class="sd">        Z is a positive number when moving up. Moving down, Z is a negative</span>
+<span class="sd">        number.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">is_gesture</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return True or False to indicate if the named gesture is currently</span>
+<span class="sd">        active.</span>
+<span class="sd">        MicroPython understands the following gestures: &#39;up&#39;, &#39;down&#39;, &#39;left&#39;,</span>
+<span class="sd">        &#39;right&#39;, &#39;face up&#39;, &#39;face down&#39;, &#39;freefall&#39;, &#39;3g&#39;, &#39;6g&#39;, &#39;8g&#39; and</span>
+<span class="sd">        &#39;shake&#39;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">was_gesture</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return True or False to indicate if the named gesture was active since</span>
+<span class="sd">        the last call.</span>
+<span class="sd">        MicroPython understands the following gestures: &#39;up&#39;, &#39;down&#39;, &#39;left&#39;,</span>
+<span class="sd">        &#39;right&#39;, &#39;face up&#39;, &#39;face down&#39;, &#39;freefall&#39;, &#39;3g&#39;, &#39;6g&#39;, &#39;8g&#39; and</span>
+<span class="sd">        &#39;shake&#39;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">get_gestures</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a list indicating the gesture history. The most recent gesture</span>
+<span class="sd">        is last.</span>
+<span class="sd">        Calling this method also clears the gesture history.</span>
+<span class="sd">        MicroPython understands the following gestures: &#39;up&#39;, &#39;down&#39;, &#39;left&#39;,</span>
+<span class="sd">        &#39;right&#39;, &#39;face up&#39;, &#39;face down&#39;, &#39;freefall&#39;, &#39;3g&#39;, &#39;6g&#39;, &#39;8g&#39; and</span>
+<span class="sd">        &#39;shake&#39;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+
+<span class="n">accelerometer</span> <span class="o">=</span> <span class="n">_Accelerometer</span><span class="p">()</span>
+
+
+<span class="c1"># Pushbutton</span>
+<span class="k">class</span> <span class="nc">_Button</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">is_pressed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If the button is pressed down, is_pressed() is True, else False.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">was_pressed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use was_pressed() to learn if the button was pressed since the last</span>
+<span class="sd">        time was_pressed() was called. Returns True or False.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">get_presses</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use get_presses() to get the running total of button presses, and also</span>
+<span class="sd">        reset this counter to zero.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+
+<span class="n">button_a</span> <span class="o">=</span> <span class="n">_Button</span><span class="p">()</span>
+<span class="n">button_b</span> <span class="o">=</span> <span class="n">_Button</span><span class="p">()</span>
+
+
+<span class="c1"># Compass 3D direction heading</span>
+<span class="k">class</span> <span class="nc">_Compass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">is_calibrated</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If micro:bit&#39;s compass is_calibrated() and adjusted for accuracy,</span>
+<span class="sd">        return True.</span>
+<span class="sd">        If compass hasn&#39;t been adjusted for accuracy, return False.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">calibrate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If micro:bit is confused, calibrate() the compass to adjust the its</span>
+<span class="sd">        accuracy.</span>
+<span class="sd">        Will ask you to rotate the device to draw a circle on the display.</span>
+<span class="sd">        Afterwards, micro:bit will know which way is north.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">clear_calibration</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reset micro:bit&#39;s compass using clear_calibration() command.</span>
+<span class="sd">        Run calibrate() to improve accuracy.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">get_x</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return magnetic field detected along micro:bit&#39;s X axis.</span>
+<span class="sd">        Usually, the compass returns the earth&#39;s magnetic field in micro-Tesla</span>
+<span class="sd">        units.</span>
+<span class="sd">        Unless...a strong magnet is nearby!</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">get_y</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return magnetic field detected along micro:bit&#39;s Y axis.</span>
+<span class="sd">        Usually, the compass returns the earth&#39;s magnetic field in micro-Tesla</span>
+<span class="sd">        units.</span>
+<span class="sd">        Unless...a strong magnet is nearby!</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">get_z</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return magnetic field detected along micro:bit&#39;s Z axis.</span>
+<span class="sd">        Usually, the compass returns the earth&#39;s magnetic field in micro-Tesla</span>
+<span class="sd">        units.</span>
+<span class="sd">        Unless...a strong magnet is nearby!</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">get_field_strength</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return strength of magnetic field around micro:bit.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">heading</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a number between 0-360 indicating the device&#39;s heading. 0 is</span>
+<span class="sd">        north.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+
+<span class="n">compass</span> <span class="o">=</span> <span class="n">_Compass</span><span class="p">()</span>
+
+
+<span class="c1"># Display 5x5 LED grid</span>
+<span class="k">class</span> <span class="nc">_Display</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="s1">&#39;Image&#39;</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="s1">&#39;Image&#39;</span><span class="p">],</span> <span class="nb">str</span><span class="p">],</span>
+        <span class="n">delay</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span>
+        <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">loop</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">clear</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use show(x) to print the string or image &#39;x&#39; to the display. If &#39;x&#39; is</span>
+<span class="sd">        a list of images they will be animated together.</span>
+<span class="sd">        Use &#39;delay&#39; to specify the speed of frame changes in milliseconds.</span>
+<span class="sd">        If wait is False animation will happen in the background while the</span>
+<span class="sd">        program continues.</span>
+<span class="sd">        If loop is True the animation will repeat forever.</span>
+<span class="sd">        If clear is True the display will clear at the end of the animation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">scroll</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">delay</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">150</span><span class="p">,</span>
+        <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">loop</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">monospace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use scroll(string) to scroll the string across the display.</span>
+<span class="sd">        Use delay to control how fast the text scrolls.</span>
+<span class="sd">        If wait is False the text will scroll in the background while the</span>
+<span class="sd">        program continues.</span>
+<span class="sd">        If loop is True the text will repeat forever.</span>
+<span class="sd">        If monospace is True the characters will always take up 5</span>
+<span class="sd">        pixel-columns.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use clear() to clear micro:bit&#39;s display.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">get_pixel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use get_pixel(x, y) to return the display&#39;s brightness at LED pixel</span>
+<span class="sd">        (x,y).</span>
+<span class="sd">        Brightness can be from 0 (LED is off) to 9 (maximum LED brightness).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">set_pixel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use set_pixel(x, y, b) to set the display at LED pixel (x,y) to</span>
+<span class="sd">        brightness &#39;b&#39;</span>
+<span class="sd">        which can be set between 0 (off) to 9 (full brightness).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">on</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use on() to turn on the display.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">off</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use off() to turn off the display.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">is_on</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use is_on() to query if the micro:bit&#39;s display is on (True) or off</span>
+<span class="sd">        (False).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+
+<span class="n">display</span> <span class="o">=</span> <span class="n">_Display</span><span class="p">()</span>
+
+
+<span class="c1"># Pins</span>
+<span class="k">class</span> <span class="nc">_Pin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A standard pin</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">read_digital</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Read the digital value of the pin. 0 for low, 1 for high</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">write_digital</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the pin to output high if value is 1, or to low, it it is 0.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">_AnaloguePin</span><span class="p">(</span><span class="n">_Pin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    These pins have ADC &amp; PWM support</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">read_analog</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Read the voltage applied to the pin.</span>
+<span class="sd">        Returns the reading as a number between 0 (meaning 0v) and 1023</span>
+<span class="sd">        (meaning 3.3v).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">write_analog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the pin to output a value between 0 and 1023.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">set_analog_period</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">period</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the period of the PWM signal output to period milliseconds.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">set_analog_period_microseconds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">period</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the period of the PWM signal output to period microseconds.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">_GiantPin</span><span class="p">(</span><span class="n">_AnaloguePin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    These pins are aranged on the bottom of the board and have holes through</span>
+<span class="sd">    them</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">is_touched</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns if the pin is being physically touched on the hardware</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+
+<span class="n">pin0</span> <span class="o">=</span> <span class="n">_GiantPin</span><span class="p">()</span>
+<span class="n">pin1</span> <span class="o">=</span> <span class="n">_GiantPin</span><span class="p">()</span>
+<span class="n">pin2</span> <span class="o">=</span> <span class="n">_GiantPin</span><span class="p">()</span>
+<span class="n">pin3</span> <span class="o">=</span> <span class="n">_AnaloguePin</span><span class="p">()</span>
+<span class="n">pin4</span> <span class="o">=</span> <span class="n">_AnaloguePin</span><span class="p">()</span>
+<span class="n">pin5</span> <span class="o">=</span> <span class="n">_Pin</span><span class="p">()</span>
+<span class="n">pin6</span> <span class="o">=</span> <span class="n">_Pin</span><span class="p">()</span>
+<span class="n">pin7</span> <span class="o">=</span> <span class="n">_Pin</span><span class="p">()</span>
+<span class="n">pin8</span> <span class="o">=</span> <span class="n">_Pin</span><span class="p">()</span>
+<span class="n">pin9</span> <span class="o">=</span> <span class="n">_Pin</span><span class="p">()</span>
+<span class="n">pin10</span> <span class="o">=</span> <span class="n">_AnaloguePin</span><span class="p">()</span>
+<span class="n">pin11</span> <span class="o">=</span> <span class="n">_Pin</span><span class="p">()</span>
+<span class="n">pin12</span> <span class="o">=</span> <span class="n">_Pin</span><span class="p">()</span>
+<span class="n">pin13</span> <span class="o">=</span> <span class="n">_Pin</span><span class="p">()</span>
+<span class="n">pin14</span> <span class="o">=</span> <span class="n">_Pin</span><span class="p">()</span>
+<span class="n">pin15</span> <span class="o">=</span> <span class="n">_Pin</span><span class="p">()</span>
+<span class="n">pin16</span> <span class="o">=</span> <span class="n">_Pin</span><span class="p">()</span>
+<span class="c1"># Pin17 = 3v3</span>
+<span class="c1"># Pin18 = 3v3</span>
+<span class="n">pin19</span> <span class="o">=</span> <span class="n">_Pin</span><span class="p">()</span>
+<span class="n">pin20</span> <span class="o">=</span> <span class="n">_Pin</span><span class="p">()</span>
+<span class="c1"># pin21 = gnd</span>
+<span class="c1"># pin22 = gnd</span>
+<span class="c1"># V2</span>
+<span class="n">pin_logo</span> <span class="o">=</span> <span class="n">_GiantPin</span><span class="p">()</span>
+<span class="n">pin_speaker</span> <span class="o">=</span> <span class="n">_AnaloguePin</span><span class="p">()</span>
+
+
+<span class="c1"># I2C</span>
+<span class="k">class</span> <span class="nc">_I2C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">repeat</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use read(address, n) to read &#39;n&#39; bytes from the device with the 7-bit</span>
+<span class="sd">        address.</span>
+<span class="sd">        If repeat is True, no stop bit will be sent.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">adress</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">buffer</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">repeat</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use write(address, buffer) to write to the &#39;buffer&#39; of the device at</span>
+<span class="sd">        the 7-bit &#39;address&#39;.</span>
+<span class="sd">        If repeat is True, no stop bit will be sent.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frequency</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">scl</span><span class="p">:</span> <span class="n">_Pin</span><span class="p">,</span> <span class="n">sda</span><span class="p">:</span> <span class="n">_Pin</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use init(frequency, scl, sda) to set the bus frequency and pins.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+
+<span class="n">i2c</span> <span class="o">=</span> <span class="n">_I2C</span><span class="p">()</span>
+
+
+<span class="c1"># Image</span>
+<div class="viewcode-block" id="Image"><a class="viewcode-back" href="../api/image.html#microbit.Image">[документация]</a><span class="k">class</span> <span class="nc">Image</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        There are three ways to construct an image</span>
+<span class="sd">        First, with a string:</span>
+<span class="sd">            Image(</span>
+<span class="sd">                &#39;09090:&#39;</span>
+<span class="sd">                &#39;99999:&#39;</span>
+<span class="sd">                &#39;99999:&#39;</span>
+<span class="sd">                &#39;09990:&#39;</span>
+<span class="sd">                &#39;00900:&#39;</span>
+<span class="sd">            )</span>
+<span class="sd">            This would create a 5x5 heart shaped image.</span>
+<span class="sd">            Numbers go from 0 (off) to 9 (brightest).</span>
+<span class="sd">            Note the colon &#39;:&#39; to set the end of a row. You can also use \\n</span>
+<span class="sd">        Second with a width/height:</span>
+<span class="sd">            Image(5, 5)</span>
+<span class="sd">            This creates a blank 5x5 image, which you can manipulate</span>
+<span class="sd">        Lastly you can pass a buffer with a width and a height</span>
+<span class="sd">            Image(5, 5, [</span>
+<span class="sd">                0, 9, 0, 9, 0,</span>
+<span class="sd">                9, 9, 9, 9, 9,</span>
+<span class="sd">                9, 9, 9, 9, 9,</span>
+<span class="sd">                0, 9, 9, 9, 0,</span>
+<span class="sd">                0, 0, 9, 0, 0,</span>
+<span class="sd">            ])</span>
+<span class="sd">            This would create the heart image from the first method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Image.width"><a class="viewcode-back" href="../api/image.html#microbit.Image.width">[документация]</a>    <span class="k">def</span> <span class="nf">width</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the width of the image in pixels.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Image.height"><a class="viewcode-back" href="../api/image.html#microbit.Image.height">[документация]</a>    <span class="k">def</span> <span class="nf">height</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the height of the image in pixels.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Image.get_pixel"><a class="viewcode-back" href="../api/image.html#microbit.Image.get_pixel">[документация]</a>    <span class="k">def</span> <span class="nf">get_pixel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use get_pixel(x, y) to return the image&#39;s brightness at LED pixel</span>
+<span class="sd">        (x,y).</span>
+<span class="sd">        Brightness can be from 0 (LED is off) to 9 (maximum LED brightness).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Image.set_pixel"><a class="viewcode-back" href="../api/image.html#microbit.Image.set_pixel">[документация]</a>    <span class="k">def</span> <span class="nf">set_pixel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use set_pixel(x, y, b) to set the LED pixel (x,y) in the image to</span>
+<span class="sd">        brightness &#39;b&#39; which can be set between 0 (off) to 9 (full brightness).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Image.shift_left"><a class="viewcode-back" href="../api/image.html#microbit.Image.shift_left">[документация]</a>    <span class="k">def</span> <span class="nf">shift_left</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Image&#39;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use shift_left(n) to make a copy of the image but moved &#39;n&#39; pixels to</span>
+<span class="sd">        the left.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Image.shift_right"><a class="viewcode-back" href="../api/image.html#microbit.Image.shift_right">[документация]</a>    <span class="k">def</span> <span class="nf">shift_right</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Image&#39;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use shift_right(n) to make a copy of the image but moved &#39;n&#39; pixels to</span>
+<span class="sd">        the right.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Image.shift_up"><a class="viewcode-back" href="../api/image.html#microbit.Image.shift_up">[документация]</a>    <span class="k">def</span> <span class="nf">shift_up</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Image&#39;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use shift_up(n) to make a copy of the image but moved &#39;n&#39; pixels up.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Image.shift_down"><a class="viewcode-back" href="../api/image.html#microbit.Image.shift_down">[документация]</a>    <span class="k">def</span> <span class="nf">shift_down</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Image&#39;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use shift_down(n) to make a copy of the image but moved &#39;n&#39; pixels</span>
+<span class="sd">        down.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Image.copy"><a class="viewcode-back" href="../api/image.html#microbit.Image.copy">[документация]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Image&#39;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use copy() to make a new exact copy of the image.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Image.crop"><a class="viewcode-back" href="../api/image.html#microbit.Image.crop">[документация]</a>    <span class="k">def</span> <span class="nf">crop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">x2</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Image&#39;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use crop(x1, y1, x2, y2) to make a cut-out copy of the image where</span>
+<span class="sd">        coordinate (x1,y1) is the top left corner of the cut-out area and</span>
+<span class="sd">        coordinate (x2,y2) is the bottom right corner.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Image.invert"><a class="viewcode-back" href="../api/image.html#microbit.Image.invert">[документация]</a>    <span class="k">def</span> <span class="nf">invert</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;Image&#39;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use invert() to make a negative copy of the image. Where a pixel was</span>
+<span class="sd">        bright or on in the original, it is dim or off in the negative copy.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+    <span class="n">HEART</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">HEART_SMALL</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">HAPPY</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">SMILE</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">SAD</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">CONFUSED</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">ANGRY</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">ASLEEP</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">SURPRISED</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">SILLY</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">FABULOUS</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">MEH</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">YES</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">NO</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">CLOCK12</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">CLOCK11</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">CLOCK10</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">CLOCK9</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">CLOCK8</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">CLOCK7</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">CLOCK6</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">CLOCK5</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">CLOCK4</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">CLOCK3</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">CLOCK2</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">CLOCK1</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">ARROW_N</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">ARROW_NE</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">ARROW_E</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">ARROW_SE</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">ARROW_S</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">ARROW_SW</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">ARROW_W</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">ARROW_NW</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">TRIANGLE</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">TRIANGLE_LEFT</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">CHESSBOARD</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">DIAMOND</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">DIAMOND_SMALL</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">SQUARE</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">SQUARE_SMALL</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">RABBIT</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">COW</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">MUSIC_CROTCHET</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">MUSIC_QUAVER</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">MUSIC_QUAVERS</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">PITCHFORK</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">XMAS</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">PACMAN</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">TARGET</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">TSHIRT</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">ROLLERSKATE</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">DUCK</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">HOUSE</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">TORTOISE</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">BUTTERFLY</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">STICKFIGURE</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">GHOST</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">SWORD</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">GIRAFFE</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">SKULL</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">UMBRELLA</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">SNAKE</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Image</span>
+    <span class="n">ALL_CLOCKS</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: List[Image]</span>
+    <span class="n">ALL_ARROWS</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: List[Image]</span></div>
+
+
+<span class="c1"># uart</span>
+<span class="k">class</span> <span class="nc">_UARTSerial</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">ODD</span> <span class="o">=</span> <span class="n">_UARTParity</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">EVEN</span> <span class="o">=</span> <span class="n">_UARTParity</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">baudrate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">9600</span><span class="p">,</span>
+        <span class="n">bits</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="n">parity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">_UARTParity</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">stop</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">tx</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">_Pin</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">rx</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">_Pin</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use init() to set up communication using the default values.</span>
+<span class="sd">        Otherwise override the defaults as named arguments.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">any</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If there are incoming characters waiting to be read, any() will return</span>
+<span class="sd">        True.</span>
+<span class="sd">        Otherwise, returns False.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use read() to read characters.</span>
+<span class="sd">        Use read(n) to read, at most, &#39;n&#39; bytes of data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">readall</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use readall() to read as much data as possible.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">readline</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use readline() to read a line that ends with a newline character.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">readinto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">buf</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use readinto(buf) to read bytes into the buffer &#39;buf&#39;.</span>
+<span class="sd">        Use readinto(buff, n) to read, at most, &#39;n&#39; number of bytes into &#39;buf&#39;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">buf</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use write(buf) to write the bytes in buffer &#39;buf&#39; to the connected</span>
+<span class="sd">        device.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+
+<span class="n">uart</span> <span class="o">=</span> <span class="n">_UARTSerial</span><span class="p">()</span>
+
+
+<span class="c1"># SPI</span>
+<span class="k">class</span> <span class="nc">_SPISerial</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">baudrate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000000</span><span class="p">,</span>
+        <span class="n">bits</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="n">mode</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">sclk</span><span class="p">:</span> <span class="n">_Pin</span> <span class="o">=</span> <span class="n">pin13</span><span class="p">,</span>
+        <span class="n">mosi</span><span class="p">:</span> <span class="n">_Pin</span> <span class="o">=</span> <span class="n">pin15</span><span class="p">,</span>
+        <span class="n">miso</span><span class="p">:</span> <span class="n">_Pin</span> <span class="o">=</span> <span class="n">pin14</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set up communication. Override the defaults for baudrate, mode,</span>
+<span class="sd">        SCLK, MOSI and MISO. The default connections are pin13 for SCLK, pin15</span>
+<span class="sd">        for MOSI and pin14 for MISO.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">buf</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use write(buf) to write bytes in buffer &#39;buf&#39; to the connected device.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use read(n) to read &#39;n&#39; bytes of data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">write_readinto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outbuf</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">inbuf</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use write_readinto(outbuf, inbuf) to write the &#39;outbuf&#39; buffer to the</span>
+<span class="sd">        connected device and read any response into the &#39;inbuf&#39; buffer. The</span>
+<span class="sd">        length of the buffers should be the same. The buffers can be the same</span>
+<span class="sd">        object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+
+<span class="n">spi</span> <span class="o">=</span> <span class="n">_SPISerial</span><span class="p">()</span>
+
+
+<span class="c1"># V2</span>
+
+<span class="c1"># Built-in speaker</span>
+<span class="k">class</span> <span class="nc">_Speaker</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">off</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use off() to turn off the speaker. This does not disable sound output </span>
+<span class="sd">        to an edge connector pin.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">on</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Use on() to turn on the speaker.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+
+<span class="n">speaker</span> <span class="o">=</span> <span class="n">_Speaker</span><span class="p">()</span>
+
+
+<span class="c1"># Built-in microphone</span>
+<span class="k">class</span> <span class="nc">_Microphone</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">current_event</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the name of the last recorded sound event, SoundEvent(&#39;loud&#39;) </span>
+<span class="sd">        or SoundEvent(&#39;quiet&#39;).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">was_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Event is a sound event such as SoundEvent.LOUD or SoundEvent.QUIET. </span>
+<span class="sd">        Returns true if sound was heard at least once since the last call, </span>
+<span class="sd">        otherwise false.</span>
+<span class="sd">        The function also clears the sound event history </span>
+<span class="sd">        before returning.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">is_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Event is a sound event such as SoundEvent.LOUD or SoundEvent.QUIET. </span>
+<span class="sd">        Returns true if sound event is the most recent since the last call, </span>
+<span class="sd">        otherwise false.</span>
+<span class="sd">        The function does not clear the sound event history.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">get_events</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a tuple of the event history. The most recent is listed </span>
+<span class="sd">        last.</span>
+<span class="sd">        The function also clears the sound event history before returning.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">set_threshold</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        An event is a sound event, such as SoundEvent.LOUD or SoundEvent.QUIET.</span>
+<span class="sd">        Value is the threshold level in the range 0-255. For example, </span>
+<span class="sd">        set_threshold(SoundEvent.LOUD, 250) will only trigger if the sound is </span>
+<span class="sd">        very loud (&gt;= 250).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">sound_level</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a representation of the sound pressure level in the range 0 </span>
+<span class="sd">        to 255.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+<span class="n">microphone</span> <span class="o">=</span> <span class="n">_Microphone</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Maxim Bekurin, Read the Docs, Inc. &amp; contributors.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

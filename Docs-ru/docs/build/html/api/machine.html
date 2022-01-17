@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Machine &mdash; документация Microbit-Русская документация 0.1</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Microbit Module" href="microbit.html" />
+    <link rel="prev" title="Image" href="image.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+            <a href="../index.html" class="icon icon-home"> Microbit-Русская документация
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Основные команды</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/introduction.html">Инструкция</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/hello.html">Первая программа Hello, World!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/io.html">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/music.html">Мелодии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/random.html">Случайные числа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/movement.html">Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/gestures.html">Жесты - Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/direction.html">Компас</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/speech.html">Речь</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/radio.html">Радиосигнал</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audio.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">Buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compass.html">Compass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="display.html">Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Local Persistent File System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">I²C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Image</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Machine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-memory">Reading Memory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">The <code class="docutils literal notranslate"><span class="pre">os</span></code>  Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pin.html">Input/Output Pins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radio.html">Radio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random Number Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="speech.html">Speech</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spi.html">SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Датчики</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sensor.html">Датчики</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Microbit-Русская документация</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../API.html">Справочник по API</a> &raquo;</li>
+      <li>Machine</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/machine.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-machine">
+<span id="machine"></span><h1>Machine<a class="headerlink" href="#module-machine" title="Ссылка на этот заголовок"></a></h1>
+<p>The machine module contains specific functions related to the micro:bit
+hardware. Most functions in this module allow to achieve direct and
+unrestricted access to and control of hardware blocks on a system (like CPU,
+timers, buses, etc.). Used incorrectly, this can lead to malfunction, lockups,
+crashes of your board, and in extreme cases, hardware damage.</p>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.machine.unique_id">
+<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">unique_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#machine.machine.unique_id" title="Ссылка на это определение"></a></dt>
+<dd><p>Returns a byte string with a unique identifier of a board. It will vary
+from one board instance to another.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.machine.reset">
+<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#machine.machine.reset" title="Ссылка на это определение"></a></dt>
+<dd><p>Resets the device in a manner similar to pushing the external RESET button.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.machine.freq">
+<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">freq</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#machine.machine.freq" title="Ссылка на это определение"></a></dt>
+<dd><p>Returns CPU frequency in hertz.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.machine.disable_irq">
+<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">disable_irq</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#machine.machine.disable_irq" title="Ссылка на это определение"></a></dt>
+<dd><p>Disable interrupt requests. Returns the previous IRQ state which should be
+considered an opaque value. This return value should be passed to the
+<a class="reference internal" href="#machine.machine.enable_irq" title="machine.machine.enable_irq"><code class="xref py py-func docutils literal notranslate"><span class="pre">machine.enable_irq()</span></code></a> function to restore interrupts to their
+original state, before <a class="reference internal" href="#machine.machine.disable_irq" title="machine.machine.disable_irq"><code class="xref py py-func docutils literal notranslate"><span class="pre">machine.disable_irq()</span></code></a> was called.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.machine.enable_irq">
+<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">enable_irq</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#machine.machine.enable_irq" title="Ссылка на это определение"></a></dt>
+<dd><p>Re-enable interrupt requests. The <em>state</em> parameter should be the value
+that was returned from the most recent call to the
+<a class="reference internal" href="#machine.machine.disable_irq" title="machine.machine.disable_irq"><code class="xref py py-func docutils literal notranslate"><span class="pre">machine.disable_irq()</span></code></a> function.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.machine.time_pulse_us">
+<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">time_pulse_us</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulse_level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout_us</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#machine.machine.time_pulse_us" title="Ссылка на это определение"></a></dt>
+<dd><p>Time a pulse on the given <em>pin</em>, and return the duration of the pulse in
+microseconds. The <em>pulse_level</em> argument should be 0 to time a low pulse or
+1 to time a high pulse.</p>
+<p>If the current input value of the pin is different to <em>pulse_level</em>, the
+function first (*) waits until the pin input becomes equal to
+<em>pulse_level</em>, then (**) times the duration that the pin is equal to
+<em>pulse_level</em>. If the pin is already equal to <em>pulse_level</em> then timing
+starts straight away.</p>
+<p>The function will return -2 if there was timeout waiting for condition
+marked (*) above, and -1 if there was timeout during the main measurement,
+marked (**) above. The timeout is the same for both cases and given by
+<em>timeout_us</em> (which is in microseconds).</p>
+</dd></dl>
+
+</section>
+<section id="reading-memory">
+<h2>Reading Memory<a class="headerlink" href="#reading-memory" title="Ссылка на этот заголовок"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">machine</span></code> module allows you to read from the device’s memory, getting 1
+byte (8 bits; <code class="docutils literal notranslate"><span class="pre">mem8</span></code>), 2 byte (16 bits; <code class="docutils literal notranslate"><span class="pre">mem16</span></code>), or 4 byte (32 bits;
+<code class="docutils literal notranslate"><span class="pre">mem32</span></code>) words from physical addresses. For example: <code class="docutils literal notranslate"><span class="pre">mem8[0x00]</span></code> reads 1
+byte on physical address <code class="docutils literal notranslate"><span class="pre">0x00</span></code>. This has a number of uses, for example if
+you’d like to read data from the nRF51 registers.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="image.html" class="btn btn-neutral float-left" title="Image" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="microbit.html" class="btn btn-neutral float-right" title="Microbit Module" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Maxim Bekurin, Read the Docs, Inc. &amp; contributors.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
