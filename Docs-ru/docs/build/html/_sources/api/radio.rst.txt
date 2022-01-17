@@ -1,4 +1,4 @@
-Radio
+Радио
 *****
 
 .. py:module:: radio
@@ -25,7 +25,7 @@ To access this module you need to::
 
 We assume you have done this for the examples below.
 
-Constants
+Константы
 =========
 
 .. py:attribute:: RATE_250KBIT
@@ -41,7 +41,7 @@ Constants
     Constant used to indicate a throughput of 2 MBit a second.
 
 
-Functions
+Функции
 =========
 
 .. py:function:: on()
@@ -162,7 +162,7 @@ Functions
     and/or triliteration with other micro:bit devices.
 
 
-Examples
+Примеры
 --------
 
 .. include:: ../examples/radio.py

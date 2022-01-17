@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Buttons" href="button.html" />
-    <link rel="prev" title="Audio" href="audio.html" /> 
+    <link rel="next" title="Файловая система" href="filesystem.html" />
+    <link rel="prev" title="UART" href="uart.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,22 +56,22 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="audio.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Bluetooth</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#micro-bit-v1">micro:bit V1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#micro-bit-v2">micro:bit V2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#microbit-v1">Microbit V1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#microbit-v2">Microbit V2</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="button.html">Buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compass.html">Compass</a></li>
-<li class="toctree-l2"><a class="reference internal" href="display.html">Display</a></li>
-<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Local Persistent File System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i2c.html">I²C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html">Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">Machine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">Кнопки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
+<li class="toctree-l2"><a class="reference internal" href="display.html">Дисплей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Файловая система</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
@@ -120,8 +120,8 @@
              
   <section id="bluetooth">
 <h1>Bluetooth<a class="headerlink" href="#bluetooth" title="Ссылка на этот заголовок"></a></h1>
-<section id="micro-bit-v1">
-<h2>micro:bit V1<a class="headerlink" href="#micro-bit-v1" title="Ссылка на этот заголовок"></a></h2>
+<section id="microbit-v1">
+<h2>Microbit V1<a class="headerlink" href="#microbit-v1" title="Ссылка на этот заголовок"></a></h2>
 <p>While the BBC micro:bit has hardware capable of allowing the device to work as
 a Bluetooth Low Energy (BLE) device, it only has 16k of RAM. The BLE stack
 alone takes up 12k RAM which means there’s not enough memory for MicroPython
@@ -135,8 +135,8 @@ devices.</p>
 than BLE, making it far easier to use in an educational context.</p>
 </div>
 </section>
-<section id="micro-bit-v2">
-<h2>micro:bit V2<a class="headerlink" href="#micro-bit-v2" title="Ссылка на этот заголовок"></a></h2>
+<section id="microbit-v2">
+<h2>Microbit V2<a class="headerlink" href="#microbit-v2" title="Ссылка на этот заголовок"></a></h2>
 <p>The nRF52833 used by the micro:bit V2 has 128k of RAM, allowing Micropython to make
 use of the BLE stack. Currently the only implemented feature is BLE flashing, allowing
 a user to update the firmware on the micro:bit over Bluetooth.</p>
@@ -151,8 +151,8 @@ the user scripts.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="audio.html" class="btn btn-neutral float-left" title="Audio" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="button.html" class="btn btn-neutral float-right" title="Buttons" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="uart.html" class="btn btn-neutral float-left" title="UART" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="filesystem.html" class="btn btn-neutral float-right" title="Файловая система" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -1,4 +1,4 @@
-Compass
+Компас
 *******
 
 .. py:module:: microbit.compass
@@ -13,7 +13,7 @@ the compass should be calibrated, otherwise the readings may be wrong.
     LED display by rotating the device.
 
 
-Functions
+Функции
 =========
 
 .. py:function:: calibrate()
@@ -67,7 +67,7 @@ Functions
     the device in nano tesla.
 
 
-Example
+Примеры
 =======
 
 .. include:: ../examples/compass.py

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NeoPixel &mdash; документация Microbit-Русская документация 0.1</title>
+  <title>NeoPixel (Адресная светодиодная лента) &mdash; документация Microbit-Русская документация 0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="The os Module" href="os.html" />
-    <link rel="prev" title="Music" href="music.html" /> 
+    <link rel="next" title="Библиотека OS" href="os.html" />
+    <link rel="prev" title="Музыка" href="music.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,37 +56,37 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="audio.html">Audio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="button.html">Buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compass.html">Compass</a></li>
-<li class="toctree-l2"><a class="reference internal" href="display.html">Display</a></li>
-<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Local Persistent File System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i2c.html">I²C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html">Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">Machine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">Кнопки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
+<li class="toctree-l2"><a class="reference internal" href="display.html">Дисплей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Файловая система</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">NeoPixel</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#operations">Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#using-neopixels">Using Neopixels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music.html">Музыка</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NeoPixel (Адресная светодиодная лента)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Класс</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Команды</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#neopixels">Использование Neopixels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Примеры</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="os.html">The <code class="docutils literal notranslate"><span class="pre">os</span></code>  Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pin.html">Input/Output Pins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="radio.html">Radio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="random.html">Random Number Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="speech.html">Speech</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spi.html">SPI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="uart.html">UART</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utime.html">utime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">Библиотека OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pin.html">Контакты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radio.html">Радио</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random (Генератор случайных чисел)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speaker.html">Генератор речи <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="speech.html">Генератор речи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spi.html">Протокол SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">Протокол UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime (модуль работы со временем)</a></li>
 </ul>
 </li>
 </ul>
@@ -110,7 +110,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../API.html">Справочник по API</a> &raquo;</li>
-      <li>NeoPixel</li>
+      <li>NeoPixel (Адресная светодиодная лента)</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/neopixel.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
       </li>
@@ -120,9 +120,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-neopixel">
-<span id="neopixel"></span><h1>NeoPixel<a class="headerlink" href="#module-neopixel" title="Ссылка на этот заголовок"></a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">neopixel</span></code> module lets you use NeoPixel (WS2812) individually addressable
+  <section id="neopixel">
+<h1>NeoPixel (Адресная светодиодная лента)<a class="headerlink" href="#neopixel" title="Ссылка на этот заголовок"></a></h1>
+<span class="target" id="module-neopixel"></span><p>The <code class="docutils literal notranslate"><span class="pre">neopixel</span></code> module lets you use NeoPixel (WS2812) individually addressable
 RGB and RGBW <strong>V2</strong> LED strips with the micro:bit. Note to use the <code class="docutils literal notranslate"><span class="pre">neopixel</span></code> module, you
 need to import it separately with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">neopixel</span>
@@ -143,7 +143,7 @@ connector should not be connected to anything supplying 5V.</p>
 contains everything to plug them into a micro:bit and create funky displays,
 art and games such as the demo shown below.</p>
 <img alt="Neopixel flexible tile" src="../_images/neopixel.gif" />
-<p>Image attribution: <a class="reference external" href="https://www.adafruit.com/product/2547">adafruit flexible Neopixel matrix</a></p>
+<p>Image attribution: <cite>adafruit flexible Neopixel matrix &lt;https://www.adafruit.com/product/2547&gt;</cite></p>
 <p>To connect a strip of neopixels you’ll need to attach the micro:bit as shown
 below (assuming you want to drive the pixels from pin 0 - you can connect
 neopixels to pins 1 and 2 too). The label on the crocodile clip tells you where
@@ -159,8 +159,8 @@ Neopixels at a time.</p>
 power supply for the Neopixel power pin.</p>
 </div>
 <img alt="../_images/neopixel-croc.png" src="../_images/neopixel-croc.png" />
-<section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Ссылка на этот заголовок"></a></h2>
+<section id="id1">
+<h2>Класс<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="neopixel.NeoPixel">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">neopixel.</span></span><span class="sig-name descname"><span class="pre">NeoPixel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/neopixel.html#NeoPixel"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#neopixel.NeoPixel" title="Ссылка на это определение"></a></dt>
@@ -203,8 +203,8 @@ should be a tuple of the same length as the number of bytes per pixel
 </dd></dl>
 
 </section>
-<section id="operations">
-<h2>Operations<a class="headerlink" href="#operations" title="Ссылка на этот заголовок"></a></h2>
+<section id="id2">
+<h2>Команды<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
 <p>Writing the colour doesn’t update the display (use <code class="docutils literal notranslate"><span class="pre">show()</span></code> for that).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>  <span class="c1"># first element</span>
 <span class="n">np</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># last element</span>
@@ -216,8 +216,8 @@ should be a tuple of the same length as the number of bytes per pixel
 </pre></div>
 </div>
 </section>
-<section id="using-neopixels">
-<h2>Using Neopixels<a class="headerlink" href="#using-neopixels" title="Ссылка на этот заголовок"></a></h2>
+<section id="neopixels">
+<h2>Использование Neopixels<a class="headerlink" href="#neopixels" title="Ссылка на этот заголовок"></a></h2>
 <p>Interact with Neopixels as if they were a list of tuples. Each tuple represents
 the RGB (red, green and blue) / RGBW (red, green,blue and white) mix of colours
 for a specific pixel. The RGBW values can range between 0 to 255.</p>
@@ -255,8 +255,38 @@ you have <code class="docutils literal notranslate"><span class="pre">show()</sp
 shown.</p>
 </div>
 </section>
-<section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Ссылка на этот заголовок"></a></h2>
+<section id="id3">
+<h2>Примеры<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    neopixel_random.py</span>
+
+<span class="sd">    Repeatedly displays random colours onto the LED strip.</span>
+<span class="sd">    This example requires a strip of 8 Neopixels (WS2812) connected to pin0.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">neopixel</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="c1"># Setup the Neopixel strip on pin0 with a length of 8 pixels</span>
+<span class="n">np</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">pin0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1">#Iterate over each LED in the strip</span>
+
+    <span class="k">for</span> <span class="n">pixel_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="p">)):</span>
+        <span class="n">red</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="n">green</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="n">blue</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+
+        <span class="c1"># Assign the current LED a random red, green and blue value between 0 and 60</span>
+        <span class="n">np</span><span class="p">[</span><span class="n">pixel_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span>
+
+        <span class="c1"># Display the current pixel data on the Neopixel strip</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -264,8 +294,8 @@ shown.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="music.html" class="btn btn-neutral float-left" title="Music" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="os.html" class="btn btn-neutral float-right" title="The os Module" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="music.html" class="btn btn-neutral float-left" title="Музыка" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="os.html" class="btn btn-neutral float-right" title="Библиотека OS" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

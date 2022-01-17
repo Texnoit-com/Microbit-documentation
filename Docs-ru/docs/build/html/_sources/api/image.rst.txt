@@ -1,5 +1,5 @@
-Image
-*****
+Изображение
+***********
 
 .. py:module:: microbit
 
@@ -23,7 +23,7 @@ There are four ways in which you can construct an image:
 - ``Image(width, height, buffer)`` - Create an image from the given buffer
 
 
-Classes
+Класс
 =======
 
 .. py:class::
@@ -147,7 +147,7 @@ Classes
                 return res
 
 
-Attributes
+Атрибуты
 ==========
 
 The ``Image`` class also has the following built-in instances of itself
@@ -210,7 +210,7 @@ Finally, related collections of images have been grouped together::
     * ``Image.ALL_ARROWS``
 
 
-Operations
+Команды
 ==========
 
 .. code::

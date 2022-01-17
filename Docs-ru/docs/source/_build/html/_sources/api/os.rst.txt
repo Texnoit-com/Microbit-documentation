@@ -1,4 +1,4 @@
-The ``os``  Module
+Библиотека OS
 ******************
 
 .. py:module:: os
@@ -16,7 +16,7 @@ To access this module you need to::
 
 We assume you have done this for the examples below.
 
-Functions
+Команды
 =========
 
 .. py:function:: listdir()

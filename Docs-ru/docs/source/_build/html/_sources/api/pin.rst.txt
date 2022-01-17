@@ -1,7 +1,5 @@
-Input/Output Pins
-*****************
-
-.. py:module:: microbit
+Контакты
+********
 
 The pins are your board's way to communicate with external devices connected to
 it. There are 19 pins for your disposal, numbered 0-16 and 19-20. Pins 17 and
@@ -21,7 +19,7 @@ depending upon the digital reading on pin 0::
             display.show(Image.SAD)
 
 
-Pin Functions
+Функции
 =============
 
 `Edge connector and pinout <https://tech.microbit.org/hardware/edgeconnector/#edge-connector-pins>`_
@@ -84,8 +82,8 @@ in MicroPython, but that are not available via the edge connector:
   ``pin_speaker.write_analog(128)``.
 
 
-Pulse-Width Modulation
-----------------------
+Широтно-импульсная модуляция
+----------------------------
 
 The pins of your board cannot output analog signal the way an audio amplifier
 can do it -- by modulating the voltage on the pin. Those pins can only either
@@ -121,7 +119,7 @@ the very old computer games -- mostly because those games also only could do
 that.
 
 
-Classes
+Класс
 =======
 
 There are three kinds of pins, differing in what is available for them. They

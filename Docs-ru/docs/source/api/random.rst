@@ -1,5 +1,5 @@
-Random Number Generation
-************************
+Random (Генератор случайных чисел)
+**********************************
 
 .. py:module:: random
 
@@ -12,7 +12,7 @@ To access this module you need to::
 
 We assume you have done this for the examples below.
 
-Functions
+Функции
 =========
 
 .. py:function:: getrandbits(n)

@@ -1,5 +1,5 @@
-Speaker **V2**
-**************
+Генератор речи **V2**
+*********************
 
 .. py:module:: microbit.speaker
 
@@ -17,8 +17,8 @@ pin 0 and GND on the edge connector to hear the sounds.
 
 The speaker can be turned off or on using the functions listed here.
 
-Functions
-=========
+Функции
+========
 
 .. py:function:: off()
 
@@ -30,7 +30,7 @@ Functions
     Use ``on()`` to turn on the speaker.
 
 
-Example
+Примеры
 =======
 
 An example that runs through some of the functions of the speaker API. ::

@@ -1,7 +1,7 @@
 .. _filesystem:
 
-Local Persistent File System
-****************************
+Файловая система
+****************
 
 It is useful to store data in a persistent manner so that it remains intact
 between restarts of the device. On traditional computers this is often achieved

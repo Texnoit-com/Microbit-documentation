@@ -25,8 +25,8 @@
    THE SOFTWARE.
 
 
-utime
-*****
+utime (модуль работы со временем)
+*********************************
 
 .. py:module:: utime
 
@@ -39,7 +39,7 @@ measuring time intervals, and for delays.
     ``import time``, but the module is the same.
 
 
-Functions
+Функции
 =========
 
 .. method:: utime.sleep(seconds)

@@ -1,5 +1,5 @@
-NeoPixel
-********
+NeoPixel (Адресная светодиодная лента)
+*************************************
 
 .. py:module:: neopixel
 
@@ -28,7 +28,7 @@ art and games such as the demo shown below.
 
 .. image:: neopixel.gif
    :alt: Neopixel flexible tile
-Image attribution: `adafruit flexible Neopixel matrix <https://www.adafruit.com/product/2547>`_
+Image attribution: `adafruit flexible Neopixel matrix <https://www.adafruit.com/product/2547>`
 
 To connect a strip of neopixels you'll need to attach the micro:bit as shown
 below (assuming you want to drive the pixels from pin 0 - you can connect
@@ -48,7 +48,7 @@ other 5V devices connected.
 
 .. image:: neopixel-croc.png
 
-Classes
+Класс
 =======
 
 .. py:class::
@@ -85,7 +85,7 @@ Classes
         (bpp). For example ``fill((0,0,255))``. Use in conjunction with
         ``show()`` to update the Neopixels.
     
-Operations
+Команды
 ==========
 
 Writing the colour doesn't update the display (use ``show()`` for that).
@@ -102,8 +102,8 @@ To read the colour of a specific pixel just reference it.
 
     print(np[0])
 
-Using Neopixels
-===============
+Использование Neopixels
+=======================
 
 Interact with Neopixels as if they were a list of tuples. Each tuple represents
 the RGB (red, green and blue) / RGBW (red, green,blue and white) mix of colours
@@ -143,7 +143,7 @@ step..!
     you have ``show()`` at least somewhere otherwise your updates won't be
     shown.
 
-Example
+Примеры
 =======
 
 .. include:: ../examples/neopixel_random.py

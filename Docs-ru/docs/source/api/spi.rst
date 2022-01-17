@@ -1,5 +1,5 @@
-SPI
-***
+Протокол SPI
+************
 
 .. py:module:: microbit.spi
 
@@ -13,7 +13,7 @@ for three signals:
 * MISO : Master Input, Slave Output (output from slave).
 
 
-Functions
+Функции
 =========
 
 .. method:: init(baudrate=1000000, bits=8, mode=0, sclk=pin13, mosi=pin15, miso=pin14)

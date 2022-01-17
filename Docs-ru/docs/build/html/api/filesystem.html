@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Local Persistent File System &mdash; документация Microbit-Русская документация 0.1</title>
+  <title>Файловая система &mdash; документация Microbit-Русская документация 0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="I²C" href="i2c.html" />
-    <link rel="prev" title="Display" href="display.html" /> 
+    <link rel="next" title="Микроконтроллер" href="machine.html" />
+    <link rel="prev" title="Bluetooth" href="ble.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,31 +56,31 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="audio.html">Audio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="button.html">Buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compass.html">Compass</a></li>
-<li class="toctree-l2"><a class="reference internal" href="display.html">Display</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Local Persistent File System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i2c.html">I²C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html">Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">Machine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">Кнопки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
+<li class="toctree-l2"><a class="reference internal" href="display.html">Дисплей</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Файловая система</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
-<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="os.html">The <code class="docutils literal notranslate"><span class="pre">os</span></code>  Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pin.html">Input/Output Pins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="radio.html">Radio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="random.html">Random Number Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="speech.html">Speech</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spi.html">SPI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="uart.html">UART</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utime.html">utime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music.html">Музыка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel (Адресная светодиодная лента)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">Библиотека OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pin.html">Контакты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radio.html">Радио</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random (Генератор случайных чисел)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speaker.html">Генератор речи <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="speech.html">Генератор речи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spi.html">Протокол SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">Протокол UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime (модуль работы со временем)</a></li>
 </ul>
 </li>
 </ul>
@@ -104,7 +104,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../API.html">Справочник по API</a> &raquo;</li>
-      <li>Local Persistent File System</li>
+      <li>Файловая система</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/filesystem.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
       </li>
@@ -114,8 +114,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="local-persistent-file-system">
-<span id="filesystem"></span><h1>Local Persistent File System<a class="headerlink" href="#local-persistent-file-system" title="Ссылка на этот заголовок"></a></h1>
+  <section id="filesystem">
+<span id="id1"></span><h1>Файловая система<a class="headerlink" href="#filesystem" title="Ссылка на этот заголовок"></a></h1>
 <p>It is useful to store data in a persistent manner so that it remains intact
 between restarts of the device. On traditional computers this is often achieved
 by a file system consisting of named files that hold raw data, and named
@@ -258,8 +258,8 @@ characters or bytes written.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="display.html" class="btn btn-neutral float-left" title="Display" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="i2c.html" class="btn btn-neutral float-right" title="I²C" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ble.html" class="btn btn-neutral float-left" title="Bluetooth" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="machine.html" class="btn btn-neutral float-right" title="Микроконтроллер" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

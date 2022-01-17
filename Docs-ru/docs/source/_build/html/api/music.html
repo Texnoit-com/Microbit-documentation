@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Music &mdash; документация Microbit-Русская документация 0.1</title>
+  <title>Музыка &mdash; документация Microbit-Русская документация 0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -56,25 +56,25 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="audio.html">Audio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="button.html">Buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compass.html">Compass</a></li>
-<li class="toctree-l2"><a class="reference internal" href="display.html">Display</a></li>
-<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Local Persistent File System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i2c.html">I²C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html">Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">Machine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">Кнопки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
+<li class="toctree-l2"><a class="reference internal" href="display.html">Дисплей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Файловая система</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Music</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#musical-notation">Musical Notation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#built-in-melodies">Built in Melodies</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Музыка</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Музыкальная нотация</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Функции</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Встроенные модули</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Примеры</a></li>
 </ul>
 </li>
 </ul>
@@ -112,7 +112,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../API.html">Справочник по API</a> &raquo;</li>
-      <li>Music</li>
+      <li>Музыка</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/music.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
       </li>
@@ -123,7 +123,7 @@
            <div itemprop="articleBody">
              
   <section id="module-music">
-<span id="music"></span><h1>Music<a class="headerlink" href="#module-music" title="Ссылка на этот заголовок"></a></h1>
+<span id="id1"></span><h1>Музыка<a class="headerlink" href="#module-music" title="Ссылка на этот заголовок"></a></h1>
 <p>This is the <code class="docutils literal notranslate"><span class="pre">music</span></code> module and you can use it to create and play melodies.
 By default sound output will be via the edge connector on pin 0 and the
 <a class="reference internal" href="speaker.html"><span class="doc">built-in speaker</span></a> <strong>V2</strong>. You can connect wired headphones or
@@ -136,8 +136,8 @@ pin.</p>
 </pre></div>
 </div>
 <p>We assume you have done this for the examples below.</p>
-<section id="musical-notation">
-<h2>Musical Notation<a class="headerlink" href="#musical-notation" title="Ссылка на этот заголовок"></a></h2>
+<section id="id2">
+<h2>Музыкальная нотация<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
 <p>An individual note is specified thus:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NOTE</span><span class="p">[</span><span class="n">octave</span><span class="p">][:</span><span class="n">duration</span><span class="p">]</span>
 </pre></div>
@@ -167,8 +167,8 @@ quaver, crotchet based arpeggio:</p>
 page about scientific pitch notation</a>.  For example, middle «C» is <code class="docutils literal notranslate"><span class="pre">'c4'</span></code> and
 concert «A» (440) is <code class="docutils literal notranslate"><span class="pre">'a4'</span></code>. Octaves start on the note «C».</p>
 </section>
-<section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Ссылка на этот заголовок"></a></h2>
+<section id="id3">
+<h2>Функции<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="music.set_tempo">
 <span class="sig-prename descclassname"><span class="pre">music.</span></span><span class="sig-name descname"><span class="pre">set_tempo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bpm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">120</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/music.html#set_tempo"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#music.set_tempo" title="Ссылка на это определение"></a></dt>
@@ -246,8 +246,8 @@ sound. An optional argument can be provided to specify a pin, eg.
 </div></blockquote>
 </dd></dl>
 
-<section id="built-in-melodies">
-<h3>Built in Melodies<a class="headerlink" href="#built-in-melodies" title="Ссылка на этот заголовок"></a></h3>
+<section id="id4">
+<h3>Встроенные модули<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h3>
 <p>For the purposes of education and entertainment, the module contains several
 example tunes that are expressed as Python lists. They can be used like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">music</span>
@@ -284,8 +284,37 @@ fair (educational) use provision.</p>
 </ul>
 </div></blockquote>
 </section>
-<section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Ссылка на этот заголовок"></a></h3>
+<section id="id5">
+<h3>Примеры<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h3>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    music.py</span>
+<span class="sd">    ~~~~~~~~</span>
+
+<span class="sd">    Plays a simple tune using the Micropython music module.</span>
+<span class="sd">    This example requires a speaker/buzzer/headphones connected to P0 and GND,</span>
+<span class="sd">    or the latest micro:bit device with built-in speaker.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">music</span>
+
+<span class="c1"># play Prelude in C.</span>
+<span class="n">notes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;c4:1&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span> <span class="s1">&#39;e5&#39;</span><span class="p">,</span> <span class="s1">&#39;g4&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span> <span class="s1">&#39;e5&#39;</span><span class="p">,</span> <span class="s1">&#39;c4&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span> <span class="s1">&#39;e5&#39;</span><span class="p">,</span> <span class="s1">&#39;g4&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span> <span class="s1">&#39;e5&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;c4&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d5&#39;</span><span class="p">,</span> <span class="s1">&#39;f5&#39;</span><span class="p">,</span> <span class="s1">&#39;a4&#39;</span><span class="p">,</span> <span class="s1">&#39;d5&#39;</span><span class="p">,</span> <span class="s1">&#39;f5&#39;</span><span class="p">,</span> <span class="s1">&#39;c4&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d5&#39;</span><span class="p">,</span> <span class="s1">&#39;f5&#39;</span><span class="p">,</span> <span class="s1">&#39;a4&#39;</span><span class="p">,</span> <span class="s1">&#39;d5&#39;</span><span class="p">,</span> <span class="s1">&#39;f5&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;b3&#39;</span><span class="p">,</span> <span class="s1">&#39;d4&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;d5&#39;</span><span class="p">,</span> <span class="s1">&#39;f5&#39;</span><span class="p">,</span> <span class="s1">&#39;g4&#39;</span><span class="p">,</span> <span class="s1">&#39;d5&#39;</span><span class="p">,</span> <span class="s1">&#39;f5&#39;</span><span class="p">,</span> <span class="s1">&#39;b3&#39;</span><span class="p">,</span> <span class="s1">&#39;d4&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;d5&#39;</span><span class="p">,</span> <span class="s1">&#39;f5&#39;</span><span class="p">,</span> <span class="s1">&#39;g4&#39;</span><span class="p">,</span> <span class="s1">&#39;d5&#39;</span><span class="p">,</span> <span class="s1">&#39;f5&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;c4&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span> <span class="s1">&#39;e5&#39;</span><span class="p">,</span> <span class="s1">&#39;g4&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span> <span class="s1">&#39;e5&#39;</span><span class="p">,</span> <span class="s1">&#39;c4&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span> <span class="s1">&#39;e5&#39;</span><span class="p">,</span> <span class="s1">&#39;g4&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span> <span class="s1">&#39;e5&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;c4&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;e5&#39;</span><span class="p">,</span> <span class="s1">&#39;a5&#39;</span><span class="p">,</span> <span class="s1">&#39;a4&#39;</span><span class="p">,</span> <span class="s1">&#39;e5&#39;</span><span class="p">,</span> <span class="s1">&#39;a5&#39;</span><span class="p">,</span> <span class="s1">&#39;c4&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;e5&#39;</span><span class="p">,</span> <span class="s1">&#39;a5&#39;</span><span class="p">,</span> <span class="s1">&#39;a4&#39;</span><span class="p">,</span> <span class="s1">&#39;e5&#39;</span><span class="p">,</span> <span class="s1">&#39;a5&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;c4&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;f#&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d5&#39;</span><span class="p">,</span> <span class="s1">&#39;f#4&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d5&#39;</span><span class="p">,</span> <span class="s1">&#39;c4&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;f#&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d5&#39;</span><span class="p">,</span> <span class="s1">&#39;f#4&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d5&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;b3&#39;</span><span class="p">,</span> <span class="s1">&#39;d4&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;d5&#39;</span><span class="p">,</span> <span class="s1">&#39;g5&#39;</span><span class="p">,</span> <span class="s1">&#39;g4&#39;</span><span class="p">,</span> <span class="s1">&#39;d5&#39;</span><span class="p">,</span> <span class="s1">&#39;g5&#39;</span><span class="p">,</span> <span class="s1">&#39;b3&#39;</span><span class="p">,</span> <span class="s1">&#39;d4&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;d5&#39;</span><span class="p">,</span> <span class="s1">&#39;g5&#39;</span><span class="p">,</span> <span class="s1">&#39;g4&#39;</span><span class="p">,</span> <span class="s1">&#39;d5&#39;</span><span class="p">,</span> <span class="s1">&#39;g5&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;b3&#39;</span><span class="p">,</span> <span class="s1">&#39;c4&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span> <span class="s1">&#39;e4&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span> <span class="s1">&#39;b3&#39;</span><span class="p">,</span> <span class="s1">&#39;c4&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span> <span class="s1">&#39;e4&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;a3&#39;</span><span class="p">,</span> <span class="s1">&#39;c4&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span> <span class="s1">&#39;e4&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span> <span class="s1">&#39;a3&#39;</span><span class="p">,</span> <span class="s1">&#39;c4&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span> <span class="s1">&#39;e4&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;d3&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d4&#39;</span><span class="p">,</span> <span class="s1">&#39;f#&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span> <span class="s1">&#39;d4&#39;</span><span class="p">,</span> <span class="s1">&#39;f#&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span> <span class="s1">&#39;d3&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d4&#39;</span><span class="p">,</span> <span class="s1">&#39;f#&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span> <span class="s1">&#39;d4&#39;</span><span class="p">,</span> <span class="s1">&#39;f#&#39;</span><span class="p">,</span> <span class="s1">&#39;c5&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;g3&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;d4&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;g3&#39;</span><span class="p">,</span> <span class="s1">&#39;b3&#39;</span><span class="p">,</span> <span class="s1">&#39;d4&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span>
+<span class="p">]</span>
+
+<span class="n">music</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">notes</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>

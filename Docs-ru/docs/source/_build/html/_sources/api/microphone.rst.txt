@@ -1,4 +1,4 @@
-Microphone **V2**
+Микрофон **V2**
 *****************
 
 .. py:module:: microbit.microphone

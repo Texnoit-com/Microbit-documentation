@@ -7,6 +7,8 @@
    :maxdepth: 2
    :caption: Содержание
 
+   api/microbit_micropython_api
+   api/microbit
    api/accelerometer
    api/audio
    api/ble
@@ -17,8 +19,6 @@
    api/i2c
    api/image
    api/machine
-   api/microbit
-   api/microbit_micropython_api
    api/microphone
    api/micropython
    api/music

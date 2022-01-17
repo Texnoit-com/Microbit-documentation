@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Display &mdash; документация Microbit-Русская документация 0.1</title>
+  <title>Дисплей &mdash; документация Microbit-Русская документация 0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Local Persistent File System" href="filesystem.html" />
-    <link rel="prev" title="Compass" href="compass.html" /> 
+    <link rel="next" title="Функции" href="i2c.html" />
+    <link rel="prev" title="Компас" href="compass.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,39 +56,22 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="audio.html">Audio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="button.html">Buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compass.html">Compass</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Display</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Local Persistent File System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i2c.html">I²C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html">Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">Machine</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="microbit.html">Microbit Module</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="microbit.html#functions">Functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="microbit.html#attributes">Attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="microbit.html#classes">Classes</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="microbit.html#modules">Modules</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="audio.html">Audio V2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="compass.html">Compass</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Display</a></li>
-<li class="toctree-l4"><a class="reference internal" href="i2c.html">I²C</a></li>
-<li class="toctree-l4"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
-<li class="toctree-l4"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
-<li class="toctree-l4"><a class="reference internal" href="spi.html">SPI</a></li>
-<li class="toctree-l4"><a class="reference internal" href="uart.html">UART</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">Кнопки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Дисплей</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Функции</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Примеры</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Файловая система</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
@@ -125,7 +108,8 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../API.html">Справочник по API</a> &raquo;</li>
-      <li>Display</li>
+          <li><a href="microbit.html">Microbit Module</a> &raquo;</li>
+      <li>Дисплей</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/display.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
       </li>
@@ -136,12 +120,12 @@
            <div itemprop="articleBody">
              
   <section id="module-microbit.display">
-<span id="display"></span><h1>Display<a class="headerlink" href="#module-microbit.display" title="Ссылка на этот заголовок"></a></h1>
+<span id="id1"></span><h1>Дисплей<a class="headerlink" href="#module-microbit.display" title="Ссылка на этот заголовок"></a></h1>
 <p>This module controls the 5×5 LED display on the front of your board. It can
 be used to display images, animations and even text.</p>
 <img alt="../_images/scroll-hello.gif" src="../_images/scroll-hello.gif" />
-<section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Ссылка на этот заголовок"></a></h2>
+<section id="id2">
+<h2>Функции<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.display.get_pixel">
 <span class="sig-prename descclassname"><span class="pre">microbit.display.</span></span><span class="sig-name descname"><span class="pre">get_pixel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.display.get_pixel" title="Ссылка на это определение"></a></dt>
@@ -232,8 +216,8 @@ the light level, with larger meaning more light.</p>
 </dd></dl>
 
 </section>
-<section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Ссылка на этот заголовок"></a></h2>
+<section id="id3">
+<h2>Примеры<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <p>To continuously scroll a string across the display, and do it in the background,
 you can use:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">microbit</span>
@@ -248,8 +232,8 @@ you can use:</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="compass.html" class="btn btn-neutral float-left" title="Compass" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="filesystem.html" class="btn btn-neutral float-right" title="Local Persistent File System" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="compass.html" class="btn btn-neutral float-left" title="Компас" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="i2c.html" class="btn btn-neutral float-right" title="Функции" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

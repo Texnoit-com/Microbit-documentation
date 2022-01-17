@@ -4,13 +4,13 @@
 Описание датчиков и принципов работы с библиотеками.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Платы расширения
 
    sensor/Microbit_Shield_V2
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Устройства вывода
 
    sensor/3W_LED_Module
@@ -24,7 +24,7 @@
    sensor/Traffic_Light
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Датчики
 
    sensor/18B20_Temperature

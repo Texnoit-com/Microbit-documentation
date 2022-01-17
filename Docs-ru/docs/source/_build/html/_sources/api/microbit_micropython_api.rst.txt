@@ -1,8 +1,8 @@
 micro:bit Micropython API
 *************************
 
-The microbit module
-===================
+Модуль
+======
 
 Everything directly related to interacting with the hardware lives in the `microbit` module.  For ease of use it's recommended you start all scripts with::
 
@@ -33,7 +33,7 @@ Note that the API exposes integers only (ie no floats are needed, but they may b
 .. note::
     You can see a list of all available modules by writing ``help('modules')`` in the REPL.
 
-Buttons
+Кнопки
 -------
 
 There are 2 buttons::
@@ -52,7 +52,7 @@ These are both objects and have the following methods::
     # returns the running total of button presses, and resets this counter to zero
     button.get_presses()
 
-Display
+Дисплей
 -------
 
 The LED display is exposed via the `display` object::
@@ -73,7 +73,7 @@ The LED display is exposed via the `display` object::
     # written messages).
     display.scroll(string, delay=400)
 
-SoundEvent **V2**
+Звук **V2**
 -----------------
 Sound events describe changes in the sound heard by the microphone::
 
@@ -84,7 +84,7 @@ Sound events describe changes in the sound heard by the microphone::
     # like speaking or background music.
     SoundEvent.QUIET = SoundEvent('quiet')
 
-Microphone **V2**
+Микрофон **V2**
 -----------------
 
 The Microphone is accessed via the `microphone` object::
@@ -105,8 +105,8 @@ The Microphone is accessed via the `microphone` object::
     # Returns a representation of the sound pressure level in the range 0 to 255.
     sound_level()
 
-Pins
-----
+Контакты
+--------
 
 Provide digital and analog input and output functionality, for the pins in the
 connector, the **V2** logo and the **V2** speaker. Some pins are connected
@@ -162,8 +162,8 @@ pin_speaker:
     
 As above ``MicroBitPin`` class, but does not include ``pin.is_touched()``.
 
-Images
-------
+Изображение
+-----------
 
 .. note::
 
@@ -277,7 +277,7 @@ animation or manually iterating through them.
 ``Image.ALL_CLOCKS``
 ``Image.ALL_ARROWS``
 
-Accelerometer
+Акселерометр
 -------------
 
 The accelerometer is accessed via the ``accelerometer`` object::
@@ -303,7 +303,7 @@ The accelerometer is accessed via the ``accelerometer`` object::
 The recognised gestures are: ``up``, ``down``, ``left``, ``right``, ``face up``, ``face down``, ``freefall``, ``3g``, ``6g``, ``8g``, ``shake``.
 
 
-Compass
+Компас
 -------
 
 The compass is accessed via the `compass` object::
@@ -320,8 +320,8 @@ The compass is accessed via the `compass` object::
     # resets the compass to a pre-calibration state.
     compass.clear_calibration()
 
-I2C bus
--------
+Протокол I2C
+------------
 
 There is an I2C bus on the micro:bit that is exposed via the `i2c` object.  It has the following methods::
 
@@ -331,7 +331,7 @@ There is an I2C bus on the micro:bit that is exposed via the `i2c` object.  It h
     # write buf to device with addr; repeat=True means a stop bit won't be sent.
     i2c.write(addr, buf, repeat=False)
 
-Sound **V2**
+Звук **V2**
 ------------
 
 A set of expressive sounds are available to the micro:bit **V2**. They can be
@@ -350,7 +350,7 @@ accessed via the ``microbit`` module and played with the :doc:`audio <audio>` mo
 ``Sound.TWINKLE``
 ``Sound.YAWN``
 
-Speaker **V2**
+Генератор речи **V2**
 --------------
 
 The speaker is enabled by default and can be accessed using the ``speaker`` object. It
@@ -364,8 +364,8 @@ can be turned off or on::
     speaker.is_on()
 
 
-UART
-----
+Протокол UART
+-------------
 
 Use ``uart`` to communicate with a serial device connected to the device's I/O pins::
 

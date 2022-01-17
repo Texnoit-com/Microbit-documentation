@@ -1,4 +1,4 @@
-I²C
+Протокол I²C
 ***
 
 .. py:module:: microbit.i2c
@@ -18,7 +18,7 @@ send and how to interpret the responses, depends on the device in question and
 should be described separately in that device's documentation.
 
 
-Functions
+Функции
 =========
 
 .. py:function:: init(freq=100000, sda=pin20, scl=pin19)
@@ -55,7 +55,7 @@ Functions
     ``repeat`` is ``True``, no stop bit will be sent.
 
 
-Connecting
+Подключение
 ----------
 
 You should connect the device's ``SCL`` pin to micro:bit pin 19, and the

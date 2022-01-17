@@ -1,5 +1,5 @@
-Speech
-******
+Генератор речи
+**************
 
 .. py:module:: speech
 
@@ -31,7 +31,7 @@ To access this module you need to::
 
 We assume you have done this for the examples below.
 
-Functions
+Функции
 =========
 
 .. py:function:: translate(words)
@@ -73,7 +73,7 @@ Functions
     speed, mouth and throat settings to change the timbre (quality) of the
     voice.
 
-Punctuation
+Пунктуация
 ===========
 
 Punctuation is used to alter the delivery of speech. The synthesiser
@@ -94,7 +94,7 @@ well with yes/no questions such as, "are we home yet?" rather than more complex
 questions such as "why are we going home?". In the latter case, use a
 full-stop.
 
-Timbre
+Тембр
 ======
 
 The timbre of a sound is the quality of the sound. It's the difference between
@@ -155,7 +155,7 @@ To get you started here are some examples::
     speech.say("I am E.T.", speed=100, pitch=64, throat=150, mouth=200)
     speech.say("I am a DALEK - EXTERMINATE", speed=120, pitch=100, throat=100, mouth=200)
 
-Phonemes
+Фонемы
 ========
 
 The ``say`` function makes it easy to produce speech - but often it's not
@@ -306,7 +306,7 @@ It's also possible to elongate words with stress markers::
 
     speech.pronounce("/HEH5EH4EH3EH2EH2EH3EH4EH5EHLP.”)
 
-Singing
+Пение
 =======
 
 It's possible to make MicroPython sing phonemes.
@@ -344,7 +344,7 @@ Experimentation, listening carefully and adjusting is the only sure way to work
 out how many times to repeat a phoneme so the note lasts for the desired
 duration.
 
-How Does it Work?
+Как это работает?
 =================
 
 The original manual explains it well:
@@ -363,7 +363,7 @@ The original manual explains it well:
 The output is piped through the functions provided by the ``audio`` module and,
 hey presto, we have a talking micro:bit.
 
-Example
+Примеры
 =======
 
 .. include:: ../examples/speech.py

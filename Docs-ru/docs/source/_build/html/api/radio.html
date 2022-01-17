@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Radio &mdash; документация Microbit-Русская документация 0.1</title>
+  <title>Радио &mdash; документация Microbit-Русская документация 0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Random Number Generation" href="random.html" />
-    <link rel="prev" title="The os Module" href="os.html" /> 
+    <link rel="next" title="Random (Генератор случайных чисел)" href="random.html" />
+    <link rel="prev" title="Библиотека OS" href="os.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,38 +56,38 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="audio.html">Audio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="button.html">Buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compass.html">Compass</a></li>
-<li class="toctree-l2"><a class="reference internal" href="display.html">Display</a></li>
-<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Local Persistent File System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i2c.html">I²C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html">Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">Machine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">Кнопки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
+<li class="toctree-l2"><a class="reference internal" href="display.html">Дисплей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Файловая система</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
-<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="os.html">The <code class="docutils literal notranslate"><span class="pre">os</span></code>  Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pin.html">Input/Output Pins</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Radio</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#constants">Constants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music.html">Музыка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel (Адресная светодиодная лента)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">Библиотека OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pin.html">Контакты</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Радио</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Константы</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Функции</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Примеры</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="random.html">Random Number Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="speech.html">Speech</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spi.html">SPI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="uart.html">UART</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utime.html">utime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random (Генератор случайных чисел)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speaker.html">Генератор речи <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="speech.html">Генератор речи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spi.html">Протокол SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">Протокол UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime (модуль работы со временем)</a></li>
 </ul>
 </li>
 </ul>
@@ -111,7 +111,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../API.html">Справочник по API</a> &raquo;</li>
-      <li>Radio</li>
+      <li>Радио</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/radio.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
       </li>
@@ -122,7 +122,7 @@
            <div itemprop="articleBody">
              
   <section id="module-radio">
-<span id="radio"></span><h1>Radio<a class="headerlink" href="#module-radio" title="Ссылка на этот заголовок"></a></h1>
+<span id="id1"></span><h1>Радио<a class="headerlink" href="#module-radio" title="Ссылка на этот заголовок"></a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">radio</span></code> module allows devices to work together via simple wireless
 networks.</p>
 <p>The radio module is conceptually very simple:</p>
@@ -143,8 +143,8 @@ networks.</p>
 </pre></div>
 </div>
 <p>We assume you have done this for the examples below.</p>
-<section id="constants">
-<h2>Constants<a class="headerlink" href="#constants" title="Ссылка на этот заголовок"></a></h2>
+<section id="id2">
+<h2>Константы<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="radio.RATE_250KBIT">
 <span class="sig-prename descclassname"><span class="pre">radio.</span></span><span class="sig-name descname"><span class="pre">RATE_250KBIT</span></span><a class="headerlink" href="#radio.RATE_250KBIT" title="Ссылка на это определение"></a></dt>
@@ -164,8 +164,8 @@ networks.</p>
 </dd></dl>
 
 </section>
-<section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Ссылка на этот заголовок"></a></h2>
+<section id="id3">
+<h2>Функции<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="radio.on">
 <span class="sig-prename descclassname"><span class="pre">radio.</span></span><span class="sig-name descname"><span class="pre">on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/radio.html#on"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#radio.on" title="Ссылка на это определение"></a></dt>
@@ -292,8 +292,8 @@ message on the message queue. If there are no pending messages then
 and/or triliteration with other micro:bit devices.</p>
 </dd></dl>
 
-<section id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Ссылка на этот заголовок"></a></h3>
+<section id="id4">
+<h3>Примеры<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h3>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># A micro:bit Firefly.</span>
 <span class="c1"># By Nicholas H.Tollervey. Released to the public domain.</span>
 <span class="kn">import</span> <span class="nn">radio</span>
@@ -331,8 +331,8 @@ and/or triliteration with other micro:bit devices.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="os.html" class="btn btn-neutral float-left" title="The os Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="random.html" class="btn btn-neutral float-right" title="Random Number Generation" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="os.html" class="btn btn-neutral float-left" title="Библиотека OS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="random.html" class="btn btn-neutral float-right" title="Random (Генератор случайных чисел)" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

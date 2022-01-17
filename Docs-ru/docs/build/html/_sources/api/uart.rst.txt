@@ -1,5 +1,5 @@
-UART
-****
+Протокол UART
+*************
 
 .. py:module:: microbit.uart
 
@@ -7,7 +7,7 @@ The ``uart`` module lets you talk to a device connected to your board using
 a serial interface.
 
 
-Functions
+Функции
 =========
 
 .. method:: init(baudrate=9600, bits=8, parity=None, stop=1, \*, tx=None, rx=None)

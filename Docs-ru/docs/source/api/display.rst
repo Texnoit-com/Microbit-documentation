@@ -1,4 +1,4 @@
-Display
+Дисплей
 *******
 
 .. py:module:: microbit.display
@@ -8,7 +8,7 @@ be used to display images, animations and even text.
 
 .. image:: scroll-hello.gif
 
-Functions
+Функции
 =========
 
 .. py:function:: get_pixel(x, y)
@@ -91,7 +91,7 @@ Functions
     falling on the display.  Returns an integer between 0 and 255 representing
     the light level, with larger meaning more light.
 
-Example
+Примеры
 =======
 
 To continuously scroll a string across the display, and do it in the background,

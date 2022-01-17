@@ -1,11 +1,11 @@
-Buttons
+Кнопки
 *******
 
 .. py::module:: microbit
 
 There are two buttons on the board, called ``button_a`` and ``button_b``.
 
-Attributes
+Атрибуты
 ==========
 
 
@@ -19,7 +19,7 @@ Attributes
     Represents the right button.
 
 
-Classes
+Класс
 =======
 
 .. py:class:: Button()
@@ -49,7 +49,7 @@ Classes
         Returns the running total of button presses, and resets this total
         to zero before returning.
 
-Example
+Примеры
 =======
 
 .. code::

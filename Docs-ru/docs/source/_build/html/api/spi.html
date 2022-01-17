@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SPI &mdash; документация Microbit-Русская документация 0.1</title>
+  <title>Протокол SPI &mdash; документация Microbit-Русская документация 0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="UART" href="uart.html" />
-    <link rel="prev" title="Speaker V2" href="speaker.html" /> 
+    <link rel="next" title="Протокол UART" href="uart.html" />
+    <link rel="prev" title="Генератор речи V2" href="speaker.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,51 +56,51 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="audio.html">Audio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="button.html">Buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compass.html">Compass</a></li>
-<li class="toctree-l2"><a class="reference internal" href="display.html">Display</a></li>
-<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Local Persistent File System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i2c.html">I²C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html">Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">Machine</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="microbit.html">Microbit Module</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="microbit.html#functions">Functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="microbit.html#attributes">Attributes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="microbit.html#classes">Classes</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="microbit.html#modules">Modules</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="audio.html">Audio V2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="compass.html">Compass</a></li>
-<li class="toctree-l4"><a class="reference internal" href="display.html">Display</a></li>
-<li class="toctree-l4"><a class="reference internal" href="i2c.html">I²C</a></li>
-<li class="toctree-l4"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
-<li class="toctree-l4"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">SPI</a></li>
-<li class="toctree-l4"><a class="reference internal" href="uart.html">UART</a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
-<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="os.html">The <code class="docutils literal notranslate"><span class="pre">os</span></code>  Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pin.html">Input/Output Pins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="radio.html">Radio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="random.html">Random Number Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="speech.html">Speech</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">SPI</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="microbit.html">Microbit Module</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#id1">Функции</a></li>
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#id2">Атрибуты</a></li>
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#id3">Класс</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="microbit.html#id4">Модули</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
+<li class="toctree-l4"><a class="reference internal" href="audio.html">Audio V2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="compass.html">Компас</a></li>
+<li class="toctree-l4"><a class="reference internal" href="display.html">Дисплей</a></li>
+<li class="toctree-l4"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l4"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="speaker.html">Генератор речи <strong>V2</strong></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Протокол SPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uart.html">Протокол UART</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="uart.html">UART</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utime.html">utime</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">Кнопки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
+<li class="toctree-l2"><a class="reference internal" href="display.html">Дисплей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Файловая система</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music.html">Музыка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel (Адресная светодиодная лента)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">Библиотека OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pin.html">Контакты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radio.html">Радио</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random (Генератор случайных чисел)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speaker.html">Генератор речи <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="speech.html">Генератор речи</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Протокол SPI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Функции</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">Протокол UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime (модуль работы со временем)</a></li>
 </ul>
 </li>
 </ul>
@@ -125,7 +125,7 @@
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../API.html">Справочник по API</a> &raquo;</li>
           <li><a href="microbit.html">Microbit Module</a> &raquo;</li>
-      <li>SPI</li>
+      <li>Протокол SPI</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/spi.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
       </li>
@@ -136,7 +136,7 @@
            <div itemprop="articleBody">
              
   <section id="module-microbit.spi">
-<span id="spi"></span><h1>SPI<a class="headerlink" href="#module-microbit.spi" title="Ссылка на этот заголовок"></a></h1>
+<span id="spi"></span><h1>Протокол SPI<a class="headerlink" href="#module-microbit.spi" title="Ссылка на этот заголовок"></a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">spi</span></code> module lets you talk to a device connected to your board using
 a serial peripheral interface (SPI) bus. SPI uses a so-called master-slave
 architecture with a single master. You will need to specify the connections
@@ -146,8 +146,8 @@ for three signals:</p>
 <li><p>MOSI : Master Output, Slave Input (output from master).</p></li>
 <li><p>MISO : Master Input, Slave Output (output from slave).</p></li>
 </ul>
-<section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Ссылка на этот заголовок"></a></h2>
+<section id="id1">
+<h2>Функции<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="microbit.spi.init">
 <span class="sig-prename descclassname"><span class="pre">microbit.spi.</span></span><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">baudrate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sclk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">pin13</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mosi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">pin15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">miso</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">pin14</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.spi.init" title="Ссылка на это определение"></a></dt>
@@ -228,8 +228,8 @@ the same object.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="speaker.html" class="btn btn-neutral float-left" title="Speaker V2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="uart.html" class="btn btn-neutral float-right" title="UART" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="speaker.html" class="btn btn-neutral float-left" title="Генератор речи V2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="uart.html" class="btn btn-neutral float-right" title="Протокол UART" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -32,7 +32,7 @@ MicroPython
 
 Access and control MicroPython internals.
 
-Functions
+Функции
 =========
 
 .. py:function:: micropython.const(expr)

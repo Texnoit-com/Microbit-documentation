@@ -1,4 +1,4 @@
-Accelerometer
+Акселерометр
 *************
 
 .. py:module:: microbit.accelerometer
@@ -13,7 +13,7 @@ accelerometer range is currently not possible in MicroPython.
 The accelerometer returns a value in the range 0..1024 for each axis, which is
 then scaled accordingly.
 
-Functions
+Функции
 =========
 
 .. py:function:: get_x()
@@ -75,7 +75,7 @@ Functions
     calls to some accelerometer method to do the gesture detection. Usually 
     gestures can be detected using a loop with a small :func:`microbit.sleep` delay.
 
-Examples
+Примеры
 --------
 
 A fortune telling magic 8-ball. Ask a question then shake the device for an

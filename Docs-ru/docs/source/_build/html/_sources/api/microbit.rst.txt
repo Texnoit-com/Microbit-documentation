@@ -8,7 +8,7 @@ The ``microbit`` module gives you access to all the hardware that is built-in
 into your board.
 
 
-Functions
+Функции
 =========
 
 .. py:function:: panic(n)
@@ -45,7 +45,7 @@ Functions
     Return the temperature of the micro:bit in degrees Celcius.
 
 
-Attributes
+Атрибуты
 ==========
 
 .. toctree::
@@ -55,7 +55,7 @@ Attributes
     pin.rst
 
 
-Classes
+Класс
 =======
 
 .. toctree::
@@ -65,7 +65,7 @@ Classes
     Sound <audio.rst>
 
 
-Modules
+Модули
 =======
 
 .. toctree::

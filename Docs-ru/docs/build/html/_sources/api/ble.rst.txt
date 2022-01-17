@@ -1,7 +1,7 @@
 Bluetooth
 *********
 
-micro:bit V1
+Microbit V1
 ============
 
 While the BBC micro:bit has hardware capable of allowing the device to work as
@@ -17,7 +17,7 @@ to support Bluetooth on a micro:bit V1.
     Furthermore, the protocol used in the :mod:`radio` module is a lot simpler
     than BLE, making it far easier to use in an educational context.
 
-micro:bit V2
+Microbit V2
 ============
 
 The nRF52833 used by the micro:bit V2 has 128k of RAM, allowing Micropython to make

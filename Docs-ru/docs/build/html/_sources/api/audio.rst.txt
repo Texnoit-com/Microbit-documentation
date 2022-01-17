@@ -1,4 +1,4 @@
-Audio
+Аудио
 *******
 
 .. py:module:: audio
@@ -10,7 +10,7 @@ By default sound output will be via the edge connector on pin 0 and the
 :doc:`built-in speaker <speaker>` **V2**. You can connect wired headphones or
 a speaker to pin 0 and GND on the edge connector to hear the sounds.
 
-Functions
+Функции
 =========
 
 .. py:function:: play(source, wait=True, pin=pin0, return_pin=None)
@@ -42,7 +42,7 @@ Functions
     
     Stops all audio playback.
 
-Classes
+Класс
 =======
 
 .. py:class::
@@ -53,14 +53,14 @@ Classes
 
     It takes just over 4 ms to play a single frame.
 
-Using audio
+Использование аудио
 ===========
 
 You will need a sound source, as input to the ``play`` function. You can use
 the built-in sounds **V2** from the ``microbit`` module, ``microbit.Sound``, or
 generate your own, like in ``examples/waveforms.py``.
 
-Built-in sounds **V2**
+Встроенные звуки **V2**
 ----------------------
 
 The built-in sounds can be called using ``audio.play(Sound.NAME)``.
@@ -76,7 +76,7 @@ The built-in sounds can be called using ``audio.play(Sound.NAME)``.
 * ``Sound.TWINKLE``
 * ``Sound.YAWN``
 
-Technical Details
+Технические детали
 =================
 
 .. note::
@@ -99,7 +99,7 @@ the buffer. This means that a sound source has under 4ms to compute the next
 32000 cycles, so should be plenty).
 
 
-Example
+Примеры
 =======
 
 .. include:: ../examples/waveforms.py

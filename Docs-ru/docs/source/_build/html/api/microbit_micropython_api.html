@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="MicroPython" href="micropython.html" />
-    <link rel="prev" title="UART" href="uart.html" /> 
+    <link rel="next" title="Microbit Module" href="microbit.html" />
+    <link rel="prev" title="Справочник по API" href="../API.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,35 +56,35 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Accelerometer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="audio.html">Audio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="button.html">Buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compass.html">Compass</a></li>
-<li class="toctree-l2"><a class="reference internal" href="display.html">Display</a></li>
-<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Local Persistent File System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i2c.html">I²C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="image.html">Image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="machine.html">Machine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">micro:bit Micropython API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#the-microbit-module">The microbit module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#buttons">Buttons</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#display">Display</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#soundevent-v2">SoundEvent <strong>V2</strong></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#microphone-v2">Microphone <strong>V2</strong></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pins">Pins</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#images">Images</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#accelerometer">Accelerometer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#compass">Compass</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#i2c-bus">I2C bus</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sound-v2">Sound <strong>V2</strong></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#speaker-v2">Speaker <strong>V2</strong></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#uart">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Модуль</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Кнопки</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Дисплей</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#v2">Звук <strong>V2</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Микрофон <strong>V2</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Контакты</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Изображение</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Акселерометр</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Компас</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#i2c">Протокол I2C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Звук <strong>V2</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Генератор речи <strong>V2</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uart">Протокол UART</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="button.html">Кнопки</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
+<li class="toctree-l2"><a class="reference internal" href="display.html">Дисплей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filesystem.html">Файловая система</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
@@ -133,8 +133,8 @@
              
   <section id="micro-bit-micropython-api">
 <h1>micro:bit Micropython API<a class="headerlink" href="#micro-bit-micropython-api" title="Ссылка на этот заголовок"></a></h1>
-<section id="the-microbit-module">
-<h2>The microbit module<a class="headerlink" href="#the-microbit-module" title="Ссылка на этот заголовок"></a></h2>
+<section id="id1">
+<h2>Модуль<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
 <p>Everything directly related to interacting with the hardware lives in the <cite>microbit</cite> module.  For ease of use it’s recommended you start all scripts with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
@@ -162,8 +162,8 @@
 <p class="admonition-title">Примечание</p>
 <p>You can see a list of all available modules by writing <code class="docutils literal notranslate"><span class="pre">help('modules')</span></code> in the REPL.</p>
 </div>
-<section id="buttons">
-<h3>Buttons<a class="headerlink" href="#buttons" title="Ссылка на этот заголовок"></a></h3>
+<section id="id2">
+<h3>Кнопки<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h3>
 <p>There are 2 buttons:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">button_a</span>
 <span class="n">button_b</span>
@@ -181,8 +181,8 @@
 </pre></div>
 </div>
 </section>
-<section id="display">
-<h3>Display<a class="headerlink" href="#display" title="Ссылка на этот заголовок"></a></h3>
+<section id="id3">
+<h3>Дисплей<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h3>
 <p>The LED display is exposed via the <cite>display</cite> object:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># gets the brightness of the pixel (x,y). Brightness can be from 0 (the pixel</span>
 <span class="c1"># is off) to 9 (the pixel is at maximum brightness).</span>
@@ -202,8 +202,8 @@
 </pre></div>
 </div>
 </section>
-<section id="soundevent-v2">
-<h3>SoundEvent <strong>V2</strong><a class="headerlink" href="#soundevent-v2" title="Ссылка на этот заголовок"></a></h3>
+<section id="v2">
+<h3>Звук <strong>V2</strong><a class="headerlink" href="#v2" title="Ссылка на этот заголовок"></a></h3>
 <p>Sound events describe changes in the sound heard by the microphone:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Value to represent the transition of sound events, from `quiet` to `loud`</span>
 <span class="c1"># like clapping or shouting.</span>
@@ -214,8 +214,8 @@
 </pre></div>
 </div>
 </section>
-<section id="microphone-v2">
-<h3>Microphone <strong>V2</strong><a class="headerlink" href="#microphone-v2" title="Ссылка на этот заголовок"></a></h3>
+<section id="id4">
+<h3>Микрофон <strong>V2</strong><a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h3>
 <p>The Microphone is accessed via the <cite>microphone</cite> object:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Returns the name of the last recorded sound event.</span>
 <span class="n">current_event</span><span class="p">()</span>
@@ -235,8 +235,8 @@
 </pre></div>
 </div>
 </section>
-<section id="pins">
-<h3>Pins<a class="headerlink" href="#pins" title="Ссылка на этот заголовок"></a></h3>
+<section id="id5">
+<h3>Контакты<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h3>
 <p>Provide digital and analog input and output functionality, for the pins in the
 connector, the <strong>V2</strong> logo and the <strong>V2</strong> speaker. Some pins are connected
 internally to the I/O that drives the LED matrix and the buttons.</p>
@@ -290,8 +290,8 @@ keeps the API relatively flat, making it very easy to use:</p>
 <p>pin_speaker:</p>
 <p>As above <code class="docutils literal notranslate"><span class="pre">MicroBitPin</span></code> class, but does not include <code class="docutils literal notranslate"><span class="pre">pin.is_touched()</span></code>.</p>
 </section>
-<section id="images">
-<h3>Images<a class="headerlink" href="#images" title="Ссылка на этот заголовок"></a></h3>
+<section id="id6">
+<h3>Изображение<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h3>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
 <p>You don’t always need to create one of these yourself - you can access the
@@ -397,8 +397,8 @@ animation or manually iterating through them.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Image.ALL_CLOCKS</span></code>
 <code class="docutils literal notranslate"><span class="pre">Image.ALL_ARROWS</span></code></p>
 </section>
-<section id="accelerometer">
-<h3>Accelerometer<a class="headerlink" href="#accelerometer" title="Ссылка на этот заголовок"></a></h3>
+<section id="id7">
+<h3>Акселерометр<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h3>
 <p>The accelerometer is accessed via the <code class="docutils literal notranslate"><span class="pre">accelerometer</span></code> object:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># read the X axis of the device. Measured in milli-g.</span>
 <span class="n">accelerometer</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span>
@@ -421,8 +421,8 @@ animation or manually iterating through them.</p>
 </div>
 <p>The recognised gestures are: <code class="docutils literal notranslate"><span class="pre">up</span></code>, <code class="docutils literal notranslate"><span class="pre">down</span></code>, <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">up</span></code>, <code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">down</span></code>, <code class="docutils literal notranslate"><span class="pre">freefall</span></code>, <code class="docutils literal notranslate"><span class="pre">3g</span></code>, <code class="docutils literal notranslate"><span class="pre">6g</span></code>, <code class="docutils literal notranslate"><span class="pre">8g</span></code>, <code class="docutils literal notranslate"><span class="pre">shake</span></code>.</p>
 </section>
-<section id="compass">
-<h3>Compass<a class="headerlink" href="#compass" title="Ссылка на этот заголовок"></a></h3>
+<section id="id8">
+<h3>Компас<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h3>
 <p>The compass is accessed via the <cite>compass</cite> object:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># calibrate the compass (this is needed to get accurate readings).</span>
 <span class="n">compass</span><span class="o">.</span><span class="n">calibrate</span><span class="p">()</span>
@@ -438,8 +438,8 @@ animation or manually iterating through them.</p>
 </pre></div>
 </div>
 </section>
-<section id="i2c-bus">
-<h3>I2C bus<a class="headerlink" href="#i2c-bus" title="Ссылка на этот заголовок"></a></h3>
+<section id="i2c">
+<h3>Протокол I2C<a class="headerlink" href="#i2c" title="Ссылка на этот заголовок"></a></h3>
 <p>There is an I2C bus on the micro:bit that is exposed via the <cite>i2c</cite> object.  It has the following methods:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># read n bytes from device with addr; repeat=True means a stop bit won&#39;t</span>
 <span class="c1"># be sent.</span>
@@ -449,8 +449,8 @@ animation or manually iterating through them.</p>
 </pre></div>
 </div>
 </section>
-<section id="sound-v2">
-<h3>Sound <strong>V2</strong><a class="headerlink" href="#sound-v2" title="Ссылка на этот заголовок"></a></h3>
+<section id="id9">
+<h3>Звук <strong>V2</strong><a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h3>
 <p>A set of expressive sounds are available to the micro:bit <strong>V2</strong>. They can be
 accessed via the <code class="docutils literal notranslate"><span class="pre">microbit</span></code> module and played with the <a class="reference internal" href="audio.html"><span class="doc">audio</span></a> module.</p>
 <p><strong>Built-in sounds</strong></p>
@@ -465,8 +465,8 @@ accessed via the <code class="docutils literal notranslate"><span class="pre">mi
 <code class="docutils literal notranslate"><span class="pre">Sound.TWINKLE</span></code>
 <code class="docutils literal notranslate"><span class="pre">Sound.YAWN</span></code></p>
 </section>
-<section id="speaker-v2">
-<h3>Speaker <strong>V2</strong><a class="headerlink" href="#speaker-v2" title="Ссылка на этот заголовок"></a></h3>
+<section id="id10">
+<h3>Генератор речи <strong>V2</strong><a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h3>
 <p>The speaker is enabled by default and can be accessed using the <code class="docutils literal notranslate"><span class="pre">speaker</span></code> object. It
 can be turned off or on:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># disable the built-in speaker</span>
@@ -479,7 +479,7 @@ can be turned off or on:</p>
 </div>
 </section>
 <section id="uart">
-<h3>UART<a class="headerlink" href="#uart" title="Ссылка на этот заголовок"></a></h3>
+<h3>Протокол UART<a class="headerlink" href="#uart" title="Ссылка на этот заголовок"></a></h3>
 <p>Use <code class="docutils literal notranslate"><span class="pre">uart</span></code> to communicate with a serial device connected to the device’s I/O pins:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up communication (use pins 0 [TX] and 1 [RX]) with a baud rate of 9600.</span>
 <span class="n">uart</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
@@ -506,8 +506,8 @@ can be turned off or on:</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="uart.html" class="btn btn-neutral float-left" title="UART" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="micropython.html" class="btn btn-neutral float-right" title="MicroPython" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../API.html" class="btn btn-neutral float-left" title="Справочник по API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="microbit.html" class="btn btn-neutral float-right" title="Microbit Module" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

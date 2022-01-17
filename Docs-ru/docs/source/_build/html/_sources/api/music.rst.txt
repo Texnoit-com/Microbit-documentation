@@ -1,5 +1,5 @@
-Music
-*****
+Музыка
+******
 
 .. py:module:: music
 
@@ -19,8 +19,8 @@ To access this module you need to::
 
 We assume you have done this for the examples below.
 
-Musical Notation
-================
+Музыкальная нотация
+===================
 
 An individual note is specified thus::
 
@@ -58,7 +58,7 @@ concert "A" (440) is ``'a4'``. Octaves start on the note "C".
 .. _on this page about scientific pitch notation: https://en.wikipedia.org/wiki/Scientific_pitch_notation#Table_of_note_frequencies
 
 
-Functions
+Функции
 =========
 
 .. py:function:: set_tempo(ticks=4, bpm=120)
@@ -135,7 +135,7 @@ Functions
         * ``duration = 4``
         * ``octave = 4``
 
-Built in Melodies
+Встроенные модули
 -----------------
 
 For the purposes of education and entertainment, the module contains several
@@ -172,7 +172,7 @@ They are:
     * ``POWER_UP`` - a fanfare to indicate an achievement unlocked.
     * ``POWER_DOWN`` - a sad fanfare to indicate an achievement lost.
 
-Example
+Примеры
 -------
 
 .. include:: ../examples/music.py

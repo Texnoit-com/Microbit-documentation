@@ -25,7 +25,7 @@
    THE SOFTWARE.
    
    
-Machine
+Микроконтроллер
 *******
 
 .. py:module:: machine
@@ -37,7 +37,7 @@ timers, buses, etc.). Used incorrectly, this can lead to malfunction, lockups,
 crashes of your board, and in extreme cases, hardware damage.
 
 
-Functions
+Функции
 =========
 
 .. method:: machine.unique_id()
@@ -89,7 +89,7 @@ Functions
     *timeout_us* (which is in microseconds).
 
 
-Reading Memory
+Чтение памяти
 ==============
 
 The ``machine`` module allows you to read from the device's memory, getting 1 
