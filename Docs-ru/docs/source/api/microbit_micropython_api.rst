@@ -107,113 +107,153 @@ Microbit Micropython API
 Контакты
 --------
 
-Provide digital and analog input and output functionality, for the pins in the
-connector, the **V2** logo and the **V2** speaker. Some pins are connected
-internally to the I/O that drives the LED matrix and the buttons.
+Контакты обеспечивают цифровые и аналоговые функции ввода/вывода сигналов. Запомните, что некоторые 
+контакты используются во внутреннем функционале платы (дисплей, кнопки и т. д.). При их использовании
+необходимо отключать внутренний функционал.
 
-Each pin is provided as an object directly in the ``microbit`` module.  This
-keeps the API relatively flat, making it very easy to use:
+Каждый контакт предоставляется как объект непосредственно в модуле ``microbit``. Этот
+делает API относительно простым:
 
     * pin0
     * pin1
     * ...
     * pin15
     * pin16
-    * *Warning: P17-P18 (inclusive) are unavailable.*
+    * *Предупреждение: P17-P18 (включительно) недоступны.*
     * pin19
     * pin20
     * pin_logo **V2**
     * pin_speaker **V2**
 
-Each of these pins are instances of the ``MicroBitPin`` class, which offers the following API::
+Каждый контакт является экземпляром класса ``MicroBitPin``, который предлагает следующий API::
 
-    # value can be 0, 1, False, True
+    # Отправляет цифровой сигнал (может быть 0, 1, False, True)
+
     pin.write_digital(value)
-    # returns either 1 or 0
+
+    # Возвращает цифровой сигнал 1 или 0
+
     pin.read_digital()
-    # value is between 0 and 1023
+
+    # Отправляет аналоговый сигнал от 0 до 1023
+
     pin.write_analog(value)
-    # returns an integer between 0 and 1023
+
+    # Возвращает аналоговый сигнал от 0 до 1023
+
     pin.read_analog()
-    # sets the period of the PWM output of the pin in milliseconds
-    # (see https://en.wikipedia.org/wiki/Pulse-width_modulation)
+
+    # устанавливает период ШИМ-вывода/вывода в миллисекундах
+    # (подробнее https://en.wikipedia.org/wiki/Pulse-width_modulation)
+
     pin.set_analog_period(int)
-    # sets the period of the PWM output of the pin in microseconds
-    # (see https://en.wikipedia.org/wiki/Pulse-width_modulation)
+
+    # устанавливает период ШИМ-вывода/вывода в микросекундах
+    # (подробнее https://en.wikipedia.org/wiki/Pulse-width_modulation)
+
     pin.set_analog_period_microseconds(int)
-    # Only available for touch pins 0, 1, and 2. Returns boolean if the pin
-    # is touched
+
+    # Доступно только для сенсорных контактов 0, 1 и 2. Возвращает логическое значение, если контакт затронуть
+
     pin.is_touched()
-    # Only available for touch pins 0, 1, 2 and on micro:bit V2 also the logo.
-    # Sets the touch mode. Value can be either RESISTIVE or CAPACITIVE
+
+    # Доступно только для сенсорных контактов 0, 1, 2, а также для логотипа micro:bit V2.
+    # Устанавливает сенсорный режим. Значение может быть либо RESISTIVE, либо CAPACITIVE.
+
     pin.set_touch_mode(value)
 
-Except in the case of the pins marked **V2**, which offers the following API::
+За исключением контактов, отмеченных **V2**, которые предлагают следующий API::
     
 pin_logo::
 
-    # returns boolean for logo touch pin
+    # возвращает логическое значение если тронуть логотип
+
     pin_logo.is_touched()
-    # Sets the touch mode. Value can be either RESISTIVE or CAPACITIVE
+
+    # Устанавливает сенсорный режим. Значение может быть либо RESISTIVE, либо CAPACITIVE
+
     pin.set_touch_mode(value)
 
 pin_speaker:
     
-As above ``MicroBitPin`` class, but does not include ``pin.is_touched()``.
+Принадлежит классу ``MicroBitPin``, но не имеет функции ``pin.is_touched()``.
 
 Изображение
 -----------
 
 .. note::
 
-    You don't always need to create one of these yourself - you can access the
-    image shown on the display directly with `display.image`. `display.image`
-    is just an instance of `Image`, so you can use all of the same methods.
+    Вам не всегда нужно создавать изображение самостоятельно — Вы можете получить доступ к
+    изображениям, непосредственно с помощью `display.image`. `display.image`
+    это экземпляр `Image`, поэтому Вы можете использовать одинаковые методы.
 
-Images API::
+Изображение API::
 
-    # creates an empty 5x5 image
+    # создает пустое изображение 5x5
+
     image = Image()
-    # create an image from a string - each character in the string represents an
-    # LED - 0 (or space) is off and 9 is maximum brightness. The colon ":"
-    # indicates the end of a line.
-    image = Image('90009:09090:00900:09090:90009:')
-    # create an empty image of given size
-    image = Image(width, height)
-    # initialises an Image with the specified width and height. The buffer
-    # should be an array of length width * height
-    image = Image(width, height, buffer)
 
-    # methods
-    # returns the image's width (most often 5)
+    # создать изображение из строки - каждый символ в строке представляет собой
+    # уровень яркости светодиода - 0 выключен, 9 - максимальная яркость. Двоеточие ":"
+    # указывает на конец строки.
+
+    image = Image('90009:09090:00900:09090:90009:')
+
+    # создать пустое изображение заданного размера
+
+    image = Image(width, height)
+
+    # Возвращает ширину изображения
+
     image.width()
-    # returns the image's height (most often 5)
+
+    # Возвращает высоту изображения
+
     image.height()
-    # sets the pixel at the specified position (between 0 and 9). May fail for
-    # constant images.
+
+    # Управляет яркостью светодиода в указанной позиции ( от 0 до 5).
+    # value от 0 до 9
+
     image.set_pixel(x, y, value)
-    # gets the pixel at the specified position (between 0 and 9)
+
+    # Возвращает яркость пикселя в указанной позиции (от 0 до 9)
+
     image.get_pixel(x, y)
-    # returns a new image created by shifting the picture left 'n' times.
+
+    # возвращает новое изображение, созданное сдвигом изображения влево на 'n' раз.
+
     image.shift_left(n)
-    # returns a new image created by shifting the picture right 'n' times.
+
+    # возвращает новое изображение, созданное сдвигом изображения вправо на 'n' раз.
+
     image.shift_right(n)
-    # returns a new image created by shifting the picture up 'n' times.
+
+    # возвращает новое изображение, созданное сдвигом изображения вверх на 'n' раз.
+
     image.shift_up(n)
-    # returns a new image created by shifting the picture down 'n' times.
+
+    # возвращает новое изображение, созданное сдвигом изображения вниз на 'n' раз.
+
     image.shift_down(n)
-    # get a compact string representation of the image
+
+    # получить компактное строковое представление изображения
+
     repr(image)
-    # get a more readable string representation of the image
+
+    # получить строковое представление изображения
+
     str(image)
 
     #operators
-    # returns a new image created by superimposing the two images
+    # возвращает новое изображение, созданное путем наложения двух изображений
+
     image + image
-    # returns a new image created by multiplying the brightness of each pixel by n
+
+    # возвращает новое изображение, созданное путем умножения яркости каждого пикселя на n
+
     image * n
 
-**Built-in images**
+**Изображения из библиотеки**
 
 ``Image.HEART``
 ``Image.HEART_SMALL``
@@ -259,19 +299,18 @@ Images API::
 ``Image.UMBRELLA``
 ``Image.SNAKE``
 
-Clock:
+Время:
 
 ``Image.CLOCK1`` ``Image.CLOCK2`` ``Image.CLOCK3`` ``Image.CLOCK4``
 ``Image.CLOCK5`` ``Image.CLOCK6`` ``Image.CLOCK7`` ``Image.CLOCK8``
 ``Image.CLOCK9`` ``Image.CLOCK10`` ``Image.CLOCK11`` ``Image.CLOCK12``
 
-Arrows:
+Стороны света:
 
 ``Image.ARROW_N`` ``Image.ARROW_NE`` ``Image.ARROW_E`` ``Image.ARROW_SE``
 ``Image.ARROW_S`` ``Image.ARROW_SW`` ``Image.ARROW_W`` ``Image.ARROW_NW``
 
-The following are Python lists of images, useful for automatically displaying an
-animation or manually iterating through them.
+Ниже приведены название списков изображений Python. Вы можете их обрабатывать как списки.
 
 ``Image.ALL_CLOCKS``
 ``Image.ALL_ARROWS``

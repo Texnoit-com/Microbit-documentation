@@ -141,96 +141,95 @@
 </div>
 <p>В дальнейщем в коде это строка указываться не будет. Вы ее подключаете самостоятельно</p>
 <p>Функции доступные на прямую:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sleep for the given number of milliseconds.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Задержка, указывается в миллисекундах.</span>
 <span class="n">sleep</span><span class="p">(</span><span class="n">ms</span><span class="p">)</span>
-<span class="c1"># returns the number of milliseconds since the micro:bit was last switched on.</span>
+<span class="c1"># возвращает количество миллисекунд с момента последнего включения Microbit.</span>
 <span class="n">running_time</span><span class="p">()</span>
-<span class="c1"># makes the micro:bit enter panic mode (this usually happens when the DAL runs</span>
-<span class="c1"># out of memory, and causes a sad face to be drawn on the display). The error</span>
-<span class="c1"># code can be any arbitrary integer value.</span>
+<span class="c1"># Переводит Microbit в режим ошибки выполнения.</span>
 <span class="n">panic</span><span class="p">(</span><span class="n">error_code</span><span class="p">)</span>
-<span class="c1"># resets the micro:bit.</span>
+<span class="c1"># Перезагрузка Microbit.</span>
 <span class="n">reset</span><span class="p">()</span>
-<span class="c1"># sets the output volume (0-255) of the micro:bit speaker **V2** and</span>
-<span class="c1"># external speaker or headphones connected to the edge connector pins.</span>
+<span class="c1"># Устанавливает громкость динамиков.</span>
 <span class="n">set_volume</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>    <span class="c1"># V2</span>
 </pre></div>
 </div>
-<p>The rest of the functionality is provided by objects and classes in the microbit module, as described below.</p>
-<p>Note that the API exposes integers only (ie no floats are needed, but they may be accepted).  We thus use milliseconds for the standard time unit.</p>
+<p>Остальная функциональность обеспечивается объектами и классами в модуле микробит, как будет описано ниже.</p>
+<p>Обратите внимание, что API предоставляет только целые числа (т. е. числа с плавающей запятой не нужны,
+но они могут быть приняты). Таким образом, мы используем миллисекунды в качестве стандартной единицы времени.</p>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>You can see a list of all available modules by writing <code class="docutils literal notranslate"><span class="pre">help('modules')</span></code> in the REPL.</p>
+<p>Вы можете увидеть список всех доступных модулей, написав <code class="docutils literal notranslate"><span class="pre">help('modules')</span></code> в REPL.</p>
 </div>
 <section id="id2">
 <h3>Кнопки<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h3>
-<p>There are 2 buttons:</p>
+<p>На микробите встроены 2 кнопки:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">button_a</span>
 <span class="n">button_b</span>
 </pre></div>
 </div>
-<p>These are both objects and have the following methods:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># returns True or False to indicate if the button is pressed at the time of</span>
-<span class="c1"># the method call.</span>
+<p>Объеккты имеют методы:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># возвращает True или False,обозначая была ли кнопка нажата во время вызов метода.</span>
 <span class="n">button</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">()</span>
-<span class="c1"># returns True or False to indicate if the button was pressed since the device</span>
-<span class="c1"># started or the last time this method was called.</span>
+<span class="c1"># возвращает True или False, чтобы указать, была ли кнопка нажата после последнего вызова этой метода</span>
 <span class="n">button</span><span class="o">.</span><span class="n">was_pressed</span><span class="p">()</span>
-<span class="c1"># returns the running total of button presses, and resets this counter to zero</span>
+<span class="c1"># возвращает общее количество нажатий на кнопоку и сбрасывает этот счетчик на ноль</span>
 <span class="n">button</span><span class="o">.</span><span class="n">get_presses</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
 <section id="id3">
 <h3>Дисплей<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h3>
-<p>The LED display is exposed via the <cite>display</cite> object:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># gets the brightness of the pixel (x,y). Brightness can be from 0 (the pixel</span>
-<span class="c1"># is off) to 9 (the pixel is at maximum brightness).</span>
+<p>Светодиодный дисплей выводится через объект <cite>display</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Возвращает значения яркости пикселя ( от 0 до 9) по координатам x, y.</span>
 <span class="n">display</span><span class="o">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="c1"># sets the brightness of the pixel (x,y) to val (between 0 [off] and 9 [max</span>
-<span class="c1"># brightness], inclusive).</span>
+<span class="c1"># Устанавливает значения яркости пикселя ( от 0 до 9) по координатам x, y.</span>
 <span class="n">display</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
-<span class="c1"># clears the display.</span>
+<span class="c1"># Очищает дисплей.</span>
 <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<span class="c1"># shows the image.</span>
+<span class="c1"># Выводит изображение на дисплей.</span>
 <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">loop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="c1"># shows each image or letter in the iterable, with delay ms. in between each.</span>
+<span class="c1"># Может выводить итерируемый объект с задержкой.</span>
 <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">loop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="c1"># scrolls a string across the display (more exciting than display.show for</span>
-<span class="c1"># written messages).</span>
+<span class="c1"># Бегущая строка.</span>
 <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="v2">
 <h3>Звук <strong>V2</strong><a class="headerlink" href="#v2" title="Ссылка на этот заголовок"></a></h3>
-<p>Sound events describe changes in the sound heard by the microphone:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Value to represent the transition of sound events, from `quiet` to `loud`</span>
-<span class="c1"># like clapping or shouting.</span>
+<p>Команды описывающие работу со звуком:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Переключение режима работы (тихо, громко).</span>
 <span class="n">SoundEvent</span><span class="o">.</span><span class="n">LOUD</span> <span class="o">=</span> <span class="n">SoundEvent</span><span class="p">(</span><span class="s1">&#39;loud&#39;</span><span class="p">)</span>
-<span class="c1"># Value to represent the transition of sound events, from `loud` to `quiet`</span>
-<span class="c1"># like speaking or background music.</span>
+<span class="c1"># Переключение в режим повышенных шумов.</span>
 <span class="n">SoundEvent</span><span class="o">.</span><span class="n">QUIET</span> <span class="o">=</span> <span class="n">SoundEvent</span><span class="p">(</span><span class="s1">&#39;quiet&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="id4">
 <h3>Микрофон <strong>V2</strong><a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h3>
-<p>The Microphone is accessed via the <cite>microphone</cite> object:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Returns the name of the last recorded sound event.</span>
+<p>Доступ к микрофону осуществляется через объект <cite>microphone</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Возвращает имя последнего записанного звукового события</span>
+
 <span class="n">current_event</span><span class="p">()</span>
-<span class="c1"># A sound event,  such as `SoundEvent.LOUD` or `SoundEvent.QUIET`.</span>
-<span class="c1"># Returns`true` if sound was heard at least once since the last</span>
-<span class="c1"># call, otherwise `false`.</span>
+
+<span class="c1"># Отследить изменение событий `SoundEvent.LOUD`и `SoundEvent.QUIET`.</span>
+<span class="c1"># Возвращает true, если звук был слышен хотя бы один раз с момента последнего</span>
+<span class="c1"># вызов, иначе `false`</span>
+
 <span class="n">was_event</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-<span class="c1"># Returns a tuple of the event history. The most recent is listed last.</span>
-<span class="c1"># Also clears the sound event history before returning.</span>
+
+<span class="c1"># Кортеж историй звуковых событий</span>
+
 <span class="n">get_events</span><span class="p">()</span>
-<span class="c1"># The threshold level in the range 0-255. For example,</span>
-<span class="c1"># `set_threshold(SoundEvent.LOUD, 250)` will only trigger if the</span>
-<span class="c1"># sound is very loud (&gt;= 250).</span>
+
+<span class="c1">#Установка порогового уровня реагирования на звук в диапазоне 0-255. Например,</span>
+<span class="c1"># `set_threshold(SoundEvent.LOUD, 250)` сработает, только если</span>
+<span class="c1"># звук очень громкий (&gt;= 250).</span>
+
 <span class="n">set_threshold</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
-<span class="c1"># Returns a representation of the sound pressure level in the range 0 to 255.</span>
+
+<span class="c1"># Возвращает представление уровня звукового давления в диапазоне от 0 до 255.</span>
+
 <span class="n">sound_level</span><span class="p">()</span>
 </pre></div>
 </div>
