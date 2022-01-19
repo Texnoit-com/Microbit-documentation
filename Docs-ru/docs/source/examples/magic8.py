@@ -1,7 +1,7 @@
 # Magic 8 ball by Nicholas Tollervey. February 2016.
 #
-# Ask a question then shake.
-#
+# Задайте вопрос, затем встряхните.
+
 # This program has been placed into the public domain.
 from microbit import *
 import random

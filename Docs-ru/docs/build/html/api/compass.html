@@ -56,8 +56,8 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="microbit.html">Microbit Module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">Microbit Micropython API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="microbit.html">Модуль Microbit</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="microbit.html#id1">Функции</a></li>
 <li class="toctree-l3"><a class="reference internal" href="microbit.html#id2">Атрибуты</a></li>
 <li class="toctree-l3"><a class="reference internal" href="microbit.html#id3">Класс</a></li>
@@ -125,7 +125,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../API.html">Справочник по API</a> &raquo;</li>
-          <li><a href="microbit.html">Microbit Module</a> &raquo;</li>
+          <li><a href="microbit.html">Модуль Microbit</a> &raquo;</li>
       <li>Компас</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/compass.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
@@ -138,74 +138,69 @@
              
   <section id="module-microbit.compass">
 <span id="id1"></span><h1>Компас<a class="headerlink" href="#module-microbit.compass" title="Ссылка на этот заголовок"></a></h1>
-<p>This module lets you access the built-in electronic compass. Before using,
-the compass should be calibrated, otherwise the readings may be wrong.</p>
+<p>Этот модуль позволяет получить доступ к встроенному электронному компасу. Перед использованием,
+компас должен быть откалиброван, иначе показания могут быть неправильными</p>
 <div class="admonition warning">
 <p class="admonition-title">Предупреждение</p>
-<p>Calibrating the compass will cause your program to pause until calibration
-is complete. Calibration consists of a little game to draw a circle on the
-LED display by rotating the device.</p>
+<p>Калибровка состоит из небольшой игры, в которой нужно нарисовать круг на
+Светодиодный дисплей при вращении устройства</p>
 </div>
 <section id="id2">
 <h2>Функции<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.compass.calibrate">
 <span class="sig-prename descclassname"><span class="pre">microbit.compass.</span></span><span class="sig-name descname"><span class="pre">calibrate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.compass.calibrate" title="Ссылка на это определение"></a></dt>
-<dd><p>Starts the calibration process. An instructive message will be scrolled
-to the user after which they will need to rotate the device in order to
-draw a circle on the LED display.</p>
+<dd><p>апускает процесс калибровки. Инструктивное сообщение будет прокручиваться
+пользователю, после чего ему нужно будет повернуть устройство, чтобы
+нарисовать круг на светодиодном дисплее.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.compass.is_calibrated">
 <span class="sig-prename descclassname"><span class="pre">microbit.compass.</span></span><span class="sig-name descname"><span class="pre">is_calibrated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.compass.is_calibrated" title="Ссылка на это определение"></a></dt>
-<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the compass has been successfully calibrated, and
-returns <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+<dd><p>Возвращает <code class="docutils literal notranslate"><span class="pre">True</span></code> если компас был успешно откалиброван, или
+возвращается <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.compass.clear_calibration">
 <span class="sig-prename descclassname"><span class="pre">microbit.compass.</span></span><span class="sig-name descname"><span class="pre">clear_calibration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.compass.clear_calibration" title="Ссылка на это определение"></a></dt>
-<dd><p>Undoes the calibration, making the compass uncalibrated again.</p>
+<dd><p>Отменяет калибровку.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.compass.get_x">
 <span class="sig-prename descclassname"><span class="pre">microbit.compass.</span></span><span class="sig-name descname"><span class="pre">get_x</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.compass.get_x" title="Ссылка на это определение"></a></dt>
-<dd><p>Gives the reading of the magnetic field strength on the <code class="docutils literal notranslate"><span class="pre">x</span></code> axis in nano
-tesla, as a positive or negative integer, depending on the direction of the
-field.</p>
+<dd><p>Дает показания магнитного поля по оси «х», как положительное или отрицательное целое число,
+в зависимости от направления поля.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.compass.get_y">
 <span class="sig-prename descclassname"><span class="pre">microbit.compass.</span></span><span class="sig-name descname"><span class="pre">get_y</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.compass.get_y" title="Ссылка на это определение"></a></dt>
-<dd><p>Gives the reading of the magnetic field strength on the <code class="docutils literal notranslate"><span class="pre">y</span></code> axis in nano
-tesla, as a positive or negative integer, depending on the direction of the
-field.</p>
+<dd><p>Дает показания магнитного поля по оси «y», как положительное или отрицательное целое число,
+в зависимости от направления поля.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.compass.get_z">
 <span class="sig-prename descclassname"><span class="pre">microbit.compass.</span></span><span class="sig-name descname"><span class="pre">get_z</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.compass.get_z" title="Ссылка на это определение"></a></dt>
-<dd><p>Gives the reading of the magnetic field strength on the <code class="docutils literal notranslate"><span class="pre">z</span></code> axis in nano
-tesla, as a positive or negative integer, depending on the direction of the
-field.</p>
+<dd><p>Дает показания магнитного поля по оси «z», как положительное или отрицательное целое число,
+в зависимости от направления поля..</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.compass.heading">
 <span class="sig-prename descclassname"><span class="pre">microbit.compass.</span></span><span class="sig-name descname"><span class="pre">heading</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.compass.heading" title="Ссылка на это определение"></a></dt>
-<dd><p>Gives the compass heading, calculated from the above readings, as an
-integer in the range from 0 to 360, representing the angle in degrees,
-clockwise, with north as 0.</p>
+<dd><p>Дает направление по компасу, рассчитанное на основе приведенных выше показаний, в качестве
+целого числа в диапазоне от 0 до 360, представляющее угол в градусах, по часовой стрелке,
+с севером как 0.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.compass.get_field_strength">
 <span class="sig-prename descclassname"><span class="pre">microbit.compass.</span></span><span class="sig-name descname"><span class="pre">get_field_strength</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.compass.get_field_strength" title="Ссылка на это определение"></a></dt>
-<dd><p>Returns an integer indication of the magnitude of the magnetic field around
-the device in nano tesla.</p>
+<dd><p>Возвращает целочисленное значение величины магнитного поля вокруг устройства.</p>
 </dd></dl>
 
 </section>
@@ -215,19 +210,18 @@ the device in nano tesla.</p>
 <span class="sd">    compass.py</span>
 <span class="sd">    ~~~~~~~~~~</span>
 
-<span class="sd">    Creates a compass.</span>
+<span class="sd">    Создает компас.</span>
 
-<span class="sd">    The user will need to calibrate the compass first. The compass uses the</span>
-<span class="sd">    built-in clock images to display the position of the needle.</span>
+<span class="sd">    Сначала пользователю необходимо откалибровать компас. В компасе используется</span>
+<span class="sd">    встроенные изображения часов для отображения положения стрелки</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 
 
-<span class="c1"># Start calibrating</span>
+<span class="c1"># Начало калибровки</span>
 <span class="n">compass</span><span class="o">.</span><span class="n">calibrate</span><span class="p">()</span>
 
-<span class="c1"># Try to keep the needle pointed in (roughly) the correct direction</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
     <span class="n">needle</span> <span class="o">=</span> <span class="p">((</span><span class="mi">15</span> <span class="o">-</span> <span class="n">compass</span><span class="o">.</span><span class="n">heading</span><span class="p">())</span> <span class="o">//</span> <span class="mi">30</span><span class="p">)</span> <span class="o">%</span> <span class="mi">12</span>

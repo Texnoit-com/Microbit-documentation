@@ -50,14 +50,14 @@ while True:
             continue
 
         if wall_update:
-            # calculate new speeds
+            # расчет новой скорости
             speed = min(score, speed_max)
             wall_speed = wall_min_speed + int((wall_max_speed - wall_min_speed) * speed / speed_max)
             player_speed = player_min_speed + int((player_max_speed - player_min_speed) * speed / speed_max)
 
             wall_next = t + wall_speed
             if wall_y < 5:
-                # erase old wall
+                # замена препядствия
                 use_wall_y = max(wall_y, 0)
                 for wall_x in range(5):
                     if wall_x != hole:
@@ -66,26 +66,24 @@ while True:
         wall_reached_player = (wall_y == 4)
         if player_update:
             player_next = t + player_speed
-            # find new x coord
+            # найти новую координату x
             x = m.accelerometer.get_x()
             x = min(max(min_x, x), max_x)
-            # print("x accel", x)
-            s(player_x, 4, 0) # turn off old pixel
+ 
+            s(player_x, 4, 0) # отключить старую позицию (пиксель)
             x = ((x - min_x) / range_x) * 5
             x = min(max(0, x), 4)
             x = int(x + 0.5)
-            # print("have", position, "want", x)
 
             if not handled_this_wall:
                 if player_x < x:
                     player_x += 1
                 elif player_x > x:
                     player_x -= 1
-            # print("new", position)
-            # print()
+
 
         if wall_update:
-            # update wall position
+            # обновить положение стены
             wall_y += 1
             if wall_y == 7:
                 wall_y = -1
@@ -93,7 +91,7 @@ while True:
                 handled_this_wall = False
 
             if wall_y < 5:
-                # draw new wall
+                # нарисовать новую стену
                 use_wall_y = max(wall_y, 0)
                 for wall_x in range(5):
                     if wall_x != hole:
@@ -102,12 +100,12 @@ while True:
         if wall_reached_player and not handled_this_wall:
             handled_this_wall = True
             if (player_x != hole):
-                # collision! game over!
+                # столкновение! игра закончена!
                 break
             score += 1
 
         if player_update:
-            s(player_x, 4, 9) # turn on new pixel
+            s(player_x, 4, 9) # включить новый пиксель
 
         p(i)
 

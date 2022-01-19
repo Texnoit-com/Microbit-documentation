@@ -3,44 +3,40 @@
 
 .. py:module:: audio
 
-This module allows you to play your own sounds. If you are using a micro:bit
-**V2**, ``audio`` is also part of the ``microbit`` module.
+Этот модуль позволяет воспроизводить собственные звуки. Если вы используете micro:bit
+**V2**.
 
-By default sound output will be via the edge connector on pin 0 and the
-:doc:`built-in speaker <speaker>` **V2**. You can connect wired headphones or
-a speaker to pin 0 and GND on the edge connector to hear the sounds.
+По умолчанию вывод звука подключено к контакту 0
+:doc:`built-in speaker <speaker>` **V2**. Вы можете подключить проводные наушники или
+динамик к контакту 0 и GND, чтобы слышать звуки.
 
 Функции
 =========
 
 .. py:function:: play(source, wait=True, pin=pin0, return_pin=None)
 
-    Play the source to completion.
+    Проиграть звук.
 
-    * **source**: ``Sound`` - The ``microbit`` module contains a list of
-      built-in sounds that your can pass to ``audio.play()``.
+    * **source**: ``Sound`` - The ``microbit`` модуль содержит список
+      встроенных звуков, которые вы можете передать в функцию ``audio.play()``.
 
-    * **source**: ``AudioFrame`` - The source agrument can also be an iterable
-      of ``AudioFrame`` elements as described below.
+    * **source**: ``AudioFrame`` - TИсходный аргумент также может быть итерируемым
+      элементов. Подробнее в модуле ``AudioFrame``.
 
-    * **wait**: If ``wait`` is ``True``, this function will block until the
-      source is exhausted.
+    * **wait**: Если  ``wait`` присвоено ``True``, microbit будет заблокирован до конца проигрывания звука.
 
-    * **pin**: An optional argument to specify the output pin can be used to
-    override the default of ``pin0``. If we do not want any sound to play
-    we can use ``pin=None``.
+    * **pin**: Необязательный аргумент для указания другого выходного контакта, Вы можете поменять
+      значение (по умолчанию ``pin0``). 
 
-    * **return_pin**: specifies a differential edge connector pin to connect
-      to an external speaker instead of ground. This is ignored for the **V2**
-      revision.
+    * **return_pin**: задает контакт вместо земли. Это игнорируется для версии **V2**.
 
 .. py:function:: is_playing()
 
-    Return ``True`` if audio is playing, otherwise return ``False``.
+    Возвращает ``True`` если звук воспроизводится, иначе возврат ``False``.
 
 .. py:function:: stop()
     
-    Stops all audio playback.
+    Останавливает воспроизведение звука.
 
 Класс
 =======
@@ -48,22 +44,21 @@ a speaker to pin 0 and GND on the edge connector to hear the sounds.
 .. py:class::
     AudioFrame
 
-    An ``AudioFrame`` object is a list of 32 samples each of which is a signed byte
-    (whole number between -128 and 127).
+    An ``AudioFrame`` объект представляет собой список из 32 мелодий.
 
-    It takes just over 4 ms to play a single frame.
+    Воспроизведение одного кадра занимает чуть более 4 мс.
 
 Использование аудио
 ===========
 
-You will need a sound source, as input to the ``play`` function. You can use
-the built-in sounds **V2** from the ``microbit`` module, ``microbit.Sound``, or
-generate your own, like in ``examples/waveforms.py``.
+Вам понадобится источник звука, для функции ``play``. Вы можете использовать
+встроенные звуки **V2** из модуля ``microbit``, ``microbit.Sound``, создать
+свой собственный, как в ``examples/waveforms.py``.
 
 Встроенные звуки **V2**
 ----------------------
 
-The built-in sounds can be called using ``audio.play(Sound.NAME)``.
+Встроенные звуки можно вызвать с помощью ``audio.play(Sound.NAME)``.
 
 * ``Sound.GIGGLE``
 * ``Sound.HAPPY``
@@ -75,32 +70,3 @@ The built-in sounds can be called using ``audio.play(Sound.NAME)``.
 * ``Sound.SPRING``
 * ``Sound.TWINKLE``
 * ``Sound.YAWN``
-
-Технические детали
-=================
-
-.. note::
-    You don't need to understand this section to use the ``audio`` module.
-    It is just here in case you wanted to know how it works.
-
-The ``audio`` module consumes ``AudioFrame`` samples at 7812.5 Hz, and uses
-linear interpolation to output a PWM signal at 32.5 kHz, which gives tolerable
-sound quality.
-
-The function ``play`` fully copies all data from each ``AudioFrame`` before it
-calls ``next()`` for the next frame, so a sound source can use the same
-``AudioFrame`` repeatedly.
-
-The ``audio`` module has an internal 64 sample buffer from which it reads
-samples. When reading reaches the start or the mid-point of the buffer, it
-triggers a callback to fetch the next ``AudioFrame`` which is then copied into
-the buffer. This means that a sound source has under 4ms to compute the next
-``AudioFrame``, and for reliable operation needs to take less 2ms (which is
-32000 cycles, so should be plenty).
-
-
-Примеры
-=======
-
-.. include:: ../examples/waveforms.py
-    :code: python

@@ -56,8 +56,8 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="microbit.html">Microbit Module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">Microbit Micropython API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="microbit.html">Модуль Microbit</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="microbit.html#id1">Функции</a></li>
 <li class="toctree-l3"><a class="reference internal" href="microbit.html#id2">Атрибуты</a></li>
 <li class="toctree-l3"><a class="reference internal" href="microbit.html#id3">Класс</a></li>
@@ -127,7 +127,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../API.html">Справочник по API</a> &raquo;</li>
-          <li><a href="microbit.html">Microbit Module</a> &raquo;</li>
+          <li><a href="microbit.html">Модуль Microbit</a> &raquo;</li>
       <li>Акселерометр</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/accelerometer.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
@@ -140,99 +140,88 @@
              
   <section id="module-microbit.accelerometer">
 <span id="id1"></span><h1>Акселерометр<a class="headerlink" href="#module-microbit.accelerometer" title="Ссылка на этот заголовок"></a></h1>
-<p>This object gives you access to the on-board accelerometer. The accelerometer
-also provides convenience functions for detecting gestures. The
-recognised gestures are: <code class="docutils literal notranslate"><span class="pre">up</span></code>, <code class="docutils literal notranslate"><span class="pre">down</span></code>, <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">up</span></code>,
+<p>Объект дает вам доступ к акселерометру. Акселерометр также предоставляет удобные функции для обнаружения
+жестов: <code class="docutils literal notranslate"><span class="pre">up</span></code>, <code class="docutils literal notranslate"><span class="pre">down</span></code>, <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">up</span></code>,
 <code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">down</span></code>, <code class="docutils literal notranslate"><span class="pre">freefall</span></code>, <code class="docutils literal notranslate"><span class="pre">3g</span></code>, <code class="docutils literal notranslate"><span class="pre">6g</span></code>, <code class="docutils literal notranslate"><span class="pre">8g</span></code>, <code class="docutils literal notranslate"><span class="pre">shake</span></code>.</p>
-<p>By default MicroPython sets the accelerometer range to +/- 2g, changing the
-accelerometer range is currently not possible in MicroPython.
-The accelerometer returns a value in the range 0..1024 for each axis, which is
-then scaled accordingly.</p>
 <section id="id2">
 <h2>Функции<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.accelerometer.get_x">
 <span class="sig-prename descclassname"><span class="pre">microbit.accelerometer.</span></span><span class="sig-name descname"><span class="pre">get_x</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.accelerometer.get_x" title="Ссылка на это определение"></a></dt>
-<dd><p>Get the acceleration measurement in the <code class="docutils literal notranslate"><span class="pre">x</span></code> axis, as a positive or
-negative integer, depending on the direction. The measurement is given in
-milli-g. By default the accelerometer is configured with a range of +/- 2g,
-and so this method will return within the range of +/- 2000mg.</p>
+<dd><p>Возвращение параметра ускорения по оси <code class="docutils literal notranslate"><span class="pre">x</span></code> - положительное или
+отрицательное целое, в зависимости от направления. Измерение приведено в
+милли-г. По умолчанию акселерометр настроен на диапазон +/- 2g,
+и поэтому этот метод будет возвращаться в диапазоне +/- 2000 мг.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.accelerometer.get_y">
 <span class="sig-prename descclassname"><span class="pre">microbit.accelerometer.</span></span><span class="sig-name descname"><span class="pre">get_y</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.accelerometer.get_y" title="Ссылка на это определение"></a></dt>
-<dd><p>Get the acceleration measurement in the <code class="docutils literal notranslate"><span class="pre">y</span></code> axis, as a positive or
-negative integer, depending on the direction. The measurement is given in
-milli-g. By default the accelerometer is configured with a range of +/- 2g,
-and so this method will return within the range of +/- 2000mg.</p>
+<dd><p>Возвращение параметра ускорения по оси <code class="docutils literal notranslate"><span class="pre">y</span></code> - положительное или
+отрицательное целое, в зависимости от направления. Измерение приведено в
+милли-г. По умолчанию акселерометр настроен на диапазон +/- 2g,
+и поэтому этот метод будет возвращаться в диапазоне +/- 2000 мг.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.accelerometer.get_z">
 <span class="sig-prename descclassname"><span class="pre">microbit.accelerometer.</span></span><span class="sig-name descname"><span class="pre">get_z</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.accelerometer.get_z" title="Ссылка на это определение"></a></dt>
-<dd><p>Get the acceleration measurement in the <code class="docutils literal notranslate"><span class="pre">z</span></code> axis, as a positive or
-negative integer, depending on the direction. The measurement is given in
-milli-g. By default the accelerometer is configured with a range of +/- 2g,
-and so this method will return within the range of +/- 2000mg.</p>
+<dd><p>Возвращение параметра ускорения по оси <code class="docutils literal notranslate"><span class="pre">z</span></code> - положительное или
+отрицательное целое, в зависимости от направления. Измерение приведено в
+милли-г. По умолчанию акселерометр настроен на диапазон +/- 2g,
+и поэтому этот метод будет возвращаться в диапазоне +/- 2000 мг.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.accelerometer.get_values">
 <span class="sig-prename descclassname"><span class="pre">microbit.accelerometer.</span></span><span class="sig-name descname"><span class="pre">get_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.accelerometer.get_values" title="Ссылка на это определение"></a></dt>
-<dd><p>Get the acceleration measurements in all axes at once, as a three-element
-tuple of integers ordered as X, Y, Z.
-By default the accelerometer is configured with a range of +/- 2g, and so
-X, Y, and Z will be within the range of +/-2000mg.</p>
+<dd><p>Возвращение параметра ускорения по трем осям - набор чисел в порядке X, Y, Z.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.accelerometer.current_gesture">
 <span class="sig-prename descclassname"><span class="pre">microbit.accelerometer.</span></span><span class="sig-name descname"><span class="pre">current_gesture</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.accelerometer.current_gesture" title="Ссылка на это определение"></a></dt>
-<dd><p>Return the name of the current gesture.</p>
+<dd><p>Вернуть название текущего жеста.</p>
 </dd></dl>
 
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>MicroPython understands the following gesture names: <code class="docutils literal notranslate"><span class="pre">&quot;up&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;down&quot;</span></code>,
+<p>MicroPython понимает следующие названия жестов: <code class="docutils literal notranslate"><span class="pre">&quot;up&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;down&quot;</span></code>,
 <code class="docutils literal notranslate"><span class="pre">&quot;left&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;right&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;face</span> <span class="pre">up&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;face</span> <span class="pre">down&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;freefall&quot;</span></code>,
-<code class="docutils literal notranslate"><span class="pre">&quot;3g&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;6g&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;8g&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;shake&quot;</span></code>. Gestures are always
-represented as strings.</p>
+<code class="docutils literal notranslate"><span class="pre">&quot;3g&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;6g&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;8g&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;shake&quot;</span></code>. Данные представлены в виде строк</p>
 </div>
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.accelerometer.is_gesture">
 <span class="sig-prename descclassname"><span class="pre">microbit.accelerometer.</span></span><span class="sig-name descname"><span class="pre">is_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.accelerometer.is_gesture" title="Ссылка на это определение"></a></dt>
-<dd><p>Return True or False to indicate if the named gesture is currently active.</p>
+<dd><p>Возвращайте True или False, чтобы проверить, активен ли в данный момент определенный жест.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.accelerometer.was_gesture">
 <span class="sig-prename descclassname"><span class="pre">microbit.accelerometer.</span></span><span class="sig-name descname"><span class="pre">was_gesture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.accelerometer.was_gesture" title="Ссылка на это определение"></a></dt>
-<dd><p>Return True or False to indicate if the named gesture was active since the
-last call.</p>
+<dd><p>Возвращайте True или False, чтобы проверить, был ли указанный жест активен с момента
+последнего опроса.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.accelerometer.get_gestures">
 <span class="sig-prename descclassname"><span class="pre">microbit.accelerometer.</span></span><span class="sig-name descname"><span class="pre">get_gestures</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.accelerometer.get_gestures" title="Ссылка на это определение"></a></dt>
-<dd><p>Return a tuple of the gesture history. The most recent is listed last.
-Also clears the gesture history before returning.</p>
+<dd><p>Возвращает кортеж истории жестов. Также очищает историю жестов перед возвратом.</p>
 </dd></dl>
 
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>Gestures are not updated in the background so there needs to be constant
-calls to some accelerometer method to do the gesture detection. Usually
-gestures can be detected using a loop with a small <a class="reference internal" href="microbit.html#microbit.sleep" title="microbit.sleep"><code class="xref py py-func docutils literal notranslate"><span class="pre">microbit.sleep()</span></code></a> delay.</p>
+<p>Жесты не обновляются в фоновом режиме, поэтому должны быть постоянными.
+Вы вызываете какой-либо метод акселерометра для обнаружения жестов. Как правило
+жесты могут быть обнаружены с помощью цикла с небольшой задержкой <a class="reference internal" href="microbit.html#microbit.sleep" title="microbit.sleep"><code class="xref py py-func docutils literal notranslate"><span class="pre">microbit.sleep()</span></code></a>.</p>
 </div>
 <section id="id3">
 <h3>Примеры<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h3>
-<p>A fortune telling magic 8-ball. Ask a question then shake the device for an
-answer.</p>
+<p>Программа волшебный шар.</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Magic 8 ball by Nicholas Tollervey. February 2016.</span>
 <span class="c1">#</span>
-<span class="c1"># Ask a question then shake.</span>
-<span class="c1">#</span>
+<span class="c1"># Задайте вопрос, затем встряхните.</span>
+
 <span class="c1"># This program has been placed into the public domain.</span>
 <span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">random</span>
@@ -269,7 +258,7 @@ answer.</p>
     <span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Simple Slalom. Move the device to avoid the obstacles.</p>
+<p>Перемещайте устройство, чтобы избежать препятствий.</p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simple Slalom by Larry Hastings, September 2015</span>
 <span class="c1">#</span>
 <span class="c1"># This program has been placed into the public domain.</span>
@@ -322,14 +311,14 @@ answer.</p>
             <span class="k">continue</span>
 
         <span class="k">if</span> <span class="n">wall_update</span><span class="p">:</span>
-            <span class="c1"># calculate new speeds</span>
+            <span class="c1"># расчет новой скорости</span>
             <span class="n">speed</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">speed_max</span><span class="p">)</span>
             <span class="n">wall_speed</span> <span class="o">=</span> <span class="n">wall_min_speed</span> <span class="o">+</span> <span class="nb">int</span><span class="p">((</span><span class="n">wall_max_speed</span> <span class="o">-</span> <span class="n">wall_min_speed</span><span class="p">)</span> <span class="o">*</span> <span class="n">speed</span> <span class="o">/</span> <span class="n">speed_max</span><span class="p">)</span>
             <span class="n">player_speed</span> <span class="o">=</span> <span class="n">player_min_speed</span> <span class="o">+</span> <span class="nb">int</span><span class="p">((</span><span class="n">player_max_speed</span> <span class="o">-</span> <span class="n">player_min_speed</span><span class="p">)</span> <span class="o">*</span> <span class="n">speed</span> <span class="o">/</span> <span class="n">speed_max</span><span class="p">)</span>
 
             <span class="n">wall_next</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">wall_speed</span>
             <span class="k">if</span> <span class="n">wall_y</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
-                <span class="c1"># erase old wall</span>
+                <span class="c1"># замена препядствия</span>
                 <span class="n">use_wall_y</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">wall_y</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
                 <span class="k">for</span> <span class="n">wall_x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
                     <span class="k">if</span> <span class="n">wall_x</span> <span class="o">!=</span> <span class="n">hole</span><span class="p">:</span>
@@ -338,26 +327,24 @@ answer.</p>
         <span class="n">wall_reached_player</span> <span class="o">=</span> <span class="p">(</span><span class="n">wall_y</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">player_update</span><span class="p">:</span>
             <span class="n">player_next</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">player_speed</span>
-            <span class="c1"># find new x coord</span>
+            <span class="c1"># найти новую координату x</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">accelerometer</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span>
             <span class="n">x</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">min_x</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">max_x</span><span class="p">)</span>
-            <span class="c1"># print(&quot;x accel&quot;, x)</span>
-            <span class="n">s</span><span class="p">(</span><span class="n">player_x</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># turn off old pixel</span>
+
+            <span class="n">s</span><span class="p">(</span><span class="n">player_x</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># отключить старую позицию (пиксель)</span>
             <span class="n">x</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">min_x</span><span class="p">)</span> <span class="o">/</span> <span class="n">range_x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span>
             <span class="n">x</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
             <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
-            <span class="c1"># print(&quot;have&quot;, position, &quot;want&quot;, x)</span>
 
             <span class="k">if</span> <span class="ow">not</span> <span class="n">handled_this_wall</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">player_x</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">:</span>
                     <span class="n">player_x</span> <span class="o">+=</span> <span class="mi">1</span>
                 <span class="k">elif</span> <span class="n">player_x</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">:</span>
                     <span class="n">player_x</span> <span class="o">-=</span> <span class="mi">1</span>
-            <span class="c1"># print(&quot;new&quot;, position)</span>
-            <span class="c1"># print()</span>
+
 
         <span class="k">if</span> <span class="n">wall_update</span><span class="p">:</span>
-            <span class="c1"># update wall position</span>
+            <span class="c1"># обновить положение стены</span>
             <span class="n">wall_y</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="k">if</span> <span class="n">wall_y</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
                 <span class="n">wall_y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
@@ -365,7 +352,7 @@ answer.</p>
                 <span class="n">handled_this_wall</span> <span class="o">=</span> <span class="kc">False</span>
 
             <span class="k">if</span> <span class="n">wall_y</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
-                <span class="c1"># draw new wall</span>
+                <span class="c1"># нарисовать новую стену</span>
                 <span class="n">use_wall_y</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">wall_y</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
                 <span class="k">for</span> <span class="n">wall_x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
                     <span class="k">if</span> <span class="n">wall_x</span> <span class="o">!=</span> <span class="n">hole</span><span class="p">:</span>
@@ -374,12 +361,12 @@ answer.</p>
         <span class="k">if</span> <span class="n">wall_reached_player</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">handled_this_wall</span><span class="p">:</span>
             <span class="n">handled_this_wall</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">player_x</span> <span class="o">!=</span> <span class="n">hole</span><span class="p">):</span>
-                <span class="c1"># collision! game over!</span>
+                <span class="c1"># столкновение! игра закончена!</span>
                 <span class="k">break</span>
             <span class="n">score</span> <span class="o">+=</span> <span class="mi">1</span>
 
         <span class="k">if</span> <span class="n">player_update</span><span class="p">:</span>
-            <span class="n">s</span><span class="p">(</span><span class="n">player_x</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span> <span class="c1"># turn on new pixel</span>
+            <span class="n">s</span><span class="p">(</span><span class="n">player_x</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span> <span class="c1"># включить новый пиксель</span>
 
         <span class="n">p</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 

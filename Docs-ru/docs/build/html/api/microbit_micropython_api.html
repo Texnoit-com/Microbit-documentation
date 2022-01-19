@@ -19,7 +19,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Microbit Module" href="microbit.html" />
+    <link rel="next" title="Модуль Microbit" href="microbit.html" />
     <link rel="prev" title="Справочник по API" href="../API.html" /> 
 </head>
 
@@ -74,7 +74,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Модуль Microbit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
 <li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
@@ -293,8 +293,9 @@
 </pre></div>
 </div>
 <p>За исключением контактов, отмеченных <strong>V2</strong>, которые предлагают следующий API:</p>
-<p>pin_logo:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># возвращает логическое значение если тронуть логотип</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pin_logo</span>
+
+<span class="c1"># возвращает логическое значение если тронуть логотип</span>
 
 <span class="n">pin_logo</span><span class="o">.</span><span class="n">is_touched</span><span class="p">()</span>
 
@@ -505,34 +506,51 @@ accessed via the <code class="docutils literal notranslate"><span class="pre">mi
 </section>
 <section id="id10">
 <h3>Генератор речи <strong>V2</strong><a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h3>
-<p>The speaker is enabled by default and can be accessed using the <code class="docutils literal notranslate"><span class="pre">speaker</span></code> object. It
-can be turned off or on:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># disable the built-in speaker</span>
+<p>Динамик включен по умолчанию, и к нему можно получить доступ с помощью объекта <code class="docutils literal notranslate"><span class="pre">speaker</span></code>. Это
+можно отключить или включить:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># отключить встроенный динамик</span>
+
 <span class="n">speaker</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
-<span class="c1"># enable the built-in speaker</span>
+
+<span class="c1"># включить встроенный динамик</span>
+
 <span class="n">speaker</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
-<span class="c1"># returns True or False to indicate if the speaker is on or off</span>
+
+<span class="c1"># возвращает True или False, чтобы указать, включен или выключен динамик</span>
+
 <span class="n">speaker</span><span class="o">.</span><span class="n">is_on</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
 <section id="uart">
 <h3>Протокол UART<a class="headerlink" href="#uart" title="Ссылка на этот заголовок"></a></h3>
-<p>Use <code class="docutils literal notranslate"><span class="pre">uart</span></code> to communicate with a serial device connected to the device’s I/O pins:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up communication (use pins 0 [TX] and 1 [RX]) with a baud rate of 9600.</span>
+<p>Используйте <code class="docutils literal notranslate"><span class="pre">uart</span></code> для связи с последовательным устройством, подключенным к контактам ввода-вывода устройства:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Настроки связи  (используйте контакты 0 [TX] и 1 [RX]) со скоростью 9600.</span>
+
 <span class="n">uart</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
-<span class="c1"># return True or False to indicate if there are incoming characters waiting to</span>
-<span class="c1"># be read.</span>
+
+<span class="c1"># Возвращает True или False, проверяя есть ли входящие символы на чтение.</span>
+
 <span class="n">uart</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
-<span class="c1"># return (read) n incoming characters.</span>
+
+<span class="c1"># Прочитать n входящих символов.</span>
+
 <span class="n">uart</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="c1"># return (read) as much incoming data as possible.</span>
+
+<span class="c1"># Прочитать как можно больше входящих данных.</span>
+
 <span class="n">uart</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="c1"># return (read) all the characters to a newline character is reached.</span>
+
+<span class="c1"># Вернуть все символы до символа новой строки.</span>
+
 <span class="n">uart</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-<span class="c1"># read bytes into the referenced buffer.</span>
+
+<span class="c1"># Читать байты в указанный буфер.</span>
+
 <span class="n">uart</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
-<span class="c1"># write bytes from the buffer to the connected device.</span>
+
+<span class="c1"># Записать байты из буфера на подключенное устройство.</span>
+
 <span class="n">uart</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -545,7 +563,7 @@ can be turned off or on:</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
         <a href="../API.html" class="btn btn-neutral float-left" title="Справочник по API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="microbit.html" class="btn btn-neutral float-right" title="Microbit Module" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="microbit.html" class="btn btn-neutral float-right" title="Модуль Microbit" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

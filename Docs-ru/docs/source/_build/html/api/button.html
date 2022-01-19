@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Input/Output Pins" href="pin.html" />
-    <link rel="prev" title="Microbit Module" href="microbit.html" /> 
+    <link rel="next" title="Контакты" href="pin.html" />
+    <link rel="prev" title="Модуль Microbit" href="microbit.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,8 +56,18 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">Microbit Micropython API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="microbit.html">Модуль Microbit</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#id1">Функции</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="microbit.html#id2">Атрибуты</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Кнопки</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pin.html">Контакты</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#id3">Класс</a></li>
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#id4">Модули</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
 <li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
@@ -73,19 +83,19 @@
 <li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
 <li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
-<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="os.html">The <code class="docutils literal notranslate"><span class="pre">os</span></code>  Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pin.html">Input/Output Pins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="radio.html">Radio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="random.html">Random Number Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="speech.html">Speech</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spi.html">SPI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="uart.html">UART</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utime.html">utime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music.html">Музыка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel (Адресная светодиодная лента)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">Библиотека OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pin.html">Контакты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radio.html">Радио</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random (Генератор случайных чисел)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speaker.html">Генератор речи <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="speech.html">Генератор речи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spi.html">Протокол SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">Протокол UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime (модуль работы со временем)</a></li>
 </ul>
 </li>
 </ul>
@@ -109,7 +119,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../API.html">Справочник по API</a> &raquo;</li>
-          <li><a href="microbit.html">Microbit Module</a> &raquo;</li>
+          <li><a href="microbit.html">Модуль Microbit</a> &raquo;</li>
       <li>Кнопки</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/button.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
@@ -122,19 +132,19 @@
              
   <section id="id1">
 <h1>Кнопки<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
-<p>There are two buttons on the board, called <code class="docutils literal notranslate"><span class="pre">button_a</span></code> and <code class="docutils literal notranslate"><span class="pre">button_b</span></code>.</p>
+<p>На микроконтроллере есть две кнопки: <code class="docutils literal notranslate"><span class="pre">button_a</span></code> и <code class="docutils literal notranslate"><span class="pre">button_b</span></code>.</p>
 <section id="id2">
 <h2>Атрибуты<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="button_a">
 <span class="sig-name descname"><span class="pre">button_a</span></span><a class="headerlink" href="#button_a" title="Ссылка на это определение"></a></dt>
-<dd><p>A <code class="docutils literal notranslate"><span class="pre">Button</span></code> instance (see below) representing the left button.</p>
+<dd><p><code class="docutils literal notranslate"><span class="pre">Button</span></code> объект, представляющий левую кнопку.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="button_b">
 <span class="sig-name descname"><span class="pre">button_b</span></span><a class="headerlink" href="#button_b" title="Ссылка на это определение"></a></dt>
-<dd><p>Represents the right button.</p>
+<dd><p>Представляет правую кнопку.</p>
 </dd></dl>
 
 </section>
@@ -198,8 +208,8 @@ to zero before returning.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="microbit.html" class="btn btn-neutral float-left" title="Microbit Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="pin.html" class="btn btn-neutral float-right" title="Input/Output Pins" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="microbit.html" class="btn btn-neutral float-left" title="Модуль Microbit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="pin.html" class="btn btn-neutral float-right" title="Контакты" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

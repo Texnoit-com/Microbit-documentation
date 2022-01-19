@@ -4,27 +4,22 @@ Bluetooth
 Microbit V1
 ============
 
-While the BBC micro:bit has hardware capable of allowing the device to work as
-a Bluetooth Low Energy (BLE) device, it only has 16k of RAM. The BLE stack
-alone takes up 12k RAM which means there's not enough memory for MicroPython
-to support Bluetooth on a micro:bit V1.
+В то время как у BBC Microbit есть аппаратное обеспечение, позволяющее устройству работать как
+устройство Bluetooth с низким энергопотреблением (BLE), у него всего 16 КБ ОЗУ. Стек BLE
+один занимает 12 КБ ОЗУ, что означает, что для MicroPython недостаточно памяти
+для поддержки Bluetooth на micro:bit V1.
 
 .. note::
-    MicroPython uses the radio hardware with the :mod:`radio` module. This
-    allows users to create simple yet effective wireless networks of micro:bit
-    devices.
+    MicroPython использует радиооборудование с модулем :mod:`radio`. Это
+    позволяет пользователям создавать простые, но эффективные беспроводные сети micro:bit
+    устройства.
 
-    Furthermore, the protocol used in the :mod:`radio` module is a lot simpler
-    than BLE, making it far easier to use in an educational context.
+    Кроме того, протокол, используемый в модуле :mod:`radio`, намного проще.
+    чем BLE, что значительно упрощает использование в образовательном контексте
 
 Microbit V2
 ============
 
-The nRF52833 used by the micro:bit V2 has 128k of RAM, allowing Micropython to make
-use of the BLE stack. Currently the only implemented feature is BLE flashing, allowing 
-a user to update the firmware on the micro:bit over Bluetooth.
-
-At the time that this was written the `Nordic DFU service <https://infocenter.nordicsemi.com/topic/sdk_nrf5_v16.0.0/lib_bootloader_dfu_process.html>`_ is implemented, and partial flashing is currently working but in
-beta. The Nordic DFU service updates everything in flash and will take a (relatively) long
-time to complete, whereas the partial flashing service only updates the filesystem containing
-the user scripts.
+nRF52833, используемый micro:bit V2, имеет 128 КБ ОЗУ, что позволяет Micropython
+использовать BLE. В настоящее время единственной реализованной функцией является прошивка BLE, 
+позволяющая пользователям обновить прошивку на micro:bit через Bluetooth.
