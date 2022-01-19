@@ -1,220 +1,259 @@
-micro:bit Micropython API
+Microbit Micropython API
 *************************
 
 Модуль
 ======
 
-Everything directly related to interacting with the hardware lives in the `microbit` module.  For ease of use it's recommended you start all scripts with::
+Весь функционал расположен в библиотеке::
 
     from microbit import *
 
-The following documentation assumes you have done this.
+В дальнейщем в коде это строка указываться не будет. Вы ее подключаете самостоятельно
 
-There are a few functions available directly::
+Функции доступные на прямую::
 
-    # sleep for the given number of milliseconds.
+    # Задержка, указывается в миллисекундах.
     sleep(ms)
-    # returns the number of milliseconds since the micro:bit was last switched on.
+    # возвращает количество миллисекунд с момента последнего включения Microbit.
     running_time()
-    # makes the micro:bit enter panic mode (this usually happens when the DAL runs
-    # out of memory, and causes a sad face to be drawn on the display). The error
-    # code can be any arbitrary integer value.
+    # Переводит Microbit в режим ошибки выполнения.
     panic(error_code)
-    # resets the micro:bit.
+    # Перезагрузка Microbit.
     reset()
-    # sets the output volume (0-255) of the micro:bit speaker **V2** and
-    # external speaker or headphones connected to the edge connector pins.
+    # Устанавливает громкость динамиков.
     set_volume(128)    # V2
 
-The rest of the functionality is provided by objects and classes in the microbit module, as described below.
+Остальная функциональность обеспечивается объектами и классами в модуле микробит, как будет описано ниже.
 
-Note that the API exposes integers only (ie no floats are needed, but they may be accepted).  We thus use milliseconds for the standard time unit.
+Обратите внимание, что API предоставляет только целые числа (т. е. числа с плавающей запятой не нужны, 
+но они могут быть приняты). Таким образом, мы используем миллисекунды в качестве стандартной единицы времени.
 
 .. note::
-    You can see a list of all available modules by writing ``help('modules')`` in the REPL.
+    Вы можете увидеть список всех доступных модулей, написав ``help('modules')`` в REPL.
 
 Кнопки
 -------
 
-There are 2 buttons::
+На микробите встроены 2 кнопки::
 
     button_a
     button_b
 
-These are both objects and have the following methods::
+Объеккты имеют методы::
 
-    # returns True or False to indicate if the button is pressed at the time of
-    # the method call.
+    # возвращает True или False,обозначая была ли кнопка нажата во время вызов метода.
     button.is_pressed()
-    # returns True or False to indicate if the button was pressed since the device
-    # started or the last time this method was called.
+    # возвращает True или False, чтобы указать, была ли кнопка нажата после последнего вызова этой метода
     button.was_pressed()
-    # returns the running total of button presses, and resets this counter to zero
+    # возвращает общее количество нажатий на кнопоку и сбрасывает этот счетчик на ноль
     button.get_presses()
 
 Дисплей
 -------
 
-The LED display is exposed via the `display` object::
+Светодиодный дисплей выводится через объект `display`::
 
-    # gets the brightness of the pixel (x,y). Brightness can be from 0 (the pixel
-    # is off) to 9 (the pixel is at maximum brightness).
+    # Возвращает значения яркости пикселя ( от 0 до 9) по координатам x, y.
     display.get_pixel(x, y)
-    # sets the brightness of the pixel (x,y) to val (between 0 [off] and 9 [max
-    # brightness], inclusive).
+    # Устанавливает значения яркости пикселя ( от 0 до 9) по координатам x, y.
     display.set_pixel(x, y, val)
-    # clears the display.
+    # Очищает дисплей.
     display.clear()
-    # shows the image.
+    # Выводит изображение на дисплей.
     display.show(image, delay=0, wait=True, loop=False, clear=False)
-    # shows each image or letter in the iterable, with delay ms. in between each.
+    # Может выводить итерируемый объект с задержкой.
     display.show(iterable, delay=400, wait=True, loop=False, clear=False)
-    # scrolls a string across the display (more exciting than display.show for
-    # written messages).
+    # Бегущая строка.
     display.scroll(string, delay=400)
 
 Звук **V2**
 -----------------
-Sound events describe changes in the sound heard by the microphone::
+Команды описывающие работу со звуком::
 
-    # Value to represent the transition of sound events, from `quiet` to `loud`
-    # like clapping or shouting.
+    # Переключение режима работы (тихо, громко).
     SoundEvent.LOUD = SoundEvent('loud')
-    # Value to represent the transition of sound events, from `loud` to `quiet`
-    # like speaking or background music.
+    # Переключение в режим повышенных шумов.
     SoundEvent.QUIET = SoundEvent('quiet')
 
 Микрофон **V2**
 -----------------
 
-The Microphone is accessed via the `microphone` object::
+Доступ к микрофону осуществляется через объект `microphone`::
 
-    # Returns the name of the last recorded sound event.
+    # Возвращает имя последнего записанного звукового события
+
     current_event()
-    # A sound event,  such as `SoundEvent.LOUD` or `SoundEvent.QUIET`. 
-    # Returns`true` if sound was heard at least once since the last
-    # call, otherwise `false`.
+
+    # Отследить изменение событий `SoundEvent.LOUD`и `SoundEvent.QUIET`. 
+    # Возвращает true, если звук был слышен хотя бы один раз с момента последнего
+    # вызов, иначе `false`
+
     was_event(event)
-    # Returns a tuple of the event history. The most recent is listed last.
-    # Also clears the sound event history before returning.
+
+    # Кортеж историй звуковых событий
+
     get_events()
-    # The threshold level in the range 0-255. For example,
-    # `set_threshold(SoundEvent.LOUD, 250)` will only trigger if the
-    # sound is very loud (>= 250).
+
+    #Установка порогового уровня реагирования на звук в диапазоне 0-255. Например,
+    # `set_threshold(SoundEvent.LOUD, 250)` сработает, только если
+    # звук очень громкий (>= 250).
+
     set_threshold(128)
-    # Returns a representation of the sound pressure level in the range 0 to 255.
+
+    # Возвращает представление уровня звукового давления в диапазоне от 0 до 255.
+
     sound_level()
 
 Контакты
 --------
 
-Provide digital and analog input and output functionality, for the pins in the
-connector, the **V2** logo and the **V2** speaker. Some pins are connected
-internally to the I/O that drives the LED matrix and the buttons.
+Контакты обеспечивают цифровые и аналоговые функции ввода/вывода сигналов. Запомните, что некоторые 
+контакты используются во внутреннем функционале платы (дисплей, кнопки и т. д.). При их использовании
+необходимо отключать внутренний функционал.
 
-Each pin is provided as an object directly in the ``microbit`` module.  This
-keeps the API relatively flat, making it very easy to use:
+Каждый контакт предоставляется как объект непосредственно в модуле ``microbit``. Этот
+делает API относительно простым:
 
     * pin0
     * pin1
     * ...
     * pin15
     * pin16
-    * *Warning: P17-P18 (inclusive) are unavailable.*
+    * *Предупреждение: P17-P18 (включительно) недоступны.*
     * pin19
     * pin20
     * pin_logo **V2**
     * pin_speaker **V2**
 
-Each of these pins are instances of the ``MicroBitPin`` class, which offers the following API::
+Каждый контакт является экземпляром класса ``MicroBitPin``, который предлагает следующий API::
 
-    # value can be 0, 1, False, True
+    # Отправляет цифровой сигнал (может быть 0, 1, False, True)
+
     pin.write_digital(value)
-    # returns either 1 or 0
+
+    # Возвращает цифровой сигнал 1 или 0
+
     pin.read_digital()
-    # value is between 0 and 1023
+
+    # Отправляет аналоговый сигнал от 0 до 1023
+
     pin.write_analog(value)
-    # returns an integer between 0 and 1023
+
+    # Возвращает аналоговый сигнал от 0 до 1023
+
     pin.read_analog()
-    # sets the period of the PWM output of the pin in milliseconds
-    # (see https://en.wikipedia.org/wiki/Pulse-width_modulation)
+
+    # устанавливает период ШИМ-вывода/вывода в миллисекундах
+    # (подробнее https://en.wikipedia.org/wiki/Pulse-width_modulation)
+
     pin.set_analog_period(int)
-    # sets the period of the PWM output of the pin in microseconds
-    # (see https://en.wikipedia.org/wiki/Pulse-width_modulation)
+
+    # устанавливает период ШИМ-вывода/вывода в микросекундах
+    # (подробнее https://en.wikipedia.org/wiki/Pulse-width_modulation)
+
     pin.set_analog_period_microseconds(int)
-    # Only available for touch pins 0, 1, and 2. Returns boolean if the pin
-    # is touched
+
+    # Доступно только для сенсорных контактов 0, 1 и 2. Возвращает логическое значение, если контакт затронуть
+
     pin.is_touched()
-    # Only available for touch pins 0, 1, 2 and on micro:bit V2 also the logo.
-    # Sets the touch mode. Value can be either RESISTIVE or CAPACITIVE
+
+    # Доступно только для сенсорных контактов 0, 1, 2, а также для логотипа micro:bit V2.
+    # Устанавливает сенсорный режим. Значение может быть либо RESISTIVE, либо CAPACITIVE.
+
     pin.set_touch_mode(value)
 
-Except in the case of the pins marked **V2**, which offers the following API::
+За исключением контактов, отмеченных **V2**, которые предлагают следующий API::
     
 pin_logo::
 
-    # returns boolean for logo touch pin
+    # возвращает логическое значение если тронуть логотип
+
     pin_logo.is_touched()
-    # Sets the touch mode. Value can be either RESISTIVE or CAPACITIVE
+
+    # Устанавливает сенсорный режим. Значение может быть либо RESISTIVE, либо CAPACITIVE
+
     pin.set_touch_mode(value)
 
 pin_speaker:
     
-As above ``MicroBitPin`` class, but does not include ``pin.is_touched()``.
+Принадлежит классу ``MicroBitPin``, но не имеет функции ``pin.is_touched()``.
 
 Изображение
 -----------
 
 .. note::
 
-    You don't always need to create one of these yourself - you can access the
-    image shown on the display directly with `display.image`. `display.image`
-    is just an instance of `Image`, so you can use all of the same methods.
+    Вам не всегда нужно создавать изображение самостоятельно — Вы можете получить доступ к
+    изображениям, непосредственно с помощью `display.image`. `display.image`
+    это экземпляр `Image`, поэтому Вы можете использовать одинаковые методы.
 
-Images API::
+Изображение API::
 
-    # creates an empty 5x5 image
+    # создает пустое изображение 5x5
+
     image = Image()
-    # create an image from a string - each character in the string represents an
-    # LED - 0 (or space) is off and 9 is maximum brightness. The colon ":"
-    # indicates the end of a line.
-    image = Image('90009:09090:00900:09090:90009:')
-    # create an empty image of given size
-    image = Image(width, height)
-    # initialises an Image with the specified width and height. The buffer
-    # should be an array of length width * height
-    image = Image(width, height, buffer)
 
-    # methods
-    # returns the image's width (most often 5)
+    # создать изображение из строки - каждый символ в строке представляет собой
+    # уровень яркости светодиода - 0 выключен, 9 - максимальная яркость. Двоеточие ":"
+    # указывает на конец строки.
+
+    image = Image('90009:09090:00900:09090:90009:')
+
+    # создать пустое изображение заданного размера
+
+    image = Image(width, height)
+
+    # Возвращает ширину изображения
+
     image.width()
-    # returns the image's height (most often 5)
+
+    # Возвращает высоту изображения
+
     image.height()
-    # sets the pixel at the specified position (between 0 and 9). May fail for
-    # constant images.
+
+    # Управляет яркостью светодиода в указанной позиции ( от 0 до 5).
+    # value от 0 до 9
+
     image.set_pixel(x, y, value)
-    # gets the pixel at the specified position (between 0 and 9)
+
+    # Возвращает яркость пикселя в указанной позиции (от 0 до 9)
+
     image.get_pixel(x, y)
-    # returns a new image created by shifting the picture left 'n' times.
+
+    # возвращает новое изображение, созданное сдвигом изображения влево на 'n' раз.
+
     image.shift_left(n)
-    # returns a new image created by shifting the picture right 'n' times.
+
+    # возвращает новое изображение, созданное сдвигом изображения вправо на 'n' раз.
+
     image.shift_right(n)
-    # returns a new image created by shifting the picture up 'n' times.
+
+    # возвращает новое изображение, созданное сдвигом изображения вверх на 'n' раз.
+
     image.shift_up(n)
-    # returns a new image created by shifting the picture down 'n' times.
+
+    # возвращает новое изображение, созданное сдвигом изображения вниз на 'n' раз.
+
     image.shift_down(n)
-    # get a compact string representation of the image
+
+    # получить компактное строковое представление изображения
+
     repr(image)
-    # get a more readable string representation of the image
+
+    # получить строковое представление изображения
+
     str(image)
 
     #operators
-    # returns a new image created by superimposing the two images
+    # возвращает новое изображение, созданное путем наложения двух изображений
+
     image + image
-    # returns a new image created by multiplying the brightness of each pixel by n
+
+    # возвращает новое изображение, созданное путем умножения яркости каждого пикселя на n
+
     image * n
 
-**Built-in images**
+**Изображения из библиотеки**
 
 ``Image.HEART``
 ``Image.HEART_SMALL``
@@ -260,19 +299,18 @@ Images API::
 ``Image.UMBRELLA``
 ``Image.SNAKE``
 
-Clock:
+Время:
 
 ``Image.CLOCK1`` ``Image.CLOCK2`` ``Image.CLOCK3`` ``Image.CLOCK4``
 ``Image.CLOCK5`` ``Image.CLOCK6`` ``Image.CLOCK7`` ``Image.CLOCK8``
 ``Image.CLOCK9`` ``Image.CLOCK10`` ``Image.CLOCK11`` ``Image.CLOCK12``
 
-Arrows:
+Стороны света:
 
 ``Image.ARROW_N`` ``Image.ARROW_NE`` ``Image.ARROW_E`` ``Image.ARROW_SE``
 ``Image.ARROW_S`` ``Image.ARROW_SW`` ``Image.ARROW_W`` ``Image.ARROW_NW``
 
-The following are Python lists of images, useful for automatically displaying an
-animation or manually iterating through them.
+Ниже приведены название списков изображений Python. Вы можете их обрабатывать как списки.
 
 ``Image.ALL_CLOCKS``
 ``Image.ALL_ARROWS``

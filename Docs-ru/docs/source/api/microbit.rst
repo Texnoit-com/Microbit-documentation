@@ -1,52 +1,48 @@
-Microbit Module
+Модуль Microbit
 ***************
 
 .. py:module:: microbit
 
 
-The ``microbit`` module gives you access to all the hardware that is built-in
-into your board.
+Доступ до всех функций осуществляется через ``microbit``.
 
 
 Функции
-=========
+=======
 
 .. py:function:: panic(n)
 
-    Enter a panic mode. Requires restart. Pass in an arbitrary integer <= 255
-    to indicate a status::
+   Формирование ошибки и передача номера ошибки. Для продолжения работы требуется перезагрузка Microbit::
 
         microbit.panic(255)
 
 
 .. py:function:: reset()
 
-    Restart the board.
+    Перезагрузка платы::
 
+        microbit.reset()
 
 .. py:function:: sleep(n)
 
-    Wait for ``n`` milliseconds. One second is 1000 milliseconds, so::
+    Задержка ``n`` миллисекунд. Приостановка работы Microbit::
 
         microbit.sleep(1000)
 
-    will pause the execution for one second.  ``n`` can be an integer or
-    a floating point number.
-
-
 .. py:function:: running_time()
 
-    Return the number of milliseconds since the board was switched on or
-    restarted.
+   Возвращает количество миллисекунд с момента включения платы или перезапущен::
 
+       microbit.running_time()
 
 .. py:function:: temperature()
 
-    Return the temperature of the micro:bit in degrees Celcius.
+    Возвращает температуру Microbit в градусах Цельсия::
 
+        microbit.temperature()
 
 Атрибуты
-==========
+========
 
 .. toctree::
     :maxdepth: 1

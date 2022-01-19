@@ -165,7 +165,6 @@ Microbit Micropython API
 За исключением контактов, отмеченных **V2**, которые предлагают следующий API::
     
 pin_logo::
-
     # возвращает логическое значение если тронуть логотип
 
     pin_logo.is_touched()
@@ -389,36 +388,53 @@ accessed via the ``microbit`` module and played with the :doc:`audio <audio>` mo
 ``Sound.YAWN``
 
 Генератор речи **V2**
---------------
+---------------------
 
-The speaker is enabled by default and can be accessed using the ``speaker`` object. It
-can be turned off or on::
+Динамик включен по умолчанию, и к нему можно получить доступ с помощью объекта ``speaker``. Это
+можно отключить или включить::
 
-    # disable the built-in speaker
+    # отключить встроенный динамик
+
     speaker.off()
-    # enable the built-in speaker
+
+    # включить встроенный динамик
+
     speaker.on()
-    # returns True or False to indicate if the speaker is on or off
+
+    # возвращает True или False, чтобы указать, включен или выключен динамик
+
     speaker.is_on()
 
 
 Протокол UART
 -------------
 
-Use ``uart`` to communicate with a serial device connected to the device's I/O pins::
+Используйте ``uart`` для связи с последовательным устройством, подключенным к контактам ввода-вывода устройства::
 
-    # set up communication (use pins 0 [TX] and 1 [RX]) with a baud rate of 9600.
+    # Настроки связи  (используйте контакты 0 [TX] и 1 [RX]) со скоростью 9600.
+
     uart.init()
-    # return True or False to indicate if there are incoming characters waiting to
-    # be read.
+
+    # Возвращает True или False, проверяя есть ли входящие символы на чтение.
+
     uart.any()
-    # return (read) n incoming characters.
+
+    # Прочитать n входящих символов.
+
     uart.read(n)
-    # return (read) as much incoming data as possible.
+
+    # Прочитать как можно больше входящих данных.
+
     uart.read()
-    # return (read) all the characters to a newline character is reached.
+
+    # Вернуть все символы до символа новой строки.
+
     uart.readline()
-    # read bytes into the referenced buffer.
+
+    # Читать байты в указанный буфер.
+
     uart.readinto(buffer)
-    # write bytes from the buffer to the connected device.
+
+    # Записать байты из буфера на подключенное устройство.
+
     uart.write(buffer)
