@@ -3,7 +3,7 @@
 
 .. py::module:: microbit
 
-There are two buttons on the board, called ``button_a`` and ``button_b``.
+На микроконтроллере есть две кнопки: ``button_a`` и ``button_b``.
 
 Атрибуты
 ==========
@@ -11,12 +11,12 @@ There are two buttons on the board, called ``button_a`` and ``button_b``.
 
 .. py:attribute:: button_a
 
-    A ``Button`` instance (see below) representing the left button.
+    ``Button`` объект, представляющий левую кнопку.
 
 
 .. py:attribute:: button_b
 
-    Represents the right button.
+    Представляет правую кнопку.
 
 
 Класс

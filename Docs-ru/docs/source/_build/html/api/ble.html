@@ -20,7 +20,7 @@
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="Файловая система" href="filesystem.html" />
-    <link rel="prev" title="UART" href="uart.html" /> 
+    <link rel="prev" title="Протокол UART" href="uart.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,8 +56,8 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">Microbit Micropython API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Модуль Microbit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
 <li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Bluetooth</a><ul>
@@ -72,19 +72,19 @@
 <li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
 <li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
-<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="os.html">The <code class="docutils literal notranslate"><span class="pre">os</span></code>  Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pin.html">Input/Output Pins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="radio.html">Radio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="random.html">Random Number Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="speech.html">Speech</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spi.html">SPI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="uart.html">UART</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utime.html">utime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music.html">Музыка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel (Адресная светодиодная лента)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">Библиотека OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pin.html">Контакты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radio.html">Радио</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random (Генератор случайных чисел)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speaker.html">Генератор речи <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="speech.html">Генератор речи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spi.html">Протокол SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">Протокол UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime (модуль работы со временем)</a></li>
 </ul>
 </li>
 </ul>
@@ -122,28 +122,24 @@
 <h1>Bluetooth<a class="headerlink" href="#bluetooth" title="Ссылка на этот заголовок"></a></h1>
 <section id="microbit-v1">
 <h2>Microbit V1<a class="headerlink" href="#microbit-v1" title="Ссылка на этот заголовок"></a></h2>
-<p>While the BBC micro:bit has hardware capable of allowing the device to work as
-a Bluetooth Low Energy (BLE) device, it only has 16k of RAM. The BLE stack
-alone takes up 12k RAM which means there’s not enough memory for MicroPython
-to support Bluetooth on a micro:bit V1.</p>
+<p>В то время как у BBC Microbit есть аппаратное обеспечение, позволяющее устройству работать как
+устройство Bluetooth с низким энергопотреблением (BLE), у него всего 16 КБ ОЗУ. Стек BLE
+один занимает 12 КБ ОЗУ, что означает, что для MicroPython недостаточно памяти
+для поддержки Bluetooth на micro:bit V1.</p>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>MicroPython uses the radio hardware with the <a class="reference internal" href="radio.html#module-radio" title="radio"><code class="xref py py-mod docutils literal notranslate"><span class="pre">radio</span></code></a> module. This
-allows users to create simple yet effective wireless networks of micro:bit
-devices.</p>
-<p>Furthermore, the protocol used in the <a class="reference internal" href="radio.html#module-radio" title="radio"><code class="xref py py-mod docutils literal notranslate"><span class="pre">radio</span></code></a> module is a lot simpler
-than BLE, making it far easier to use in an educational context.</p>
+<p>MicroPython использует радиооборудование с модулем <a class="reference internal" href="radio.html#module-radio" title="radio"><code class="xref py py-mod docutils literal notranslate"><span class="pre">radio</span></code></a>. Это
+позволяет пользователям создавать простые, но эффективные беспроводные сети micro:bit
+устройства.</p>
+<p>Кроме того, протокол, используемый в модуле <a class="reference internal" href="radio.html#module-radio" title="radio"><code class="xref py py-mod docutils literal notranslate"><span class="pre">radio</span></code></a>, намного проще.
+чем BLE, что значительно упрощает использование в образовательном контексте</p>
 </div>
 </section>
 <section id="microbit-v2">
 <h2>Microbit V2<a class="headerlink" href="#microbit-v2" title="Ссылка на этот заголовок"></a></h2>
-<p>The nRF52833 used by the micro:bit V2 has 128k of RAM, allowing Micropython to make
-use of the BLE stack. Currently the only implemented feature is BLE flashing, allowing
-a user to update the firmware on the micro:bit over Bluetooth.</p>
-<p>At the time that this was written the <a class="reference external" href="https://infocenter.nordicsemi.com/topic/sdk_nrf5_v16.0.0/lib_bootloader_dfu_process.html">Nordic DFU service</a> is implemented, and partial flashing is currently working but in
-beta. The Nordic DFU service updates everything in flash and will take a (relatively) long
-time to complete, whereas the partial flashing service only updates the filesystem containing
-the user scripts.</p>
+<p>nRF52833, используемый micro:bit V2, имеет 128 КБ ОЗУ, что позволяет Micropython
+использовать BLE. В настоящее время единственной реализованной функцией является прошивка BLE,
+позволяющая пользователям обновить прошивку на micro:bit через Bluetooth.</p>
 </section>
 </section>
 
@@ -151,7 +147,7 @@ the user scripts.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="uart.html" class="btn btn-neutral float-left" title="UART" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="uart.html" class="btn btn-neutral float-left" title="Протокол UART" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
         <a href="filesystem.html" class="btn btn-neutral float-right" title="Файловая система" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

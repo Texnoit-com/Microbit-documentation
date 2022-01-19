@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Microbit Module &mdash; документация Microbit-Русская документация 0.1</title>
+  <title>Модуль Microbit &mdash; документация Microbit-Русская документация 0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -20,7 +20,7 @@
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="Кнопки" href="button.html" />
-    <link rel="prev" title="micro:bit Micropython API" href="microbit_micropython_api.html" /> 
+    <link rel="prev" title="Microbit Micropython API" href="microbit_micropython_api.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,8 +56,8 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Microbit Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">Microbit Micropython API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Модуль Microbit</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Функции</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">Атрибуты</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="button.html">Кнопки</a></li>
@@ -129,7 +129,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../API.html">Справочник по API</a> &raquo;</li>
-      <li>Microbit Module</li>
+      <li>Модуль Microbit</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/microbit.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
       </li>
@@ -140,16 +140,14 @@
            <div itemprop="articleBody">
              
   <section id="module-microbit">
-<span id="microbit-module"></span><h1>Microbit Module<a class="headerlink" href="#module-microbit" title="Ссылка на этот заголовок"></a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">microbit</span></code> module gives you access to all the hardware that is built-in
-into your board.</p>
+<span id="microbit"></span><h1>Модуль Microbit<a class="headerlink" href="#module-microbit" title="Ссылка на этот заголовок"></a></h1>
+<p>Доступ до всех функций осуществляется через <code class="docutils literal notranslate"><span class="pre">microbit</span></code>.</p>
 <section id="id1">
 <h2>Функции<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.panic">
 <span class="sig-prename descclassname"><span class="pre">microbit.</span></span><span class="sig-name descname"><span class="pre">panic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/microbit.html#panic"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#microbit.panic" title="Ссылка на это определение"></a></dt>
-<dd><p>Enter a panic mode. Requires restart. Pass in an arbitrary integer &lt;= 255
-to indicate a status:</p>
+<dd><p>Формирование ошибки и передача номера ошибки. Для продолжения работы требуется перезагрузка Microbit:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">microbit</span><span class="o">.</span><span class="n">panic</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -158,31 +156,37 @@ to indicate a status:</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.reset">
 <span class="sig-prename descclassname"><span class="pre">microbit.</span></span><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.reset" title="Ссылка на это определение"></a></dt>
-<dd><p>Restart the board.</p>
+<dd><p>Перезагрузка платы:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">microbit</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.sleep">
 <span class="sig-prename descclassname"><span class="pre">microbit.</span></span><span class="sig-name descname"><span class="pre">sleep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/microbit.html#sleep"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#microbit.sleep" title="Ссылка на это определение"></a></dt>
-<dd><p>Wait for <code class="docutils literal notranslate"><span class="pre">n</span></code> milliseconds. One second is 1000 milliseconds, so:</p>
+<dd><p>Задержка <code class="docutils literal notranslate"><span class="pre">n</span></code> миллисекунд. Приостановка работы Microbit:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">microbit</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>will pause the execution for one second.  <code class="docutils literal notranslate"><span class="pre">n</span></code> can be an integer or
-a floating point number.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.running_time">
 <span class="sig-prename descclassname"><span class="pre">microbit.</span></span><span class="sig-name descname"><span class="pre">running_time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/microbit.html#running_time"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#microbit.running_time" title="Ссылка на это определение"></a></dt>
-<dd><p>Return the number of milliseconds since the board was switched on or
-restarted.</p>
+<dd><p>Возвращает количество миллисекунд с момента включения платы или перезапущен:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">microbit</span><span class="o">.</span><span class="n">running_time</span><span class="p">()</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.temperature">
 <span class="sig-prename descclassname"><span class="pre">microbit.</span></span><span class="sig-name descname"><span class="pre">temperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/microbit.html#temperature"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#microbit.temperature" title="Ссылка на это определение"></a></dt>
-<dd><p>Return the temperature of the micro:bit in degrees Celcius.</p>
+<dd><p>Возвращает температуру Microbit в градусах Цельсия:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">microbit</span><span class="o">.</span><span class="n">temperature</span><span class="p">()</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>
@@ -226,7 +230,7 @@ restarted.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="microbit_micropython_api.html" class="btn btn-neutral float-left" title="micro:bit Micropython API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="microbit_micropython_api.html" class="btn btn-neutral float-left" title="Microbit Micropython API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
         <a href="button.html" class="btn btn-neutral float-right" title="Кнопки" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

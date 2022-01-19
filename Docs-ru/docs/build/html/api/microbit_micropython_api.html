@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>micro:bit Micropython API &mdash; документация Microbit-Русская документация 0.1</title>
+  <title>Microbit Micropython API &mdash; документация Microbit-Русская документация 0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Microbit Module" href="microbit.html" />
+    <link rel="next" title="Модуль Microbit" href="microbit.html" />
     <link rel="prev" title="Справочник по API" href="../API.html" /> 
 </head>
 
@@ -56,7 +56,7 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">micro:bit Micropython API</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Microbit Micropython API</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Модуль</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id2">Кнопки</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id3">Дисплей</a></li>
@@ -74,7 +74,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Модуль Microbit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
 <li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
@@ -121,7 +121,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../API.html">Справочник по API</a> &raquo;</li>
-      <li>micro:bit Micropython API</li>
+      <li>Microbit Micropython API</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/microbit_micropython_api.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
       </li>
@@ -131,117 +131,116 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="micro-bit-micropython-api">
-<h1>micro:bit Micropython API<a class="headerlink" href="#micro-bit-micropython-api" title="Ссылка на этот заголовок"></a></h1>
+  <section id="microbit-micropython-api">
+<h1>Microbit Micropython API<a class="headerlink" href="#microbit-micropython-api" title="Ссылка на этот заголовок"></a></h1>
 <section id="id1">
 <h2>Модуль<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
-<p>Everything directly related to interacting with the hardware lives in the <cite>microbit</cite> module.  For ease of use it’s recommended you start all scripts with:</p>
+<p>Весь функционал расположен в библиотеке:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
-<p>The following documentation assumes you have done this.</p>
-<p>There are a few functions available directly:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># sleep for the given number of milliseconds.</span>
+<p>В дальнейщем в коде это строка указываться не будет. Вы ее подключаете самостоятельно</p>
+<p>Функции доступные на прямую:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Задержка, указывается в миллисекундах.</span>
 <span class="n">sleep</span><span class="p">(</span><span class="n">ms</span><span class="p">)</span>
-<span class="c1"># returns the number of milliseconds since the micro:bit was last switched on.</span>
+<span class="c1"># возвращает количество миллисекунд с момента последнего включения Microbit.</span>
 <span class="n">running_time</span><span class="p">()</span>
-<span class="c1"># makes the micro:bit enter panic mode (this usually happens when the DAL runs</span>
-<span class="c1"># out of memory, and causes a sad face to be drawn on the display). The error</span>
-<span class="c1"># code can be any arbitrary integer value.</span>
+<span class="c1"># Переводит Microbit в режим ошибки выполнения.</span>
 <span class="n">panic</span><span class="p">(</span><span class="n">error_code</span><span class="p">)</span>
-<span class="c1"># resets the micro:bit.</span>
+<span class="c1"># Перезагрузка Microbit.</span>
 <span class="n">reset</span><span class="p">()</span>
-<span class="c1"># sets the output volume (0-255) of the micro:bit speaker **V2** and</span>
-<span class="c1"># external speaker or headphones connected to the edge connector pins.</span>
+<span class="c1"># Устанавливает громкость динамиков.</span>
 <span class="n">set_volume</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>    <span class="c1"># V2</span>
 </pre></div>
 </div>
-<p>The rest of the functionality is provided by objects and classes in the microbit module, as described below.</p>
-<p>Note that the API exposes integers only (ie no floats are needed, but they may be accepted).  We thus use milliseconds for the standard time unit.</p>
+<p>Остальная функциональность обеспечивается объектами и классами в модуле микробит, как будет описано ниже.</p>
+<p>Обратите внимание, что API предоставляет только целые числа (т. е. числа с плавающей запятой не нужны,
+но они могут быть приняты). Таким образом, мы используем миллисекунды в качестве стандартной единицы времени.</p>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>You can see a list of all available modules by writing <code class="docutils literal notranslate"><span class="pre">help('modules')</span></code> in the REPL.</p>
+<p>Вы можете увидеть список всех доступных модулей, написав <code class="docutils literal notranslate"><span class="pre">help('modules')</span></code> в REPL.</p>
 </div>
 <section id="id2">
 <h3>Кнопки<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h3>
-<p>There are 2 buttons:</p>
+<p>На микробите встроены 2 кнопки:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">button_a</span>
 <span class="n">button_b</span>
 </pre></div>
 </div>
-<p>These are both objects and have the following methods:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># returns True or False to indicate if the button is pressed at the time of</span>
-<span class="c1"># the method call.</span>
+<p>Объеккты имеют методы:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># возвращает True или False,обозначая была ли кнопка нажата во время вызов метода.</span>
 <span class="n">button</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">()</span>
-<span class="c1"># returns True or False to indicate if the button was pressed since the device</span>
-<span class="c1"># started or the last time this method was called.</span>
+<span class="c1"># возвращает True или False, чтобы указать, была ли кнопка нажата после последнего вызова этой метода</span>
 <span class="n">button</span><span class="o">.</span><span class="n">was_pressed</span><span class="p">()</span>
-<span class="c1"># returns the running total of button presses, and resets this counter to zero</span>
+<span class="c1"># возвращает общее количество нажатий на кнопоку и сбрасывает этот счетчик на ноль</span>
 <span class="n">button</span><span class="o">.</span><span class="n">get_presses</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
 <section id="id3">
 <h3>Дисплей<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h3>
-<p>The LED display is exposed via the <cite>display</cite> object:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># gets the brightness of the pixel (x,y). Brightness can be from 0 (the pixel</span>
-<span class="c1"># is off) to 9 (the pixel is at maximum brightness).</span>
+<p>Светодиодный дисплей выводится через объект <cite>display</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Возвращает значения яркости пикселя ( от 0 до 9) по координатам x, y.</span>
 <span class="n">display</span><span class="o">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="c1"># sets the brightness of the pixel (x,y) to val (between 0 [off] and 9 [max</span>
-<span class="c1"># brightness], inclusive).</span>
+<span class="c1"># Устанавливает значения яркости пикселя ( от 0 до 9) по координатам x, y.</span>
 <span class="n">display</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
-<span class="c1"># clears the display.</span>
+<span class="c1"># Очищает дисплей.</span>
 <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<span class="c1"># shows the image.</span>
+<span class="c1"># Выводит изображение на дисплей.</span>
 <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">loop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="c1"># shows each image or letter in the iterable, with delay ms. in between each.</span>
+<span class="c1"># Может выводить итерируемый объект с задержкой.</span>
 <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">loop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="c1"># scrolls a string across the display (more exciting than display.show for</span>
-<span class="c1"># written messages).</span>
+<span class="c1"># Бегущая строка.</span>
 <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="v2">
 <h3>Звук <strong>V2</strong><a class="headerlink" href="#v2" title="Ссылка на этот заголовок"></a></h3>
-<p>Sound events describe changes in the sound heard by the microphone:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Value to represent the transition of sound events, from `quiet` to `loud`</span>
-<span class="c1"># like clapping or shouting.</span>
+<p>Команды описывающие работу со звуком:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Переключение режима работы (тихо, громко).</span>
 <span class="n">SoundEvent</span><span class="o">.</span><span class="n">LOUD</span> <span class="o">=</span> <span class="n">SoundEvent</span><span class="p">(</span><span class="s1">&#39;loud&#39;</span><span class="p">)</span>
-<span class="c1"># Value to represent the transition of sound events, from `loud` to `quiet`</span>
-<span class="c1"># like speaking or background music.</span>
+<span class="c1"># Переключение в режим повышенных шумов.</span>
 <span class="n">SoundEvent</span><span class="o">.</span><span class="n">QUIET</span> <span class="o">=</span> <span class="n">SoundEvent</span><span class="p">(</span><span class="s1">&#39;quiet&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="id4">
 <h3>Микрофон <strong>V2</strong><a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h3>
-<p>The Microphone is accessed via the <cite>microphone</cite> object:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Returns the name of the last recorded sound event.</span>
+<p>Доступ к микрофону осуществляется через объект <cite>microphone</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Возвращает имя последнего записанного звукового события</span>
+
 <span class="n">current_event</span><span class="p">()</span>
-<span class="c1"># A sound event,  such as `SoundEvent.LOUD` or `SoundEvent.QUIET`.</span>
-<span class="c1"># Returns`true` if sound was heard at least once since the last</span>
-<span class="c1"># call, otherwise `false`.</span>
+
+<span class="c1"># Отследить изменение событий `SoundEvent.LOUD`и `SoundEvent.QUIET`.</span>
+<span class="c1"># Возвращает true, если звук был слышен хотя бы один раз с момента последнего</span>
+<span class="c1"># вызов, иначе `false`</span>
+
 <span class="n">was_event</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-<span class="c1"># Returns a tuple of the event history. The most recent is listed last.</span>
-<span class="c1"># Also clears the sound event history before returning.</span>
+
+<span class="c1"># Кортеж историй звуковых событий</span>
+
 <span class="n">get_events</span><span class="p">()</span>
-<span class="c1"># The threshold level in the range 0-255. For example,</span>
-<span class="c1"># `set_threshold(SoundEvent.LOUD, 250)` will only trigger if the</span>
-<span class="c1"># sound is very loud (&gt;= 250).</span>
+
+<span class="c1">#Установка порогового уровня реагирования на звук в диапазоне 0-255. Например,</span>
+<span class="c1"># `set_threshold(SoundEvent.LOUD, 250)` сработает, только если</span>
+<span class="c1"># звук очень громкий (&gt;= 250).</span>
+
 <span class="n">set_threshold</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
-<span class="c1"># Returns a representation of the sound pressure level in the range 0 to 255.</span>
+
+<span class="c1"># Возвращает представление уровня звукового давления в диапазоне от 0 до 255.</span>
+
 <span class="n">sound_level</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
 <section id="id5">
 <h3>Контакты<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h3>
-<p>Provide digital and analog input and output functionality, for the pins in the
-connector, the <strong>V2</strong> logo and the <strong>V2</strong> speaker. Some pins are connected
-internally to the I/O that drives the LED matrix and the buttons.</p>
-<p>Each pin is provided as an object directly in the <code class="docutils literal notranslate"><span class="pre">microbit</span></code> module.  This
-keeps the API relatively flat, making it very easy to use:</p>
+<p>Контакты обеспечивают цифровые и аналоговые функции ввода/вывода сигналов. Запомните, что некоторые
+контакты используются во внутреннем функционале платы (дисплей, кнопки и т. д.). При их использовании
+необходимо отключать внутренний функционал.</p>
+<p>Каждый контакт предоставляется как объект непосредственно в модуле <code class="docutils literal notranslate"><span class="pre">microbit</span></code>. Этот
+делает API относительно простым:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>pin0</p></li>
@@ -249,99 +248,140 @@ keeps the API relatively flat, making it very easy to use:</p>
 <li><p>…</p></li>
 <li><p>pin15</p></li>
 <li><p>pin16</p></li>
-<li><p><em>Warning: P17-P18 (inclusive) are unavailable.</em></p></li>
+<li><p><em>Предупреждение: P17-P18 (включительно) недоступны.</em></p></li>
 <li><p>pin19</p></li>
 <li><p>pin20</p></li>
 <li><p>pin_logo <strong>V2</strong></p></li>
 <li><p>pin_speaker <strong>V2</strong></p></li>
 </ul>
 </div></blockquote>
-<p>Each of these pins are instances of the <code class="docutils literal notranslate"><span class="pre">MicroBitPin</span></code> class, which offers the following API:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># value can be 0, 1, False, True</span>
+<p>Каждый контакт является экземпляром класса <code class="docutils literal notranslate"><span class="pre">MicroBitPin</span></code>, который предлагает следующий API:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Отправляет цифровой сигнал (может быть 0, 1, False, True)</span>
+
 <span class="n">pin</span><span class="o">.</span><span class="n">write_digital</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-<span class="c1"># returns either 1 or 0</span>
+
+<span class="c1"># Возвращает цифровой сигнал 1 или 0</span>
+
 <span class="n">pin</span><span class="o">.</span><span class="n">read_digital</span><span class="p">()</span>
-<span class="c1"># value is between 0 and 1023</span>
+
+<span class="c1"># Отправляет аналоговый сигнал от 0 до 1023</span>
+
 <span class="n">pin</span><span class="o">.</span><span class="n">write_analog</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-<span class="c1"># returns an integer between 0 and 1023</span>
+
+<span class="c1"># Возвращает аналоговый сигнал от 0 до 1023</span>
+
 <span class="n">pin</span><span class="o">.</span><span class="n">read_analog</span><span class="p">()</span>
-<span class="c1"># sets the period of the PWM output of the pin in milliseconds</span>
-<span class="c1"># (see https://en.wikipedia.org/wiki/Pulse-width_modulation)</span>
+
+<span class="c1"># устанавливает период ШИМ-вывода/вывода в миллисекундах</span>
+<span class="c1"># (подробнее https://en.wikipedia.org/wiki/Pulse-width_modulation)</span>
+
 <span class="n">pin</span><span class="o">.</span><span class="n">set_analog_period</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="c1"># sets the period of the PWM output of the pin in microseconds</span>
-<span class="c1"># (see https://en.wikipedia.org/wiki/Pulse-width_modulation)</span>
+
+<span class="c1"># устанавливает период ШИМ-вывода/вывода в микросекундах</span>
+<span class="c1"># (подробнее https://en.wikipedia.org/wiki/Pulse-width_modulation)</span>
+
 <span class="n">pin</span><span class="o">.</span><span class="n">set_analog_period_microseconds</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="c1"># Only available for touch pins 0, 1, and 2. Returns boolean if the pin</span>
-<span class="c1"># is touched</span>
+
+<span class="c1"># Доступно только для сенсорных контактов 0, 1 и 2. Возвращает логическое значение, если контакт затронуть</span>
+
 <span class="n">pin</span><span class="o">.</span><span class="n">is_touched</span><span class="p">()</span>
-<span class="c1"># Only available for touch pins 0, 1, 2 and on micro:bit V2 also the logo.</span>
-<span class="c1"># Sets the touch mode. Value can be either RESISTIVE or CAPACITIVE</span>
+
+<span class="c1"># Доступно только для сенсорных контактов 0, 1, 2, а также для логотипа micro:bit V2.</span>
+<span class="c1"># Устанавливает сенсорный режим. Значение может быть либо RESISTIVE, либо CAPACITIVE.</span>
+
 <span class="n">pin</span><span class="o">.</span><span class="n">set_touch_mode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Except in the case of the pins marked <strong>V2</strong>, which offers the following API:</p>
-<p>pin_logo:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># returns boolean for logo touch pin</span>
+<p>За исключением контактов, отмеченных <strong>V2</strong>, которые предлагают следующий API:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pin_logo</span>
+
+<span class="c1"># возвращает логическое значение если тронуть логотип</span>
+
 <span class="n">pin_logo</span><span class="o">.</span><span class="n">is_touched</span><span class="p">()</span>
-<span class="c1"># Sets the touch mode. Value can be either RESISTIVE or CAPACITIVE</span>
+
+<span class="c1"># Устанавливает сенсорный режим. Значение может быть либо RESISTIVE, либо CAPACITIVE</span>
+
 <span class="n">pin</span><span class="o">.</span><span class="n">set_touch_mode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>pin_speaker:</p>
-<p>As above <code class="docutils literal notranslate"><span class="pre">MicroBitPin</span></code> class, but does not include <code class="docutils literal notranslate"><span class="pre">pin.is_touched()</span></code>.</p>
+<p>Принадлежит классу <code class="docutils literal notranslate"><span class="pre">MicroBitPin</span></code>, но не имеет функции <code class="docutils literal notranslate"><span class="pre">pin.is_touched()</span></code>.</p>
 </section>
 <section id="id6">
 <h3>Изображение<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h3>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>You don’t always need to create one of these yourself - you can access the
-image shown on the display directly with <cite>display.image</cite>. <cite>display.image</cite>
-is just an instance of <cite>Image</cite>, so you can use all of the same methods.</p>
+<p>Вам не всегда нужно создавать изображение самостоятельно — Вы можете получить доступ к
+изображениям, непосредственно с помощью <cite>display.image</cite>. <cite>display.image</cite>
+это экземпляр <cite>Image</cite>, поэтому Вы можете использовать одинаковые методы.</p>
 </div>
-<p>Images API:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># creates an empty 5x5 image</span>
-<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="p">()</span>
-<span class="c1"># create an image from a string - each character in the string represents an</span>
-<span class="c1"># LED - 0 (or space) is off and 9 is maximum brightness. The colon &quot;:&quot;</span>
-<span class="c1"># indicates the end of a line.</span>
-<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s1">&#39;90009:09090:00900:09090:90009:&#39;</span><span class="p">)</span>
-<span class="c1"># create an empty image of given size</span>
-<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
-<span class="c1"># initialises an Image with the specified width and height. The buffer</span>
-<span class="c1"># should be an array of length width * height</span>
-<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
+<p>Изображение API:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># создает пустое изображение 5x5</span>
 
-<span class="c1"># methods</span>
-<span class="c1"># returns the image&#39;s width (most often 5)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="p">()</span>
+
+<span class="c1"># создать изображение из строки - каждый символ в строке представляет собой</span>
+<span class="c1"># уровень яркости светодиода - 0 выключен, 9 - максимальная яркость. Двоеточие &quot;:&quot;</span>
+<span class="c1"># указывает на конец строки.</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s1">&#39;90009:09090:00900:09090:90009:&#39;</span><span class="p">)</span>
+
+<span class="c1"># создать пустое изображение заданного размера</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+
+<span class="c1"># Возвращает ширину изображения</span>
+
 <span class="n">image</span><span class="o">.</span><span class="n">width</span><span class="p">()</span>
-<span class="c1"># returns the image&#39;s height (most often 5)</span>
+
+<span class="c1"># Возвращает высоту изображения</span>
+
 <span class="n">image</span><span class="o">.</span><span class="n">height</span><span class="p">()</span>
-<span class="c1"># sets the pixel at the specified position (between 0 and 9). May fail for</span>
-<span class="c1"># constant images.</span>
+
+<span class="c1"># Управляет яркостью светодиода в указанной позиции ( от 0 до 5).</span>
+<span class="c1"># value от 0 до 9</span>
+
 <span class="n">image</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-<span class="c1"># gets the pixel at the specified position (between 0 and 9)</span>
+
+<span class="c1"># Возвращает яркость пикселя в указанной позиции (от 0 до 9)</span>
+
 <span class="n">image</span><span class="o">.</span><span class="n">get_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="c1"># returns a new image created by shifting the picture left &#39;n&#39; times.</span>
+
+<span class="c1"># возвращает новое изображение, созданное сдвигом изображения влево на &#39;n&#39; раз.</span>
+
 <span class="n">image</span><span class="o">.</span><span class="n">shift_left</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="c1"># returns a new image created by shifting the picture right &#39;n&#39; times.</span>
+
+<span class="c1"># возвращает новое изображение, созданное сдвигом изображения вправо на &#39;n&#39; раз.</span>
+
 <span class="n">image</span><span class="o">.</span><span class="n">shift_right</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="c1"># returns a new image created by shifting the picture up &#39;n&#39; times.</span>
+
+<span class="c1"># возвращает новое изображение, созданное сдвигом изображения вверх на &#39;n&#39; раз.</span>
+
 <span class="n">image</span><span class="o">.</span><span class="n">shift_up</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="c1"># returns a new image created by shifting the picture down &#39;n&#39; times.</span>
+
+<span class="c1"># возвращает новое изображение, созданное сдвигом изображения вниз на &#39;n&#39; раз.</span>
+
 <span class="n">image</span><span class="o">.</span><span class="n">shift_down</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="c1"># get a compact string representation of the image</span>
+
+<span class="c1"># получить компактное строковое представление изображения</span>
+
 <span class="nb">repr</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-<span class="c1"># get a more readable string representation of the image</span>
+
+<span class="c1"># получить строковое представление изображения</span>
+
 <span class="nb">str</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 
 <span class="c1">#operators</span>
-<span class="c1"># returns a new image created by superimposing the two images</span>
+<span class="c1"># возвращает новое изображение, созданное путем наложения двух изображений</span>
+
 <span class="n">image</span> <span class="o">+</span> <span class="n">image</span>
-<span class="c1"># returns a new image created by multiplying the brightness of each pixel by n</span>
+
+<span class="c1"># возвращает новое изображение, созданное путем умножения яркости каждого пикселя на n</span>
+
 <span class="n">image</span> <span class="o">*</span> <span class="n">n</span>
 </pre></div>
 </div>
-<p><strong>Built-in images</strong></p>
+<p><strong>Изображения из библиотеки</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">Image.HEART</span></code>
 <code class="docutils literal notranslate"><span class="pre">Image.HEART_SMALL</span></code>
 <code class="docutils literal notranslate"><span class="pre">Image.HAPPY</span></code>
@@ -385,15 +425,14 @@ is just an instance of <cite>Image</cite>, so you can use all of the same method
 <code class="docutils literal notranslate"><span class="pre">Image.SKULL</span></code>
 <code class="docutils literal notranslate"><span class="pre">Image.UMBRELLA</span></code>
 <code class="docutils literal notranslate"><span class="pre">Image.SNAKE</span></code></p>
-<p>Clock:</p>
+<p>Время:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Image.CLOCK1</span></code> <code class="docutils literal notranslate"><span class="pre">Image.CLOCK2</span></code> <code class="docutils literal notranslate"><span class="pre">Image.CLOCK3</span></code> <code class="docutils literal notranslate"><span class="pre">Image.CLOCK4</span></code>
 <code class="docutils literal notranslate"><span class="pre">Image.CLOCK5</span></code> <code class="docutils literal notranslate"><span class="pre">Image.CLOCK6</span></code> <code class="docutils literal notranslate"><span class="pre">Image.CLOCK7</span></code> <code class="docutils literal notranslate"><span class="pre">Image.CLOCK8</span></code>
 <code class="docutils literal notranslate"><span class="pre">Image.CLOCK9</span></code> <code class="docutils literal notranslate"><span class="pre">Image.CLOCK10</span></code> <code class="docutils literal notranslate"><span class="pre">Image.CLOCK11</span></code> <code class="docutils literal notranslate"><span class="pre">Image.CLOCK12</span></code></p>
-<p>Arrows:</p>
+<p>Стороны света:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Image.ARROW_N</span></code> <code class="docutils literal notranslate"><span class="pre">Image.ARROW_NE</span></code> <code class="docutils literal notranslate"><span class="pre">Image.ARROW_E</span></code> <code class="docutils literal notranslate"><span class="pre">Image.ARROW_SE</span></code>
 <code class="docutils literal notranslate"><span class="pre">Image.ARROW_S</span></code> <code class="docutils literal notranslate"><span class="pre">Image.ARROW_SW</span></code> <code class="docutils literal notranslate"><span class="pre">Image.ARROW_W</span></code> <code class="docutils literal notranslate"><span class="pre">Image.ARROW_NW</span></code></p>
-<p>The following are Python lists of images, useful for automatically displaying an
-animation or manually iterating through them.</p>
+<p>Ниже приведены название списков изображений Python. Вы можете их обрабатывать как списки.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Image.ALL_CLOCKS</span></code>
 <code class="docutils literal notranslate"><span class="pre">Image.ALL_ARROWS</span></code></p>
 </section>
@@ -467,34 +506,51 @@ accessed via the <code class="docutils literal notranslate"><span class="pre">mi
 </section>
 <section id="id10">
 <h3>Генератор речи <strong>V2</strong><a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h3>
-<p>The speaker is enabled by default and can be accessed using the <code class="docutils literal notranslate"><span class="pre">speaker</span></code> object. It
-can be turned off or on:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># disable the built-in speaker</span>
+<p>Динамик включен по умолчанию, и к нему можно получить доступ с помощью объекта <code class="docutils literal notranslate"><span class="pre">speaker</span></code>. Это
+можно отключить или включить:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># отключить встроенный динамик</span>
+
 <span class="n">speaker</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
-<span class="c1"># enable the built-in speaker</span>
+
+<span class="c1"># включить встроенный динамик</span>
+
 <span class="n">speaker</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
-<span class="c1"># returns True or False to indicate if the speaker is on or off</span>
+
+<span class="c1"># возвращает True или False, чтобы указать, включен или выключен динамик</span>
+
 <span class="n">speaker</span><span class="o">.</span><span class="n">is_on</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
 <section id="uart">
 <h3>Протокол UART<a class="headerlink" href="#uart" title="Ссылка на этот заголовок"></a></h3>
-<p>Use <code class="docutils literal notranslate"><span class="pre">uart</span></code> to communicate with a serial device connected to the device’s I/O pins:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up communication (use pins 0 [TX] and 1 [RX]) with a baud rate of 9600.</span>
+<p>Используйте <code class="docutils literal notranslate"><span class="pre">uart</span></code> для связи с последовательным устройством, подключенным к контактам ввода-вывода устройства:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Настроки связи  (используйте контакты 0 [TX] и 1 [RX]) со скоростью 9600.</span>
+
 <span class="n">uart</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
-<span class="c1"># return True or False to indicate if there are incoming characters waiting to</span>
-<span class="c1"># be read.</span>
+
+<span class="c1"># Возвращает True или False, проверяя есть ли входящие символы на чтение.</span>
+
 <span class="n">uart</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
-<span class="c1"># return (read) n incoming characters.</span>
+
+<span class="c1"># Прочитать n входящих символов.</span>
+
 <span class="n">uart</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="c1"># return (read) as much incoming data as possible.</span>
+
+<span class="c1"># Прочитать как можно больше входящих данных.</span>
+
 <span class="n">uart</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="c1"># return (read) all the characters to a newline character is reached.</span>
+
+<span class="c1"># Вернуть все символы до символа новой строки.</span>
+
 <span class="n">uart</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-<span class="c1"># read bytes into the referenced buffer.</span>
+
+<span class="c1"># Читать байты в указанный буфер.</span>
+
 <span class="n">uart</span><span class="o">.</span><span class="n">readinto</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
-<span class="c1"># write bytes from the buffer to the connected device.</span>
+
+<span class="c1"># Записать байты из буфера на подключенное устройство.</span>
+
 <span class="n">uart</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -507,7 +563,7 @@ can be turned off or on:</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
         <a href="../API.html" class="btn btn-neutral float-left" title="Справочник по API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="microbit.html" class="btn btn-neutral float-right" title="Microbit Module" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="microbit.html" class="btn btn-neutral float-right" title="Модуль Microbit" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
