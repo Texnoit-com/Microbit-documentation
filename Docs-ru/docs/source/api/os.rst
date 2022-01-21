@@ -1,53 +1,52 @@
 Библиотека OS
-******************
+*************
 
 .. py:module:: os
 
-MicroPython contains an ``os`` module based upon the ``os`` module in the
-Python standard library. It's used for accessing what would traditionally be
-termed as operating system dependent functionality. Since there is no operating
-system in MicroPython the module provides functions relating to the management
-of the simple on-device persistent file system and information about the
-current system.
+MicroPython содержит модуль «os», основанный на модуле «os» в
+Стандартной библиотеке Python. Он используется для доступа к "операционной системе". 
+Так как на Microbit нет операционной системы в MicroPython модуль обеспечивает функции, 
+относящиеся к управлению ростой постоянной файловой системы на устройстве и выводит информацию о
+текущей системе.
 
-To access this module you need to::
+Для доступа к этому модулю вам необходимо::
 
     import os
 
-We assume you have done this for the examples below.
+Мы предполагаем, что вы сделали это для приведенных ниже примеров.
 
 Команды
 =========
 
 .. py:function:: listdir()
 
-    Returns a list of the names of all the files contained within the local
-    persistent on-device file system.
+    Возвращает список имен всех файлов, содержащихся в локальном
+    постоянная файловая система на устройстве.
 
 .. py:function:: remove(filename)
 
-    Removes (deletes) the file named in the argument ``filename``. If the file
-    does not exist an ``OSError`` exception will occur.
+    Удаляет (удаляет) файл, указанный в аргументе ``filename``. Если файл
+    не существует ``OSError`` произойдет исключение.
 
 .. py:function:: size(filename)
 
-    Returns the size, in bytes, of the file named in the argument ``filename``.
-    If the file does not exist an ``OSError`` exception will occur.
+    Возвращает размер в байтах файла, указанного в аргументе ``filename``.
+    Если файл не существует ``OSError`` произойдет исключение.
 
 .. py:function:: uname()
 
-    Returns information identifying the current operating system. The return
-    value is an object with five attributes:
+    Возвращает информацию, идентифицирующую текущую операционную систему. Возврат
+    значения — это объект с пятью атрибутами:
 
-    * ``sysname`` - operating system name
-    * ``nodename`` - name of machine on network (implementation-defined)
-    * ``release`` - operating system release
-    * ``version`` - operating system version
-    * ``machine`` - hardware identifier
+    * ``sysname`` - название операционной системы
+    * ``nodename`` - имя машины в сети (определяется реализацией)
+    * ``release`` - выпуск операционной системы
+    * ``version`` - версия операционной системы
+    * ``machine`` - аппаратный идентификатор
 
 
 .. note::
 
-    There is no underlying operating system in MicroPython. As a result the
-    information returned by the ``uname`` function is mostly useful for
-    versioning details.
+    В MicroPython нет базовой операционной системы. В результате
+    информация, возвращенная ``uname`` в основном полезна для
+    сведения о версиях.
