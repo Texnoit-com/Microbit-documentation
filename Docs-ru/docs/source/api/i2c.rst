@@ -3,10 +3,10 @@
 
 .. py:module:: microbit.i2c
 
-The ``i2c`` module lets you communicate with devices connected to your board
-using the I²C bus protocol. There can be multiple slave devices connected at
-the same time, and each one has its own unique address, that is either fixed
-for the device or configured on it. Your board acts as the I²C master.
+Модуль ``i2c`` позволяет вам общаться с устройствами, подключенными к вашей плате.
+с использованием протокола шины I²C. Может быть несколько устройств, подключенных
+одновременно, и каждый из них имеет свой уникальный адрес. Фиксированный
+для устройства или настроен на нем. Ваша плата действует как мастер I²C.
 
 We use 7-bit addressing for devices because of the reasons stated
 `here <http://www.totalphase.com/support/articles/200349176-7-bit-8-bit-and-10-bit-I2C-Slave-Addressing>`_.
