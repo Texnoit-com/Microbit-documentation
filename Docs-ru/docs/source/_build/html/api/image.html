@@ -20,7 +20,7 @@
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
     <link rel="next" title="Аудио" href="audio.html" />
-    <link rel="prev" title="Input/Output Pins" href="pin.html" /> 
+    <link rel="prev" title="Контакты" href="pin.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,8 +56,18 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">Microbit Micropython API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="microbit.html">Модуль Microbit</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#id1">Функции</a></li>
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#id2">Атрибуты</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="microbit.html#id3">Класс</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Изображение</a></li>
+<li class="toctree-l4"><a class="reference internal" href="audio.html">Sound</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#id4">Модули</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
 <li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
@@ -65,7 +75,8 @@
 <li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
 <li class="toctree-l2"><a class="reference internal" href="display.html">Дисплей</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filesystem.html">Файловая система</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">Протокол I²C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html#id2">Подключение</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Изображение</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2">Класс</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">Атрибуты</a></li>
@@ -73,19 +84,19 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
-<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="os.html">The <code class="docutils literal notranslate"><span class="pre">os</span></code>  Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pin.html">Input/Output Pins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="radio.html">Radio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="random.html">Random Number Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="speech.html">Speech</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spi.html">SPI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="uart.html">UART</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utime.html">utime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music.html">Музыка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel (Адресная светодиодная лента)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">Библиотека OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pin.html">Контакты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radio.html">Радио</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random (Генератор случайных чисел)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speaker.html">Генератор речи <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="speech.html">Генератор речи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spi.html">Протокол SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">Протокол UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime (модуль работы со временем)</a></li>
 </ul>
 </li>
 </ul>
@@ -109,7 +120,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../API.html">Справочник по API</a> &raquo;</li>
-          <li><a href="microbit.html">Microbit Module</a> &raquo;</li>
+          <li><a href="microbit.html">Модуль Microbit</a> &raquo;</li>
       <li>Изображение</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/image.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
@@ -120,32 +131,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-microbit">
-<span id="id1"></span><h1>Изображение<a class="headerlink" href="#module-microbit" title="Ссылка на этот заголовок"></a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">Image</span></code> class is used to create images that can be displayed easily on
-the device’s LED matrix. Given an image object it’s possible to display it via
-the <code class="docutils literal notranslate"><span class="pre">display</span></code> API:</p>
+  <section id="id1">
+<h1>Изображение<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Класс <code class="docutils literal notranslate"><span class="pre">Image</span></code> используется для создания изображений, которые можно легко отобразить на
+светодиодная матрица устройства. Учитывая объект изображения, его можно отобразить через
+API отображения:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="../_images/image-smile.png" src="../_images/image-smile.png" />
-<p>There are four ways in which you can construct an image:</p>
+<p>Существует четыре способа создания образа:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Image()</span></code> - Create a blank 5x5 image</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Image(string)</span></code> - Create an image by parsing the string, a single character
-returns that glyph</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Image(width,</span> <span class="pre">height)</span></code> - Create a blank image of given size</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Image(width,</span> <span class="pre">height,</span> <span class="pre">buffer)</span></code> - Create an image from the given buffer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image()</span></code> - Создает пустое изображение 5x5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image(string)</span></code> - Создает изображение, проанализировав строку.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image(width,</span> <span class="pre">height)</span></code> - Создать пустое изображение заданного размера</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Image(width,</span> <span class="pre">height,</span> <span class="pre">buffer)</span></code> - Создать изображение из заданного буфера</p></li>
 </ul>
 <section id="id2">
 <h2>Класс<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="microbit.Image">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">microbit.</span></span><span class="sig-name descname"><span class="pre">Image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/microbit.html#Image"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#microbit.Image" title="Ссылка на это определение"></a></dt>
+<dt class="sig sig-object py" id="Image">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Image" title="Ссылка на это определение"></a></dt>
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">microbit.</span></span><span class="sig-name descname"><span class="pre">Image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>If <code class="docutils literal notranslate"><span class="pre">string</span></code> is used, it has to consist of digits 0-9 arranged into
-lines, describing the image, for example:</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Если используется <code class="docutils literal notranslate"><span class="pre">string</span></code>, она должна состоять из цифр 0-9, расположенных в
+строки, описывающие изображение, например:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;90009:&quot;</span>
               <span class="s2">&quot;09090:&quot;</span>
               <span class="s2">&quot;00900:&quot;</span>
@@ -153,9 +163,8 @@ lines, describing the image, for example:</p>
               <span class="s2">&quot;90009&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>will create a 5×5 image of an X. The end of a line is indicated by a colon.
-It’s also possible to use a newline (n) to indicate the end of a line
-like this:</p>
+<p>создаст изображение размером 5×5. Конец строки обозначается двоеточием.
+Также можно использовать новую строку (n) для обозначения конца строки. Пример:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s2">&quot;90009</span><span class="se">\n</span><span class="s2">&quot;</span>
               <span class="s2">&quot;09090</span><span class="se">\n</span><span class="s2">&quot;</span>
               <span class="s2">&quot;00900</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -163,112 +172,111 @@ like this:</p>
               <span class="s2">&quot;90009&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The other form creates an empty image with <code class="docutils literal notranslate"><span class="pre">width</span></code> columns and
-<code class="docutils literal notranslate"><span class="pre">height</span></code> rows. Optionally <code class="docutils literal notranslate"><span class="pre">buffer</span></code> can be an array of
-<code class="docutils literal notranslate"><span class="pre">width``×``height</span></code> integers in range 0-9 to initialize the image:</p>
+<p>Другая форма создает пустое изображение со столбцами <code class="docutils literal notranslate"><span class="pre">width</span></code> и
+<code class="docutils literal notranslate"><span class="pre">height</span></code> строк. Опционально <code class="docutils literal notranslate"><span class="pre">buffer</span></code> может быть массивом
+<code class="docutils literal notranslate"><span class="pre">width</span></code> × <code class="docutils literal notranslate"><span class="pre">height</span></code> целые числа в диапазоне 0-9 для инициализации изображения:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x08\x08\x08\x08</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>or:</p>
+<p>или:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">]))</span>
 </pre></div>
 </div>
-<p>Will create a 2 x 2 pixel image at full brightness.</p>
+<p>Создаст изображение размером 2 x 2 пикселя с максимальной яркостью..</p>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>Keyword arguments cannot be passed to <code class="docutils literal notranslate"><span class="pre">buffer</span></code>.</p>
+<p>Аргументы ключевого слова не могут быть переданы <code class="docutils literal notranslate"><span class="pre">buffer</span></code>.</p>
 </div>
 <dl class="py method">
-<dt class="sig sig-object py" id="microbit.Image.width">
-<span class="sig-name descname"><span class="pre">width</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/microbit.html#Image.width"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#microbit.Image.width" title="Ссылка на это определение"></a></dt>
-<dd><p>Return the number of columns in the image.</p>
+<dt class="sig sig-object py" id="Image.width">
+<span class="sig-name descname"><span class="pre">width</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Image.width" title="Ссылка на это определение"></a></dt>
+<dd><p>Вернуть количество столбцов в изображении.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="microbit.Image.height">
-<span class="sig-name descname"><span class="pre">height</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/microbit.html#Image.height"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#microbit.Image.height" title="Ссылка на это определение"></a></dt>
-<dd><p>Return the numbers of rows in the image.</p>
+<dt class="sig sig-object py" id="Image.height">
+<span class="sig-name descname"><span class="pre">height</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Image.height" title="Ссылка на это определение"></a></dt>
+<dd><p>Вернуть количество строк в изображении.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="microbit.Image.set_pixel">
-<span class="sig-name descname"><span class="pre">set_pixel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/microbit.html#Image.set_pixel"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#microbit.Image.set_pixel" title="Ссылка на это определение"></a></dt>
-<dd><p>Set the brightness of the pixel at column <code class="docutils literal notranslate"><span class="pre">x</span></code> and row <code class="docutils literal notranslate"><span class="pre">y</span></code> to the
-<code class="docutils literal notranslate"><span class="pre">value</span></code>, which has to be between 0 (dark) and 9 (bright).</p>
-<p>This method will raise an exception when called on any of the built-in
-read-only images, like <code class="docutils literal notranslate"><span class="pre">Image.HEART</span></code>.</p>
+<dt class="sig sig-object py" id="Image.set_pixel">
+<span class="sig-name descname"><span class="pre">set_pixel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Image.set_pixel" title="Ссылка на это определение"></a></dt>
+<dd><p>Установите яркость пикселя в столбце «x» и строке «y» на
+<code class="docutils literal notranslate"><span class="pre">value</span></code>, которое должно быть между 0 (темный) и 9 (яркий).</p>
+<p>Этот метод вызовет исключение при вызове любого из встроенных
+изображения только для чтения, такие как <code class="docutils literal notranslate"><span class="pre">Image.HEART</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="microbit.Image.get_pixel">
-<span class="sig-name descname"><span class="pre">get_pixel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/microbit.html#Image.get_pixel"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#microbit.Image.get_pixel" title="Ссылка на это определение"></a></dt>
-<dd><p>Return the brightness of pixel at column <code class="docutils literal notranslate"><span class="pre">x</span></code> and row <code class="docutils literal notranslate"><span class="pre">y</span></code> as an
-integer between 0 and 9.</p>
+<dt class="sig sig-object py" id="Image.get_pixel">
+<span class="sig-name descname"><span class="pre">get_pixel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Image.get_pixel" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает яркость пикселя в столбце <code class="docutils literal notranslate"><span class="pre">x</span></code> и строке <code class="docutils literal notranslate"><span class="pre">y</span></code> как
+целое число от 0 до 9.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="microbit.Image.shift_left">
-<span class="sig-name descname"><span class="pre">shift_left</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/microbit.html#Image.shift_left"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#microbit.Image.shift_left" title="Ссылка на это определение"></a></dt>
-<dd><p>Return a new image created by shifting the picture left by <code class="docutils literal notranslate"><span class="pre">n</span></code>
-columns.</p>
+<dt class="sig sig-object py" id="Image.shift_left">
+<span class="sig-name descname"><span class="pre">shift_left</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Image.shift_left" title="Ссылка на это определение"></a></dt>
+<dd><p>Вернуть новое изображение, созданное путем сдвига изображения влево на <code class="docutils literal notranslate"><span class="pre">n</span></code>
+столбцы.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="microbit.Image.shift_right">
-<span class="sig-name descname"><span class="pre">shift_right</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/microbit.html#Image.shift_right"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#microbit.Image.shift_right" title="Ссылка на это определение"></a></dt>
-<dd><p>Same as <code class="docutils literal notranslate"><span class="pre">image.shift_left(-n)</span></code>.</p>
+<dt class="sig sig-object py" id="Image.shift_right">
+<span class="sig-name descname"><span class="pre">shift_right</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Image.shift_right" title="Ссылка на это определение"></a></dt>
+<dd><p>Здвиг вправо <code class="docutils literal notranslate"><span class="pre">image.shift_left(-n)</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="microbit.Image.shift_up">
-<span class="sig-name descname"><span class="pre">shift_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/microbit.html#Image.shift_up"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#microbit.Image.shift_up" title="Ссылка на это определение"></a></dt>
-<dd><p>Return a new image created by shifting the picture up by <code class="docutils literal notranslate"><span class="pre">n</span></code> rows.</p>
+<dt class="sig sig-object py" id="Image.shift_up">
+<span class="sig-name descname"><span class="pre">shift_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Image.shift_up" title="Ссылка на это определение"></a></dt>
+<dd><p>вернуть новое изображение, созданное путем сдвига изображения вверх на <code class="docutils literal notranslate"><span class="pre">n</span></code> строк.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="microbit.Image.shift_down">
-<span class="sig-name descname"><span class="pre">shift_down</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/microbit.html#Image.shift_down"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#microbit.Image.shift_down" title="Ссылка на это определение"></a></dt>
-<dd><p>Same as <code class="docutils literal notranslate"><span class="pre">image.shift_up(-n)</span></code>.</p>
+<dt class="sig sig-object py" id="Image.shift_down">
+<span class="sig-name descname"><span class="pre">shift_down</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Image.shift_down" title="Ссылка на это определение"></a></dt>
+<dd><p>Сдвиг вниз <code class="docutils literal notranslate"><span class="pre">image.shift_up(-n)</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="microbit.Image.crop">
-<span class="sig-name descname"><span class="pre">crop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/microbit.html#Image.crop"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#microbit.Image.crop" title="Ссылка на это определение"></a></dt>
-<dd><p>Return a new image by cropping the picture to a width of <code class="docutils literal notranslate"><span class="pre">w</span></code> and a
-height of <code class="docutils literal notranslate"><span class="pre">h</span></code>, starting with the pixel at column <code class="docutils literal notranslate"><span class="pre">x</span></code> and row <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<dt class="sig sig-object py" id="Image.crop">
+<span class="sig-name descname"><span class="pre">crop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Image.crop" title="Ссылка на это определение"></a></dt>
+<dd><p>Верните новое изображение, обрезав изображение до ширины <code class="docutils literal notranslate"><span class="pre">w</span></code> и a
+высота <code class="docutils literal notranslate"><span class="pre">h</span></code>, начиная с пикселя в столбце <code class="docutils literal notranslate"><span class="pre">x</span></code> и строке <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="microbit.Image.copy">
-<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/microbit.html#Image.copy"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#microbit.Image.copy" title="Ссылка на это определение"></a></dt>
-<dd><p>Return an exact copy of the image.</p>
+<dt class="sig sig-object py" id="Image.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Image.copy" title="Ссылка на это определение"></a></dt>
+<dd><p>Вернуть точную копию изображения.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="microbit.Image.invert">
-<span class="sig-name descname"><span class="pre">invert</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/microbit.html#Image.invert"><span class="viewcode-link"><span class="pre">[исходный</span> <span class="pre">код]</span></span></a><a class="headerlink" href="#microbit.Image.invert" title="Ссылка на это определение"></a></dt>
-<dd><p>Return a new image by inverting the brightness of the pixels in the
-source image.</p>
+<dt class="sig sig-object py" id="Image.invert">
+<span class="sig-name descname"><span class="pre">invert</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Image.invert" title="Ссылка на это определение"></a></dt>
+<dd><p>Верните новое изображение, инвертировав яркость пикселей в исходное изображение.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="microbit.Image.fill">
-<span class="sig-name descname"><span class="pre">fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.Image.fill" title="Ссылка на это определение"></a></dt>
-<dd><p>Set the brightness of all the pixels in the image to the
-<code class="docutils literal notranslate"><span class="pre">value</span></code>, which has to be between 0 (dark) and 9 (bright).</p>
-<p>This method will raise an exception when called on any of the built-in
-read-only images, like <code class="docutils literal notranslate"><span class="pre">Image.HEART</span></code>.</p>
+<dt class="sig sig-object py" id="Image.fill">
+<span class="sig-name descname"><span class="pre">fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Image.fill" title="Ссылка на это определение"></a></dt>
+<dd><p>Установите яркость всех пикселей изображения на
+<code class="docutils literal notranslate"><span class="pre">value</span></code>, которое должно быть между 0 (темный) и 9 (яркий).</p>
+<p>Этот метод вызовет исключение при вызове любого из встроенных
+изображения только для чтения, такие как <code class="docutils literal notranslate"><span class="pre">Image.HEART</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="microbit.Image.blit">
-<span class="sig-name descname"><span class="pre">blit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.Image.blit" title="Ссылка на это определение"></a></dt>
-<dd><p>Copy the rectangle defined by <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">w</span></code>, <code class="docutils literal notranslate"><span class="pre">h</span></code> from the image <code class="docutils literal notranslate"><span class="pre">src</span></code> into
-this image at <code class="docutils literal notranslate"><span class="pre">xdest</span></code>, <code class="docutils literal notranslate"><span class="pre">ydest</span></code>.
-Areas in the source rectangle, but outside the source image are treated as having a value of 0.</p>
-<p><code class="docutils literal notranslate"><span class="pre">shift_left()</span></code>, <code class="docutils literal notranslate"><span class="pre">shift_right()</span></code>, <code class="docutils literal notranslate"><span class="pre">shift_up()</span></code>, <code class="docutils literal notranslate"><span class="pre">shift_down()</span></code> and <code class="docutils literal notranslate"><span class="pre">crop()</span></code>
-can are all implemented by using <code class="docutils literal notranslate"><span class="pre">blit()</span></code>.
-For example, img.crop(x, y, w, h) can be implemented as:</p>
+<dt class="sig sig-object py" id="Image.blit">
+<span class="sig-name descname"><span class="pre">blit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xdest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Image.blit" title="Ссылка на это определение"></a></dt>
+<dd><p>Скопируйте прямоугольник, определенный <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">w</span></code>, <code class="docutils literal notranslate"><span class="pre">h</span></code> из изображения <code class="docutils literal notranslate"><span class="pre">src</span></code> в
+это изображение в <code class="docutils literal notranslate"><span class="pre">xdest</span></code>, <code class="docutils literal notranslate"><span class="pre">ydest</span></code>.
+Области в исходном прямоугольнике, но за пределами исходного изображения, обрабатываются
+как имеющие значение 0. <code class="docutils literal notranslate"><span class="pre">shift_left()</span></code>, <code class="docutils literal notranslate"><span class="pre">shift_right()</span></code>, <code class="docutils literal notranslate"><span class="pre">shift_up()</span></code>, <code class="docutils literal notranslate"><span class="pre">shift_down()</span></code> и <code class="docutils literal notranslate"><span class="pre">crop()</span></code>
+все они могут быть реализованы с помощью <code class="docutils literal notranslate"><span class="pre">blit()</span></code>.</p>
+<p>Например, img.crop(x, y, w, h) можно реализовать как:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">crop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
     <span class="n">res</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
@@ -282,9 +290,9 @@ For example, img.crop(x, y, w, h) can be implemented as:</p>
 </section>
 <section id="id3">
 <h2>Атрибуты<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Image</span></code> class also has the following built-in instances of itself
-included as its attributes (the attribute names indicate what the image
-represents):</p>
+<p>Класс <code class="docutils literal notranslate"><span class="pre">Image</span></code> также имеет следующие встроенные экземпляры:
+включены в качестве его атрибутов (имена атрибутов указывают, что изображение
+представляет собой):</p>
 <blockquote>
 <div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Image.HEART</span></code></p></li>
@@ -338,7 +346,7 @@ represents):</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">Image.SNAKE</span></code></p></li>
 </ul>
 </div></blockquote>
-<p>Finally, related collections of images have been grouped together:</p>
+<p>Наконец, связанные коллекции изображений были сгруппированы вместе:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* ``Image.ALL_CLOCKS``
 * ``Image.ALL_ARROWS``
 </pre></div>
@@ -349,20 +357,20 @@ represents):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">repr</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Get a compact string representation of the image.</p>
+<p>Получить компактное строковое представление изображения.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Get a readable string representation of the image.</p>
+<p>Получить удобочитаемое строковое представление изображения.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">image1</span> <span class="o">+</span> <span class="n">image2</span>
 </pre></div>
 </div>
-<p>Create a new image by adding the brightness values from the two images for
-each pixel.</p>
+<p>Создайте новое изображение, добавив значения яркости из двух изображений для
+каждый пиксель.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">*</span> <span class="n">n</span>
 </pre></div>
 </div>
-<p>Create a new image by multiplying the brightness of each pixel by <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<p>Создайте новое изображение, умножив яркость каждого пикселя на <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
 </section>
 </section>
 
@@ -370,7 +378,7 @@ each pixel.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="pin.html" class="btn btn-neutral float-left" title="Input/Output Pins" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="pin.html" class="btn btn-neutral float-left" title="Контакты" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
         <a href="audio.html" class="btn btn-neutral float-right" title="Аудио" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

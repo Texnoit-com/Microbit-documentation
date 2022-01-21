@@ -82,7 +82,8 @@
 <li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
 <li class="toctree-l2"><a class="reference internal" href="display.html">Дисплей</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filesystem.html">Файловая система</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">Протокол I²C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html#id2">Подключение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
@@ -293,13 +294,17 @@
 </pre></div>
 </div>
 <p>За исключением контактов, отмеченных <strong>V2</strong>, которые предлагают следующий API:</p>
-<dl>
-<dt>pin_logo::</dt><dd><p># возвращает логическое значение если тронуть логотип</p>
-<p>pin_logo.is_touched()</p>
-<p># Устанавливает сенсорный режим. Значение может быть либо RESISTIVE, либо CAPACITIVE</p>
-<p>pin.set_touch_mode(value)</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pin_logo</span>
+
+<span class="c1"># возвращает логическое значение если тронуть логотип</span>
+
+<span class="n">pin_logo</span><span class="o">.</span><span class="n">is_touched</span><span class="p">()</span>
+
+<span class="c1"># Устанавливает сенсорный режим. Значение может быть либо RESISTIVE, либо CAPACITIVE</span>
+
+<span class="n">pin</span><span class="o">.</span><span class="n">set_touch_mode</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>pin_speaker:</p>
 <p>Принадлежит классу <code class="docutils literal notranslate"><span class="pre">MicroBitPin</span></code>, но не имеет функции <code class="docutils literal notranslate"><span class="pre">pin.is_touched()</span></code>.</p>
 </section>

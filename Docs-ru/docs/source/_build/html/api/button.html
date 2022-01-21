@@ -80,7 +80,8 @@
 <li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
 <li class="toctree-l2"><a class="reference internal" href="display.html">Дисплей</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filesystem.html">Файловая система</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">Протокол I²C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html#id2">Подключение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
@@ -153,34 +154,29 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="Button">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Button</span></span><a class="headerlink" href="#Button" title="Ссылка на это определение"></a></dt>
-<dd><p>Represents a button.</p>
+<dd><p>Шаблон кнопки.</p>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>This class is not actually available to the user, it is only used by
-the two button instances, which are provided already initialized.</p>
+<p>Этот класс фактически недоступен пользователю, он используется только
+два экземпляра кнопок, которые уже инициализированы.</p>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="Button.is_pressed">
 <span class="sig-name descname"><span class="pre">is_pressed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Button.is_pressed" title="Ссылка на это определение"></a></dt>
-<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the specified button <code class="docutils literal notranslate"><span class="pre">button</span></code> is currently being
-held down, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+<dd><p>Возвращает <code class="docutils literal notranslate"><span class="pre">True</span></code> если кнопка <code class="docutils literal notranslate"><span class="pre">button</span></code> удерживается, и <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Button.was_pressed">
 <span class="sig-name descname"><span class="pre">was_pressed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Button.was_pressed" title="Ссылка на это определение"></a></dt>
-<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> to indicate if the button was pressed
-(went from up to down) since the device started or the last time this
-method was called.  Calling this method will clear the press state so
-that the button must be pressed again before this method will return
-<code class="docutils literal notranslate"><span class="pre">True</span></code> again.</p>
+<dd><p>Возвращает <code class="docutils literal notranslate"><span class="pre">True</span></code> если была нажата кнопка с  последнего момента вызова этого метода.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Button.get_presses">
 <span class="sig-name descname"><span class="pre">get_presses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Button.get_presses" title="Ссылка на это определение"></a></dt>
-<dd><p>Returns the running total of button presses, and resets this total
-to zero before returning.</p>
+<dd><p>Возвращает общее количество нажатий кнопок и сбрасывает это общее количество.
+до нуля перед возвратом.</p>
 </dd></dl>
 
 </dd></dl>

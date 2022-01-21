@@ -1,42 +1,38 @@
-.. _filesystem:
-
 Файловая система
 ****************
 
-It is useful to store data in a persistent manner so that it remains intact
-between restarts of the device. On traditional computers this is often achieved
-by a file system consisting of named files that hold raw data, and named
-directories that contain files. Python supports the various operations needed
-to work with such file systems.
+Полезно хранить данные так, чтобы они оставались неповрежденными между перезапусками устройства. 
+На традиционных компьютерах это  достигается файловой системой, состоящей из именованных файлов, \
+содержащих необработанные данные, и именованные каталоги, содержащие файлы. 
+Python поддерживает различные операции, необходимые для работы с такими файловыми системами.
 
-However, since the micro:bit is a limited device in terms of both hardware and
-storage capacity MicroPython provides a small subset of the functions needed
-to persist data on the device. Because of memory constraints **there is
-approximately 30k of storage available** on the file system.
+Поскольку micro:bit является микроконтроллером, емкость хранилища MicroPython предоставляет 
+небольшой набор функций, необходимых для сохранения данных на устройство. Из-за ограничений памяти **есть
+приблизительно 30 КБ доступно** в файловой системе.
 
 .. warning::
 
-    Re-flashing the device will DESTROY YOUR DATA.
+    Перепрошивка устройства УНИЧТОЖИТ ВАШИ ДАННЫЕ.
 
-    Since the file system is stored in the micro:bit's flash memory and
-    flashing the device rewrites all the available flash memory then all your
-    data will be lost if you flash your device.
+    Поскольку файловая система хранится во флэш-памяти micro:bit и
+    перепрошивка устройства перезаписывает всю доступную флэш-память поэтому все ваши
+    данные будут потеряны.
 
-    However, if you switch your device off the data will remain intact until
-    you either delete it (see below) or re-flash the device.
+    Однако, если вы выключите устройство, данные останутся нетронутыми до тех пор, пока
+    Вы либо удаляете их, либо перепрошиваете устройство.
 
-MicroPython on the micro:bit provides a flat file system; i.e. there is no
-notion of a directory hierarchy, the file system is just a list of named
-files. Reading and writing a file is achieved via the standard Python ``open``
-function and the resulting file-like object (representing the file) of types
-``TextIO`` or ``BytesIO``. Operations for working with files on the file system
-(for example, listing or deleting files) are contained within the
+MicroPython на micro:bit обеспечивает простую файловую систему; то есть нет
+понятие иерархии каталогов, файловая система — это просто список именованных
+файлов. Чтение и запись файла осуществляется с помощью стандартной Python команды``open``.
+и результирующий файловый объект типом ``TextIO`` или ``BytesIO``. 
+Операции по работе с файлами в файловой системе содержатся в модуле
+
 :py:mod:`os` module.
 
-If a file ends in the ``.py`` file extension then it can be imported. For
-example, a file named ``hello.py`` can be imported like this: ``import hello``.
+Если файл заканчивается расширением ``.py``, его можно импортировать. 
+Например, файл с именем ``hello.py`` можно импортировать следующим образом: ``import hello``.
 
-An example session in the MicroPython REPL may look something like this::
+Пример кода в MicroPython REPL может выглядеть примерно так::
 
     >>> with open('hello.py', 'w') as hello:
     ...    hello.write("print('Hello')")
@@ -56,78 +52,67 @@ An example session in the MicroPython REPL may look something like this::
 
 .. py:function:: open(filename, mode='r')
 
-    Returns a file object representing the file named in the argument
-    ``filename``. The mode defaults to ``'r'`` which means open for reading in
-    text mode. The other common mode is ``'w'`` for writing (overwriting the
-    content of the file if it already exists). Two other modes are available
-    to be used in conjunction with the ones describes above: ``'t'`` means
-    text mode (for reading and writing strings) and ``'b'`` means binary mode
-    (for reading and writing bytes). If these are not specified then ``'t'``
-    (text mode) is assumed. When in text mode the file object will be an
-    instance of ``TextIO``. When in binary mode the file object will be an
-    instance of ``BytesIO``. For example, use ``'rb'`` to read binary data from
-    a file.
+    Возвращает файловый объект, указанный в аргументе ``filename``.  По умолчанию 
+    используется режим ``'r'`` - открытие для чтения в текстовый режим. 
+    Другим распространенным режимом является  ``'w'`` для записи (перезапись содержимое
+    файла, если он уже существует). Доступны два других режима
+    для использования в сочетании с описанными выше:  ``'t'`` означает текстовый режим 
+    (для чтения и записи строк), а  ``'b'`` означает двоичный режим (для чтения и записи 
+    байтов). В текстовом режиме файловый объект будет экземпляр ``TextIO``.
+    В двоичном режиме файловый объект будет экземпляр ``BytesIO``. 
 
 
 .. py:class::
     TextIO
     BytesIO
 
-    Instances of these classes represent files in the micro:bit's flat file
-    system. The TextIO class is used to represent text files. The BytesIO
-    class is used to represent binary files. They work in exactly the same
-    except that TextIO works with strings and BytesIO works with bytes.
+    Экземпляры этих классов представляют файлы micro:bit. Класс TextIO используется для 
+    представления текстовых файлов. BytesIO класс используется для представления двоичных файлов. 
+    Они работают точно так же за исключением того, что TextIO работает со строками, а BytesIO 
+    работает с байтами.
 
-    You do not directly instantiate these classes. Rather, an appropriately
-    configured instance of the class is returned by the ``open`` function
-    described above.
+    Вы не создаете экземпляры этих классов напрямую. Скорее, надлежащим образом
+    сконфигурированный экземпляр класса возвращается функцией ``open`` описано выше
 
     .. py:method:: close()
 
-        Flush and close the file. This method has no effect if the file is
-        already closed. Once the file is closed, any operation on the file
-        (e.g. reading or writing) will raise an exception.
+        Закроет файл. После закрытия файла любая операция над файлом вызовет исключение.
 
     .. py:method:: name()
 
-        Returns the name of the file the object represents. This will be the
-        same as the ``filename`` argument passed into the call to the ``open``
-        function that instantiated the object.
+        Возвращает имя файла, который представляет объект. Это будет
+        то же, что и аргумент ``filename``, переданный в вызов ``open``, создавшая экземпляр объекта.
 
     .. py:method:: read(size)
 
-        Read and return at most ``size`` characters as a single string or
-        ``size`` bytes from the file. As a convenience, if ``size`` is
-        unspecified or -1, all the data contained in the file is returned.
-        Fewer than ``size`` characters or bytes may be returned if there are
-        less than ``size`` characters or bytes remaining to be read from
-        the file.
+        Читает и возвращать символов ``size`` в виде одной строки или
+        ``size`` байтов из файла. Для удобства, если ``size`` не указано или -1, 
+        возвращаются все данные, содержащиеся в файле.
 
-        If 0 characters or bytes are returned, and ``size`` was not 0, this
-        indicates end of file.
+        Если возвращается 0 символов или байтов, а ``size`` не равен 0, это
+        указывает на конец файла.
 
-        A ``MemoryError`` exception will occur if ``size`` is larger than the
-        available RAM.
+        Исключение ``MemoryError`` произойдет, если ``size`` больше, чем
+        доступная оперативная память.
 
     .. py:method:: readinto(buf, n=-1)
 
-        Read characters or bytes into the buffer ``buf``. If ``n`` is supplied,
-        read ``n`` number of bytes or characters into the buffer ``buf``.
+        Прочитать символы или байты в буфер ``buf``. Если указано ``n``,
+        прочитать ``n`` байтов или символов в буфер ``buf``.
 
     .. py:method:: readline(size)
 
-        Read and return one line from the file. If ``size`` is specified, at
-        most ``size`` characters will be read.
+        Прочитать и вернуть одну строку из файла. Если указан ``size``, будут прочтено
+        столько строк.
 
-        The line terminator is always ``'\n'`` for strings or ``b'\n'`` for
-        bytes.
+        Ограничитель строки всегда ``'\n'`` для строк или ``b'\n'`` для строк.
+        байт.
 
     .. py:method:: writable()
 
-        Return ``True`` if the file supports writing. If ``False``, ``write()``
-        will raise ``OSError``.
+        Возвратите ``True``, если файл поддерживает запись.
 
     .. py:method:: write(buf)
 
-        Write the string or bytes ``buf`` to the file and return the number of
-        characters or bytes written.
+        Запишите строку или байты ``buf`` в файл и верните количество
+        символов или байтов, записанных.
