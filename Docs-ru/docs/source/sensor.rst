@@ -22,6 +22,7 @@
    sensor/RGB_LED_Module
    sensor/Single_Relay_Module
    sensor/Traffic_Light
+   sensor/Motor
 
 .. toctree::
    :maxdepth: 2
