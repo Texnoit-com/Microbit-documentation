@@ -3,10 +3,10 @@
 
 .. py:module:: microbit.microphone
 
-This object lets you access the built-in microphone available on the
-micro:bit **V2**. It can be used to respond to sound. The microphone input
-is located on the front of the board alongside a microphone activity LED,
-which is lit when the microphone is in use.
+Этот объект позволяет вам получить доступ к встроенному микрофону, доступному на
+микро:бит **V2**. Его можно использовать для реакции на звук. Вход микрофона
+расположен на передней панели рядом со светодиодом активности микрофона,
+который горит, когда микрофон используется.
 
 .. image:: microphone.png
     :width: 300px
@@ -14,74 +14,77 @@ which is lit when the microphone is in use.
     :height: 240px
     :alt: micro:bit with microphone LED on
 
-Sound events
-============
-The microphone can respond to a pre-defined set of sound events that are
-based on the amplitude and wavelength of the sound. 
+События микрофона
+=================
 
-These sound events are represented by instances of the ``SoundEvent`` class,
-accessible via variables in ``microbit.SoundEvent``:
+Микрофон может реагировать на предопределенный набор звуковых событий, которые
+в зависимости от амплитуды и длины волны звука.
 
-- ``microbit.SoundEvent.QUIET``: Represents the transition of sound events,
-  from ``loud`` to ``quiet`` like speaking or background music.
+Эти звуковые события представлены экземплярами класса SoundEvent,
+доступны через переменные в ``microbit.SoundEvent``:
 
-- ``microbit.SoundEvent.LOUD``: Represents the transition of sound events,
-  from ``quiet`` to ``loud`` like clapping or shouting.
+- ``microbit.SoundEvent.QUIET``: Представляет переход звуковых событий,
+  от ``loud`` до ``quiet`` как разговор или фоновая музыка.
 
-Functions
-=========
+- ``microbit.SoundEvent.LOUD``: Представляет переход звуковых событий,
+  от ``quiet`` до ``loud`` например, аплодисментов или криков.
+
+Функции
+========
 
 .. py:function:: current_event()
 
-    * **return**: the name of the last recorded sound event,
-      ``SoundEvent('loud')`` or ``SoundEvent('quiet')``.
+    * **return**: название последнего записанного звукового события,
+      ``SoundEvent('loud')`` или ``SoundEvent('quiet')``.
 
 .. py:function:: was_event(event)
 
-    * **event**: a sound event,  such as ``SoundEvent.LOUD`` or
+    * **event**: звуковое событие, например ``SoundEvent.LOUD`` или
       ``SoundEvent.QUIET``.
-    * **return**: ``true`` if sound was heard at least once since the last
-      call, otherwise ``false``. ``was_event()`` also clears the sound
-      event history before returning.
+
+    * **return**: ``true`` если звук был слышен хотя бы один раз с момента последнего
+      позвони, иначе ``false``. ``was_event()`` также очищает звук
+      история событий перед возвратом.
 
 .. py:function:: is_event(event)
 
-    * **event**: a sound event,  such as ``SoundEvent.LOUD`` or
+    * **event**: звуковое событие, например ``SoundEvent.LOUD`` или
       ``SoundEvent.QUIET``.
-    * **return**: ``true`` if sound event is the most recent since the last
-      call, otherwise ``false``. It does not clear the sound event history.
+    * **return**: ``true`` если звуковое событие является последним с момента последнего
+      позвони, иначе ``false``. Не очищает историю звуковых событий.
 
 .. py:function:: get_events()
 
-    * **return**: a tuple of the event history. The most recent is listed last.
-      ``get_events()`` also clears the sound event history before returning.
+    * **return**: кортеж истории событий. Самый последний указан последним.
+      ``get_events()`` также очищает историю звуковых событий перед возвратом.
 
 .. py:function:: set_threshold(event, value)
 
-    * **event**: a sound event, such as ``SoundEvent.LOUD`` or
+    * **event**: звуковое событие, например ``SoundEvent.LOUD`` или
       ``SoundEvent.QUIET``.
     
-    * **value**: The threshold level in the range 0-255. For example,
-      ``set_threshold(SoundEvent.LOUD, 250)`` will only trigger if the sound is
-      very loud (>= 250).
+    * **value**: Пороговый уровень в диапазоне 0-255. Например,
+      ``set_threshold(SoundEvent.LOUD, 250)`` будет срабатывать только в том случае, если звук
+      очень громко (>= 250).
 
 .. py:function:: sound_level()
 
-    * **return**: a representation of the sound pressure level in the range 0 to
-      255.
+    * **return**: представление уровня звукового давления в диапазоне от 0 до 255.
 
 
-Example
+Примеры
 =======
 
-An example that runs through some of the functions of the microphone API::
+Пример, запускающий некоторые функции микрофона:
 
-    # Basic test for microphone.  This test should update the display when
-    # Button A is pressed and a loud or quiet sound *is* heard, printing the
-    # results. On Button B this test should update the display when a loud or
-    # quiet sound *was* heard, printing the results. On shake this should print
-    # the last sounds heard, you should try this test whilst making a loud sound 
-    # and a quiet one before you shake.
+    # Базовый тест для микрофона. Этот тест должен обновлять дисплей, когда
+    # Нажата кнопка A и *pressed* громкий или тихий звук, распечатывая
+    # Результаты. На кнопке B этот тест должен обновлять дисплей при громком или
+    # тихий звук *is* слышен, вывод результатов. При встряхивании это должно печатать
+    # последние слышимые звуки, вы должны попробовать этот тест, издавая громкий звук
+    # и тихий, прежде чем встряхнуть.
+
+Код::
 
     from microbit import *
 

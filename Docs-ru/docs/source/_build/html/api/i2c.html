@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Функции &mdash; документация Microbit-Русская документация 0.1</title>
+  <title>Протокол I²C &mdash; документация Microbit-Русская документация 0.1</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
-    <link rel="next" title="Microphone V2" href="microphone.html" />
+    <link rel="next" title="Микрофон V2" href="microphone.html" />
     <link rel="prev" title="Дисплей" href="display.html" /> 
 </head>
 
@@ -56,8 +56,26 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">Microbit Micropython API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="microbit.html">Модуль Microbit</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#id1">Функции</a></li>
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#id2">Атрибуты</a></li>
+<li class="toctree-l3"><a class="reference internal" href="microbit.html#id3">Класс</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="microbit.html#id4">Модули</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
+<li class="toctree-l4"><a class="reference internal" href="audio.html">Audio V2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="compass.html">Компас</a></li>
+<li class="toctree-l4"><a class="reference internal" href="display.html">Дисплей</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Протокол I²C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Подключение</a></li>
+<li class="toctree-l4"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="speaker.html">Генератор речи <strong>V2</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="spi.html">Протокол SPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uart.html">Протокол UART</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
 <li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
@@ -65,25 +83,26 @@
 <li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
 <li class="toctree-l2"><a class="reference internal" href="display.html">Дисплей</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filesystem.html">Файловая система</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Функции</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">Подключение</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Протокол I²C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Функции</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Подключение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microphone.html">Microphone <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="micropython.html">MicroPython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="music.html">Music</a></li>
-<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="os.html">The <code class="docutils literal notranslate"><span class="pre">os</span></code>  Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pin.html">Input/Output Pins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="radio.html">Radio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="random.html">Random Number Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="speaker.html">Speaker <strong>V2</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="speech.html">Speech</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spi.html">SPI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="uart.html">UART</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utime.html">utime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="music.html">Музыка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neopixel.html">NeoPixel (Адресная светодиодная лента)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html">Библиотека OS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pin.html">Контакты</a></li>
+<li class="toctree-l2"><a class="reference internal" href="radio.html">Радио</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random (Генератор случайных чисел)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speaker.html">Генератор речи <strong>V2</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="speech.html">Генератор речи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spi.html">Протокол SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart.html">Протокол UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utime.html">utime (модуль работы со временем)</a></li>
 </ul>
 </li>
 </ul>
@@ -107,8 +126,8 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../API.html">Справочник по API</a> &raquo;</li>
-          <li><a href="microbit.html">Microbit Module</a> &raquo;</li>
-      <li>Функции</li>
+          <li><a href="microbit.html">Модуль Microbit</a> &raquo;</li>
+      <li>Протокол I²C</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/i2c.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
       </li>
@@ -118,66 +137,65 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <p>Протокол I²C
-<a href="#id1"><span class="problematic" id="id2">**</span></a><a href="#id3"><span class="problematic" id="id4">*</span></a></p>
-<span class="target" id="module-microbit.i2c"></span><p>The <code class="docutils literal notranslate"><span class="pre">i2c</span></code> module lets you communicate with devices connected to your board
-using the I²C bus protocol. There can be multiple slave devices connected at
-the same time, and each one has its own unique address, that is either fixed
-for the device or configured on it. Your board acts as the I²C master.</p>
-<p>We use 7-bit addressing for devices because of the reasons stated
-<a class="reference external" href="http://www.totalphase.com/support/articles/200349176-7-bit-8-bit-and-10-bit-I2C-Slave-Addressing">here</a>.</p>
-<p>This may be different to other micro:bit related solutions.</p>
-<p>How exactly you should communicate with the devices, that is, what bytes to
-send and how to interpret the responses, depends on the device in question and
-should be described separately in that device’s documentation.</p>
-<section id="id5">
-<h1>Функции<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h1>
+  <section id="module-microbit.i2c">
+<span id="i2c"></span><h1>Протокол I²C<a class="headerlink" href="#module-microbit.i2c" title="Ссылка на этот заголовок"></a></h1>
+<p>Модуль <code class="docutils literal notranslate"><span class="pre">i2c</span></code> позволяет вам общаться с устройствами, подключенными к вашей плате.
+с использованием протокола шины I²C. Может быть несколько устройств, подключенных
+одновременно, и каждый из них имеет свой уникальный адрес. Фиксированный
+для устройства или настроен на нем. Ваша плата действует как мастер I²C.</p>
+<p>Используется 7-битная адресация для устройства. <a class="reference external" href="http://www.totalphase.com/support/articles/200349176-7-bit-8-bit-and-10-bit-I2C-Slave-Addressing">http://www.totalphase.com/support/articles/200349176-7-bit-8-bit-and-10-bit-I2C-Slave-Addressing</a>.</p>
+<p>Это может отличаться от других решений, связанных с micro:bit.</p>
+<p>Как Вы должны общаться с устройствами (какие байты отправлять и как интерпретировать ответы)
+зависит от рассматриваемого устройства и описаны отдельно в документации к этому устройству.</p>
+<section id="id1">
+<h2>Функции<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.i2c.init">
 <span class="sig-prename descclassname"><span class="pre">microbit.i2c.</span></span><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sda</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">pin20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">pin19</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.i2c.init" title="Ссылка на это определение"></a></dt>
-<dd><p>Re-initialize peripheral with the specified clock frequency <code class="docutils literal notranslate"><span class="pre">freq</span></code> on the
-specified <code class="docutils literal notranslate"><span class="pre">sda</span></code> and <code class="docutils literal notranslate"><span class="pre">scl</span></code> pins.</p>
+<dd><p>Повторно инициализируйте периферийное устройство с указанной тактовой частотой <code class="docutils literal notranslate"><span class="pre">freq</span></code> на
+указанные контакты <code class="docutils literal notranslate"><span class="pre">sda</span></code> и <code class="docutils literal notranslate"><span class="pre">scl</span></code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Предупреждение</p>
-<p>On a micro:bit V1 board, changing the I²C pins from defaults will make
-the accelerometer and compass stop working, as they are connected
-internally to those pins. This warning does not apply to the <strong>V2</strong>
-revision of the micro:bit as this has <a class="reference external" href="https://tech.microbit.org/hardware/i2c/">separate I²C lines</a>
-for the motion sensors and the edge connector.</p>
+<p>На плате micro:bit V1 изменение выводов I²C по умолчанию приведет к
+отключению акселерометра и компаса, так как они подключены
+внутри этих контактов. Это предупреждение не относится к <strong>V2</strong>
+пересмотр микро: бита, так как он имеет отдельные линии I²C
+&lt;<a class="reference external" href="https://tech.microbit.org/hardware/i2c/">https://tech.microbit.org/hardware/i2c/</a>&gt;`</p>
 </div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.i2c.scan">
 <span class="sig-prename descclassname"><span class="pre">microbit.i2c.</span></span><span class="sig-name descname"><span class="pre">scan</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.i2c.scan" title="Ссылка на это определение"></a></dt>
-<dd><p>Scan the bus for devices.  Returns a list of 7-bit addresses corresponding
-to those devices that responded to the scan.</p>
+<dd><p>Просканируйте шину на наличие устройств. Возвращает список 7-битных адресов, соответствующих
+на те устройства, которые ответили на сканирование.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.i2c.read">
 <span class="sig-prename descclassname"><span class="pre">microbit.i2c.</span></span><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.i2c.read" title="Ссылка на это определение"></a></dt>
-<dd><p>Read <code class="docutils literal notranslate"><span class="pre">n</span></code> bytes from the device with 7-bit address <code class="docutils literal notranslate"><span class="pre">addr</span></code>. If <code class="docutils literal notranslate"><span class="pre">repeat</span></code>
-is <code class="docutils literal notranslate"><span class="pre">True</span></code>, no stop bit will be sent.</p>
+<dd><p>Прочитать <code class="docutils literal notranslate"><span class="pre">n</span></code> байт с устройства с 7-битным адресом <code class="docutils literal notranslate"><span class="pre">addr</span></code>. Если <code class="docutils literal notranslate"><span class="pre">repeat</span></code> равно
+<code class="docutils literal notranslate"><span class="pre">True</span></code>, стоповый бит посылаться не будет</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="microbit.i2c.write">
 <span class="sig-prename descclassname"><span class="pre">microbit.i2c.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.i2c.write" title="Ссылка на это определение"></a></dt>
-<dd><p>Write bytes from <code class="docutils literal notranslate"><span class="pre">buf</span></code> to the device with 7-bit address <code class="docutils literal notranslate"><span class="pre">addr</span></code>. If
-<code class="docutils literal notranslate"><span class="pre">repeat</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, no stop bit will be sent.</p>
+<dd><p>Записать байты из <code class="docutils literal notranslate"><span class="pre">buf</span></code> в устройство с 7-битным адресом <code class="docutils literal notranslate"><span class="pre">addr</span></code>. Если
+<code class="docutils literal notranslate"><span class="pre">repeat</span></code> имеет значение <code class="docutils literal notranslate"><span class="pre">True</span></code>, стоп-бит не отправляется.</p>
 </dd></dl>
 
-<section id="id6">
-<h2>Подключение<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h2>
-<p>You should connect the device’s <code class="docutils literal notranslate"><span class="pre">SCL</span></code> pin to micro:bit pin 19, and the
-device’s <code class="docutils literal notranslate"><span class="pre">SDA</span></code> pin to micro:bit pin 20. You also must connect the device’s
-ground to the micro:bit ground (pin <code class="docutils literal notranslate"><span class="pre">GND</span></code>). You may need to power the device
-using an external power supply or the micro:bit.</p>
-<p>There are internal pull-up resistors on the I²C lines of the board, but with
-particularly long wires or large number of devices you may need to add
-additional pull-up resistors, to ensure noise-free communication.</p>
 </section>
+</section>
+<section id="id2">
+<h1>Подключение<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h1>
+<p>Вы должны соединить вывод <code class="docutils literal notranslate"><span class="pre">SCL</span></code> устройства с выводом 19 micro:bit, а
+контакт <code class="docutils literal notranslate"><span class="pre">SDA</span></code> устройства к контакту micro:bit 20. Вы также должны подключить
+заземление на землю micro:bit (контакт «GND»). Возможно, вам потребуется питание устройства
+с помощью внешнего источника питания или micro:bit.</p>
+<p>На линиях I²C платы есть внутренние подтягивающие резисторы, но если Вы используете длинные провода
+или большое количество устройств, придется добавить дополнительные подтягивающие резисторы для
+обеспечения бесшумной связи.</p>
 </section>
 
 
@@ -185,7 +203,7 @@ additional pull-up resistors, to ensure noise-free communication.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
         <a href="display.html" class="btn btn-neutral float-left" title="Дисплей" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="microphone.html" class="btn btn-neutral float-right" title="Microphone V2" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="microphone.html" class="btn btn-neutral float-right" title="Микрофон V2" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
