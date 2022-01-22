@@ -30,13 +30,13 @@ utime (модуль работы со временем)
 
 .. py:module:: utime
 
-The ``utime`` module provides functions for getting the current time and date, 
-measuring time intervals, and for delays.
+Модуль ``utime`` предоставляет функции для получения текущего времени и даты,
+измерения временных интервалов и задержек.
 
 .. note::
-    The ``utime`` module is a MicroPython implementation of the standard Python 
-    ``time`` module. It can be imported using both ``import utime`` and 
-    ``import time``, but the module is the same.
+    Модуль ``utime`` представляет собой реализацию MicroPython стандартного модуля Python.
+    модуль ``time``. Его можно импортировать как с помощью ``import utime``, так и с помощью
+    ``import time``, но модуль тот же.
 
 
 Функции
@@ -44,86 +44,87 @@ measuring time intervals, and for delays.
 
 .. method:: utime.sleep(seconds)
 
-    Sleep for the given number of seconds. You can use a floating-point number 
-    to sleep for a fractional number of seconds, or use the 
-    :func:`utime.sleep_ms()` and :func:`utime.sleep_us()` functions.
+    Задержка в течение заданного количества секунд. Вы можете использовать число с плавающей запятой
+    заснуть на долю секунды или использовать 
+    
+    :func:`utime.sleep_ms()` и :func:`utime.sleep_us()`.
 
 
 .. method:: utime.sleep_ms(ms)
 
-    Delay for given number of milliseconds, should be positive or 0.
+    Задержка для заданного количества миллисекунд должна быть положительной или равной 0.
 
 
 .. method:: utime.sleep_us(us)
 
-    Delay for given number of microseconds, should be positive or 0.
+    Задержка для заданного количества микросекунд должна быть положительной или равной 0.
 
 
 .. method:: utime.ticks_ms()
 
-    Returns an increasing millisecond counter with an arbitrary reference point, 
-    that wraps around after some value.
+    Возвращает увеличивающийся счетчик миллисекунд с произвольной контрольной точкой,
+    который обертывается после некоторого значения.
 
 
 .. method:: utime.ticks_us()
 
-    Just like :func:`utime.ticks_ms()` above, but in microseconds.
+    Так же, как :func:`utime.ticks_ms()` выше, но в микросекундах.
 
 
 .. method:: utime.ticks_add(ticks, delta)
 
-    Offset ticks value by a given number, which can be either positive or 
-    negative. Given a ticks value, this function allows to calculate ticks 
-    value delta ticks before or after it, following modular-arithmetic 
-    definition of tick values.
+    Смещение значения тиков на заданное число, которое может быть как положительным, так и
+    отрицательный. Учитывая значение тиков, эта функция позволяет вычислить тики
+    значение дельта тикает до или после него, следуя модульной арифметике
+    определение тиковых значений.
 
     Example:
 
     .. code-block:: python
 
-        # Find out what ticks value there was 100ms ago
+        # Узнать какое значение тиков было 100 мс назад
         print(ticks_add(time.ticks_ms(), -100))
 
-        # Calculate deadline for operation and test for it
+        # Рассчитать срок эксплуатации и протестировать его
         deadline = ticks_add(time.ticks_ms(), 200)
         while ticks_diff(deadline, time.ticks_ms()) > 0:
             do_a_little_of_something()
 
-        # Find out TICKS_MAX used by this port
+        # Узнайте TICKS_MAX, используемый этим портом
         print(ticks_add(0, -1))
 
 
 .. method:: utime.ticks_diff(ticks1, ticks2)
 
-    Measure ticks difference between values returned from 
-    :func:`utime.ticks_ms()` or :func:`ticks_us()` functions, as a signed value
-    which may wrap around.
+    Измерьте разницу в отметках между значениями, возвращенными из
+    :func:`utime.ticks_ms()` или :func:`ticks_us()`, как значение со знаком
+    который может обернуться вокруг.
 
-    The argument order is the same as for subtraction operator, 
-    ``ticks_diff(ticks1, ticks2)`` has the same meaning as ``ticks1 - ticks2``.
+    Порядок аргументов такой же, как и для вычитания пользователем,
+    ``ticks_diff(ticks1, ticks2)`` имеет то же значение, что и ``ticks1 - ticks2``.
 
-    :func:`utime.ticks_diff()` is designed to accommodate various usage 
-    patterns, among them:
+    :func:`utime.ticks_diff()` предназначен для различных видов использования
+    узоры, среди них:
 
-    Polling with timeout. In this case, the order of events is known, and you
-    will deal only with positive results of :func:`utime.ticks_diff()`:
+    Опрос с тайм-аутом. В этом случае порядок событий известен, и вы
+    будет иметь дело только с положительными результатами :func:`utime.ticks_diff()`:
 
     .. code-block:: python
 
-        # Wait for GPIO pin to be asserted, but at most 500us
+        # Дождитесь подтверждения вывода GPIO, но не более 500 мкс.
         start = time.ticks_us()
         while pin.value() == 0:
             if time.ticks_diff(time.ticks_us(), start) > 500:
                 raise TimeoutError
 
 
-    Scheduling events. In this case, :func:`utime.ticks_diff()` result may be
-    negative if an event is overdue:
+    Планирование событий. В этом случае результат :func:`utime.ticks_diff()` может быть
+    отрицательный, если событие просрочено:
 
 
     .. code-block:: python
 
-        # This code snippet is not optimized
+        # Этот фрагмент кода не оптимизирован
         now = time.ticks_ms()
         scheduled_time = task.scheduled_time()
         if ticks_diff(scheduled_time, now) > 0:

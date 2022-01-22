@@ -3,8 +3,8 @@
 
 .. py:module:: microbit.uart
 
-The ``uart`` module lets you talk to a device connected to your board using
-a serial interface.
+Модуль ``uart`` позволяет вам общаться с устройством, подключенным к вашей плате, используя
+последовательный интерфейс.
 
 
 Функции
@@ -12,20 +12,19 @@ a serial interface.
 
 .. method:: init(baudrate=9600, bits=8, parity=None, stop=1, \*, tx=None, rx=None)
 
-    Initialize serial communication with the specified parameters on the
-    specified ``tx`` and ``rx`` pins. Note that for correct communication, the parameters
-    have to be the same on both communicating devices.
+    Инициализировать последовательную связь с указанными параметрами на
+    указанные выводы ``tx`` и ``rx``. Обратите внимание, что для правильной связи параметры
+    должны быть одинаковыми на обоих взаимодействующих устройствах.
 
     .. warning::
 
-        Initializing the UART on external pins will cause the Python console on
-        USB to become unaccessible, as it uses the same hardware. To bring the
-        console back you must reinitialize the UART without passing anything for
-        ``tx`` or ``rx`` (or passing ``None`` to these arguments).  This means
-        that calling ``uart.init(115200)`` is enough to restore the Python console.
+        Инициализация UART на внешних контактах вызовет включение консоли Python.
+        USB становится недоступным, так как использует то же оборудование. Чтобы настроить
+        консоли обратно, Вы должны повторно инициализировать UART, ничего не передавая для
+        ``tx`` или ``rx`` (или передача ``None`` этим аргументам). Это означает
+        что вызова uart.init(115200) достаточно для восстановления консоли Python.
 
-    The ``baudrate`` defines the speed of communication. Common baud
-    rates include:
+    ``baudrate`` определяет скорость передачи данных:
 
         * 9600
         * 14400
@@ -35,93 +34,85 @@ a serial interface.
         * 57600
         * 115200
 
-    The ``bits`` defines the size of bytes being transmitted, and the board
-    only supports 8. The ``parity`` parameter defines how parity is checked,
-    and it can be ``None``, ``microbit.uart.ODD`` or ``microbit.uart.EVEN``.
-    The ``stop`` parameter tells the number of stop bits, and has to be 1 for
-    this board.
+    ``bits`` определяет размер передаваемых байтов, плата
+    поддерживает только 8. Параметр ``parity`` определяет, как проверяется четность,
+    Параметр ``stop`` указывает количество стоповых битов и должен быть равен 1 для
+    эта доска.
 
-    If ``tx`` and ``rx`` are not specified then the internal USB-UART TX/RX pins
-    are used which connect to the USB serial converter on the micro:bit, thus
-    connecting the UART to your PC.  You can specify any other pins you want by
-    passing the desired pin objects to the ``tx`` and ``rx`` parameters.
+    Если ``tx`` и ``rx`` не указаны, то внутренние контакты USB-UART TX/RX
+    используются, они подключаются к последовательному преобразователю USB на micro:bit. 
+    Вы можете указать любые другие контакты, которые вы хотите,
+    передача желаемых объектов вывода в параметры ``tx`` и ``rx``.
 
     .. note::
 
-        When connecting the device, make sure you "cross" the wires -- the TX
-        pin on your board needs to be connected with the RX pin on the device,
-        and the RX pin -- with the TX pin on the device. Also make sure the
-        ground pins of both devices are connected.
+        При подключении устройства убедитесь, что вы «перекрестили» провода — TX
+        вывод на вашей плате должен быть соединен с выводом RX на устройстве,
+        а контакт RX -- с контактом TX на устройстве. Также убедитесь, что
+        заземление обоих устройств соединено.
 
 
 .. method:: uart.any()
 
-   Return ``True`` if any data is waiting, else ``False``.
+   Возвращает ``True`` если какие-либо данные ожидаются, иначе ``False``.
 
 .. method:: uart.read([nbytes])
 
-    Read bytes.  If ``nbytes`` is specified then read at most that many
-    bytes, otherwise read as many bytes as possible.
+    Читатет байты. Если указано ``nbytes``, тогда можно прочитать не больше этого количества
+    байт, в противном случае прочитайте как можно больше байтов.
 
-    Return value: a bytes object or ``None`` on timeout.
+    Возвращаемое значение: объект bytes или ``None`` по тайм-ауту.
 
-    A bytes object contains a sequence of bytes. Because
-    `ASCII <https://en.wikipedia.org/wiki/ASCII>`_ characters can fit in
-    single bytes this type of object is often used to represent simple text
-    and offers methods to manipulate it as such, e.g. you can display the text
-    using the ``print()`` function.
+    Объект bytes содержит последовательность байтов. Так как
+    `ASCII <https://en.wikipedia.org/wiki/ASCII>`_ персонажи могут вписать
+    одиночные байты, этот тип объекта часто используется для представления простого текста
+    и предлагает методы манипулирования им как таковым, например. вы можете отобразить текст
+    используя функцию ``print()``.
 
-    You can also convert this object into a string object, and if there are
-    non-ASCII characters present the encoding can be specified::
+    Вы также можете преобразовать этот объект в строковый объект, и если есть
+    символы, отличные от ASCII, могут быть указаны в кодировке::
 
         msg_bytes = uart.read()
         msg_str = str(msg, 'UTF-8')
 
     .. note::
 
-        The timeout for all UART reads depends on the baudrate and is otherwise
-        not changeable via Python. The timeout, in milliseconds, is given by:
+        Тайм-аут для всех операций чтения UART зависит от скорости передачи данных и в противном случае
+        нельзя изменить через Python. Тайм-аут в миллисекундах определяется выражением:
         ``microbit_uart_timeout_char = 13000 / baudrate + 1``
 
     .. note::
 
-        The internal UART RX buffer is 64 bytes, so make sure data is read
-        before the buffer is full or some of the data might be lost.
+        Внутренний буфер UART RX составляет 64 байта, поэтому убедитесь, что данные считываются
+        до того, как буфер заполнится или некоторые данные могут быть потеряны.
 
     .. warning::
 
-        Receiving ``0x03`` will stop your program by raising a Keyboard
-        Interrupt. You can enable or disable this using
+        Получение ``0x03`` остановит вашу программу, подняв клавиатуру.
+        Прерывать. Вы можете включить или отключить это, используя
         :func:`micropython.kbd_intr()`.
-
-.. method:: uart.readall()
-
-    Removed since version 1.0.
-
-    Instead, use :func:`uart.read()` with no arguments, which will read as much data
-    as possible.
 
 .. method:: uart.readinto(buf[, nbytes])
 
-   Read bytes into the ``buf``.  If ``nbytes`` is specified then read at most
-   that many bytes.  Otherwise, read at most ``len(buf)`` bytes.
+   Считайте байты в ``buf``. Если указано ``nbytes``, то можно прочитать не более
+   столько байтов. В противном случае читать не более ``len(buf)`` байт.
 
-   Return value: number of bytes read and stored into ``buf`` or ``None`` on
-   timeout.
+   Возвращаемое значение: количество байтов, прочитанных и сохраненных в ``buf`` или ``None`` на
+   тайм-аут.
 
 .. method:: uart.readline()
 
-   Read a line, ending in a newline character.
+   Прочитать строку, заканчивающуюся символом новой строки.
 
-   Return value: the line read or ``None`` on timeout. The newline character is
-   included in the returned bytes.
+   Возвращаемое значение: прочитанная строка или ``None`` по тайм-ауту. Символ новой строки
+   включены в возвращаемые байты.
 
 .. method:: uart.write(buf)
 
-    Write the buffer to the bus, it can be a bytes object or a string::
+    Запишите буфер на шину, это может быть байтовый объект или строка::
 
         uart.write('hello world')
         uart.write(b'hello world')
         uart.write(bytes([1, 2, 3]))
 
-    Return value: number of bytes written or ``None`` on timeout.
+    Возвращаемое значение: количество записанных байтов или ``None`` по тайм-ауту..

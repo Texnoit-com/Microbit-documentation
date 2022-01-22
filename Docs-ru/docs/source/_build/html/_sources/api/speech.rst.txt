@@ -149,7 +149,7 @@ Pitch:
 .. note::
 
     Таблица содержит фонему в виде символов и пример слова. То слова-примеры имеют звук фонемы 
-    (в скобках), но не обязательно одинаковые буквы::
+    (в скобках), но не обязательно одинаковые буквы
 
     ПРОСТЫЕ ГЛАСНЫЕ                      ЗВОНКОВЫЕ СОГЛАСНЫЕ
     IY           f(ee)t                    R        (r)ed
@@ -165,21 +165,31 @@ Pitch:
     ER           b(ir)d                    G        a(g)ain
     AX           gall(o)n                  J        (j)u(dg)e
     IX           dig(i)t                   Z        (z)oo
-                                           ZH       plea(s)ure
+    ZH           plea(s)ure
     ДИФТОНГИ                               V        se(v)en
     EY           m(a)de                    DH       (th)en
     AY           h(igh)
     OY           b(oy)
-    AW           h(ow)                     ГЛУХИЕ СОГЛАСНЫЕ
-    OW           sl(ow)                    S         (S)am
-    UW           cr(ew)                    SH        fi(sh)
-                                           F         (f)ish
-                                           TH        (th)in
-    СПЕЦИАЛЬНЫЕ ФОНЕМЫ                     P         (p)oke
-    UL           sett(le) (=AXL)           T         (t)alk
-    UM           astron(om)y (=AXM)        K         (c)ake
-    UN           functi(on) (=AXN)         CH        spee(ch)
-    Q            kitt-en (glottal stop)    /H        a(h)ead
+    AW           h(ow)                     
+    OW           sl(ow)                   
+    UW           cr(ew) 
+    
+    ГЛУХИЕ СОГЛАСНЫЕ
+    S         (S)am
+    SH        fi(sh)
+    F         (f)ish
+    TH        (th)in
+    P         (p)oke
+    T         (t)alk
+    K         (c)ake
+    CH        spee(ch)
+    /H        a(h)ead
+
+    СПЕЦИАЛЬНЫЕ ФОНЕМЫ                     
+    UL           sett(le) (=AXL)           
+    UM           astron(om)y (=AXM)        
+    UN           functi(on) (=AXN)         
+    Q            kitt-en (glottal stop)   
 
 Пользователю также доступны следующие нестандартные символы::
 
