@@ -5,7 +5,7 @@
 
 Micro:bit **V2** имеет встроенный динамик, расположенный на задней стороне платы.
 
-.. image:: speaker.png
+.. image:: images/speaker.png
     :width: 300px
     :align: center
     :height: 240px

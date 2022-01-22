@@ -18,7 +18,7 @@ NeoPixel (Адресная светодиодная лента)
     источник питания 3В от BBC micro:bit.
 
 
-.. image:: neopixel.gif
+.. image:: images/neopixel.gif
    :alt: Neopixel flexible tile
 
 Image attribution: `adafruit flexible Neopixel matrix <https://www.adafruit.com/product/2547>`
@@ -36,7 +36,7 @@ Image attribution: `adafruit flexible Neopixel matrix <https://www.adafruit.com/
     Если вы хотите использовать более 8, вы должны использовать отдельный разъем 3v-5v.
     Желательно иметь блок питания для светодиодной ленты.
 
-.. image:: neopixel-croc.png
+.. image:: images/neopixel-croc.png
 
 Класс
 =======

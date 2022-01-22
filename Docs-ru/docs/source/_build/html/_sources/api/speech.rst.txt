@@ -3,150 +3,122 @@
 
 .. py:module:: speech
 
-This module makes the micro:bit talk, sing and make other speech like sounds.
-By default sound output will be via the edge connector on pin 0 and the
-:doc:`built-in speaker <speaker>` **V2**. You can connect wired headphones or
-a speaker to pin 0 and GND on the edge connector to hear the sound:
+Этот модуль заставляет micro:bit говорить, петь и издавать другие звуки, похожие на речь.
 
-.. image:: speech.png
+:doc:`built-in speaker <speaker>` **V2**. Вы можете подключить проводные наушники или
+динамик к контакту 0 и GND на краевом разъеме, чтобы слышать звук:
+
+.. image:: images/speech.png
 
 .. note::
 
-    This work is based upon the amazing reverse engineering efforts of
-    Sebastian Macke based upon an old text-to-speech (TTS) program called SAM
-    (Software Automated Mouth) originally released in 1982 for the
-    Commodore 64. The result is a small C library that we have adopted and
-    adapted for the micro:bit. You can find out more from
-    `his homepage <http://simulationcorner.net/index.php?page=sam>`_. Much of
-    the information in this document was gleaned from the original user's
-    manual which can be found
-    `here <http://www.apple-iigs.info/newdoc/sam.pdf>`_.
+    Эта работа основана на удивительных усилиях по обратному инжинирингу
+    Себастьян Маке на основе старой программы преобразования текста в речь (TTS) под названием SAM.
+    (программное обеспечение Automated Mouth), первоначально выпущенное в 1982 г.
+    Commodore 64. Результатом стала небольшая библиотека C, которую разработчики приняли и
+    адаптирован для micro:bit. Вы можете узнать больше из
+    `his homepage <http://simulationcorner.net/index.php?page=sam>`_. Много
+    информации в этом документе была получено от первоначального
+    руководства, которое можно найти `here <http://www.apple-iigs.info/newdoc/sam.pdf>`_.
 
-The speech synthesiser can produce around 2.5 seconds worth of sound from up to
-255 characters of textual input.
+Синтезатор речи может воспроизводить звук продолжительностью около 2,5 секунд от 0 до
+255 символов текстового ввода.
 
-To access this module you need to::
+Для доступа к этому модулю вам необходимо::
 
     import speech
-
-We assume you have done this for the examples below.
 
 Функции
 =========
 
 .. py:function:: translate(words)
 
-    Given English words in the string ``words``, return a string containing
-    a best guess at the appropriate phonemes to pronounce. The output is
-    generated from this
-    `text to phoneme translation table <https://github.com/s-macke/SAM/wiki/Text-to-phoneme-translation-table>`_.
+    Данные английские слова в строке ``words``, вернуть строку, содержащую
+    лучшее предположение о подходящих фонемах для произнесения. Выход
+    генерируется с использованием библиотеки
+    `<https://github.com/s-macke/SAM/wiki/Text-to-phoneme-translation-table>`_.
 
-    This function should be used to generate a first approximation of phonemes
-    that can be further hand-edited to improve accuracy, inflection and
-    emphasis.
+    Эту функцию следует использовать для генерации первого приближения фонем,
+    которые могут быть дополнительно отредактированы вручную для улучшения точности, интонации и
+    акцент.
 
 .. py:function:: pronounce(phonemes, \*, pitch=64, speed=72, mouth=128, throat=128)
                  pronounce(phonemes, \*, pitch=64, speed=72, mouth=128, throat=128, pin=pin0)
 
-    Pronounce the phonemes in the string ``phonemes``. See below for details of
-    how to use phonemes to finely control the output of the speech synthesiser.
-    Override the optional pitch, speed, mouth and throat settings to change the
-    timbre (quality) of the voice.
-
-    For micro:bit **V2** an optional argument to specify the output pin can be
-    used to override the default of ``pin0``. If we do not want any sound to
-    play out of the pins can use ``pin=None``.
+    Произнесите фонемы в строке ``phonemes``. Подробнее смотреть ниже
+    как использовать фонемы для точного управления выходным сигналом синтезатора речи.
+    Переопределите дополнительные настройки высоты тона, скорости, рта и горла, чтобы изменить
+    тембр (качество) голоса.
 
 .. py:function:: say(words, \*, pitch=64, speed=72, mouth=128, throat=128)
                  say(words, \*, pitch=64, speed=72, mouth=128, throat=128, pin=pin0)
 
-    Say the English words in the string ``words``. The result is semi-accurate
-    for English. Override the optional pitch, speed, mouth and throat
-    settings to change the timbre (quality) of the voice. This is a short-hand
-    equivalent of: ``speech.pronounce(speech.translate(words))``
+    Произнесите английские слова в строке ``words``.
 
 .. py:function:: sing(phonemes, \*, pitch=64, speed=72, mouth=128, throat=128)
                  sing(phonemes, \*, pitch=64, speed=72, mouth=128, throat=128, pin=pin0)
 
-    Sing the phonemes contained in the string ``phonemes``. Changing the pitch
-    and duration of the note is described below. Override the optional pitch,
-    speed, mouth and throat settings to change the timbre (quality) of the
-    voice.
+    Пропойте фонемы, содержащиеся в строке ``phonemes``. Изменение высоты тона
+    и продолжительность ноты описана далее. Переопределите необязательный шаг,
+    настройки скорости, рта и горла, чтобы изменить тембр (качество)
+    голос.
 
 Пунктуация
 ===========
 
-Punctuation is used to alter the delivery of speech. The synthesiser
-understands four punctuation marks: hyphen, comma, full-stop and question mark.
+Пунктуация используется для изменения подачи речи. Синтезатор
+понимает четыре знака препинания: дефис, запятую, точку и вопросительный знак.
 
-The hyphen (``-``) marks clause boundaries by inserting a short pause in the
-speech.
+Дефис (``-``) вставляет короткую паузу в речи.
 
-The comma (``,``) marks phrase boundaries and inserts a pause of approximately
-double that of the hyphen.
+Запятая (``,``) отмечает границу фразы и вставляет паузу примерно
+вдвое больше дефиса.
 
-The full-stop (``.``) and question mark (``?``) end sentences.
+Точка (``.``) и вопросительный знак (``?``) обозначает конец предложения.
 
-The full-stop inserts a pause and causes the pitch to fall.
-
-The question mark also inserts a pause but causes the pitch to rise. This works
-well with yes/no questions such as, "are we home yet?" rather than more complex
-questions such as "why are we going home?". In the latter case, use a
-full-stop.
+Точка вставляет паузу и заставляет высоту тона падать.
 
 Тембр
 ======
 
-The timbre of a sound is the quality of the sound. It's the difference between
-the voice of a DALEK and the voice of a human (for example). To control the
-timbre change the numeric settings of the ``pitch``, ``speed``, ``mouth`` and
-``throat`` arguments.
+Тембр звука – это качество звука. Это разница между
+голос робота и голосом человека. Чтобы контролировать
+тембр меняйте числовые настройки ``pitch``, ``speed``, ``mouth`` и
+``throat``.
 
-The pitch (how high or low the voice sounds) and speed (how quickly the speech
-is delivered) settings are rather obvious and generally fall into the following
-categories:
+Высота тона и скорость  настройки достаточно очевидны и в основном сводятся к следующемим
+категориям:
 
 Pitch:
 
-* 0-20 impractical
-* 20-30 very high
-* 30-40 high
-* 40-50 high normal
-* 50-70 normal
-* 70-80 low normal
-* 80-90 low
-* 90-255 very low
+* 0-20 непрактичный
+* 20-30 очень высоко
+* 30-40 высокий
+* 40-50 высокий нормальный
+* 50-70 нормальный
+* 70-80 низкий нормальный
+* 80-90 низкий
+* 90-255 очень низко
 
-(The default is 64)
+(По умолчанию 64)
 
-Speed:
+Скорость:
 
-* 0-20 impractical
-* 20-40 very fast
-* 40-60 fast
-* 60-70 fast conversational
-* 70-75 normal conversational
-* 75-90 narrative
-* 90-100 slow
-* 100-225 very slow
+* 0-20 непрактичный
+* 20-40 очень быстро
+* 40-60 быстрый
+* 60-70 быстрый разговорный
+* 70-75 нормальный разговорный
+* 75-90 повествование
+* 90-100 медленный
+* 100-225 очень медленный
 
-(The default is 72)
+(По умолчанию 72)
 
-The mouth and throat values are a little harder to explain and the following
-descriptions are based upon our aural impressions of speech produced as the
-value of each setting is changed.
+Значения рта и горла немного сложнее объяснить, и следующие описания основаны на наших 
+слуховых впечатлениях от речи, значение каждой настройки можно изменять.
 
-For mouth, the lower the number the more it sounds like the speaker is talking
-without moving their lips. In contrast, higher numbers (up to 255) make it
-sound like the speech is enunciated with exagerated mouth movement.
-
-For throat, the lower the number the more relaxed the speaker sounds. In
-contrast, the higher the number, the more tense the tone of voice becomes.
-
-The important thing is to experiment and adjust the settings until you get the
-effect you desire.
-
-To get you started here are some examples::
+Для начала вот несколько примеров::
 
     speech.say("I am a little robot",  speed=92, pitch=60, throat=190, mouth=190)
     speech.say("I am an elf", speed=72, pitch=64, throat=110, mouth=160)
@@ -158,34 +130,28 @@ To get you started here are some examples::
 Фонемы
 ========
 
-The ``say`` function makes it easy to produce speech - but often it's not
-accurate. To make sure the speech synthesiser pronounces things
-*exactly* how you'd like, you need to use phonemes: the smallest
-perceptually distinct units of sound that can be used to distinguish different
-words. Essentially, they are the building-block sounds of speech.
+``say`` функция позволяет легко произносить речь, но часто это не точное. 
+Чтобы убедиться, что синтезатор речи произносит вещи
+*правильно* как хотите, нужно использовать фонемы: самые маленькие
+воспринимаемые единицы звука, которые можно использовать для различения различных
+слова.
 
-The ``pronounce`` function takes a string containing a simplified and readable
-version of the `International Phonetic Alphabet <https://en.wikipedia.org/wiki/International_Phonetic_Alphabet>`_ and optional annotations to indicate
-inflection and emphasis.
+``pronounce`` функция принимает строку, содержащую упрощенную и читаемую
+версию `International Phonetic Alphabet <https://en.wikipedia.org/wiki/International_Phonetic_Alphabet>`_ 
+и необязательные аннотации для указания интонация и ударение.
 
-The advantage of using phonemes is that you don't have to know how to spell!
-Rather, you only have to know how to say the word in order to spell it
-phonetically.
+Преимущество использования фонем в том, что вам не нужно знать, как правильно писать!
+Скорее, вам нужно только знать, как сказать слово, чтобы написать его по буквам.
+фонетически.
 
-The table below lists the phonemes understood by the synthesiser.
+В таблице ниже перечислены фонемы, понятные синтезатору.
 
 .. note::
 
-    The table contains the phoneme as characters, and an example word. The
-    example words have the sound of the phoneme (in parenthesis), but not
-    necessarily the same letters.
+    Таблица содержит фонему в виде символов и пример слова. То слова-примеры имеют звук фонемы 
+    (в скобках), но не обязательно одинаковые буквы::
 
-    Often overlooked: the symbol for the "H" sound is ``/H``. A glottal stop
-    is a forced stoppage of sound.
-
-::
-
-    SIMPLE VOWELS                          VOICED CONSONANTS
+    ПРОСТЫЕ ГЛАСНЫЕ                      ЗВОНКОВЫЕ СОГЛАСНЫЕ
     IY           f(ee)t                    R        (r)ed
     IH           p(i)n                     L        a(ll)ow
     EH           b(e)g                     W        a(w)ay
@@ -200,34 +166,34 @@ The table below lists the phonemes understood by the synthesiser.
     AX           gall(o)n                  J        (j)u(dg)e
     IX           dig(i)t                   Z        (z)oo
                                            ZH       plea(s)ure
-    DIPHTHONGS                             V        se(v)en
+    ДИФТОНГИ                               V        se(v)en
     EY           m(a)de                    DH       (th)en
     AY           h(igh)
     OY           b(oy)
-    AW           h(ow)                     UNVOICED CONSONANTS
+    AW           h(ow)                     ГЛУХИЕ СОГЛАСНЫЕ
     OW           sl(ow)                    S         (S)am
     UW           cr(ew)                    SH        fi(sh)
                                            F         (f)ish
                                            TH        (th)in
-    SPECIAL PHONEMES                       P         (p)oke
+    СПЕЦИАЛЬНЫЕ ФОНЕМЫ                     P         (p)oke
     UL           sett(le) (=AXL)           T         (t)alk
     UM           astron(om)y (=AXM)        K         (c)ake
     UN           functi(on) (=AXN)         CH        spee(ch)
     Q            kitt-en (glottal stop)    /H        a(h)ead
 
-The following non-standard symbols are also available to the user::
+Пользователю также доступны следующие нестандартные символы::
 
-    YX           diphthong ending (weaker version of Y)
+    YX           окончание дифтонга (weaker version of Y)
     WX           diphthong ending (weaker version of W)
-    RX           R after a vowel (smooth version of R)
-    LX           L after a vowel (smooth version of L)
-    /X           H before a non-front vowel or consonant - as in (wh)o
-    DX           T as in pi(t)y (weaker version of T)
+    RX           R после гласной (smooth version of R)
+    LX           L после гласной (smooth version of L)
+    /X           H перед гласной или согласной не переднего ряда - как в (wh)o
+    DX           T как в pi(t)y (weaker version of T)
 
-Here are some seldom used phoneme combinations (and suggested alternatives)::
+Вот некоторые редко используемые комбинации фонем (и предлагаемые альтернативы)::
 
-    PHONEME        YOU PROBABLY WANT:     UNLESS IT SPLITS SYLLABLES LIKE:
-    COMBINATION
+    ФОНЕМА        НАВЕРНОЕ ВЫ ХОТИТЕ:     ЕСЛИ ЭТО НЕ РАЗДЕЛЯЕТ СЛОГИ, КАК:
+    КОМБИНАЦИЯ
     GS             GZ e.g. ba(gs)         bu(gs)pray
     BS             BZ e.g. slo(bz)        o(bsc)ene
     DS             DZ e.g. su(ds)         Hu(ds)son
@@ -237,89 +203,91 @@ Here are some seldom used phoneme combinations (and suggested alternatives)::
     NG             NXG e.g. singing       i(ng)rate
     NK             NXK e.g. bank          Su(nk)ist
 
-If you use anything other than the phonemes described above, a ``ValueError``
-exception will be raised. Pass in the phonemes as a string like this::
+Если Вы используете что-либо кроме фонем, описанных выше, ``ValueError``
+будет возбуждено исключение. Передайте фонемы в виде такой строки::
 
     speech.pronounce("/HEHLOW")  # "Hello"
 
-The phonemes are classified into two broad groups: vowels and consonants.
+Фонемы делятся на две большие группы: гласные и согласные.
 
-Vowels are further subdivided into simple vowels and diphthongs. Simple vowels
-don't change their sound as you say them whereas diphthongs start with one
-sound and end with another. For example, when you say the word "oil" the "oi"
-vowel starts with an "oh" sound but changes to an "ee" sound.
+**Ниже описнные правила относятся к английскому языку**
 
-Consonants are also subdivided into two groups: voiced and unvoiced. Voiced
-consonants require the speaker to use their vocal chords to produce the sound.
-For example, consonants like "L", "N" and "Z" are voiced. Unvoiced consonants
-are produced by rushing air, such as "P", "T" and "SH".
+Гласные далее подразделяются на простые гласные и дифтонги. Простые гласные
+не меняют звучание, когда вы их произносите, тогда как дифтонги начинаются с единицы
+звучат и заканчиваются другим. Например, когда вы произносите слово «масло», «ой»
+гласная начинается со звука «о», но меняется на звук «и».
 
-Once you get used to it, the phoneme system is easy. To begin with some
-spellings may seem tricky (for example, "adventure" has a "CH" in it) but the
-rule is to write what you say, not what you spell. Experimentation is the best
-way to resolve problematic words.
+Согласные также подразделяются на две группы: звонкие и глухие. Озвученный
+согласные требуют, чтобы говорящий использовал свои голосовые связки для воспроизведения звука.
+Например, такие согласные, как «Л», «Н» и «З», звонкие. Глухие согласные
+производятся потоком воздуха, например «P», «T» и «SH».
 
-It's also important that speech sounds natural and understandable. To help
-with improving the quality of spoken output it's often good to use the built-in
-stress system to add inflection or emphasis.
+Как только вы привыкнете к этому, система фонем станет легкой. Для начала немного
+написание может показаться сложным (например, в слове «приключение» есть буква «СН»), но
+Правило состоит в том, чтобы писать то, что вы говорите, а не то, что пишете. Эксперименты лучше всего
+способ разрешения проблемных слов.
 
-There are eight stress markers indicated by the numbers ``1`` - ``8``. Simply
-insert the required number after the vowel to be stressed. For example, the
-lack of expression of "/HEHLOW" is much improved (and friendlier) when
-spelled out "/HEH3LOW".
+Также важно, чтобы речь звучала естественно и понятно. Помогать
+с улучшением качества разговорного вывода часто полезно использовать встроенный
+система ударения для добавления интонации или ударения.
 
-It's also possible to change the meaning of words through the way they are
-stressed. Consider the phrase "Why should I walk to the store?". It could be
-pronounced in several different ways::
+Имеется восемь маркеров стресса, обозначенных цифрами от 1 до 8. Просто
+вставьте необходимое число после ударной гласной. Например,
+отсутствие выражения «/HEHLOW» значительно улучшается (и дружелюбнее), когда
+написано "/HEH3LOW".
 
-    # You need a reason to do it.
+Также возможно изменить значение слов через то, как они
+подчеркнул. Рассмотрим фразу «Почему я должен идти в магазин пешком?». Возможно
+произносится по-разному::
+
+    # Вам нужна причина, чтобы сделать это.
     speech.pronounce("WAY2 SHUH7D AY WAO5K TUX DHAH STOH5R.")
-    # You are reluctant to go.
+    # Вы не хотите идти.
     speech.pronounce("WAY7 SHUH2D AY WAO7K TUX DHAH STOH5R.")
-    # You want someone else to do it.
+    # Вы хотите, чтобы это сделал кто-то другой.
     speech.pronounce("WAY5 SHUH7D AY2 WAO7K TUX DHAH STOHR.")
-    # You'd rather drive.
+    # Вы бы предпочли водить.
     speech.pronounce("WAY5 SHUHD AY7 WAO2K TUX7 DHAH STOHR.")
-    # You want to walk somewhere else.
+    # Вы хотите пойти куда-нибудь еще.
     speech.pronounce("WAY5 SHUHD AY WAO5K TUX DHAH STOH2OH7R.")
 
-Put simply, different stresses in the speech create a more expressive tone of
-voice.
+Проще говоря, разные ударения в речи создают более выразительный тон речи.
+голос.
 
-They work by raising or lowering pitch and elongating the associated vowel
-sound depending on the number you give:
+Они работают, повышая или понижая высоту тона и удлиняя соответствующую гласную.
+звук в зависимости от числа, которое вы даете:
 
-#. very emotional stress
-#. very emphatic stress
-#. rather strong stress
-#. ordinary stress
-#. tight stress
-#. neutral (no pitch change) stress
-#. pitch-dropping stress
-#. extreme pitch-dropping stress
+#. очень эмоциональный стресс
+#. очень сильное ударение
+#. довольно сильный стресс
+#. обычный стресс
+#. жесткий стресс
+#. нейтральное (без изменения высоты тона) напряжение
+#. сбрасывающее напряжение
+#. экстремальное напряжение сбрасывания высоты тона
 
-The smaller the number, the more extreme the emphasis will be. However, such
-stress markers will help pronounce difficult words correctly. For example, if
-a syllable is not enunciated sufficiently, put in a neutral stress marker.
+Чем меньше число, тем более экстремальным будет акцент. Однако такие
+маркеры ударения помогут правильно произносить сложные слова. Например, если
+слог произносится недостаточно, поставьте маркер нейтрального ударения.
 
-It's also possible to elongate words with stress markers::
+Также можно удлинять слова с помощью маркеров ударения.::
 
     speech.pronounce("/HEH5EH4EH3EH2EH2EH3EH4EH5EHLP.”)
 
 Пение
 =======
 
-It's possible to make MicroPython sing phonemes.
+Можно заставить MicroPython петь фонемы.
 
-This is done by annotating a pitch related number onto a phoneme. The lower the
-number, the higher the pitch. Numbers roughly translate into musical notes as
-shown in the diagram below:
+Это делается путем аннотирования числа, связанного с высотой тона, к фонеме. Чем ниже
+число, тем выше тон. Числа примерно переводятся в музыкальные ноты как
+показано на схеме ниже:
 
-.. image:: speech-pitch.png
+.. image:: images/speech-pitch.png
 
-Annotations work by pre-pending a hash (``#``) sign and the pitch number in
-front of the phoneme. The pitch will remain the same until a new annotation
-is given. For example, make MicroPython sing a scale like this::
+Аннотации работают, предваряя знак решетки (``#``) и номер шага
+перед фонемой. Шаг останется прежним, пока не появится новая аннотация.
+Например, заставьте MicroPython петь вот такую гамму::
 
     solfa = [
         "#115DOWWWWWW",   # Doh
@@ -334,34 +302,29 @@ is given. For example, make MicroPython sing a scale like this::
     song = ''.join(solfa)
     speech.sing(song, speed=100)
 
-In order to sing a note for a certain duration extend the
-note by repeating vowel or voiced consonant phonemes (as demonstrated in
-the example above). Beware diphthongs - to extend them you need to break them
-into their component parts. For example, "OY" can be extended with
-"OHOHIYIYIY".
+Для того, чтобы спеть ноту на определенную продолжительность, удлините повторяя гласные 
+или звонкие согласные фонемы (как показано в пример выше). 
 
-Experimentation, listening carefully and adjusting is the only sure way to work
-out how many times to repeat a phoneme so the note lasts for the desired
-duration.
+Экспериментирование, внимательное слушание и корректировка — единственный верный способ работать.
 
 Как это работает?
 =================
 
-The original manual explains it well:
+В оригинальном мануале все понятно:
 
-    First, instead of recording the actual speech waveform, we only store the
-    frequency spectrums. By doing this, we save memory and pick up other
-    advantages. Second, we [...] store some data about timing. These are
-    numbers pertaining to the duration of each phoneme under different
-    circumstances, and also some data on transition times so we can know how
-    to blend a phoneme into its neighbors. Third, we devise a system of rules
-    to deal with all this data and, much to our amazement, our computer is
-    babbling in no time.
+    Во-первых, вместо того, чтобы записывать фактическую форму речевого сигнала, мы сохраняем только
+    частотные спектры. Делая это, мы экономим память и подбираем другие
+    преимущества. Во-вторых, мы [...] храним некоторые данные о времени. Эти
+    числа, относящиеся к длительности каждой фонемы при разных
+    обстоятельствах, а также некоторые данные о времени перехода, чтобы мы могли знать, как
+    смешать фонему с ее соседями. В-третьих, мы разрабатываем систему правил
+    иметь дело со всеми этими данными, и, к нашему большому удивлению, наш компьютер
+    болтать в кратчайшие сроки.
 
     --- S.A.M. owner's manual.
 
-The output is piped through the functions provided by the ``audio`` module and,
-hey presto, we have a talking micro:bit.
+Выходные данные передаются через функции, предоставляемые модулем «аудио» и,
+привет, вуаля, у нас есть говорящий микро:бит.
 
 Примеры
 =======

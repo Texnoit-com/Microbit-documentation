@@ -8,7 +8,7 @@
 расположен на передней панели рядом со светодиодом активности микрофона,
 который горит, когда микрофон используется.
 
-.. image:: microphone.png
+.. image:: images/microphone.png
     :width: 300px
     :align: center
     :height: 240px

@@ -167,18 +167,13 @@
 <p>Пример, который запускает некоторые функции API динамика.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 
-<span class="c1"># Check that the speaker is on</span>
+<span class="c1"># Убедитесь, что динамик включен</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">speaker</span><span class="o">.</span><span class="n">is_on</span><span class="p">())</span>
-<span class="c1"># Play a sound</span>
+<span class="c1"># Воспроизвести звук</span>
 <span class="n">audio</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">Sound</span><span class="o">.</span><span class="n">HELLO</span><span class="p">)</span>
 <span class="n">sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
-<span class="c1"># Disable the speaker</span>
+<span class="c1"># Отключить динамик</span>
 <span class="n">speaker</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
-<span class="c1"># Check that the speaker is off</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">speaker</span><span class="o">.</span><span class="n">is_on</span><span class="p">())</span>
-<span class="c1"># Play a sound. This will not be heard on the speaker, but will be heard</span>
-<span class="c1"># on Pin 0 if you have headphones or a speaker connected.</span>
-<span class="n">audio</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">Sound</span><span class="o">.</span><span class="n">HELLO</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
