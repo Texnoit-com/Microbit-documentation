@@ -120,66 +120,66 @@
              
   <section id="module-utime">
 <span id="utime"></span><h1>utime (модуль работы со временем)<a class="headerlink" href="#module-utime" title="Ссылка на этот заголовок"></a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">utime</span></code> module provides functions for getting the current time and date,
-measuring time intervals, and for delays.</p>
+<p>Модуль <code class="docutils literal notranslate"><span class="pre">utime</span></code> предоставляет функции для получения текущего времени и даты,
+измерения временных интервалов и задержек.</p>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">utime</span></code> module is a MicroPython implementation of the standard Python
-<code class="docutils literal notranslate"><span class="pre">time</span></code> module. It can be imported using both <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">utime</span></code> and
-<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">time</span></code>, but the module is the same.</p>
+<p>Модуль <code class="docutils literal notranslate"><span class="pre">utime</span></code> представляет собой реализацию MicroPython стандартного модуля Python.
+модуль <code class="docutils literal notranslate"><span class="pre">time</span></code>. Его можно импортировать как с помощью <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">utime</span></code>, так и с помощью
+<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">time</span></code>, но модуль тот же.</p>
 </div>
 <section id="id1">
 <h2>Функции<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="utime.utime.sleep">
 <span class="sig-prename descclassname"><span class="pre">utime.</span></span><span class="sig-name descname"><span class="pre">sleep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utime.utime.sleep" title="Ссылка на это определение"></a></dt>
-<dd><p>Sleep for the given number of seconds. You can use a floating-point number
-to sleep for a fractional number of seconds, or use the
-<a class="reference internal" href="#utime.utime.sleep_ms" title="utime.utime.sleep_ms"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.sleep_ms()</span></code></a> and <a class="reference internal" href="#utime.utime.sleep_us" title="utime.utime.sleep_us"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.sleep_us()</span></code></a> functions.</p>
+<dd><p>Задержка в течение заданного количества секунд. Вы можете использовать число с плавающей запятой
+заснуть на долю секунды или использовать</p>
+<p><a class="reference internal" href="#utime.utime.sleep_ms" title="utime.utime.sleep_ms"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.sleep_ms()</span></code></a> и <a class="reference internal" href="#utime.utime.sleep_us" title="utime.utime.sleep_us"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.sleep_us()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="utime.utime.sleep_ms">
 <span class="sig-prename descclassname"><span class="pre">utime.</span></span><span class="sig-name descname"><span class="pre">sleep_ms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utime.utime.sleep_ms" title="Ссылка на это определение"></a></dt>
-<dd><p>Delay for given number of milliseconds, should be positive or 0.</p>
+<dd><p>Задержка для заданного количества миллисекунд должна быть положительной или равной 0.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="utime.utime.sleep_us">
 <span class="sig-prename descclassname"><span class="pre">utime.</span></span><span class="sig-name descname"><span class="pre">sleep_us</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">us</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utime.utime.sleep_us" title="Ссылка на это определение"></a></dt>
-<dd><p>Delay for given number of microseconds, should be positive or 0.</p>
+<dd><p>Задержка для заданного количества микросекунд должна быть положительной или равной 0.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="utime.utime.ticks_ms">
 <span class="sig-prename descclassname"><span class="pre">utime.</span></span><span class="sig-name descname"><span class="pre">ticks_ms</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utime.utime.ticks_ms" title="Ссылка на это определение"></a></dt>
-<dd><p>Returns an increasing millisecond counter with an arbitrary reference point,
-that wraps around after some value.</p>
+<dd><p>Возвращает увеличивающийся счетчик миллисекунд с произвольной контрольной точкой,
+который обертывается после некоторого значения.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="utime.utime.ticks_us">
 <span class="sig-prename descclassname"><span class="pre">utime.</span></span><span class="sig-name descname"><span class="pre">ticks_us</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utime.utime.ticks_us" title="Ссылка на это определение"></a></dt>
-<dd><p>Just like <a class="reference internal" href="#utime.utime.ticks_ms" title="utime.utime.ticks_ms"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.ticks_ms()</span></code></a> above, but in microseconds.</p>
+<dd><p>Так же, как <a class="reference internal" href="#utime.utime.ticks_ms" title="utime.utime.ticks_ms"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.ticks_ms()</span></code></a> выше, но в микросекундах.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="utime.utime.ticks_add">
 <span class="sig-prename descclassname"><span class="pre">utime.</span></span><span class="sig-name descname"><span class="pre">ticks_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utime.utime.ticks_add" title="Ссылка на это определение"></a></dt>
-<dd><p>Offset ticks value by a given number, which can be either positive or
-negative. Given a ticks value, this function allows to calculate ticks
-value delta ticks before or after it, following modular-arithmetic
-definition of tick values.</p>
+<dd><p>Смещение значения тиков на заданное число, которое может быть как положительным, так и
+отрицательный. Учитывая значение тиков, эта функция позволяет вычислить тики
+значение дельта тикает до или после него, следуя модульной арифметике
+определение тиковых значений.</p>
 <p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find out what ticks value there was 100ms ago</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Узнать какое значение тиков было 100 мс назад</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ticks_add</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="o">-</span><span class="mi">100</span><span class="p">))</span>
 
-<span class="c1"># Calculate deadline for operation and test for it</span>
+<span class="c1"># Рассчитать срок эксплуатации и протестировать его</span>
 <span class="n">deadline</span> <span class="o">=</span> <span class="n">ticks_add</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="mi">200</span><span class="p">)</span>
 <span class="k">while</span> <span class="n">ticks_diff</span><span class="p">(</span><span class="n">deadline</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="n">do_a_little_of_something</span><span class="p">()</span>
 
-<span class="c1"># Find out TICKS_MAX used by this port</span>
+<span class="c1"># Узнайте TICKS_MAX, используемый этим портом</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ticks_add</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -188,25 +188,25 @@ definition of tick values.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="utime.utime.ticks_diff">
 <span class="sig-prename descclassname"><span class="pre">utime.</span></span><span class="sig-name descname"><span class="pre">ticks_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticks1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticks2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utime.utime.ticks_diff" title="Ссылка на это определение"></a></dt>
-<dd><p>Measure ticks difference between values returned from
-<a class="reference internal" href="#utime.utime.ticks_ms" title="utime.utime.ticks_ms"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.ticks_ms()</span></code></a> or <a class="reference internal" href="#utime.utime.ticks_us" title="utime.utime.ticks_us"><code class="xref py py-func docutils literal notranslate"><span class="pre">ticks_us()</span></code></a> functions, as a signed value
-which may wrap around.</p>
-<p>The argument order is the same as for subtraction operator,
-<code class="docutils literal notranslate"><span class="pre">ticks_diff(ticks1,</span> <span class="pre">ticks2)</span></code> has the same meaning as <code class="docutils literal notranslate"><span class="pre">ticks1</span> <span class="pre">-</span> <span class="pre">ticks2</span></code>.</p>
-<p><a class="reference internal" href="#utime.utime.ticks_diff" title="utime.utime.ticks_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.ticks_diff()</span></code></a> is designed to accommodate various usage
-patterns, among them:</p>
-<p>Polling with timeout. In this case, the order of events is known, and you
-will deal only with positive results of <a class="reference internal" href="#utime.utime.ticks_diff" title="utime.utime.ticks_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.ticks_diff()</span></code></a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wait for GPIO pin to be asserted, but at most 500us</span>
+<dd><p>Измерьте разницу в отметках между значениями, возвращенными из
+<a class="reference internal" href="#utime.utime.ticks_ms" title="utime.utime.ticks_ms"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.ticks_ms()</span></code></a> или <a class="reference internal" href="#utime.utime.ticks_us" title="utime.utime.ticks_us"><code class="xref py py-func docutils literal notranslate"><span class="pre">ticks_us()</span></code></a>, как значение со знаком
+который может обернуться вокруг.</p>
+<p>Порядок аргументов такой же, как и для вычитания пользователем,
+<code class="docutils literal notranslate"><span class="pre">ticks_diff(ticks1,</span> <span class="pre">ticks2)</span></code> имеет то же значение, что и <code class="docutils literal notranslate"><span class="pre">ticks1</span> <span class="pre">-</span> <span class="pre">ticks2</span></code>.</p>
+<p><a class="reference internal" href="#utime.utime.ticks_diff" title="utime.utime.ticks_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.ticks_diff()</span></code></a> предназначен для различных видов использования
+узоры, среди них:</p>
+<p>Опрос с тайм-аутом. В этом случае порядок событий известен, и вы
+будет иметь дело только с положительными результатами <a class="reference internal" href="#utime.utime.ticks_diff" title="utime.utime.ticks_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.ticks_diff()</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Дождитесь подтверждения вывода GPIO, но не более 500 мкс.</span>
 <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_us</span><span class="p">()</span>
 <span class="k">while</span> <span class="n">pin</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_us</span><span class="p">(),</span> <span class="n">start</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">TimeoutError</span>
 </pre></div>
 </div>
-<p>Scheduling events. In this case, <a class="reference internal" href="#utime.utime.ticks_diff" title="utime.utime.ticks_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.ticks_diff()</span></code></a> result may be
-negative if an event is overdue:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This code snippet is not optimized</span>
+<p>Планирование событий. В этом случае результат <a class="reference internal" href="#utime.utime.ticks_diff" title="utime.utime.ticks_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.ticks_diff()</span></code></a> может быть
+отрицательный, если событие просрочено:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Этот фрагмент кода не оптимизирован</span>
 <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
 <span class="n">scheduled_time</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">scheduled_time</span><span class="p">()</span>
 <span class="k">if</span> <span class="n">ticks_diff</span><span class="p">(</span><span class="n">scheduled_time</span><span class="p">,</span> <span class="n">now</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>

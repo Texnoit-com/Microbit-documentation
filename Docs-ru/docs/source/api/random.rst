@@ -3,66 +3,64 @@ Random (Генератор случайных чисел)
 
 .. py:module:: random
 
-This module is based upon the ``random`` module in the Python standard library.
-It contains functions for generating random behaviour.
+Этот модуль основан на ``random`` в стандартной библиотеке Python.
+Он содержит функции для генерации случайного поведения.
 
-To access this module you need to::
+Для доступа к этому модулю вам необходимо::
 
     import random
 
-We assume you have done this for the examples below.
+Мы предполагаем, что Вы сделали это для приведенных ниже примеров.
 
 Функции
 =========
 
 .. py:function:: getrandbits(n)
 
-    Returns an integer with ``n`` random bits.
+    Возвращает целое случайное число ``n``.
 
 .. warning::
 
-    Because the underlying generator function returns at most 30 bits, ``n``
-    may only be a value between 1-30 (inclusive).
+    Поскольку базовая функция генератора возвращает не более 30 бит, ``n``
+    может быть только значением от 1 до 30 (включительно).
 
 .. py:function:: seed(n)
 
-    Initialize the random number generator with a known integer ``n``. This
-    will give you reproducibly deterministic randomness from a given starting
-    state (``n``).
+    Используется для инициализации случайных чисел. По умолчанию генератор случайных чисел 
+    использует текущее системное время. Если вы дважды используете одно и то же начальное значение, 
+    вы получите один и тот же результат, что означает случайное число дважды.
 
 
 .. py:function:: randint(a, b)
 
-    Return a random integer ``N`` such that ``a <= N <= b``. Alias for
-    ``randrange(a, b+1)``.
+    Возвращает случайное целое число ``N`` в диапазоне ``a <= N <= b``.
 
 
 .. py:function:: randrange(stop)
 
-    Return a randomly selected integer between zero and up to (but not
-    including) ``stop``.
+    Возвращает случайно выбранное целое число от нуля до ``stop``.
 
 .. py:function:: randrange(start, stop)
 
-    Return a randomly selected integer from ``range(start, stop)``.
+    Возвращает случайно выбранное целое число из последовательности ``range(start, stop)`` .
 
 .. py:function:: randrange(start, stop, step)
 
-    Return a randomly selected element from ``range(start, stop, step)``.
+    Возвращает случайно выбранное целое число из последовательности с шагом ``step``.
 
 
 .. py:function:: choice(seq)
 
-    Return a random element from the non-empty sequence ``seq``. If ``seq`` is
-    empty, raises ``IndexError``.
+    Возвращает случайный элемент из непустой последовательности ``seq``. Если  ``seq`` является
+    пустой, возвращает ``IndexError``.
 
 
 .. py:function:: random()
 
-    Return the next random floating point number in the range [0.0, 1.0)
+    Возвращает следующее случайное число с плавающей запятой в диапазоне [0.0, 1.0)
 
 
 .. py:function:: uniform(a, b)
 
-    Return a random floating point number ``N`` such that ``a <= N <= b``
-    for ``a <= b`` and ``b <= N <= a`` for ``b < a``.
+    Возвращает случайное число с плавающей запятой ``N`` такой, что ``a <= N <= b``
+    для ``a <= b`` и ``b <= N <= a`` для ``b < a``.

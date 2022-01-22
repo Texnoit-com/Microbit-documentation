@@ -120,59 +120,58 @@
              
   <section id="module-os">
 <span id="os"></span><h1>Библиотека OS<a class="headerlink" href="#module-os" title="Ссылка на этот заголовок"></a></h1>
-<p>MicroPython contains an <code class="docutils literal notranslate"><span class="pre">os</span></code> module based upon the <code class="docutils literal notranslate"><span class="pre">os</span></code> module in the
-Python standard library. It’s used for accessing what would traditionally be
-termed as operating system dependent functionality. Since there is no operating
-system in MicroPython the module provides functions relating to the management
-of the simple on-device persistent file system and information about the
-current system.</p>
-<p>To access this module you need to:</p>
+<p>MicroPython содержит модуль «os», основанный на модуле «os» в
+Стандартной библиотеке Python. Он используется для доступа к «операционной системе».
+Так как на Microbit нет операционной системы в MicroPython модуль обеспечивает функции,
+относящиеся к управлению ростой постоянной файловой системы на устройстве и выводит информацию о
+текущей системе.</p>
+<p>Для доступа к этому модулю вам необходимо:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 </pre></div>
 </div>
-<p>We assume you have done this for the examples below.</p>
+<p>Мы предполагаем, что вы сделали это для приведенных ниже примеров.</p>
 <section id="id1">
 <h2>Команды<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="os.listdir">
 <span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">listdir</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#os.listdir" title="Ссылка на это определение"></a></dt>
-<dd><p>Returns a list of the names of all the files contained within the local
-persistent on-device file system.</p>
+<dd><p>Возвращает список имен всех файлов, содержащихся в локальном
+постоянная файловая система на устройстве.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="os.remove">
 <span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#os.remove" title="Ссылка на это определение"></a></dt>
-<dd><p>Removes (deletes) the file named in the argument <code class="docutils literal notranslate"><span class="pre">filename</span></code>. If the file
-does not exist an <code class="docutils literal notranslate"><span class="pre">OSError</span></code> exception will occur.</p>
+<dd><p>Удаляет (удаляет) файл, указанный в аргументе <code class="docutils literal notranslate"><span class="pre">filename</span></code>. Если файл
+не существует <code class="docutils literal notranslate"><span class="pre">OSError</span></code> произойдет исключение.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="os.size">
 <span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#os.size" title="Ссылка на это определение"></a></dt>
-<dd><p>Returns the size, in bytes, of the file named in the argument <code class="docutils literal notranslate"><span class="pre">filename</span></code>.
-If the file does not exist an <code class="docutils literal notranslate"><span class="pre">OSError</span></code> exception will occur.</p>
+<dd><p>Возвращает размер в байтах файла, указанного в аргументе <code class="docutils literal notranslate"><span class="pre">filename</span></code>.
+Если файл не существует <code class="docutils literal notranslate"><span class="pre">OSError</span></code> произойдет исключение.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="os.uname">
 <span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">uname</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#os.uname" title="Ссылка на это определение"></a></dt>
-<dd><p>Returns information identifying the current operating system. The return
-value is an object with five attributes:</p>
+<dd><p>Возвращает информацию, идентифицирующую текущую операционную систему. Возврат
+значения — это объект с пятью атрибутами:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">sysname</span></code> - operating system name</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nodename</span></code> - name of machine on network (implementation-defined)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">release</span></code> - operating system release</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">version</span></code> - operating system version</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">machine</span></code> - hardware identifier</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sysname</span></code> - название операционной системы</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nodename</span></code> - имя машины в сети (определяется реализацией)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">release</span></code> - выпуск операционной системы</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">version</span></code> - версия операционной системы</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">machine</span></code> - аппаратный идентификатор</p></li>
 </ul>
 </dd></dl>
 
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>There is no underlying operating system in MicroPython. As a result the
-information returned by the <code class="docutils literal notranslate"><span class="pre">uname</span></code> function is mostly useful for
-versioning details.</p>
+<p>В MicroPython нет базовой операционной системы. В результате
+информация, возвращенная <code class="docutils literal notranslate"><span class="pre">uname</span></code> в основном полезна для
+сведения о версиях.</p>
 </div>
 </section>
 </section>

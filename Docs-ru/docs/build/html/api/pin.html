@@ -75,7 +75,8 @@
 <li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
 <li class="toctree-l2"><a class="reference internal" href="display.html">Дисплей</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filesystem.html">Файловая система</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">Протокол I²C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html#id2">Подключение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
@@ -134,12 +135,10 @@
              
   <section id="id1">
 <h1>Контакты<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
-<p>The pins are your board’s way to communicate with external devices connected to
-it. There are 19 pins for your disposal, numbered 0-16 and 19-20. Pins 17 and
-18 are not available. There is also a <code class="docutils literal notranslate"><span class="pre">pin_logo</span></code> <strong>V2</strong> and <code class="docutils literal notranslate"><span class="pre">pin_speaker</span></code>
-<strong>V2</strong> available to use with the latest micro:bit device.</p>
-<p>For example, the script below will change the display on the micro:bit
-depending upon the digital reading on pin 0:</p>
+<p>Контакты — это способ связи вашей платы с внешними устройствами. В вашем распоряжении 19 контактов,
+пронумерованных 0-16 и 19-20. Контакты 17 и 18 нет в наличии. Существует также <code class="docutils literal notranslate"><span class="pre">pin_logo</span></code>  и
+<code class="docutils literal notranslate"><span class="pre">pin_speaker</span></code> в версии <strong>Microbit V2</strong>.</p>
+<p>Приведенный ниже скрипт изменит отображение на micro:bit если показания на контакте 0 поменяется:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 
 
@@ -152,10 +151,11 @@ depending upon the digital reading on pin 0:</p>
 </div>
 <section id="id2">
 <h2>Функции<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
-<p><a class="reference external" href="https://tech.microbit.org/hardware/edgeconnector/#edge-connector-pins">Edge connector and pinout</a></p>
-<p>This table summarises the pins available, their types and what
-they are internally connected to. The pins are available as attributes on the
-<code class="docutils literal notranslate"><span class="pre">microbit</span></code> module: <code class="docutils literal notranslate"><span class="pre">microbit.pin0</span></code> - <code class="docutils literal notranslate"><span class="pre">microbit.pin20</span></code>.</p>
+<p>Расположение контактов на микроконтроллере <strong>Microbit V1</strong></p>
+<a class="reference internal image-reference" href="../_images/edge_connector.svg"><img alt="../_images/edge_connector.svg" class="align-center" src="../_images/edge_connector.svg" width="200px" /></a>
+<p>Расположение контактов на микроконтроллере <strong>Microbit V2</strong></p>
+<a class="reference internal image-reference" href="../_images/edge-connector-2.svg"><img alt="../_images/edge-connector-2.svg" class="align-center" src="../_images/edge-connector-2.svg" width="200px" /></a>
+<p>В таблице приведены доступные выводы, их типы и назначения.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 12%" />
@@ -273,56 +273,43 @@ they are internally connected to. The pins are available as attributes on the
 </tr>
 </tbody>
 </table>
-<p>The latest micro:bit device <strong>V2</strong> has two additional pins that you can access
-in MicroPython, but that are not available via the edge connector:</p>
+<p>Последнее устройство micro:bit <strong>V2</strong> имеет два дополнительных контакта,
+к которым вы можете получить доступ. в MicroPython, но недоступны через соединитель:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">pin_logo</span></code> - A touch sensitive logo pin on the front of the micro:bit,
-which by default is set to capacitive touch mode.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pin_speaker</span></code> - A pin to address the micro:bit speaker. This API is
-intended only for use in Pulse-Width Modulation pin operations eg.
+<li><p><code class="docutils literal notranslate"><span class="pre">pin_logo</span></code> - Чувствительный к прикосновениям логотип на передней панели micro:bit,
+который по умолчанию настроен на емкостный сенсорный режим.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pin_speaker</span></code> - контакт для обращения к динамику micro:bit. Этот API
+предназначен только для использования в операциях с выводами широтно-импульсной модуляции, например.
 <code class="docutils literal notranslate"><span class="pre">pin_speaker.write_analog(128)</span></code>.</p></li>
 </ul>
 <section id="id3">
 <h3>Широтно-импульсная модуляция<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h3>
-<p>The pins of your board cannot output analog signal the way an audio amplifier
-can do it – by modulating the voltage on the pin. Those pins can only either
-enable the full 3.3V output, or pull it down to 0V. However, it is still
-possible to control the brightness of LEDs or speed of an electric motor, by
-switching that voltage on and off very fast, and controlling how long it is on
-and how long it is off. This technique is called Pulse-Width Modulation (PWM),
-and that’s what the <code class="docutils literal notranslate"><span class="pre">write_analog</span></code> method below does.</p>
+<p>Контакты вашей платы не могут выводить аналоговый сигнал, как аудиоусилитель.
+Но можно сделать это - путем модуляции напряжения на выводе. Контакты могут либо
+включить полный выход 3,3 В или выключить его 0 В. Но можно управлять яркостью светодиодов
+или скоростью электродвигателя используя ШИМ (очень быстро включать и выключать напряжение
+и контролировать ее продолжительность). Функция <code class="docutils literal notranslate"><span class="pre">write_analog</span></code> использует ШИМ.</p>
 <img alt="../_images/pwm.png" src="../_images/pwm.png" />
-<p>Above you can see the diagrams of three different PWM signals. All of them have
-the same period (and thus frequency), but they have different duty cycles.</p>
-<p>The first one would be generated by <code class="docutils literal notranslate"><span class="pre">write_analog(511)</span></code>, as it has exactly
-50% duty – the power is on half of the time, and off half of the time. The
-result of that is that the total energy of this signal is the same, as if it
-was 1.65V instead of 3.3V.</p>
-<p>The second signal has 25% duty cycle, and could be generated with
-<code class="docutils literal notranslate"><span class="pre">write_analog(255)</span></code>. It has similar effect as if 0.825V was being output on
-that pin.</p>
-<p>The third signal has 75% duty cycle, and can be generated with
-<code class="docutils literal notranslate"><span class="pre">write_analog(767)</span></code>. It has three times as much energy, as the second signal,
-and is equivalent to outputting 2.475V on th pin.</p>
-<p>Note that this works well with devices such as motors, which have huge inertia
-by themselves, or LEDs, which blink too fast for the human eye to see the
-difference, but will not work so good with generating sound waves. This board
-can only generate square wave sounds on itself, which sound pretty much like
-the very old computer games – mostly because those games also only could do
-that.</p>
+<p>Выше вы можете увидеть диаграммы трех разных ШИМ-сигналов. Все они имеют
+одинаковый период (частоту), но они имеют разные рабочие циклы.</p>
+<p>Первый будет сгенерирован командой <code class="docutils literal notranslate"><span class="pre">write_analog(511)</span></code>, от составляет половину нагрузки -
+питание включено ровно половину времени. Результатом этого будет 1,65В вместо 3,3В.</p>
+<p>Второй сигнал имеет рабочий цикл 25% и может быть сгенерирован командой
+<code class="docutils literal notranslate"><span class="pre">write_analog(255)</span></code>. Имеет такой же эффект, если выводить 0,825В на контакт.</p>
+<p>Это хорошо работает с  устройствами, как двигатели, которые имеют огромную инерцию.
+Или светодиоды, которые мигают слишком быстро, чтобы человеческий глаз мог увидеть разницу.
+Но не будет хорошо работать с генерацией звуковых волн. ШИМ может генерировать прямоугольные звуки.</p>
 </section>
 </section>
 <section id="id4">
 <h2>Класс<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
-<p>There are three kinds of pins, differing in what is available for them. They
-are represented by the classes listed below. Note that they form a hierarchy,
-so that each class has all the functionality of the previous class, and adds
-its own to that.</p>
+<p>Есть три вида контактов. Они представлены классами, перечисленными ниже.
+Обратите внимание, что они образуют иерархию, так что каждый класс имеет все функциональные возможности
+предыдущего класса, и добавляет свой собственный функционал к нему.</p>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>Those classes are not actually available for the user, you can’t create
-new instances of them. You can only use the instances already provided,
-representing the physical pins on your board.</p>
+<p>Эти классы недоступны для пользователя, Вы не можете создать новые их экземпляры.
+Можете использовать только уже предоставленные экземпляры.</p>
 </div>
 <dl class="py class">
 <dt class="sig sig-object py" id="MicroBitDigitalPin">
@@ -330,38 +317,35 @@ representing the physical pins on your board.</p>
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="MicroBitDigitalPin.read_digital">
 <span class="sig-name descname"><span class="pre">read_digital</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MicroBitDigitalPin.read_digital" title="Ссылка на это определение"></a></dt>
-<dd><p>Return 1 if the pin is high, and 0 if it’s low.</p>
+<dd><p>Возвращает 1, если сигнал высокий, и 0, если низкий.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="MicroBitDigitalPin.write_digital">
 <span class="sig-name descname"><span class="pre">write_digital</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MicroBitDigitalPin.write_digital" title="Ссылка на это определение"></a></dt>
-<dd><p>Set the pin to high if <code class="docutils literal notranslate"><span class="pre">value</span></code> is 1, or to low, if it is 0.</p>
+<dd><p>Установите контакт на высокий уровень сигнала, если <code class="docutils literal notranslate"><span class="pre">value</span></code> равна 1. <code class="docutils literal notranslate"><span class="pre">value</span></code> равна 0 - низкий уровань.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="MicroBitDigitalPin.set_pull">
 <span class="sig-name descname"><span class="pre">set_pull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MicroBitDigitalPin.set_pull" title="Ссылка на это определение"></a></dt>
-<dd><p>Set the pull state to one of three possible values: <code class="docutils literal notranslate"><span class="pre">pin.PULL_UP</span></code>,
-<code class="docutils literal notranslate"><span class="pre">pin.PULL_DOWN</span></code> or <code class="docutils literal notranslate"><span class="pre">pin.NO_PULL</span></code> (where <code class="docutils literal notranslate"><span class="pre">pin</span></code> is an instance of
-a pin). See below for discussion of default pull states.</p>
+<dd><p>Установить состояние контакта.Одно из трех возможных значений: <code class="docutils literal notranslate"><span class="pre">pin.PULL_UP</span></code>,
+<code class="docutils literal notranslate"><span class="pre">pin.PULL_DOWN</span></code> или <code class="docutils literal notranslate"><span class="pre">pin.NO_PULL</span></code>. См. ниже обсуждение состояний извлечения по умолчанию.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="MicroBitDigitalPin.get_pull">
 <span class="sig-name descname"><span class="pre">get_pull</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MicroBitDigitalPin.get_pull" title="Ссылка на это определение"></a></dt>
-<dd><p>Returns the pull configuration on a pin, which can be one of three
-possible values: <code class="docutils literal notranslate"><span class="pre">NO_PULL</span></code>, <code class="docutils literal notranslate"><span class="pre">PULL_DOWN</span></code>, or <code class="docutils literal notranslate"><span class="pre">PULL_UP</span></code>. These
-are set using the <code class="docutils literal notranslate"><span class="pre">set_pull()</span></code> method or automatically configured
-when a pin mode requires it.</p>
+<dd><p>Извлечь состояние контакта, одно из трех возможных значений: <code class="docutils literal notranslate"><span class="pre">NO_PULL</span></code>, <code class="docutils literal notranslate"><span class="pre">PULL_DOWN</span></code>,
+или <code class="docutils literal notranslate"><span class="pre">PULL_UP</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="MicroBitDigitalPin.get_mode">
 <span class="sig-name descname"><span class="pre">get_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MicroBitDigitalPin.get_mode" title="Ссылка на это определение"></a></dt>
-<dd><p>Returns the pin mode. When a pin is used for a specific function, like
-writing a digital value, or reading an analog value, the pin mode
-changes. Pins can have one of the following modes: <code class="docutils literal notranslate"><span class="pre">&quot;unused&quot;</span></code>,
+<dd><p>Возвращает режим вывода. Когда контакт используется для определенной функции, например
+запись цифрового значения или чтение аналогового значения, режим вывода
+изменztncz. Пины могут иметь один из следующих режимов: <code class="docutils literal notranslate"><span class="pre">&quot;unused&quot;</span></code>,
 <code class="docutils literal notranslate"><span class="pre">&quot;analog&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;read_digital&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;write_digital&quot;</span></code>,
 <code class="docutils literal notranslate"><span class="pre">&quot;display&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;button&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;music&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;audio&quot;</span></code>,
 <code class="docutils literal notranslate"><span class="pre">&quot;touch&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;i2c&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;spi&quot;</span></code>.</p>
@@ -375,30 +359,30 @@ changes. Pins can have one of the following modes: <code class="docutils literal
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="MicroBitAnalogDigitalPin.read_analog">
 <span class="sig-name descname"><span class="pre">read_analog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MicroBitAnalogDigitalPin.read_analog" title="Ссылка на это определение"></a></dt>
-<dd><p>Read the voltage applied to the pin, and return it as an integer
-between 0 (meaning 0V) and 1023 (meaning 3.3V).</p>
+<dd><p>Вернуть напряжение, приложенное к контакту, целое число между 0 (что означает 0 В)
+и 1023 (что означает 3,3 В).</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="MicroBitAnalogDigitalPin.write_analog">
 <span class="sig-name descname"><span class="pre">write_analog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MicroBitAnalogDigitalPin.write_analog" title="Ссылка на это определение"></a></dt>
-<dd><p>Output a PWM signal on the pin, with the duty cycle proportional to
-the provided <code class="docutils literal notranslate"><span class="pre">value</span></code>. The <code class="docutils literal notranslate"><span class="pre">value</span></code> may be either an integer or a
-floating point number between 0 (0% duty cycle) and 1023 (100% duty).</p>
+<dd><p>Установите ШИМ-сигнал на контакт с рабочим циклом, пропорциональным
+предоставленный в <code class="docutils literal notranslate"><span class="pre">value</span></code>. <code class="docutils literal notranslate"><span class="pre">value</span></code> может быть либо целым числом, либо
+число с плавающей запятой от 0 до 1023.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="MicroBitAnalogDigitalPin.set_analog_period">
 <span class="sig-name descname"><span class="pre">set_analog_period</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">period</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MicroBitAnalogDigitalPin.set_analog_period" title="Ссылка на это определение"></a></dt>
-<dd><p>Set the period of the PWM signal being output to <code class="docutils literal notranslate"><span class="pre">period</span></code> in
-milliseconds. The minimum valid value is 1ms.</p>
+<dd><p>Установите период выводимого ШИМ-сигнала на <code class="docutils literal notranslate"><span class="pre">period</span></code> в
+миллисекундах. Минимальное допустимое значение составляет 1 мс</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="MicroBitAnalogDigitalPin.set_analog_period_microseconds">
 <span class="sig-name descname"><span class="pre">set_analog_period_microseconds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">period</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MicroBitAnalogDigitalPin.set_analog_period_microseconds" title="Ссылка на это определение"></a></dt>
-<dd><p>Set the period of the PWM signal being output to <code class="docutils literal notranslate"><span class="pre">period</span></code> in
-microseconds. The minimum valid value is 256µs.</p>
+<dd><p>Установите период выводимого ШИМ-сигнала на <code class="docutils literal notranslate"><span class="pre">period</span></code> в
+микросекунды. Минимальное допустимое значение составляет 256 мкс.</p>
 </dd></dl>
 
 </dd></dl>
@@ -409,22 +393,20 @@ microseconds. The minimum valid value is 256µs.</p>
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="MicroBitTouchPin.is_touched">
 <span class="sig-name descname"><span class="pre">is_touched</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MicroBitTouchPin.is_touched" title="Ссылка на это определение"></a></dt>
-<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the pin is being touched with a finger, otherwise
-return <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<dd><p>Вернет <code class="docutils literal notranslate"><span class="pre">True</span></code> если к контакту прикасаются пальцем, иныче вернет <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>The default touch mode for the pins on the edge connector is
-<cite>resistive</cite>. The default for the logo pin <strong>V2</strong> is <cite>capacitive</cite>.</p>
+<p>Сенсорный режим по умолчанию для контактов на краевом разъеме:
+<cite>resistive</cite>. В версии <strong>V2</strong> есть контакт логотип в состоянии <cite>capacitive</cite>.</p>
 </div>
 <p><strong>Resistive touch</strong>
-This test is done by measuring how much resistance there is between the
-pin and ground.  A low resistance gives a reading of <code class="docutils literal notranslate"><span class="pre">True</span></code>.  To get
-a reliable reading using a finger you may need to touch the ground pin
-with another part of your body, for example your other hand.</p>
+Этот тест проводится путем измерения сопротивления между
+контактом и землей. Низкое сопротивление дает значение <code class="docutils literal notranslate"><span class="pre">True</span></code>. Для хорошего сигнала
+прикоснитесь второй рукой к заземлению.</p>
 <p><strong>Capacitive touch</strong>
-This test is done by interacting with the electric field of a capacitor
-using a finger as a conductor. <a class="reference external" href="https://www.allaboutcircuits.com/technical-articles/introduction-to-capacitive-touch-sensing">Capacitive touch</a>
-does not require you to make a ground connection as part of a circuit.</p>
+Этот тест проводится путем взаимодействия с электрическим полем конденсатора.
+использование пальца в качестве проводника. <a class="reference external" href="https://www.allaboutcircuits.com/technical-articles/introduction-to-capacitive-touch-sensing">Capacitive touch</a>
+не требует заземления как части цепи.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -432,30 +414,30 @@ does not require you to make a ground connection as part of a circuit.</p>
 <span class="sig-name descname"><span class="pre">set_touch_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#MicroBitTouchPin.set_touch_mode" title="Ссылка на это определение"></a></dt>
 <dd><div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>The default touch mode for the pins on the edge connector is
-<cite>resistive</cite>. The default for the logo pin <strong>V2</strong> is <cite>capacitive</cite>.</p>
+<p>Сенсорный режим по умолчанию для контактов имеет состояние
+<cite>resistive</cite>. Пин логотип в версии <strong>V2</strong> состояние <cite>capacitive</cite>.</p>
 </div>
-<p>Set the touch mode for the given pin. Value can be either <code class="docutils literal notranslate"><span class="pre">CAPACITIVE</span></code>
-or <code class="docutils literal notranslate"><span class="pre">RESISTIVE</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">pin0.set_touch_mode(pin0.CAPACITIVE)</span></code>.</p>
+<p>Установите сенсорный режим для данного вывода. Значение может быть либо <code class="docutils literal notranslate"><span class="pre">CAPACITIVE</span></code>,
+либо <code class="docutils literal notranslate"><span class="pre">RESISTIVE</span></code>. Например, <code class="docutils literal notranslate"><span class="pre">pin0.set_touch_mode(pin0.CAPACITIVE)</span></code>.</p>
 </dd></dl>
 
 </dd></dl>
 
-<p>The pull mode for a pin is automatically configured when the pin changes to an
-input mode. Input modes are when you call <code class="docutils literal notranslate"><span class="pre">read_analog</span></code> / <code class="docutils literal notranslate"><span class="pre">read_digital</span></code> /
-<code class="docutils literal notranslate"><span class="pre">is_touched</span></code>. The default pull mode for these is, respectively, <code class="docutils literal notranslate"><span class="pre">NO_PULL</span></code>,
-<code class="docutils literal notranslate"><span class="pre">PULL_DOWN</span></code>, <code class="docutils literal notranslate"><span class="pre">PULL_UP</span></code>. Calling <code class="docutils literal notranslate"><span class="pre">set_pull</span></code> will configure the pin to be
-in <code class="docutils literal notranslate"><span class="pre">read_digital</span></code> mode with the given pull mode.</p>
+<p>Режим вытягивания контакта настраивается автоматически, когда контакт меняется.
+Режимы ввода - когда вы используете <code class="docutils literal notranslate"><span class="pre">read_analog</span></code> / <code class="docutils literal notranslate"><span class="pre">read_digital</span></code> /
+<code class="docutils literal notranslate"><span class="pre">is_touched</span></code>. Режим извлечения по умолчанию для них, соответственно, <code class="docutils literal notranslate"><span class="pre">NO_PULL</span></code>,
+<code class="docutils literal notranslate"><span class="pre">PULL_DOWN</span></code>, <code class="docutils literal notranslate"><span class="pre">PULL_UP</span></code>. Вызов <code class="docutils literal notranslate"><span class="pre">set_pull</span></code> настроит контакт так, чтобы он был
+в <code class="docutils literal notranslate"><span class="pre">read_digital</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>The micro:bit has external weak (10M) pull-ups fitted on pins
-0, 1 and 2 only, in order for the touch sensing to work.</p>
-<p>There are also external (10k) pull-ups fitted on pins 5 and 11, in order
-for buttons A and B to work.</p>
-<p>GPIO pins are also used for the display, as described in the table above.
-If you want to use these pins for another purpose, you may need to turn
-the <a class="reference external" href="https://microbit-micropython.readthedocs.io/en/latest/display.html#microbit.display.off">display off</a>.</p>
-<p>See the <a class="reference external" href="http://tech.microbit.org/hardware/edgeconnector">edge connector data sheet</a>.</p>
+<p>Micro:bit имеет внешние слабые (10M) подтягивающие устройства, установленные на штифтах.
+0, 1 и 2 только для того, чтобы сенсорное распознавание работало.</p>
+<p>Также на контакты 5 и 11 установлены внешние (10k) подтягивающие устройства, чтобы
+чтобы кнопки А и В работали.</p>
+<p>Выводы GPIO также используются для отображения, как описано в таблице выше.
+Если вы хотите использовать эти штифты для другой цели, вам может потребоваться повернуть
+<a class="reference external" href="https://microbit-micropython.readthedocs.io/en/latest/display.html#microbit.display.off">display off</a>.</p>
+<p>Смотрите <a class="reference external" href="http://tech.microbit.org/hardware/edgeconnector">edge connector data sheet</a>.</p>
 </div>
 </section>
 </section>

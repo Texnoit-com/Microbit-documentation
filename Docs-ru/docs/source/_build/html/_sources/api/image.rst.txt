@@ -8,7 +8,7 @@ API отображения::
 
     display.show(Image.HAPPY)
 
-.. image:: image-smile.png
+.. image:: images/image-smile.png
 
 Существует четыре способа создания образа:
 
