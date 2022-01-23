@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Мотор &mdash; документация Microbit-Русская документация 0.1</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../search.html" />
+    <link rel="next" title="Приемник ИК-сигнала" href="../Digital_IR_Receiver/Digital_IR_Receiver.html" />
+    <link rel="prev" title="Реле" href="../Single_Relay_Module/Single_Relay_Module.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+            <a href="../../index.html" class="icon icon-home"> Microbit-Русская документация
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Основные команды</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/introduction.html">Инструкция</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/hello.html">Первая программа Hello, World!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/io.html">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/music.html">Мелодии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/random.html">Случайные числа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/movement.html">Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/gestures.html">Жесты - Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/direction.html">Компас</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/speech.html">Речь</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/radio.html">Радиосигнал</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../API.html">Справочник по API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Датчики</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../sensor.html">Датчики</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../3W_LED_Module/3W_LED_Module.html">Сверхяркий светодиод</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1602_I2C_Module/1602_I2C_Module.html">Двухстрочный монитор 1602_I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer_Module/Active_Buzzer_Module.html">Активный зуммер</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LED_Module/LED_Module.html">Модуль светодиода</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Micro_Servo/Micro_Servo.html">Сервопривод</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RGB_LED_Module/RGB_LED_Module.html">Модуль светодиода RGB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Single_Relay_Module/Single_Relay_Module.html">Реле</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Мотор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Digital_IR_Receiver/Digital_IR_Receiver.html">Приемник ИК-сигнала</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Digital_Push_Button/Digital_Push_Button.html">Кнопка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Crash_Sensor/Crash_Sensor.html">Кнопка (концевик)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GUVA-S12SD_3528_Ultraviolet/GUVA-S12SD_3528_Ultraviolet.html">Датчик ультрафиолета</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HC-SR04_Ultrasonic/HC-SR04_Ultrasonic.html">Датчик Ультразвука</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hoto_Interrupter_Module/hoto_Interrupter_Module.html">Датчик Фотопрерыватель</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IR_Remote_Control/IR_Remote_Control.html">ИК - пульт</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Joystick_Module/Joystick_Module.html">Джойстик</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TEMT6000_Ambient_Light/TEMT6000_Ambient_Light.html">Датчик окружающего света</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Thin-film_Pressure/Thin-film_Pressure.html">Датчик давления</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Microbit-Русская документация</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../sensor.html">Датчики</a> &raquo;</li>
+      <li>Мотор</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sensor/Motor/Motor.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Мотор<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<a class="reference internal image-reference" href="../../_images/Motor.jpg"><img alt="../../_images/Motor.jpg" class="align-center" src="../../_images/Motor.jpg" style="width: 200px;" /></a>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="../Single_Relay_Module/Single_Relay_Module.html" class="btn btn-neutral float-left" title="Реле" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="../Digital_IR_Receiver/Digital_IR_Receiver.html" class="btn btn-neutral float-right" title="Приемник ИК-сигнала" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Maxim Bekurin, Read the Docs, Inc. &amp; contributors.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

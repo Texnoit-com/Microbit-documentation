@@ -153,8 +153,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="utime.utime.ticks_ms">
 <span class="sig-prename descclassname"><span class="pre">utime.</span></span><span class="sig-name descname"><span class="pre">ticks_ms</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utime.utime.ticks_ms" title="Ссылка на это определение"></a></dt>
-<dd><p>Возвращает увеличивающийся счетчик миллисекунд с произвольной контрольной точкой,
-который обертывается после некоторого значения.</p>
+<dd><p>Возвращает увеличивающийся счетчик миллисекунд с произвольной контрольной точкой.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -189,14 +188,13 @@
 <dt class="sig sig-object py" id="utime.utime.ticks_diff">
 <span class="sig-prename descclassname"><span class="pre">utime.</span></span><span class="sig-name descname"><span class="pre">ticks_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticks1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticks2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utime.utime.ticks_diff" title="Ссылка на это определение"></a></dt>
 <dd><p>Измерьте разницу в отметках между значениями, возвращенными из
-<a class="reference internal" href="#utime.utime.ticks_ms" title="utime.utime.ticks_ms"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.ticks_ms()</span></code></a> или <a class="reference internal" href="#utime.utime.ticks_us" title="utime.utime.ticks_us"><code class="xref py py-func docutils literal notranslate"><span class="pre">ticks_us()</span></code></a>, как значение со знаком
-который может обернуться вокруг.</p>
+<a class="reference internal" href="#utime.utime.ticks_ms" title="utime.utime.ticks_ms"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.ticks_ms()</span></code></a> или <a class="reference internal" href="#utime.utime.ticks_us" title="utime.utime.ticks_us"><code class="xref py py-func docutils literal notranslate"><span class="pre">ticks_us()</span></code></a>.</p>
 <p>Порядок аргументов такой же, как и для вычитания пользователем,
 <code class="docutils literal notranslate"><span class="pre">ticks_diff(ticks1,</span> <span class="pre">ticks2)</span></code> имеет то же значение, что и <code class="docutils literal notranslate"><span class="pre">ticks1</span> <span class="pre">-</span> <span class="pre">ticks2</span></code>.</p>
 <p><a class="reference internal" href="#utime.utime.ticks_diff" title="utime.utime.ticks_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.ticks_diff()</span></code></a> предназначен для различных видов использования
-узоры, среди них:</p>
+разницы, среди них:</p>
 <p>Опрос с тайм-аутом. В этом случае порядок событий известен, и вы
-будет иметь дело только с положительными результатами <a class="reference internal" href="#utime.utime.ticks_diff" title="utime.utime.ticks_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.ticks_diff()</span></code></a>:</p>
+будете иметь дело только с положительными результатами <a class="reference internal" href="#utime.utime.ticks_diff" title="utime.utime.ticks_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">utime.ticks_diff()</span></code></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Дождитесь подтверждения вывода GPIO, но не более 500 мкс.</span>
 <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_us</span><span class="p">()</span>
 <span class="k">while</span> <span class="n">pin</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
