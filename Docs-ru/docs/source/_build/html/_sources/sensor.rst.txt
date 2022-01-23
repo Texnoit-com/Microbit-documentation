@@ -4,13 +4,13 @@
 Описание датчиков и принципов работы с библиотеками.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Платы расширения
 
-   sensor/Microbit_Shield_V2/Microbit_Shield_V2
+   sensor/Microbit_Sensor_Shield_V2/Microbit_Shield_V2
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Устройства вывода
 
    sensor/3W_LED_Module/3W_LED_Module
@@ -18,14 +18,14 @@
    sensor/Active_Buzzer_Module/Active_Buzzer_Module
    sensor/LED_Module/LED_Module
    sensor/Micro_Servo/Micro_Servo
-   sensor/Passive_Buzze_module/Passive_Buzze
+   sensor/Passive_Buzzer_module/Passive_Buzze
    sensor/RGB_LED_Module/RGB_LED_Module
    sensor/Single_Relay_Module/Single_Relay_Module
    sensor/Traffic_Light_Module/Traffic_Light
    sensor/Motor/Motor
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Датчики
 
    sensor/18B20_Temperature_Sensor/18B20_Temperature
@@ -34,7 +34,7 @@
    sensor/Analog_Sound_Sensor/Analog_Sound
    sensor/Analog_Temperature_Sensor/Analog_Temperature
    sensor/Analog_Rotation_Sensor/Analog_Rotation
-   sensor/Capacitive_Touch/Capacitive_Touch
+   sensor/Capacitive_Touch_Sensor/Capacitive_Touch
    sensor/DHT11_Temperature_Humidity_Sensor/DHT11_Temperature
    sensor/Digital_IR_Receiver/Digital_IR_Receiver
    sensor/Digital_Push_Button/Digital_Push_Button
