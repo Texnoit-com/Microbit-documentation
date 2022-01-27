@@ -1,5 +1,5 @@
-from Ultrasonic import Ultrasonic
 from microbit import sleep, display
+from Ultrasonic import Ultrasonic
 
 
 sonar = Ultrasonic()
