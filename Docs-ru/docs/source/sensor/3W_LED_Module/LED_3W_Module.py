@@ -1,4 +1,4 @@
-class LED_Module():
+class LED_3W_Module():
     
     def __init__(self, set):
         self.set = set
