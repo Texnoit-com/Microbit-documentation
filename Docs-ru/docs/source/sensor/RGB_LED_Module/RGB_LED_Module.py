@@ -1,4 +1,4 @@
-from microbit import MicroBitDigitalPin, sleep
+from microbit import *
 from random import randint
 
 class RGB_LED_Module():
@@ -47,8 +47,8 @@ class RGB_LED_Module():
                           finish:MicroBitDigitalPin, 
                           time:int )->None:
         for i in range(1023):
-            self.start.write_analog(1023-i)
-            self.finish.write_analog(i)
+            start.write_analog(1023-i)
+            finish.write_analog(i)
             sleep(int(time/1023))
     
     def random_rgb(self, time:int, step=10)->None: 
