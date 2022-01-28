@@ -20,7 +20,7 @@
     <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
     <link rel="search" title="Поиск" href="../../search.html" />
     <link rel="next" title="Сервопривод" href="../Micro_Servo/Micro_Servo.html" />
-    <link rel="prev" title="Активный зуммер" href="../Active_Buzzer_Module/Active_Buzzer_Module.html" /> 
+    <link rel="prev" title="Двухстрочный монитор 1602_I2C" href="../1602_I2C_Module/1602_I2C_Module.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -61,16 +61,13 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../sensor.html">Датчики</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Microbit_Sensor_Shield_V2/Microbit_Shield_V2.html">Шилд для датчиков V2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../3W_LED_Module/3W_LED_Module.html">Сверхяркий светодиод</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1602_I2C_Module/1602_I2C_Module.html">Двухстрочный монитор 1602_I2C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer_Module/Active_Buzzer_Module.html">Активный зуммер</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Модуль светодиода</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2">Класс</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">Пример программы</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Micro_Servo/Micro_Servo.html">Сервопривод</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Passive_Buzzer_module/Passive_Buzze.html">Пассивный зуммер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RGB_LED_Module/RGB_LED_Module.html">Модуль светодиода RGB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Single_Relay_Module/Single_Relay_Module.html">Реле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Traffic_Light_Module/Traffic_Light.html">Модуль светофор</a></li>
@@ -159,10 +156,11 @@
 <section id="id3">
 <h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">LED_Module</span> <span class="kn">import</span> <span class="n">LED_Module</span>
 
-<span class="k">while</span>  <span class="kc">True</span> <span class="p">:</span>
-     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
-     <span class="n">sleep</span> <span class="p">(</span> <span class="mi">1000</span> <span class="p">)</span>
+<span class="n">led1</span><span class="o">=</span><span class="n">LED_Module</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+
+<span class="n">led1</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -172,7 +170,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
-        <a href="../Active_Buzzer_Module/Active_Buzzer_Module.html" class="btn btn-neutral float-left" title="Активный зуммер" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="../1602_I2C_Module/1602_I2C_Module.html" class="btn btn-neutral float-left" title="Двухстрочный монитор 1602_I2C" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
         <a href="../Micro_Servo/Micro_Servo.html" class="btn btn-neutral float-right" title="Сервопривод" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

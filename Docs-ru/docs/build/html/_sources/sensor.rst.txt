@@ -15,7 +15,7 @@
 
    sensor/3W_LED_Module/3W_LED_Module
    sensor/1602_I2C_Module/1602_I2C_Module
-   sensor/Active_Buzzer_Module/Active_Buzzer_Module
+   sensor/Active_Buzzer/Active_Buzzer_Module
    sensor/LED_Module/LED_Module
    sensor/Micro_Servo/Micro_Servo
    sensor/Passive_Buzzer_module/Passive_Buzze

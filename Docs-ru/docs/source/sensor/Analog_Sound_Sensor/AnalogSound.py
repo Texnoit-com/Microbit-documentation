@@ -12,14 +12,14 @@ class AnalogSound:
         prev = 0
         calibrated = False
         while not calibrated:
-            r = self.set_pin.read_analog()-11
-            r = abs(r)/900*5
+            r = self.set_pin.read_analog()-11 # Что такое 11
+            r = abs(r)/900*5 #?? 
             r = int(r) if r < 6 else 5
             if (r == 5 and prev != 5) or (r == 0 and prev != 0):
                 t = running_time()
             prev = r
             if running_time() - t > 3000:
-                lastrt = running_time()
+                last_time = running_time()
                 if r == 0:  # No sound for more than 3 seconds
                     # Turn right
                     display.show(Image.ARROW_E)
@@ -36,7 +36,7 @@ class AnalogSound:
                 if r > 0:
                     # If there is sound, leave the leds on for .1 seconds
                     sleep(100)
-                if running_time() - lastrt > 5000:
+                if running_time() - last_time > 5000:
                     display.show(Image.YES)
                     sleep(1000)
                     calibrated = True

@@ -1,5 +1,8 @@
-from microbit import *
+from AnalogSound import AnalogSound
+from microbit import pin0
 
-while  True :
-     display.scroll('Test')
-     sleep ( 1000 )
+mic=AnalogSound(pin0)
+mic.calibrate()
+print("Calibrated")
+while True:
+    print(mic.count_claps())
