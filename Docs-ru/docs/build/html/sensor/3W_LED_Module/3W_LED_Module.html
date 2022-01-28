@@ -67,7 +67,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../1602_I2C_Module/1602_I2C_Module.html">Двухстрочный монитор 1602_I2C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer_Module/Active_Buzzer_Module.html">Активный зуммер</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer/Active_Buzzer_Module.html">Активный зуммер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../LED_Module/LED_Module.html">Модуль светодиода</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Micro_Servo/Micro_Servo.html">Сервопривод</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Passive_Buzzer_module/Passive_Buzze.html">Пассивный зуммер</a></li>
@@ -137,7 +137,7 @@
              
   <section id="id1">
 <h1>Сверхяркий светодиод<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
-<p><a class="reference download internal" download="" href="../../_downloads/3ca76005227a28c06c989cb73163f4f5/3W_LED_Module.py"><code class="xref download docutils literal notranslate"><span class="pre">Скачать</span> <span class="pre">файл</span> <span class="pre">с</span> <span class="pre">классов</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/e6bccfb133156b18bced5562f35b840d/LED_3W_Module.py"><code class="xref download docutils literal notranslate"><span class="pre">Скачать</span> <span class="pre">файл</span> <span class="pre">с</span> <span class="pre">классов</span></code></a></p>
 <a class="reference internal image-reference" href="../../_images/3W_LED_Module.png"><img alt="../../_images/3W_LED_Module.png" class="align-center" src="../../_images/3W_LED_Module.png" style="width: 100px;" /></a>
 <section id="id2">
 <h2>Класс<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
@@ -160,10 +160,12 @@
 <section id="id3">
 <h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">LED_3W_Module</span> <span class="kn">import</span> <span class="n">LED_3W_Module</span>
 
-<span class="k">while</span>  <span class="kc">True</span> <span class="p">:</span>
-     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
-     <span class="n">sleep</span> <span class="p">(</span> <span class="mi">1000</span> <span class="p">)</span>
+<span class="n">led1</span><span class="o">=</span><span class="n">LED_3W_Module</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1023</span><span class="p">):</span>
+    <span class="n">led1</span><span class="o">.</span><span class="n">bright</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

@@ -1,5 +1,9 @@
 from microbit import *
+import music
+from Passive_Buzzer import Passive_Buzzer
 
-while  True :
-     display.scroll('Test')
-     sleep ( 1000 )
+sound=Passive_Buzzer(pin0)
+
+sound.play(music.BLUES)
+
+sound.play_time(music.BIRTHDAY, 3000)
