@@ -22,12 +22,13 @@ class Active_Buzzer():
         music.stop(self.set_pin)
 
     def play(self, melody)->None:
-        music.play(melody,pin=self.set_pin, loop=True)
+        music.play(melody,pin=self.set_pin)
 
     def play_time(self, melody, stop_time:int)->None:
         t = running_time()
+        music.play(melody,pin=self.set_pin, wait=False)
         while running_time()< t+stop_time:
-            music.play(melody,pin=self.set_pin, loop=True)
+            sleep(100)
         music.stop(self.set_pin)
 
     def stop(self):

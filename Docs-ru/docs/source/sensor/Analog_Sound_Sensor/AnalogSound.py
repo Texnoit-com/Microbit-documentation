@@ -12,8 +12,8 @@ class AnalogSound:
         prev = 0
         calibrated = False
         while not calibrated:
-            r = self.set_pin.read_analog()-11 # Что такое 11
-            r = abs(r)/900*5 #?? 
+            r = self.set_pin.read_analog()#-11
+            r = abs(r)/450*5 
             r = int(r) if r < 6 else 5
             if (r == 5 and prev != 5) or (r == 0 and prev != 0):
                 t = running_time()
@@ -48,14 +48,14 @@ class AnalogSound:
 
     def count_claps(self):
         t = running_time()
-        lastr = 900
+        lastr = 5
         claps = 0
-        while running_time() - t < 1000:
+        while running_time() - t < 500:
             r = self.set_pin.read_analog()
-            if lastr > 500 and r < 100:
+            if lastr > 5 and r < 1:
                 t = running_time()
                 sleep(100)
-            elif lastr < 100 and r > 500:
+            elif lastr < 1 and r > 5:
                 t = running_time()
                 sleep(100)
                 claps += 1

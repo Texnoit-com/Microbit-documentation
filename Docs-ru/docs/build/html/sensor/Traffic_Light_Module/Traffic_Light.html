@@ -61,9 +61,12 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../sensor.html">Датчики</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Microbit_Sensor_Shield_V2/Microbit_Shield_V2.html">Шилд для датчиков V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3W_LED_Module/3W_LED_Module.html">Сверхяркий светодиод</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1602_I2C_Module/1602_I2C_Module.html">Двухстрочный монитор 1602_I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer/Active_Buzzer_Module.html">Активный зуммер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../LED_Module/LED_Module.html">Модуль светодиода</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Micro_Servo/Micro_Servo.html">Сервопривод</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Passive_Buzzer_module/Passive_Buzze.html">Пассивный зуммер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RGB_LED_Module/RGB_LED_Module.html">Модуль светодиода RGB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Single_Relay_Module/Single_Relay_Module.html">Реле</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Модуль светофор</a><ul>
@@ -134,6 +137,7 @@
              
   <section id="id1">
 <h1>Модуль светофор<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p><a class="reference download internal" download="" href="../../_downloads/e1b9a718e9bb04bdf648d017e10d754c/Traffic_Light.py"><code class="xref download docutils literal notranslate"><span class="pre">Скачать</span> <span class="pre">файл</span> <span class="pre">с</span> <span class="pre">классов</span></code></a></p>
 <a class="reference internal image-reference" href="../../_images/Traffic_Light_Module.png"><img alt="../../_images/Traffic_Light_Module.png" class="align-center" src="../../_images/Traffic_Light_Module.png" style="width: 200px;" /></a>
 <section id="id2">
 <h2>Класс<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
@@ -142,10 +146,30 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Traffic_Light</span></span><a class="headerlink" href="#Traffic_Light" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Класс используется для определения объектов, имеющих поведение светодиодного светофора</p>
+<p>Пример объявления объекта:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">led</span><span class="o">=</span><span class="n">Traffic_Light</span><span class="p">(</span><span class="n">red</span><span class="o">=</span><span class="n">pin0</span><span class="p">,</span> <span class="n">yellow</span><span class="o">=</span><span class="n">pin1</span><span class="p">,</span> <span class="n">blue</span><span class="o">=</span><span class="n">pin2</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">??()</span></span></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="led.on_red">
+<span class="sig-prename descclassname"><span class="pre">led.</span></span><span class="sig-name descname"><span class="pre">on_red</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#led.on_red" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда позволяет включить красный светодиод.
+Аналогичные команды <strong>on_yellow()</strong> и <strong>on_blue()</strong>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="led.off_red">
+<span class="sig-prename descclassname"><span class="pre">led.</span></span><span class="sig-name descname"><span class="pre">off_red</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#led.off_red" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда позволяет выключить красный светодиод.
+Аналогичные команды <strong>off_yellow()</strong> и <strong>off_blue()</strong>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="led.off">
+<span class="sig-prename descclassname"><span class="pre">led.</span></span><span class="sig-name descname"><span class="pre">off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#led.off" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда позволяет выключить все светодиоды полностью</p>
+</dd></dl>
 
 </section>
 <section id="id3">
