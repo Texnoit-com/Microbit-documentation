@@ -142,19 +142,32 @@
 <section id="id2">
 <h2>Класс<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="W_LED">
-<span id="3W_LED"></span><em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">3W_LED</span></span><a class="headerlink" href="#W_LED" title="Ссылка на это определение"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="LED_3W_Module">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LED_3W_Module</span></span><a class="headerlink" href="#LED_3W_Module" title="Ссылка на это определение"></a></dt>
+<dd><p>Класс используется для определения объектов, имеющих поведение светодиода</p>
+</dd></dl>
+
+<p>Пример объявления объекта:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">led</span><span class="o">=</span><span class="n">LED_3W_Module</span><span class="p">(</span><span class="n">pin1</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="led.on">
+<span class="sig-prename descclassname"><span class="pre">led.</span></span><span class="sig-name descname"><span class="pre">on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#led.on" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда позволяет включить светодиод</p>
+</dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="on">
-<span class="sig-name descname"><span class="pre">on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#on" title="Ссылка на это определение"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="led.off">
+<span class="sig-prename descclassname"><span class="pre">led.</span></span><span class="sig-name descname"><span class="pre">off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#led.off" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда позволяет выключить светодиод</p>
+</dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="off">
-<span class="sig-name descname"><span class="pre">off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#off" title="Ссылка на это определение"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="led.bright">
+<span class="sig-prename descclassname"><span class="pre">led.</span></span><span class="sig-name descname"><span class="pre">bright</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#led.bright" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда включает светодиод с указанной яркостью (0-1023)</p>
+</dd></dl>
 
 </section>
 <section id="id3">

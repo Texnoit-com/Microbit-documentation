@@ -1,6 +1,8 @@
 Пассивный зуммер
 ----------------
 
+:download:`Скачать файл с классов <Passive_Buzzer.py>`
+
 .. image:: Passive_Buzzer_module.png
     :width: 200px
     :align: center
@@ -11,7 +13,23 @@
 .. py:class::
     Passive_Buzzer
 
-.. py:function:: ??()
+Класс используется для определения объектов, имеющих поведение пассивного зуммера 
+    
+Пример объявления объекта::
+
+    sound=Passive_Buzzer(pin0)
+
+.. py:function:: sound.sound.play(music.BLUES)
+
+    Команда позволяет проиграть мелодию. Аналогична команде **music.play(music.BLUES, pin0)**
+
+.. py:function:: sound.play_time(music.BIRTHDAY, 3000)
+
+    Команда позволяет проиграть мелодию определенное время. Блокирует Microbit
+
+.. py:function:: sound.stop()
+
+    Команда позволяет остановить проигрывание времени.
 
 Пример программы
 ****************
