@@ -1,6 +1,6 @@
 from microbit import *
 
-class Crash_Sensor():
+class Push_Button():
 
     def __init__(self, set:MicroBitAnalogDigitalPin):
         self.set = set
