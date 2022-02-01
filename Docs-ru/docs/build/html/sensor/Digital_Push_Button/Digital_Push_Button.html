@@ -63,7 +63,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../Microbit_Sensor_Shield_V2/Microbit_Shield_V2.html">Шилд для датчиков V2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3W_LED_Module/3W_LED_Module.html">Сверхяркий светодиод</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1602_I2C_Module/1602_I2C_Module.html">Двухстрочный монитор 1602_I2C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer_Module/Active_Buzzer_Module.html">Активный зуммер</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer/Active_Buzzer_Module.html">Активный зуммер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../LED_Module/LED_Module.html">Модуль светодиода</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Micro_Servo/Micro_Servo.html">Сервопривод</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Passive_Buzzer_module/Passive_Buzze.html">Пассивный зуммер</a></li>
@@ -145,19 +145,53 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Push_Button</span></span><a class="headerlink" href="#Push_Button" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Класс используется для определения объектов, имеющих поведение кнопки</p>
+<p>Пример объявления объекта:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">button0</span><span class="o">=</span><span class="n">Push_Button</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">??()</span></span></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="button0.is_pressed">
+<span class="sig-prename descclassname"><span class="pre">button0.</span></span><span class="sig-name descname"><span class="pre">is_pressed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#button0.is_pressed" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда возвращает <strong>True</strong>, если кнопка нажата</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="button0.click">
+<span class="sig-prename descclassname"><span class="pre">button0.</span></span><span class="sig-name descname"><span class="pre">click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#button0.click" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда возвращает <strong>True</strong>, если кнопка была нажата-отжата («клик»)
+<strong>time</strong> - указывает паузу между состояниями нажата-отжата</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="button0.count_pressed">
+<span class="sig-prename descclassname"><span class="pre">button0.</span></span><span class="sig-name descname"><span class="pre">count_pressed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#button0.count_pressed" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда возвращает количество прошедших ее опросов методом <strong>is_pressed()</strong>,
+при которых кнопка была нажата</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="button0.reset_pressed">
+<span class="sig-prename descclassname"><span class="pre">button0.</span></span><span class="sig-name descname"><span class="pre">reset_pressed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#button0.reset_pressed" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда сбрасывает счетчик нажатий</p>
+</dd></dl>
 
 </section>
 <section id="id3">
 <h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Push_Button</span> <span class="kn">import</span> <span class="n">Push_Button</span>
 
-<span class="k">while</span>  <span class="kc">True</span> <span class="p">:</span>
-     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
-     <span class="n">sleep</span> <span class="p">(</span> <span class="mi">1000</span> <span class="p">)</span>
+<span class="n">button0</span><span class="o">=</span><span class="n">Push_Button</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">button0</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="mi">200</span><span class="p">):</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">button0</span><span class="o">.</span><span class="n">count_pressed</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">button0</span><span class="o">.</span><span class="n">count_pressed</span><span class="p">()</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">:</span>
+        <span class="n">button0</span><span class="o">.</span><span class="n">reset_pressed</span><span class="p">()</span>
+        <span class="k">break</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">button0</span><span class="o">.</span><span class="n">count_pressed</span><span class="p">())</span>
 </pre></div>
 </div>
 </section>
