@@ -1,12 +1,12 @@
-from microbit import *
+from microbit import MicroBitAnalogDigitalPin
 from random import randint
 
 class RGB_LED_Module():
     
     def __init__(self, 
-                    red:MicroBitDigitalPin, 
-                    green:MicroBitDigitalPin, 
-                    blue:MicroBitDigitalPin):
+                    red:MicroBitAnalogDigitalPin, 
+                    green:MicroBitAnalogDigitalPin, 
+                    blue:MicroBitAnalogDigitalPin):
         self.red = red
         self.green = green
         self.blue = blue

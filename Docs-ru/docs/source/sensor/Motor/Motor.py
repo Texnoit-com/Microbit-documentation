@@ -1,5 +1,4 @@
-from tkinter import BaseWidget
-from microbit import *
+from microbit import MicroBitAnalogDigitalPin
 
 class Motor():
 
