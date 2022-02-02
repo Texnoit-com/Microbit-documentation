@@ -8,6 +8,7 @@
    :caption: Платы расширения
 
    sensor/Microbit_Sensor_Shield_V2/Microbit_Shield_V2
+   sensor/Driver/Driver_Motor
 
 .. toctree::
    :maxdepth: 1
