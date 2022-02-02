@@ -63,7 +63,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../Microbit_Sensor_Shield_V2/Microbit_Shield_V2.html">Шилд для датчиков V2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3W_LED_Module/3W_LED_Module.html">Сверхяркий светодиод</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1602_I2C_Module/1602_I2C_Module.html">Двухстрочный монитор 1602_I2C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer_Module/Active_Buzzer_Module.html">Активный зуммер</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer/Active_Buzzer_Module.html">Активный зуммер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../LED_Module/LED_Module.html">Модуль светодиода</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Micro_Servo/Micro_Servo.html">Сервопривод</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Passive_Buzzer_module/Passive_Buzze.html">Пассивный зуммер</a></li>
@@ -145,19 +145,45 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Motor</span></span><a class="headerlink" href="#Motor" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Класс используется для определения объектов, имеющих поведение моторов. Класс следует применять
+при подключении моторов к драйверу двигателей. Драйвер должен иметь 6 управляющих пинов.
+4 пина указывают направления и 2 пина указывают мощность мотора.</p>
+<p>Пример объявления объекта:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l_motor</span><span class="o">=</span><span class="n">Motor</span><span class="p">(</span><span class="n">pin13</span><span class="p">,</span><span class="n">pin14</span><span class="p">,</span><span class="n">pin0</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">??()</span></span></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="button0.forward">
+<span class="sig-prename descclassname"><span class="pre">button0.</span></span><span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#button0.forward" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда вращает мотор в направлении вперед (при ошибке - поменяйте первые пины местами)
+<strong>speed</strong> - задает скорость вращения</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="button0.backward">
+<span class="sig-prename descclassname"><span class="pre">button0.</span></span><span class="sig-name descname"><span class="pre">backward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#button0.backward" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда вращает мотор в направлении назад (при ошибке - поменяйте первые пины местами).
+<strong>speed</strong> - задает скорость вращения</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="button0.stop">
+<span class="sig-prename descclassname"><span class="pre">button0.</span></span><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#button0.stop" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда останавливает вращения мотора</p>
+</dd></dl>
 
 </section>
 <section id="id3">
 <h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Motor</span> <span class="kn">import</span> <span class="n">Motor</span>
 
-<span class="k">while</span>  <span class="kc">True</span> <span class="p">:</span>
-     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
-     <span class="n">sleep</span> <span class="p">(</span> <span class="mi">1000</span> <span class="p">)</span>
+<span class="n">l_motor</span><span class="o">=</span><span class="n">Motor</span><span class="p">(</span><span class="n">pin13</span><span class="p">,</span><span class="n">pin14</span><span class="p">,</span><span class="n">pin0</span><span class="p">)</span>
+<span class="n">r_motor</span><span class="o">=</span><span class="n">Motor</span><span class="p">(</span><span class="n">pin15</span><span class="p">,</span><span class="n">pin16</span><span class="p">,</span><span class="n">pin1</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+     <span class="n">l_motor</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+     <span class="n">r_motor</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
