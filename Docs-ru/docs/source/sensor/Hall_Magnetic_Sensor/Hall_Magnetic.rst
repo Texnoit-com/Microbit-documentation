@@ -11,7 +11,19 @@
 .. py:class::
     Hall_Magnetic
 
-.. py:function:: ??()
+Класс используется для определения объектов, имеющих поведение магнитного датчика
+    
+Пример объявления объекта::
+
+    magnetic=Hall_Magnetic(pin0)
+
+.. py:function:: magnetic.get_signal()
+
+    Команда позволяет получить аналоговый сигнал с датчика
+
+.. py:function:: magnetic.get_status(base_status:int)
+
+    Команда возвращает **True**, если сигнал вышел из диапазона (-50 **base_status** +50)
 
 Пример программы
 ****************
