@@ -1,41 +1,25 @@
-from microbit import spi
-from microbit import pin13, pin14, pin15
-
+from microbit import *
+from machine import time_pulse_us
 
 class Ultrasonic:
-    def __init__(self, trigger=pin15, echo=pin14, sclk=pin13):
-        self.trigger = trigger
-        self.echo = echo
-        self.sclk = sclk
-
-    def distance_mm(self) -> int:
-        spi.init(baudrate=125000, sclk=self.sclk, mosi=self.trigger, miso=self.echo)
-        length = 500
-        resp = bytearray(length)
-        resp[0] = 0xFF
-        spi.write_readinto(resp, resp)
-
-        try:
-            i, value = next(
-                            (ind, v) 
-                            for ind, v in enumerate(resp) if v
-                            )
-        except StopIteration:
-            i = -1
-
-        if i > 0:
-            pre = bin(value).count("1")
-
-            try:
-                k, value = next(
-                                (ind, v)
-                                for ind, v in enumerate(resp[i : length - 2])
-                                if resp[i + ind + 1] == 0
-                                )
-                post = bin(value).count("1") if k else 0
-                k = k + i
-            except StopIteration:
-                i = -1
-
-        dist = -1 if i < 0 else round(((pre + (k - i) * 8.0 + post) * 8 * 0.172) / 2)
-        return dist
+    def __init__(self, trig_pin:MicroBitDigitalPin, echo_pin:MicroBitDigitalPin, speed_sound = 34300):
+        self.trig_pin = trig_pin
+        self.echo_pin = echo_pin
+        self.trig_pin.write_digital(1)
+        self.echo_pin.read_digital()
+        self.speed_sound = speed_sound
+        self.microsecinds = 1000000
+    
+    def distance_cm(self):
+        self.trig_pin.write_digital(1)
+        self.trig_pin.write_digital(0)
+        self.signal = time_pulse_us(self.echo_pin, 1) / self.microsecinds
+        self.dist = (self.signal/2) * self.speed_sound
+        return int(self.dist)
+    
+    def distance_mm(self):
+        self.trig_pin.write_digital(1)
+        self.trig_pin.write_digital(0)
+        self.signal = time_pulse_us(self.echo_pin, 1) / self.microsecinds
+        self.dist = (self.signal/2) * self.speed_sound
+        return int(self.dist*10)

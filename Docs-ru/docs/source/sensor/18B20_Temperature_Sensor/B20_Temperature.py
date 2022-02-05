@@ -1,4 +1,4 @@
-from microbit import MicroBitAnalogDigitalPin
+from microbit import *
 
 class B20_Temperature():
 
@@ -7,3 +7,6 @@ class B20_Temperature():
 
     def get_signal (self)->int:
         return self.set.read_analog()
+    
+    def temperature (self)->int:
+        return int(self.set.read_analog()/3)
