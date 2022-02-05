@@ -61,9 +61,10 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../sensor.html">Датчики</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Microbit_Sensor_Shield_V2/Microbit_Shield_V2.html">Шилд для датчиков V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Driver/Driver_Motor.html">Драйвер моторов L298</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3W_LED_Module/3W_LED_Module.html">Сверхяркий светодиод</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1602_I2C_Module/1602_I2C_Module.html">Двухстрочный монитор 1602_I2C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer_Module/Active_Buzzer_Module.html">Активный зуммер</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer/Active_Buzzer_Module.html">Активный зуммер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../LED_Module/LED_Module.html">Модуль светодиода</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Micro_Servo/Micro_Servo.html">Сервопривод</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Passive_Buzzer_module/Passive_Buzze.html">Пассивный зуммер</a></li>
@@ -142,22 +143,30 @@
 <h2>Класс<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="B20_Temperature">
-<span id="18B20_Temperature"></span><em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">18B20_Temperature</span></span><a class="headerlink" href="#B20_Temperature" title="Ссылка на это определение"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">B20_Temperature</span></span><a class="headerlink" href="#B20_Temperature" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Класс используется для определения объектов, имеющих поведение аналогового датчика температуры</p>
+<p>Пример объявления объекта:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span><span class="o">=</span><span class="n">Analog_Temperature</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py function">
-<dt class="sig sig-object py" id="temp">
-<span class="sig-name descname"><span class="pre">temp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#temp" title="Ссылка на это определение"></a></dt>
+<dt class="sig sig-object py" id="temp.get_signal">
+<span class="sig-prename descclassname"><span class="pre">temp.</span></span><span class="sig-name descname"><span class="pre">get_signal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#temp.get_signal" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Команда позволяет получить аналоговый сигнал с датчика</p>
 </section>
 <section id="id2">
 <h2>Пример программы<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">B20_Temperature</span> <span class="kn">import</span> <span class="n">B20_Temperature</span>
 
-<span class="k">while</span>  <span class="kc">True</span> <span class="p">:</span>
-     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
-     <span class="n">sleep</span> <span class="p">(</span> <span class="mi">1000</span> <span class="p">)</span>
+<span class="n">temp</span><span class="o">=</span><span class="n">B20_Temperature</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+
+<span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">get_signal</span><span class="p">()))</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
