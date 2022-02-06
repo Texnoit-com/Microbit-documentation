@@ -52,6 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/direction.html">Компас</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/speech.html">Речь</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/radio.html">Радиосигнал</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/NeoPixel.html">Адресная светодиодная лента</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul>
@@ -61,9 +62,10 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../sensor.html">Датчики</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Microbit_Sensor_Shield_V2/Microbit_Shield_V2.html">Шилд для датчиков V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Driver/Driver_Motor.html">Драйвер моторов L298</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3W_LED_Module/3W_LED_Module.html">Сверхяркий светодиод</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1602_I2C_Module/1602_I2C_Module.html">Двухстрочный монитор 1602_I2C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer_Module/Active_Buzzer_Module.html">Активный зуммер</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer/Active_Buzzer_Module.html">Активный зуммер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../LED_Module/LED_Module.html">Модуль светодиода</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Micro_Servo/Micro_Servo.html">Сервопривод</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Passive_Buzzer_module/Passive_Buzze.html">Пассивный зуммер</a></li>
@@ -145,19 +147,48 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Analog_Rotation</span></span><a class="headerlink" href="#Analog_Rotation" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Класс используется для определения объектов, имеющих поведение поворотного переменного резистора</p>
+<p>Пример объявления объекта:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rotation</span><span class="o">=</span><span class="n">Analog_Rotation</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">??()</span></span></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="rotation.get_signal">
+<span class="sig-prename descclassname"><span class="pre">rotation.</span></span><span class="sig-name descname"><span class="pre">get_signal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rotation.get_signal" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда позволяет получить аналоговый сигнал</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rotation.get_angle">
+<span class="sig-prename descclassname"><span class="pre">rotation.</span></span><span class="sig-name descname"><span class="pre">get_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_signal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rotation.get_angle" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда позволяет получить значение угла поворота в диапазоне 180.
+<strong>max_signal</strong> - максимальное аналоговое значение сигнала переменного резистора</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rotation.get_scale">
+<span class="sig-prename descclassname"><span class="pre">rotation.</span></span><span class="sig-name descname"><span class="pre">get_scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_signal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rotation.get_scale" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда позволяет получить значение угла поворота в диапазоне 180.
+<strong>max_signal</strong> - максимальное аналоговое значение сигнала переменного резистора
+<strong>scale</strong> - размер диапазона.</p>
+</dd></dl>
 
 </section>
 <section id="id3">
 <h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Analog_Rotation</span> <span class="kn">import</span> <span class="n">Analog_Rotation</span>
 
-<span class="k">while</span>  <span class="kc">True</span> <span class="p">:</span>
-     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
-     <span class="n">sleep</span> <span class="p">(</span> <span class="mi">1000</span> <span class="p">)</span>
+<span class="n">rotation</span><span class="o">=</span><span class="n">Analog_Rotation</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+
+<span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">rotation</span><span class="o">.</span><span class="n">get_signal</span><span class="p">()))</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">rotation</span><span class="o">.</span><span class="n">get_angle</span><span class="p">(</span><span class="mi">800</span><span class="p">)))</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">rotation</span><span class="o">.</span><span class="n">get_scale</span><span class="p">(</span><span class="mi">1000</span><span class="p">)))</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

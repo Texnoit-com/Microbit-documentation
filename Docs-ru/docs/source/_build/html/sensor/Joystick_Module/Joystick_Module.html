@@ -150,19 +150,55 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Joystick</span></span><a class="headerlink" href="#Joystick" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Класс используется для определения объектов, имеющих поведение джойстика.</p>
+<p>Пример объявления объекта:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">joys</span><span class="o">=</span><span class="n">Joystick</span><span class="p">(</span><span class="n">pin0</span><span class="p">,</span> <span class="n">pin1</span><span class="p">,</span> <span class="n">pin2</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">??()</span></span></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="joys.get_x">
+<span class="sig-prename descclassname"><span class="pre">joys.</span></span><span class="sig-name descname"><span class="pre">get_x</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#joys.get_x" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда возвращает показание по оси X.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="joys.get_y">
+<span class="sig-prename descclassname"><span class="pre">joys.</span></span><span class="sig-name descname"><span class="pre">get_y</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#joys.get_y" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда возвращает показание по оси Y.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="joys.click">
+<span class="sig-prename descclassname"><span class="pre">joys.</span></span><span class="sig-name descname"><span class="pre">click</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#joys.click" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда возвращает сигнал нажатия на кнопку.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="joys.play_cross">
+<span class="sig-prename descclassname"><span class="pre">joys.</span></span><span class="sig-name descname"><span class="pre">play_cross</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#joys.play_cross" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда возвращает сигналы <strong>UP</strong>, <strong>Down</strong>, <strong>Left</strong>, <strong>Right</strong>, <strong>0</strong>.
+Принцип работы цифрового джойстика.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="joys.play_diagonal">
+<span class="sig-prename descclassname"><span class="pre">joys.</span></span><span class="sig-name descname"><span class="pre">play_diagonal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#joys.play_diagonal" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда возвращает сигналы <strong>Up</strong>, <strong>Down</strong>, <strong>Left</strong>, <strong>Right</strong>, <strong>0</strong>.
+Диаганальные сигналы <strong>Up-Left</strong>, <strong>Up-Right</strong>, <strong>Down-Left</strong>, <strong>Down-Right</strong>.
+Принцип работы цифрового джойстика.</p>
+</dd></dl>
 
 </section>
 <section id="id3">
 <h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Joystick_Module</span> <span class="kn">import</span> <span class="n">Joystick</span>
+
+<span class="n">joys</span><span class="o">=</span><span class="n">Joystick</span><span class="p">(</span><span class="n">pin0</span><span class="p">,</span> <span class="n">pin1</span><span class="p">,</span> <span class="n">pin2</span><span class="p">)</span>
 
 <span class="k">while</span>  <span class="kc">True</span> <span class="p">:</span>
-     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
-     <span class="n">sleep</span> <span class="p">(</span> <span class="mi">1000</span> <span class="p">)</span>
+     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">joys</span><span class="o">.</span><span class="n">play_diagonal</span><span class="p">())</span>
+     <span class="n">sleep</span> <span class="p">(</span> <span class="mi">100</span> <span class="p">)</span>
 </pre></div>
 </div>
 </section>

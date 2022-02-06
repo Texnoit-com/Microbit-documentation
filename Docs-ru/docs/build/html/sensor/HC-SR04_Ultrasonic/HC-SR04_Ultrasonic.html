@@ -52,6 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/direction.html">Компас</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/speech.html">Речь</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/radio.html">Радиосигнал</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/NeoPixel.html">Адресная светодиодная лента</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul>
@@ -61,9 +62,13 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../sensor.html">Датчики</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Microbit_Sensor_Shield_V2/Microbit_Shield_V2.html">Шилд для датчиков V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Driver/Driver_Motor.html">Драйвер моторов L298</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3W_LED_Module/3W_LED_Module.html">Сверхяркий светодиод</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1602_I2C_Module/1602_I2C_Module.html">Двухстрочный монитор 1602_I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer/Active_Buzzer_Module.html">Активный зуммер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../LED_Module/LED_Module.html">Модуль светодиода</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Micro_Servo/Micro_Servo.html">Сервопривод</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Passive_Buzzer_module/Passive_Buzze.html">Пассивный зуммер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RGB_LED_Module/RGB_LED_Module.html">Модуль светодиода RGB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Single_Relay_Module/Single_Relay_Module.html">Реле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Traffic_Light_Module/Traffic_Light.html">Модуль светофор</a></li>
@@ -164,16 +169,12 @@ SPI работает, используя один контакт для уста
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Ultrasonic</span></span><a class="headerlink" href="#Ultrasonic" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
-<p>Создание объекта класса Ultrasonic:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sonar</span> <span class="o">=</span> <span class="n">Ultrasonic</span><span class="p">(</span> <span class="n">trigger</span><span class="o">=</span><span class="n">pin15</span><span class="p">,</span> <span class="n">echo</span><span class="o">=</span><span class="n">pin14</span><span class="p">,</span> <span class="n">sclk</span><span class="o">=</span><span class="n">pin13</span> <span class="p">)</span>
+<p>Класс используется для определения объектов, имеющих поведение ультразвукового датчика</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sonar</span> <span class="o">=</span> <span class="n">Ultrasonic</span><span class="p">(</span> <span class="n">trigger</span><span class="p">,</span> <span class="n">echo</span><span class="p">,</span> <span class="n">speed_sound</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Если Вы не указываете входящие контакты (используйте данные контакты):</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">trigger</span></code> равен <code class="docutils literal notranslate"><span class="pre">pin15</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">echo</span></code> равен <code class="docutils literal notranslate"><span class="pre">pin14</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sclk</span></code> равен <code class="docutils literal notranslate"><span class="pre">pin13</span></code></p></li>
-</ul>
+<p>Параметр <strong>speed_sound</strong> - скорость распространения звука при комнотной температуре. По умолчанию
+показатель равен 343 000, Вы можете его корректировать:</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="distance_mm">
 <span class="sig-name descname"><span class="pre">distance_mm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#distance_mm" title="Ссылка на это определение"></a></dt>
@@ -181,21 +182,23 @@ SPI работает, используя один контакт для уста
 </dd></dl>
 
 <dl class="py exception">
-<dt class="sig sig-object py" id="StopIteration">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">StopIteration</span></span><a class="headerlink" href="#StopIteration" title="Ссылка на это определение"></a></dt>
-<dd><p>Вызывается при возникновении ошибок при чтении байт от датчика. Возвращает -1</p>
+<dt class="sig sig-object py" id="distance_m">
+<span id="distance_сm"></span><em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">distance_сm</span></span><a class="headerlink" href="#distance_m" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает расстояние до объекта в сантиметрах</p>
 </dd></dl>
 
 </section>
 <section id="id3">
 <h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">display</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">Ultrasonic</span> <span class="kn">import</span> <span class="n">Ultrasonic</span>
 
 
-<span class="n">sonar</span> <span class="o">=</span> <span class="n">Ultrasonic</span><span class="p">()</span>
+
+
+<span class="n">sonar</span> <span class="o">=</span> <span class="n">Ultrasonic</span><span class="p">(</span><span class="n">pin2</span><span class="p">,</span><span class="n">pin1</span><span class="p">)</span>
 <span class="k">while</span>  <span class="kc">True</span> <span class="p">:</span>
-     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">sonar</span><span class="o">.</span><span class="n">distance_mm</span> <span class="p">()</span> <span class="o">/</span> <span class="mi">10</span> <span class="p">))</span>
+     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sonar</span><span class="o">.</span><span class="n">distance_mm</span><span class="p">()))</span>
      <span class="n">sleep</span> <span class="p">(</span> <span class="mi">1000</span> <span class="p">)</span>
 </pre></div>
 </div>
