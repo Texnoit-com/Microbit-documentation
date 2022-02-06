@@ -21,9 +21,9 @@
 
     Команда позволяет получить аналоговый сигнал с датчика
 
-.. py:function:: magnetic.get_status(base_status:int)
+.. py:function:: magnetic.get_status(base_status:int, span=20)
 
-    Команда возвращает **True**, если сигнал вышел из диапазона (-50 **base_status** +50)
+    Команда возвращает **True**, если сигнал не вышел из диапазона (-span **base_status** +span)
 
 Пример программы
 ****************

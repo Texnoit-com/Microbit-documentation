@@ -61,6 +61,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../sensor.html">Датчики</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Microbit_Sensor_Shield_V2/Microbit_Shield_V2.html">Шилд для датчиков V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Driver/Driver_Motor.html">Драйвер моторов L298</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3W_LED_Module/3W_LED_Module.html">Сверхяркий светодиод</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1602_I2C_Module/1602_I2C_Module.html">Двухстрочный монитор 1602_I2C</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer/Active_Buzzer_Module.html">Активный зуммер</a></li>
@@ -153,11 +154,33 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Analog_Sound</span></span><a class="headerlink" href="#Analog_Sound" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Класс используется для определения объектов, имеющих поведение датчика звука</p>
+<p>Пример объявления объекта:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mic</span><span class="o">=</span><span class="n">Analog_Sound</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">??()</span></span></dt>
+<dt class="sig sig-object py" id="mic.calibrate">
+<span class="sig-prename descclassname"><span class="pre">mic.</span></span><span class="sig-name descname"><span class="pre">calibrate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mic.calibrate" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Калибровка звукового датчика. Стрелка показывает на вращение подстроечного
+резистора. Если на экране стрелка, то вращайте подстроечный резистор и делайте хлопки.
+Ряды красных светодиодов показывают приемлемый звуковой сигнал.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="mic.count_claps">
+<span class="sig-prename descclassname"><span class="pre">mic.</span></span><span class="sig-name descname"><span class="pre">count_claps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sleep_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mic.count_claps" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<p>Команда возвращает количество хлопков, которые датчик звука зафиксировал.
+Параметр  <strong>sleep_time</strong> отражает паузу между хлопками. При медленных хлопках
+показатель необходимо увеличить.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="mic.level_sound">
+<span class="sig-prename descclassname"><span class="pre">mic.</span></span><span class="sig-name descname"><span class="pre">level_sound</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mic.level_sound" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<p>Команда возвращает аналоговое значение датчика</p>
 </section>
 <section id="id3">
 <h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>

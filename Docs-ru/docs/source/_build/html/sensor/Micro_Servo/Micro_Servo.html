@@ -61,9 +61,10 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../sensor.html">Датчики</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Microbit_Sensor_Shield_V2/Microbit_Shield_V2.html">Шилд для датчиков V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Driver/Driver_Motor.html">Драйвер моторов L298</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3W_LED_Module/3W_LED_Module.html">Сверхяркий светодиод</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1602_I2C_Module/1602_I2C_Module.html">Двухстрочный монитор 1602_I2C</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer_Module/Active_Buzzer_Module.html">Активный зуммер</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer/Active_Buzzer_Module.html">Активный зуммер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../LED_Module/LED_Module.html">Модуль светодиода</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Сервопривод</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2">Класс</a></li>
@@ -138,6 +139,12 @@
   <section id="id1">
 <h1>Сервопривод<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
 <a class="reference internal image-reference" href="../../_images/Micro_Servo.png"><img alt="../../_images/Micro_Servo.png" class="align-center" src="../../_images/Micro_Servo.png" style="width: 200px;" /></a>
+<p>Для работы сервопривода мы должны послать ему импульсный сигнал частотой 50 Гц (Гц).
+Это стандарт почти для всех серводвигателей постоянного тока. Импульсный сигнал выглядит так:</p>
+<a class="reference internal image-reference" href="../../_images/servo1.png"><img alt="../../_images/servo1.png" class="align-center" src="../../_images/servo1.png" style="width: 200px;" /></a>
+<p>50 Гц означает, что один импульс происходит 50 раз в секунду. Если разбить его по-другому,
+один импульс отправляется каждые 1/50 секунды , что равно 20 миллисекундам (сокращенно мс).</p>
+<a class="reference internal image-reference" href="../../_images/servo2.png"><img alt="../../_images/servo2.png" class="align-center" src="../../_images/servo2.png" style="width: 200px;" /></a>
 <section id="id2">
 <h2>Класс<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py class">
@@ -145,19 +152,30 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Micro_Servo</span></span><a class="headerlink" href="#Micro_Servo" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Класс используется для определения объектов, имеющих поведение серво-моторов.</p>
+<p>Пример объявления объекта:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">servo</span><span class="o">=</span><span class="n">Micro_Servo</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">??()</span></span></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="servo.angle">
+<span class="sig-prename descclassname"><span class="pre">servo.</span></span><span class="sig-name descname"><span class="pre">angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#servo.angle" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда перемещает сервомотор в указанный угол.</p>
+</dd></dl>
 
 </section>
 <section id="id3">
 <h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Micro_Servo</span> <span class="kn">import</span> <span class="n">Micro_Servo</span>
 
-<span class="k">while</span>  <span class="kc">True</span> <span class="p">:</span>
-     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
-     <span class="n">sleep</span> <span class="p">(</span> <span class="mi">1000</span> <span class="p">)</span>
+<span class="n">servo</span><span class="o">=</span><span class="n">Micro_Servo</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">button_a</span><span class="o">.</span><span class="n">was_pressed</span><span class="p">():</span>
+         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">180</span><span class="p">):</span>
+             <span class="n">servo</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+             <span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
