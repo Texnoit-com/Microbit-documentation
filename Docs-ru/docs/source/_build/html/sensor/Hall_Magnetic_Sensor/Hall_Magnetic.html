@@ -159,8 +159,8 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="magnetic.get_status">
-<span class="sig-prename descclassname"><span class="pre">magnetic.</span></span><span class="sig-name descname"><span class="pre">get_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#magnetic.get_status" title="Ссылка на это определение"></a></dt>
-<dd><p>Команда возвращает <strong>True</strong>, если сигнал вышел из диапазона (-50 <strong>base_status</strong> +50)</p>
+<span class="sig-prename descclassname"><span class="pre">magnetic.</span></span><span class="sig-name descname"><span class="pre">get_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">span</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#magnetic.get_status" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда возвращает <strong>True</strong>, если сигнал не вышел из диапазона (-span <strong>base_status</strong> +span)</p>
 </dd></dl>
 
 </section>
@@ -171,12 +171,15 @@
 
 <span class="n">magnetic</span><span class="o">=</span><span class="n">Hall_Magnetic</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
 
-<span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">magnetic</span><span class="o">.</span><span class="n">get_signal</span><span class="p">()))</span>
-<span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">magnetic</span><span class="o">.</span><span class="n">get_signal</span><span class="p">()))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">magnetic</span><span class="o">.</span><span class="n">base_status</span><span class="p">(</span><span class="mi">300</span><span class="p">):</span>
-     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">YES</span><span class="p">)</span>
-<span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">magnetic</span><span class="o">.</span><span class="n">get_status</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">YES</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">NO</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

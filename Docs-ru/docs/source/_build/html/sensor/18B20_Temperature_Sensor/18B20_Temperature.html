@@ -157,6 +157,12 @@
 <dd></dd></dl>
 
 <p>Команда позволяет получить аналоговый сигнал с датчика</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="temp.temperature">
+<span class="sig-prename descclassname"><span class="pre">temp.</span></span><span class="sig-name descname"><span class="pre">temperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#temp.temperature" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<p>Команда позволяет получить сигнал с датчика и переводит его в градусы</p>
 </section>
 <section id="id2">
 <h2>Пример программы<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
@@ -165,8 +171,12 @@
 
 <span class="n">temp</span><span class="o">=</span><span class="n">B20_Temperature</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
 
-<span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">get_signal</span><span class="p">()))</span>
-<span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">temperature</span><span class="p">())</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">temperature</span><span class="p">())</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
