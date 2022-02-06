@@ -49,6 +49,7 @@
 <li class="toctree-l1"><a class="reference internal" href="tutorials/direction.html">Компас</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/speech.html">Речь</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/radio.html">Радиосигнал</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/NeoPixel.html">Адресная светодиодная лента</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul>
@@ -118,10 +119,6 @@
       <li><a href="sensor/1602_I2C_Module/1602_I2C_Module.html#I2C">1602_I2C (встроенный класс)</a>
 </li>
   </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="sensor/18B20_Temperature_Sensor/18B20_Temperature.html#B20_Temperature">18B20_Temperature (встроенный класс)</a>
-</li>
-  </ul></td>
 </tr></table>
 
 <h2 id="A">A</h2>
@@ -160,6 +157,8 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="sensor/18B20_Temperature_Sensor/18B20_Temperature.html#B20_Temperature">B20_Temperature (встроенный класс)</a>
+</li>
       <li><a href="api/image.html#Image.blit">blit() (метод Image)</a>
 </li>
       <li><a href="api/button.html#Button">Button (встроенный класс)</a>
@@ -346,10 +345,10 @@
 </li>
       <li><a href="sensor/Digital_Tilt_Sensor/Digital_Tilt.html#Digital_Tilt">Digital_Tilt (встроенный класс)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/machine.html#machine.disable_irq">disable_irq() (метод machine)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     distance_mm()
 
@@ -357,6 +356,8 @@
         <li><a href="sensor/HC-SR04_Ultrasonic/HC-SR04_Ultrasonic.html#distance_mm">базовая функция</a>
 </li>
       </ul></li>
+      <li><a href="sensor/HC-SR04_Ultrasonic/HC-SR04_Ultrasonic.html#distance_m">distance_сm</a>
+</li>
       <li><a href="sensor/Driver/Driver_Motor.html#Driver_Motor">Driver_Motor (встроенный класс)</a>
 </li>
   </ul></td>
@@ -493,6 +494,43 @@
 <h2 id="J">J</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    joys.click()
+
+      <ul>
+        <li><a href="sensor/Joystick_Module/Joystick_Module.html#joys.click">базовая функция</a>
+</li>
+      </ul></li>
+      <li>
+    joys.get_x()
+
+      <ul>
+        <li><a href="sensor/Joystick_Module/Joystick_Module.html#joys.get_x">базовая функция</a>
+</li>
+      </ul></li>
+      <li>
+    joys.get_y()
+
+      <ul>
+        <li><a href="sensor/Joystick_Module/Joystick_Module.html#joys.get_y">базовая функция</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    joys.play_cross()
+
+      <ul>
+        <li><a href="sensor/Joystick_Module/Joystick_Module.html#joys.play_cross">базовая функция</a>
+</li>
+      </ul></li>
+      <li>
+    joys.play_diagonal()
+
+      <ul>
+        <li><a href="sensor/Joystick_Module/Joystick_Module.html#joys.play_diagonal">базовая функция</a>
+</li>
+      </ul></li>
       <li><a href="sensor/Joystick_Module/Joystick_Module.html#Joystick">Joystick (встроенный класс)</a>
 </li>
   </ul></td>
@@ -568,6 +606,41 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    magnetic.get_signal()
+
+      <ul>
+        <li><a href="sensor/Hall_Magnetic_Sensor/Hall_Magnetic.html#magnetic.get_signal">базовая функция</a>
+</li>
+      </ul></li>
+      <li>
+    magnetic.get_status()
+
+      <ul>
+        <li><a href="sensor/Hall_Magnetic_Sensor/Hall_Magnetic.html#magnetic.get_status">базовая функция</a>
+</li>
+      </ul></li>
+      <li>
+    mic.calibrate()
+
+      <ul>
+        <li><a href="sensor/Analog_Sound_Sensor/Analog_Sound.html#mic.calibrate">базовая функция</a>
+</li>
+      </ul></li>
+      <li>
+    mic.count_claps()
+
+      <ul>
+        <li><a href="sensor/Analog_Sound_Sensor/Analog_Sound.html#mic.count_claps">базовая функция</a>
+</li>
+      </ul></li>
+      <li>
+    mic.level_sound()
+
+      <ul>
+        <li><a href="sensor/Analog_Sound_Sensor/Analog_Sound.html#mic.level_sound">базовая функция</a>
+</li>
+      </ul></li>
       <li><a href="sensor/Micro_Servo/Micro_Servo.html#Micro_Servo">Micro_Servo (встроенный класс)</a>
 </li>
       <li>
@@ -612,6 +685,8 @@
         <li><a href="api/microphone.html#module-microbit.microphone">модуль</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     microbit.speaker
 
@@ -626,8 +701,6 @@
         <li><a href="api/spi.html#module-microbit.spi">модуль</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     microbit.uart
 
@@ -688,10 +761,28 @@
         <li><a href="api/neopixel.html#module-neopixel">модуль</a>
 </li>
       </ul></li>
+      <li><a href="tutorials/NeoPixel.html#NeoPixel">NeoPixel (встроенный класс)</a>
+
+      <ul>
+        <li><a href="api/neopixel.html#neopixel.NeoPixel">(класс в neopixel)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/neopixel.html#neopixel.NeoPixel">NeoPixel (класс в neopixel)</a>
+      <li>
+    np.clear()
+
+      <ul>
+        <li><a href="tutorials/NeoPixel.html#np.clear">базовая функция</a>
 </li>
+      </ul></li>
+      <li>
+    np.show()
+
+      <ul>
+        <li><a href="tutorials/NeoPixel.html#np.show">базовая функция</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -815,8 +906,6 @@
 </li>
       <li><a href="api/display.html#microbit.display.read_light_level">read_light_level() (в модуле microbit.display)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/filesystem.html#BytesIO.readinto">readinto() (метод BytesIO)</a>
 
       <ul>
@@ -829,6 +918,8 @@
         <li><a href="api/uart.html#microbit.uart.uart.readline">(метод microbit.uart.uart)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/radio.html#radio.receive">receive() (в модуле radio)</a>
 </li>
       <li><a href="api/radio.html#radio.receive_bytes">receive_bytes() (в модуле radio)</a>
@@ -867,6 +958,27 @@
       </ul></li>
       <li><a href="sensor/RGB_LED_Module/RGB_LED_Module.html#RGB_LED_Module">RGB_LED_Module (встроенный класс)</a>
 </li>
+      <li>
+    rotation.get_angle()
+
+      <ul>
+        <li><a href="sensor/Analog_Rotation_Sensor/Analog_Rotation.html#rotation.get_angle">базовая функция</a>
+</li>
+      </ul></li>
+      <li>
+    rotation.get_scale()
+
+      <ul>
+        <li><a href="sensor/Analog_Rotation_Sensor/Analog_Rotation.html#rotation.get_scale">базовая функция</a>
+</li>
+      </ul></li>
+      <li>
+    rotation.get_signal()
+
+      <ul>
+        <li><a href="sensor/Analog_Rotation_Sensor/Analog_Rotation.html#rotation.get_signal">базовая функция</a>
+</li>
+      </ul></li>
       <li><a href="api/microbit.html#microbit.running_time">running_time() (в модуле microbit)</a>
 </li>
   </ul></td>
@@ -889,6 +1001,13 @@
 </li>
       <li><a href="sensor/Microbit_Sensor_Shield_V2/Microbit_Shield_V2.html#Sensor_Shield">Sensor_Shield (встроенный класс)</a>
 </li>
+      <li>
+    servo.angle()
+
+      <ul>
+        <li><a href="sensor/Micro_Servo/Micro_Servo.html#servo.angle">базовая функция</a>
+</li>
+      </ul></li>
       <li><a href="api/pin.html#MicroBitAnalogDigitalPin.set_analog_period">set_analog_period() (метод MicroBitAnalogDigitalPin)</a>
 </li>
       <li><a href="api/pin.html#MicroBitAnalogDigitalPin.set_analog_period_microseconds">set_analog_period_microseconds() (метод MicroBitAnalogDigitalPin)</a>
@@ -923,12 +1042,12 @@
       </ul></li>
       <li><a href="api/speech.html#speech.sing">sing() (в модуле speech)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sensor/Single_Relay_Module/Single_Relay_Module.html#Single_Relay">Single_Relay (встроенный класс)</a>
 </li>
       <li><a href="api/os.html#os.size">size() (в модуле os)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/microbit.html#microbit.sleep">sleep() (в модуле microbit)</a>
 
       <ul>
@@ -979,8 +1098,6 @@
         <li><a href="api/music.html#music.stop">(в модуле music)</a>
 </li>
       </ul></li>
-      <li><a href="sensor/HC-SR04_Ultrasonic/HC-SR04_Ultrasonic.html#StopIteration">StopIteration</a>
-</li>
       <li>
     switch.count_pressed()
 
@@ -1009,10 +1126,17 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
-    temp()
+    temp.get_signal()
 
       <ul>
-        <li><a href="sensor/18B20_Temperature_Sensor/18B20_Temperature.html#temp">базовая функция</a>
+        <li><a href="sensor/18B20_Temperature_Sensor/18B20_Temperature.html#temp.get_signal">базовая функция</a>, <a href="sensor/Analog_Temperature_Sensor/Analog_Temperature.html#temp.get_signal">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    temp.temperature()
+
+      <ul>
+        <li><a href="sensor/18B20_Temperature_Sensor/18B20_Temperature.html#temp.temperature">базовая функция</a>
 </li>
       </ul></li>
       <li><a href="api/microbit.html#microbit.temperature">temperature() (в модуле microbit)</a>
@@ -1027,10 +1151,10 @@
 </li>
       <li><a href="api/utime.html#utime.utime.ticks_us">ticks_us() (метод utime.utime)</a>
 </li>
-      <li><a href="api/machine.html#machine.time_pulse_us">time_pulse_us() (метод machine)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/machine.html#machine.time_pulse_us">time_pulse_us() (метод machine)</a>
+</li>
       <li>
     touch.click()
 
@@ -1182,6 +1306,16 @@
 </li>
         <li><a href="sensor/HC-SR04_Ultrasonic/HC-SR04_Ultrasonic.html#distance_mm">distance_mm()</a>
 </li>
+        <li><a href="sensor/Joystick_Module/Joystick_Module.html#joys.click">joys.click()</a>
+</li>
+        <li><a href="sensor/Joystick_Module/Joystick_Module.html#joys.get_x">joys.get_x()</a>
+</li>
+        <li><a href="sensor/Joystick_Module/Joystick_Module.html#joys.get_y">joys.get_y()</a>
+</li>
+        <li><a href="sensor/Joystick_Module/Joystick_Module.html#joys.play_cross">joys.play_cross()</a>
+</li>
+        <li><a href="sensor/Joystick_Module/Joystick_Module.html#joys.play_diagonal">joys.play_diagonal()</a>
+</li>
         <li><a href="sensor/3W_LED_Module/3W_LED_Module.html#led.bright">led.bright()</a>, <a href="sensor/LED_Module/LED_Module.html#led.bright">[1]</a>
 </li>
         <li><a href="sensor/RGB_LED_Module/RGB_LED_Module.html#led.bright_red">led.bright_red()</a>
@@ -1196,6 +1330,20 @@
 </li>
         <li><a href="sensor/RGB_LED_Module/RGB_LED_Module.html#led.on_red">led.on_red()</a>, <a href="sensor/Traffic_Light_Module/Traffic_Light.html#led.on_red">[1]</a>
 </li>
+        <li><a href="sensor/Hall_Magnetic_Sensor/Hall_Magnetic.html#magnetic.get_signal">magnetic.get_signal()</a>
+</li>
+        <li><a href="sensor/Hall_Magnetic_Sensor/Hall_Magnetic.html#magnetic.get_status">magnetic.get_status()</a>
+</li>
+        <li><a href="sensor/Analog_Sound_Sensor/Analog_Sound.html#mic.calibrate">mic.calibrate()</a>
+</li>
+        <li><a href="sensor/Analog_Sound_Sensor/Analog_Sound.html#mic.count_claps">mic.count_claps()</a>
+</li>
+        <li><a href="sensor/Analog_Sound_Sensor/Analog_Sound.html#mic.level_sound">mic.level_sound()</a>
+</li>
+        <li><a href="tutorials/NeoPixel.html#np.clear">np.clear()</a>
+</li>
+        <li><a href="tutorials/NeoPixel.html#np.show">np.show()</a>
+</li>
         <li><a href="api/filesystem.html#open">open()</a>
 </li>
         <li><a href="sensor/RGB_LED_Module/RGB_LED_Module.html#random_rgb">random_rgb()</a>
@@ -1203,6 +1351,14 @@
         <li><a href="sensor/Single_Relay_Module/Single_Relay_Module.html#relay.off">relay.off()</a>
 </li>
         <li><a href="sensor/Single_Relay_Module/Single_Relay_Module.html#relay.on">relay.on()</a>
+</li>
+        <li><a href="sensor/Analog_Rotation_Sensor/Analog_Rotation.html#rotation.get_angle">rotation.get_angle()</a>
+</li>
+        <li><a href="sensor/Analog_Rotation_Sensor/Analog_Rotation.html#rotation.get_scale">rotation.get_scale()</a>
+</li>
+        <li><a href="sensor/Analog_Rotation_Sensor/Analog_Rotation.html#rotation.get_signal">rotation.get_signal()</a>
+</li>
+        <li><a href="sensor/Micro_Servo/Micro_Servo.html#servo.angle">servo.angle()</a>
 </li>
         <li><a href="sensor/Passive_Buzzer_module/Passive_Buzze.html#sound.play_time">sound.play_time()</a>
 </li>
@@ -1216,7 +1372,9 @@
 </li>
         <li><a href="sensor/Reed_Switch_Module/Reed_Switch.html#switch.reset_pressed">switch.reset_pressed()</a>
 </li>
-        <li><a href="sensor/18B20_Temperature_Sensor/18B20_Temperature.html#temp">temp()</a>
+        <li><a href="sensor/18B20_Temperature_Sensor/18B20_Temperature.html#temp.get_signal">temp.get_signal()</a>, <a href="sensor/Analog_Temperature_Sensor/Analog_Temperature.html#temp.get_signal">[1]</a>
+</li>
+        <li><a href="sensor/18B20_Temperature_Sensor/18B20_Temperature.html#temp.temperature">temp.temperature()</a>
 </li>
         <li><a href="sensor/Capacitive_Touch_Sensor/Capacitive_Touch.html#touch.click">touch.click()</a>
 </li>
