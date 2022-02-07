@@ -1,8 +1,10 @@
 from microbit import *
-from Joystick import Joystick
+from neopixel import NeoPixel
 
-joys=Joystick(pin0, pin1, pin2)
-
-while  True :
-     display.scroll(joys.play_diagonal())
-     sleep ( 100 )
+np = NeoPixel(pin0, 5)
+while True:
+    for i in range(5):
+        np[i] = (255, 0, 0)
+        np.show()
+        sleep(1000)
+        np.clear()
