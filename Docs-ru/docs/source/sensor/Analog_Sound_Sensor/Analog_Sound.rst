@@ -1,6 +1,8 @@
 Аналоговый микрофон
 -------------------
 
+:download:`Скачать файл с классов <Analog_Sound.py>`
+
 .. image:: Analog_Sound_Sensor.png
     :width: 200px
     :align: center

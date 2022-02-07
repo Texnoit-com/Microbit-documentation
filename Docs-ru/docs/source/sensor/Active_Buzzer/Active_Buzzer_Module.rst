@@ -1,6 +1,8 @@
 Активный зуммер
 ----------------
 
+:download:`Скачать файл с классов <Active_Buzzer.py>`
+
 .. image:: Active_Buzzer_Module.png
     :width: 100px
     :align: center

@@ -1,6 +1,7 @@
 Датчик температуры 18B20
 ------------------------
 
+:download:`Скачать файл с классов <B20_Temperature.py>`
 .. image:: 18B20_Temperature.png
     :width: 200px
     :align: center

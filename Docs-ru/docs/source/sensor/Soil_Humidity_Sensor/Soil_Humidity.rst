@@ -1,6 +1,8 @@
 Датчик влажности
 ----------------
 
+:download:`Скачать файл с классов <Soil_Humidity.py>`
+
 .. image:: Soil_Humidity_Sensor.png
     :width: 100px
     :align: center

@@ -1,6 +1,8 @@
 Драйвер моторов L298
 ---------------------
 
+:download:`Скачать файл с классов <Driver_Motor.py>`
+
 .. image:: Driver.jpg
     :width: 200px
     :align: center

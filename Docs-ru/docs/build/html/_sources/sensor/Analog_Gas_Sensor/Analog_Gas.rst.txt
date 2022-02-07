@@ -1,6 +1,8 @@
 Датчик углекислого газа
 -----------------------
 
+:download:`Скачать файл с классов <Analog_Gas.py>`
+
 .. image:: Analog_Gas_Sensor.png
     :width: 200px
     :align: center

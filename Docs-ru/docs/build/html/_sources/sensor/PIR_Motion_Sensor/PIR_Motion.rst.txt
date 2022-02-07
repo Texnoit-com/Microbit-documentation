@@ -1,6 +1,8 @@
 Датчик движения
 ---------------
 
+:download:`Скачать файл с классов <PIR_Motion.py>`
+
 .. image:: PIR_Motion_Sensor.png
     :width: 200px
     :align: center
