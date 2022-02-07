@@ -1,5 +1,6 @@
 Модуль светодиода
 -----------------
+
 :download:`Скачать файл с классов <LED_Module.py>`
 
 .. image:: LED_Module.png

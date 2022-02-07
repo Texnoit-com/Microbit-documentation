@@ -1,6 +1,8 @@
 Датчик температуры LM35
 ------------------------
 
+:download:`Скачать файл с классов <LM35_Linear.py>`
+
 .. image:: LM35_Linear.png
     :width: 100px
     :align: center

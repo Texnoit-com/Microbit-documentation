@@ -1,6 +1,8 @@
 Датчик давления
 ---------------
 
+:download:`Скачать файл с классов <Thin-film_Pressure.py>`
+
 .. image:: Thin-film_Pressure.png
     :width: 200px
     :align: center

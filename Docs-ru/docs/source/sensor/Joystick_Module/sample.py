@@ -1,5 +1,5 @@
 from microbit import *
-from Joystick_Module import Joystick
+from Joystick import Joystick
 
 joys=Joystick(pin0, pin1, pin2)
 

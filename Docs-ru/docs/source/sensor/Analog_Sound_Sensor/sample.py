@@ -1,4 +1,4 @@
-from AnalogSound import AnalogSound
+from Analog_Sound import Analog_Sound
 from microbit import *
 
 mic=AnalogSound(pin0)

@@ -1,6 +1,8 @@
 Датчик окружающего света
 ------------------------
 
+:download:`Скачать файл с классов <TEMT6000.py>`
+
 .. image:: TEMT6000AmbientLight.png
     :width: 100px
     :align: center

@@ -8,6 +8,8 @@
 Класс
 *****
 
+:download:`Скачать файл с классов <Capacitive_Touch.py>`
+
 .. py:class::
     Capacitive_Touch
 

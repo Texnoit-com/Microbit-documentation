@@ -1,6 +1,8 @@
 Сервопривод
 -----------
 
+:download:`Скачать файл с классов <Micro_Servo.py>`
+
 .. image:: Micro_Servo.png
     :width: 200px
     :align: center

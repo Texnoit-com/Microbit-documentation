@@ -1,6 +1,8 @@
 Мотор
 -----
 
+:download:`Скачать файл с классов <Motor.py>`
+
 .. image:: Motor.jpg
     :width: 200px
     :align: center

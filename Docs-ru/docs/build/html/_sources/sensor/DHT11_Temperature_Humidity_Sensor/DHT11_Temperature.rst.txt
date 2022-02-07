@@ -1,6 +1,8 @@
 Датчик температуры (DHT11)
 --------------------------
 
+:download:`Скачать файл с классов <DHT11_Temperature.py>`
+
 .. image:: DHT11_Temperature.png
     :width: 200px
     :align: center

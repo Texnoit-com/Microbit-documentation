@@ -1,6 +1,8 @@
 Датчик вибрации
 ---------------
 
+:download:`Скачать файл с классов <Vibration.py>`
+
 .. image:: Vibration_Sensor.png
     :width: 100px
     :align: center

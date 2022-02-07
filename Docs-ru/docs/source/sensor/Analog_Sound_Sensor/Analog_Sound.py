@@ -1,6 +1,6 @@
 from microbit import *
 
-class AnalogSound:
+class Analog_Sound:
 
     def __init__(self, set_pin:MicroBitAnalogDigitalPin):
         self.set_pin = set_pin
