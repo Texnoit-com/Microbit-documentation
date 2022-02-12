@@ -1,5 +1,8 @@
 from microbit import *
+from Analog_Gas import Analog_Gas
 
-while  True :
-     display.scroll('Test')
-     sleep ( 1000 )
+gas=Analog_Gas(pin0)
+
+gas.calibrate()
+while True:
+     display.scroll(gas.get_signal())
