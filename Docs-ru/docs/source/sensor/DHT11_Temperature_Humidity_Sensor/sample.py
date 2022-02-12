@@ -1,14 +1,8 @@
 from microbit import *
+from Analog_Gas import Analog_Gas
 
-animation=[Image("00900:00900:99999:00900:00900"),
-                   Image("90009:09090:00900:09090:90009"),
-                   Image("00000:00000:00900:00000:00000"),
-                   Image("00000:09990:09990:09990:00000"),
-                   Image("00000:00000:00900:00000:00000"),
-                   Image("00900:09090:09990:09090:90009")
-                  ]
-while not button_a.is_pressed():
-    display.show(animation, delay=1000)
+gas=Analog_Gas(pin0)
 
-    #разограв датчика
-    #снятие показаний возрастает отображение на дисплее, как прекратит
+gas.calibrate()
+while True:
+     display.scroll(gas.get_signal())
