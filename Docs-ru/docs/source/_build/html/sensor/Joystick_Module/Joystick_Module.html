@@ -52,6 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/direction.html">Компас</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/speech.html">Речь</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/radio.html">Радиосигнал</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/NeoPixel.html">Адресная светодиодная лента</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul>
@@ -138,6 +139,7 @@
              
   <section id="id1">
 <h1>Джойстик<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p><a class="reference download internal" download="" href="../../_downloads/87e6ee531c040ad3b9f108609cb6844f/Joystick.py"><code class="xref download docutils literal notranslate"><span class="pre">Скачать</span> <span class="pre">файл</span> <span class="pre">с</span> <span class="pre">классов</span></code></a></p>
 <a class="reference internal image-reference" href="../../_images/Joystick_Module.png"><img alt="../../_images/Joystick_Module.png" class="align-center" src="../../_images/Joystick_Module.png" style="width: 100px;" /></a>
 <p>Аналоговый джойстик чувствителен к тому, насколько далеко Вы перемещаете стик в любом
 конкретном направлении. Направление влево/вправо называют горизонтальной осью (осью X).
@@ -192,13 +194,15 @@
 <section id="id3">
 <h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">Joystick_Module</span> <span class="kn">import</span> <span class="n">Joystick</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
 
-<span class="n">joys</span><span class="o">=</span><span class="n">Joystick</span><span class="p">(</span><span class="n">pin0</span><span class="p">,</span> <span class="n">pin1</span><span class="p">,</span> <span class="n">pin2</span><span class="p">)</span>
-
-<span class="k">while</span>  <span class="kc">True</span> <span class="p">:</span>
-     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">joys</span><span class="o">.</span><span class="n">play_diagonal</span><span class="p">())</span>
-     <span class="n">sleep</span> <span class="p">(</span> <span class="mi">100</span> <span class="p">)</span>
+<span class="n">np</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">pin0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">np</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>

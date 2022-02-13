@@ -1,6 +1,8 @@
 Датчик температуры (аналоговый)
 -------------------------------
 
+:download:`Скачать файл с классов <Analog_Temperature.py>`
+
 .. image:: Analog_Temperature_Sensor.png
     :width: 100px
     :align: center

@@ -1,6 +1,8 @@
 Кнопка (концевик)
 -----------------
 
+:download:`Скачать файл с классов <Crash_Sensor.py>`
+
 .. image:: Crash_Sensor.png
     :width: 100px
     :align: center

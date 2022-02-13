@@ -1,6 +1,8 @@
 Датчик Холла (магнитное поле)
 -----------------------------
 
+:download:`Скачать файл с классов <Hall_Magnetic.py>`
+
 .. image:: Hall_Magnetic_Sensor.png
     :width: 100px
     :align: center
