@@ -1,6 +1,8 @@
 Кнопка
 -------
 
+:download:`Скачать файл с классов <Push_Button.py>`
+
 .. image:: Digital_Push_Button.png
     :width: 100px
     :align: center

@@ -1,6 +1,8 @@
 Датчик Инфракрасный датчик препятствий
 --------------------------------------
 
+:download:`Скачать файл с классов <Infrared_Detector.py>`
+
 .. image:: Infrared_Obstacle_Detector_Sensor.png
     :width: 200px
     :align: center

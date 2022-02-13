@@ -19,7 +19,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
     <link rel="search" title="Поиск" href="../../search.html" />
-    <link rel="next" title="Активный зуммер" href="../Active_Buzzer_Module/Active_Buzzer_Module.html" />
+    <link rel="next" title="Активный зуммер" href="../Active_Buzzer/Active_Buzzer_Module.html" />
     <link rel="prev" title="Сверхяркий светодиод" href="../3W_LED_Module/3W_LED_Module.html" /> 
 </head>
 
@@ -52,6 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/direction.html">Компас</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/speech.html">Речь</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/radio.html">Радиосигнал</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/NeoPixel.html">Адресная светодиодная лента</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul>
@@ -61,13 +62,14 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../sensor.html">Датчики</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Microbit_Sensor_Shield_V2/Microbit_Shield_V2.html">Шилд для датчиков V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Driver/Driver_Motor.html">Драйвер моторов L298</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../3W_LED_Module/3W_LED_Module.html">Сверхяркий светодиод</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Двухстрочный монитор 1602_I2C</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Класс</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">Пример программы</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer_Module/Active_Buzzer_Module.html">Активный зуммер</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer/Active_Buzzer_Module.html">Активный зуммер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../LED_Module/LED_Module.html">Модуль светодиода</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Micro_Servo/Micro_Servo.html">Сервопривод</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Passive_Buzzer_module/Passive_Buzze.html">Пассивный зуммер</a></li>
@@ -137,7 +139,22 @@
              
   <section id="i2c">
 <h1>Двухстрочный монитор 1602_I2C<a class="headerlink" href="#i2c" title="Ссылка на этот заголовок"></a></h1>
+<p><a class="reference download internal" download="" href="../../_downloads/c2c190efdbe641c1c2d988e94166649d/1602_I2C_Module.py"><code class="xref download docutils literal notranslate"><span class="pre">Скачать</span> <span class="pre">файл</span> <span class="pre">с</span> <span class="pre">классов</span></code></a></p>
+<p><strong>I2C / IIC (Inter-Integrated Circuit)</strong> – это протокол, изначально создававшийся для связи интегральных
+микросхем внутри электронного устройства. Разработка принадлежит фирме Philips.</p>
+<p>В основе i2c протокола является использование 8-битной шины, которая нужна для связи блоков в управляющей
+электронике, и системе адресации, благодаря которой можно общаться по одним и тем же проводам с
+несколькими устройствами.</p>
 <a class="reference internal image-reference" href="../../_images/1602_I2C_Module.png"><img alt="../../_images/1602_I2C_Module.png" class="align-center" src="../../_images/1602_I2C_Module.png" style="width: 200px;" /></a>
+<ul class="simple">
+<li><p>16 знаков шириной, 2 ряда;</p></li>
+<li><p>Белый текст на синем фоне;</p></li>
+<li><p>Рабочее напряжение чипа: 4,5-5,5</p></li>
+<li><p>Оптимальное рабочее напряжение модуля 5,0 В.</p></li>
+<li><p>Включенная одиночная светодиодная подсветка легко регулируется с помощью резистора.</p></li>
+<li><p>Встроенный набор символов поддерживает английский текст</p></li>
+<li><p>Настройка потенциометром контраста</p></li>
+</ul>
 <section id="id1">
 <h2>Класс<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py class">
@@ -161,7 +178,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
         <a href="../3W_LED_Module/3W_LED_Module.html" class="btn btn-neutral float-left" title="Сверхяркий светодиод" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
-        <a href="../Active_Buzzer_Module/Active_Buzzer_Module.html" class="btn btn-neutral float-right" title="Активный зуммер" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../Active_Buzzer/Active_Buzzer_Module.html" class="btn btn-neutral float-right" title="Активный зуммер" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

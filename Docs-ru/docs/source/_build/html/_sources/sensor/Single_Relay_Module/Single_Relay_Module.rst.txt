@@ -1,6 +1,8 @@
 Реле
 ----
 
+:download:`Скачать файл с классов <Single_Relay.py>`
+
 .. image:: Single_Relay_Module.png
     :width: 100px
     :align: center

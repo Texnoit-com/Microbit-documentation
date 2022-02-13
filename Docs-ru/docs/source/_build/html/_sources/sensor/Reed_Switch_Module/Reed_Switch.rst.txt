@@ -1,6 +1,8 @@
 Датчик геркона
 --------------
 
+:download:`Скачать файл с классов <Reed_Switch.py>`
+
 .. image:: Reed_Switch_Module.png
     :width: 100px
     :align: center

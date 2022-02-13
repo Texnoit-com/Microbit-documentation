@@ -1,6 +1,8 @@
 Джойстик
 --------
 
+:download:`Скачать файл с классов <Joystick.py>`
+
 .. image:: Joystick_Module.png
     :width: 100px
     :align: center
