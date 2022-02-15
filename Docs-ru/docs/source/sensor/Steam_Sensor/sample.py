@@ -1,5 +1,7 @@
 from microbit import *
+from Steam import  Steam
 
-while  True :
-     display.scroll('Test')
-     sleep ( 1000 )
+steam_1= Steam(pin0)
+
+while True:
+     display.scroll(steam_1.get_signal())

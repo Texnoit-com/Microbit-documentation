@@ -1,5 +1,7 @@
 from microbit import *
+from Photocell import  Photocell
 
-while  True :
-     display.scroll('Test')
-     sleep ( 1000 )
+photo= Photocell(pin0)
+
+while True:
+     display.scroll(photo.get_signal())

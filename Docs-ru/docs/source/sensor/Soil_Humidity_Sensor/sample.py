@@ -1,5 +1,7 @@
 from microbit import *
+from Soil_Humidity import  Soil_Humidity
 
-while  True :
-     display.scroll('Test')
-     sleep ( 1000 )
+soil= Soil_Humidity(pin0)
+
+while True:
+     display.scroll(soil.get_signal())

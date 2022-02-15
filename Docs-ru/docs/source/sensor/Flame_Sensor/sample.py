@@ -1,5 +1,8 @@
 from microbit import *
+from Flame import  Flame
 
-while  True :
-     display.scroll('Test')
-     sleep ( 1000 )
+fire= Flame(pin0)
+
+fire.calibrate()
+while True:
+     display.scroll(fire.get_signal())
