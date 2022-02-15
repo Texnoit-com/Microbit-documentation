@@ -1,5 +1,7 @@
 from microbit import *
+from Water import  Water
 
-while  True :
-     display.scroll('Test')
-     sleep ( 1000 )
+wat= Water(pin0)
+
+while True:
+     display.scroll(wat.get_signal())
