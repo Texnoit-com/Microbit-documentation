@@ -148,19 +148,28 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Digital_Tilt</span></span><a class="headerlink" href="#Digital_Tilt" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Класс используется для определения объектов, имеющих поведение датчика вибрации.</p>
+<p>Пример объявления объекта:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tilt</span><span class="o">=</span> <span class="n">Digital_Tilt</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">??()</span></span></dt>
+<dt class="sig sig-object py" id="tilt.vibration">
+<span class="sig-prename descclassname"><span class="pre">tilt.</span></span><span class="sig-name descname"><span class="pre">vibration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tilt.vibration" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Команда возвращает <strong>True</strong>, если произошла вибрация датчика.</p>
 </section>
 <section id="id3">
 <h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Digital_Tilt</span> <span class="kn">import</span>  <span class="n">Digital_Tilt</span>
 
-<span class="k">while</span>  <span class="kc">True</span> <span class="p">:</span>
-     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
-     <span class="n">sleep</span> <span class="p">(</span> <span class="mi">1000</span> <span class="p">)</span>
+<span class="n">tilt</span><span class="o">=</span> <span class="n">Digital_Tilt</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+     <span class="k">if</span> <span class="n">tilt</span><span class="o">.</span><span class="n">vibration</span><span class="p">():</span>
+         <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">YES</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

@@ -139,28 +139,40 @@
              
   <section id="id1">
 <h1>Датчик давления<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
-<p><a class="reference download internal" download="" href="../../_downloads/ec7b075042d4220399c32f71dc3e2b4b/Thin-film_Pressure.py"><code class="xref download docutils literal notranslate"><span class="pre">Скачать</span> <span class="pre">файл</span> <span class="pre">с</span> <span class="pre">классов</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/1c1370d82fdd784aa48f8b96a768ce91/Thin_film_Pressure.py"><code class="xref download docutils literal notranslate"><span class="pre">Скачать</span> <span class="pre">файл</span> <span class="pre">с</span> <span class="pre">классов</span></code></a></p>
+<p>Датчик использует гибкий чувствительный к давлению материал с ультратонкой пленкой. Он водонепроницаем
+и чувствителен к давлению.</p>
+<p>Когда датчик определяет внешнее давление, сопротивление датчика изменится. Затем через схему можно преобразовать изменения сопротивления в изменения напряжения, вывести его на конце сигнала.
+Таким образом, мы можем получить условия изменения давления, обнаружив изменения сигнала.</p>
 <a class="reference internal image-reference" href="../../_images/Thin-film_Pressure.png"><img alt="../../_images/Thin-film_Pressure.png" class="align-center" src="../../_images/Thin-film_Pressure.png" style="width: 200px;" /></a>
 <section id="id2">
 <h2>Класс<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">Thin-film_Pressure</span></span></dt>
+<dt class="sig sig-object py" id="Thin_film_Pressure">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Thin_film_Pressure</span></span><a class="headerlink" href="#Thin_film_Pressure" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Класс используется для определения объектов, имеющих поведение датчика давления.</p>
+<p>Пример объявления объекта:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pressure</span><span class="o">=</span> <span class="n">Thin_film_Pressure</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">??()</span></span></dt>
+<dt class="sig sig-object py" id="pressure.get_signal">
+<span class="sig-prename descclassname"><span class="pre">pressure.</span></span><span class="sig-name descname"><span class="pre">get_signal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pressure.get_signal" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Команда позволяет получить аналоговый сигнал с датчика</p>
 </section>
 <section id="id3">
 <h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Thin_film_Pressure</span> <span class="kn">import</span>  <span class="n">Thin_film_Pressure</span>
 
-<span class="k">while</span>  <span class="kc">True</span> <span class="p">:</span>
-     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
-     <span class="n">sleep</span> <span class="p">(</span> <span class="mi">1000</span> <span class="p">)</span>
+<span class="n">pressure</span><span class="o">=</span> <span class="n">Thin_film_Pressure</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">pressure</span><span class="o">.</span><span class="n">get_signal</span><span class="p">())</span>
 </pre></div>
 </div>
 </section>
