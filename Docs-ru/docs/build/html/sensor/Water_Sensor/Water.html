@@ -139,6 +139,8 @@
   <section id="id1">
 <h1>Датчик протечки<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
 <p><a class="reference download internal" download="" href="../../_downloads/93b98f4ecb44928f7a9cb49d64058e4e/Water.py"><code class="xref download docutils literal notranslate"><span class="pre">Скачать</span> <span class="pre">файл</span> <span class="pre">с</span> <span class="pre">классов</span></code></a></p>
+<p>Датчик может измерять объем капли воды или количество воды по множеству следов открытых параллельных
+линий и уменьшения сопротивляемости.</p>
 <a class="reference internal image-reference" href="../../_images/Water_Sensor.png"><img alt="../../_images/Water_Sensor.png" class="align-center" src="../../_images/Water_Sensor.png" style="width: 100px;" /></a>
 <section id="id2">
 <h2>Класс<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
@@ -147,19 +149,27 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Water</span></span><a class="headerlink" href="#Water" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Класс используется для определения объектов, имеющих поведение датчика протечки воды.</p>
+<p>Пример объявления объекта:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wat</span><span class="o">=</span> <span class="n">Water</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">??()</span></span></dt>
+<dt class="sig sig-object py" id="wat.get_signal">
+<span class="sig-prename descclassname"><span class="pre">wat.</span></span><span class="sig-name descname"><span class="pre">get_signal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wat.get_signal" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Команда позволяет получить аналоговый сигнал с датчика</p>
 </section>
 <section id="id3">
 <h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Water</span> <span class="kn">import</span>  <span class="n">Water</span>
 
-<span class="k">while</span>  <span class="kc">True</span> <span class="p">:</span>
-     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
-     <span class="n">sleep</span> <span class="p">(</span> <span class="mi">1000</span> <span class="p">)</span>
+<span class="n">wat</span><span class="o">=</span> <span class="n">Water</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">wat</span><span class="o">.</span><span class="n">get_signal</span><span class="p">())</span>
 </pre></div>
 </div>
 </section>

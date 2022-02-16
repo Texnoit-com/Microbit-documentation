@@ -1,5 +1,9 @@
 from microbit import *
+from TEMT import TEMT
 
-while  True :
-     display.scroll('Test')
-     sleep ( 1000 )
+temp=TEMT(pin0)
+
+while True:
+
+    display.scroll(temp.get_signal())
+    sleep(1000)

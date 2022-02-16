@@ -1,5 +1,8 @@
 from microbit import *
+from Digital_Tilt import  Digital_Tilt
 
-while  True :
-     display.scroll('Test')
-     sleep ( 1000 )
+tilt= Digital_Tilt(pin0)
+
+while True:
+     if tilt.vibration():
+         display.show(Image.YES)
