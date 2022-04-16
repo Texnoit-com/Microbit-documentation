@@ -1,8 +1,9 @@
 from microbit import *
 
+
 class Digital_Tilt:
 
-    def __init__(self, set_pin:MicroBitAnalogDigitalPin):
+    def __init__(self, set_pin: MicroBitAnalogDigitalPin):
         self.set_pin = set_pin
 
     def vibration(self):

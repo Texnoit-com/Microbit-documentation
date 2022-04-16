@@ -21,7 +21,7 @@ ONE_G = 1024
 
 # Some maths functions to help us
 
-def clamp(minimum, n, maximum):
+def clamp(minimum, n, maximum) -> int:
     """Return the nearest value to n, that's within minimum to maximum (incl)
     """
     return max(minimum, min(n, maximum))

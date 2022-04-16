@@ -1,15 +1,16 @@
 from microbit import MicroBitAnalogDigitalPin
 
+
 class LED_Module():
 
-    def __init__(self, set:MicroBitAnalogDigitalPin):
-        self.set = set
+    def __init__(self, value: MicroBitAnalogDigitalPin):
+        self.value = value
 
-    def on (self)->None:
-        self.set.write_digital(1)
+    def on(self) -> None:
+        self.value.write_digital(1)
 
-    def off (self)->None:
-        self.set.write_digital(0)
+    def off(self) -> None:
+        self.value.write_digital(0)
 
-    def bright (self, arg:int)->None:
-        self.set.write_analog(arg)
+    def bright(self, arg: int) -> None:
+        self.value.write_analog(arg)

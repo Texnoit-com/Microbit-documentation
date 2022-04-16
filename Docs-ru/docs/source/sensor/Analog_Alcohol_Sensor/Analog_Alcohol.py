@@ -1,5 +1,6 @@
 from microbit import *
 
+
 class Analog_Alcohol:
 
     def __init__(self, set_pin:MicroBitAnalogDigitalPin):

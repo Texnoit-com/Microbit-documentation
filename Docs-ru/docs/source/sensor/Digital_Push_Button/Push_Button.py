@@ -1,27 +1,28 @@
 from microbit import *
 
+
 class Push_Button():
 
-    def __init__(self, set:MicroBitAnalogDigitalPin):
-        self.set = set
-        self.count=0
+    def __init__(self, value: MicroBitAnalogDigitalPin, count: int = 0):
+        self.value = value
+        self.count = count
 
-    def is_pressed(self)->bool:
-        if self.set.read_analog() < 10:
+    def is_pressed(self) -> bool:
+        if self.value.read_analog() < 10:
             self.count += 1
             return True
         return False
 
-    def click(self, time:int)->bool:
-        if self.set.read_analog() < 10:
+    def click(self, time: int) -> bool:
+        if self.value.read_analog() < 10:
             sleep(time)
-            if self.set.read_analog() > 10:
+            if self.value.read_analog() > 10:
                 self.count += 1
                 return True
         return False
 
-    def reset_pressed(self)->None:
-        self.count=0
+    def revalue_pressed(self) -> None:
+        self.count = 0
 
-    def count_pressed(self)->int:
+    def count_pressed(self) -> int:
         return self.count

@@ -20,3 +20,4 @@ Docs-ru/docs/source/api/
 Docs-ru/docs/source/sensor/
 
 
+Связаться с автором проекта (http://texnoit.com/)

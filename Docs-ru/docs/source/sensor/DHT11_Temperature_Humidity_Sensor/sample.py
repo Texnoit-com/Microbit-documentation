@@ -1,8 +1,9 @@
 from microbit import *
-from Analog_Gas import Analog_Gas
+from DHT11 import DHT11
 
-gas=Analog_Gas(pin0)
+i2c.init(sda=pin15, scl=pin13)
+sensor = DHT11(i2c)
 
-gas.calibrate()
-while True:
-     display.scroll(gas.get_signal())
+sensor.measure()
+print(sensor.temperature())
+print(sensor.humidity())

@@ -139,7 +139,7 @@
              
   <section id="dht11">
 <h1>Датчик температуры (DHT11)<a class="headerlink" href="#dht11" title="Ссылка на этот заголовок"></a></h1>
-<p><a class="reference download internal" download="" href="../../_downloads/13f934c2c8287812d05c43f28b4fe709/DHT11_Temperature.py"><code class="xref download docutils literal notranslate"><span class="pre">Скачать</span> <span class="pre">файл</span> <span class="pre">с</span> <span class="pre">классов</span></code></a></p>
+<p><code class="xref download docutils literal notranslate"><span class="pre">Скачать</span> <span class="pre">файл</span> <span class="pre">с</span> <span class="pre">классов</span></code></p>
 <a class="reference internal image-reference" href="../../_images/DHT11_Temperature.png"><img alt="../../_images/DHT11_Temperature.png" class="align-center" src="../../_images/DHT11_Temperature.png" style="width: 200px;" /></a>
 <section id="id1">
 <h2>Класс<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
@@ -157,13 +157,14 @@
 <section id="id2">
 <h2>Пример программы<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">Analog_Gas</span> <span class="kn">import</span> <span class="n">Analog_Gas</span>
+<span class="kn">from</span> <span class="nn">DHT11</span> <span class="kn">import</span> <span class="n">DHT11</span>
 
-<span class="n">gas</span><span class="o">=</span><span class="n">Analog_Gas</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+<span class="n">i2c</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">sda</span><span class="o">=</span><span class="n">pin15</span><span class="p">,</span> <span class="n">scl</span><span class="o">=</span><span class="n">pin13</span><span class="p">)</span>
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">DHT11</span><span class="p">(</span><span class="n">i2c</span><span class="p">)</span>
 
-<span class="n">gas</span><span class="o">.</span><span class="n">calibrate</span><span class="p">()</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">gas</span><span class="o">.</span><span class="n">get_signal</span><span class="p">())</span>
+<span class="n">sensor</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sensor</span><span class="o">.</span><span class="n">temperature</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sensor</span><span class="o">.</span><span class="n">humidity</span><span class="p">())</span>
 </pre></div>
 </div>
 </section>

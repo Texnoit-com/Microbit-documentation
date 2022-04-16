@@ -140,6 +140,10 @@
   <section id="id1">
 <h1>Датчик пара<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
 <p><a class="reference download internal" download="" href="../../_downloads/37af2a1c0138ab0e69d07a069637f4d5/Steam.py"><code class="xref download docutils literal notranslate"><span class="pre">Скачать</span> <span class="pre">файл</span> <span class="pre">с</span> <span class="pre">классов</span></code></a></p>
+<p><strong>Датчик пара</strong> представляет собой аналоговый датчик, который может использоваться как простой датчик дождевой
+воды или датчик уровня жидкости.
+Когда влажность на чувствительной области этого датчика повышается, выходное напряжение его сигнального
+конца увеличивается.</p>
 <a class="reference internal image-reference" href="../../_images/Steam_Sensor.png"><img alt="../../_images/Steam_Sensor.png" class="align-center" src="../../_images/Steam_Sensor.png" style="width: 100px;" /></a>
 <section id="id2">
 <h2>Класс<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
@@ -148,19 +152,27 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Steam</span></span><a class="headerlink" href="#Steam" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Класс используется для определения объектов, имеющих поведение датчика пара.</p>
+<p>Пример объявления объекта:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">steam_1</span><span class="o">=</span> <span class="n">Steam</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">??()</span></span></dt>
+<dt class="sig sig-object py" id="steam_1.get_signal">
+<span class="sig-prename descclassname"><span class="pre">steam_1.</span></span><span class="sig-name descname"><span class="pre">get_signal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#steam_1.get_signal" title="Ссылка на это определение"></a></dt>
 <dd></dd></dl>
 
+<p>Команда позволяет получить аналоговый сигнал с датчика</p>
 </section>
 <section id="id3">
 <h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Steam</span> <span class="kn">import</span>  <span class="n">Steam</span>
 
-<span class="k">while</span>  <span class="kc">True</span> <span class="p">:</span>
-     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
-     <span class="n">sleep</span> <span class="p">(</span> <span class="mi">1000</span> <span class="p">)</span>
+<span class="n">steam_1</span><span class="o">=</span> <span class="n">Steam</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+     <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">steam_1</span><span class="o">.</span><span class="n">get_signal</span><span class="p">())</span>
 </pre></div>
 </div>
 </section>

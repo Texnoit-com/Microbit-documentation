@@ -4,8 +4,9 @@ Conway's Game Of Life for the micro:bit
 Press button A or tap the micro:bit to generate a fresh layout.
 '''
 
-import microbit
 import random
+
+import microbit
 
 arena1 = bytearray(7 * 7)
 arena2 = bytearray(7 * 7)

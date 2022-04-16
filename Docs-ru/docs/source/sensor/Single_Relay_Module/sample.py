@@ -1,7 +1,8 @@
 from microbit import *
+
 from Single_Relay import Single_Relay
 
-relay=Single_Relay(pin1)
+relay = Single_Relay(pin1)
 
 relay.on()
 sleep(1000)

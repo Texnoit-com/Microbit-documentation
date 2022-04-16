@@ -5,7 +5,7 @@ Two-dimensional bubble level which uses the accelerometer.
 from microbit import *
 
 sensitivity = 'medium'  # Change to 'low', 'medium', or 'high' to adjust
-divisors = {'low':64, 'medium':32, 'high':16}
+divisors = {'low': 64, 'medium': 32, 'high': 16}
 
 def clamp(number, min, max):
     """Returns number limited to range specified by min and max, inclusive"""

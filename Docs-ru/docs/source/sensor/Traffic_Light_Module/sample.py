@@ -1,7 +1,8 @@
 from microbit import *
+
 from Traffic_Light import Traffic_Light
 
-led1=Traffic_Light(pin0,pin1,pin2)
+led1 = Traffic_Light(pin0, pin1, pin2)
 
 
 while True:
