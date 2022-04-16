@@ -56,8 +56,8 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">Microbit Micropython API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Модуль Microbit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
 <li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
@@ -65,7 +65,8 @@
 <li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
 <li class="toctree-l2"><a class="reference internal" href="display.html">Дисплей</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filesystem.html">Файловая система</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">Протокол I²C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html#id2">Подключение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
@@ -119,78 +120,76 @@
              
   <section id="module-random">
 <span id="random"></span><h1>Random (Генератор случайных чисел)<a class="headerlink" href="#module-random" title="Ссылка на этот заголовок"></a></h1>
-<p>This module is based upon the <code class="docutils literal notranslate"><span class="pre">random</span></code> module in the Python standard library.
-It contains functions for generating random behaviour.</p>
-<p>To access this module you need to:</p>
+<p>Этот модуль основан на <code class="docutils literal notranslate"><span class="pre">random</span></code> в стандартной библиотеке Python.
+Он содержит функции для генерации случайного поведения.</p>
+<p>Для доступа к этому модулю вам необходимо:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 </pre></div>
 </div>
-<p>We assume you have done this for the examples below.</p>
+<p>Мы предполагаем, что Вы сделали это для приведенных ниже примеров.</p>
 <section id="id1">
 <h2>Функции<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="random.getrandbits">
 <span class="sig-prename descclassname"><span class="pre">random.</span></span><span class="sig-name descname"><span class="pre">getrandbits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#random.getrandbits" title="Ссылка на это определение"></a></dt>
-<dd><p>Returns an integer with <code class="docutils literal notranslate"><span class="pre">n</span></code> random bits.</p>
+<dd><p>Возвращает целое случайное число <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
 </dd></dl>
 
 <div class="admonition warning">
 <p class="admonition-title">Предупреждение</p>
-<p>Because the underlying generator function returns at most 30 bits, <code class="docutils literal notranslate"><span class="pre">n</span></code>
-may only be a value between 1-30 (inclusive).</p>
+<p>Поскольку базовая функция генератора возвращает не более 30 бит, <code class="docutils literal notranslate"><span class="pre">n</span></code>
+может быть только значением от 1 до 30 (включительно).</p>
 </div>
 <dl class="py function">
 <dt class="sig sig-object py" id="random.seed">
 <span class="sig-prename descclassname"><span class="pre">random.</span></span><span class="sig-name descname"><span class="pre">seed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#random.seed" title="Ссылка на это определение"></a></dt>
-<dd><p>Initialize the random number generator with a known integer <code class="docutils literal notranslate"><span class="pre">n</span></code>. This
-will give you reproducibly deterministic randomness from a given starting
-state (<code class="docutils literal notranslate"><span class="pre">n</span></code>).</p>
+<dd><p>Используется для инициализации случайных чисел. По умолчанию генератор случайных чисел
+использует текущее системное время. Если вы дважды используете одно и то же начальное значение,
+вы получите один и тот же результат, что означает случайное число дважды.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="random.randint">
 <span class="sig-prename descclassname"><span class="pre">random.</span></span><span class="sig-name descname"><span class="pre">randint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#random.randint" title="Ссылка на это определение"></a></dt>
-<dd><p>Return a random integer <code class="docutils literal notranslate"><span class="pre">N</span></code> such that <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">N</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code>. Alias for
-<code class="docutils literal notranslate"><span class="pre">randrange(a,</span> <span class="pre">b+1)</span></code>.</p>
+<dd><p>Возвращает случайное целое число <code class="docutils literal notranslate"><span class="pre">N</span></code> в диапазоне <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">N</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="random.randrange">
 <span class="sig-prename descclassname"><span class="pre">random.</span></span><span class="sig-name descname"><span class="pre">randrange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#random.randrange" title="Ссылка на это определение"></a></dt>
-<dd><p>Return a randomly selected integer between zero and up to (but not
-including) <code class="docutils literal notranslate"><span class="pre">stop</span></code>.</p>
+<dd><p>Возвращает случайно выбранное целое число от нуля до <code class="docutils literal notranslate"><span class="pre">stop</span></code>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="id0">
 <span class="sig-prename descclassname"><span class="pre">random.</span></span><span class="sig-name descname"><span class="pre">randrange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Ссылка на это определение"></a></dt>
-<dd><p>Return a randomly selected integer from <code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop)</span></code>.</p>
+<dd><p>Возвращает случайно выбранное целое число из последовательности <code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop)</span></code> .</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="id2">
 <span class="sig-prename descclassname"><span class="pre">random.</span></span><span class="sig-name descname"><span class="pre">randrange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Ссылка на это определение"></a></dt>
-<dd><p>Return a randomly selected element from <code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code>.</p>
+<dd><p>Возвращает случайно выбранное целое число из последовательности с шагом <code class="docutils literal notranslate"><span class="pre">step</span></code>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="random.choice">
 <span class="sig-prename descclassname"><span class="pre">random.</span></span><span class="sig-name descname"><span class="pre">choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#random.choice" title="Ссылка на это определение"></a></dt>
-<dd><p>Return a random element from the non-empty sequence <code class="docutils literal notranslate"><span class="pre">seq</span></code>. If <code class="docutils literal notranslate"><span class="pre">seq</span></code> is
-empty, raises <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.</p>
+<dd><p>Возвращает случайный элемент из непустой последовательности <code class="docutils literal notranslate"><span class="pre">seq</span></code>. Если  <code class="docutils literal notranslate"><span class="pre">seq</span></code> является
+пустой, возвращает <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="random.random">
 <span class="sig-prename descclassname"><span class="pre">random.</span></span><span class="sig-name descname"><span class="pre">random</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#random.random" title="Ссылка на это определение"></a></dt>
-<dd><p>Return the next random floating point number in the range [0.0, 1.0)</p>
+<dd><p>Возвращает следующее случайное число с плавающей запятой в диапазоне [0.0, 1.0)</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="random.uniform">
 <span class="sig-prename descclassname"><span class="pre">random.</span></span><span class="sig-name descname"><span class="pre">uniform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#random.uniform" title="Ссылка на это определение"></a></dt>
-<dd><p>Return a random floating point number <code class="docutils literal notranslate"><span class="pre">N</span></code> such that <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">N</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code>
-for <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">&lt;=</span> <span class="pre">N</span> <span class="pre">&lt;=</span> <span class="pre">a</span></code> for <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">a</span></code>.</p>
+<dd><p>Возвращает случайное число с плавающей запятой <code class="docutils literal notranslate"><span class="pre">N</span></code> такой, что <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">N</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code>
+для <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code> и <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">&lt;=</span> <span class="pre">N</span> <span class="pre">&lt;=</span> <span class="pre">a</span></code> для <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">a</span></code>.</p>
 </dd></dl>
 
 </section>

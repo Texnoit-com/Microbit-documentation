@@ -3,14 +3,13 @@
 
 .. py:module:: microbit.spi
 
-The ``spi`` module lets you talk to a device connected to your board using
-a serial peripheral interface (SPI) bus. SPI uses a so-called master-slave
-architecture with a single master. You will need to specify the connections
-for three signals:
+Модуль ``spi`` позволяет вам общаться с устройством, подключенным к плате, используя
+шину последовательного периферийного интерфейса (SPI). SPI использует master-slave - архитектура с одним мастером. 
+Вам нужно будет указать соединения для трех сигналов:
 
-* SCLK : Serial Clock (output from master).
-* MOSI : Master Output, Slave Input (output from master).
-* MISO : Master Input, Slave Output (output from slave).
+* SCLK : тактовый сигнал   .
+* MOSI : Master Output, Slave Input (Ведущий передает, Ведомый принимает).
+* MISO : Master Input, Slave Output (Ведущий принимает, Ведомый передает).
 
 
 Функции
@@ -18,18 +17,18 @@ for three signals:
 
 .. method:: init(baudrate=1000000, bits=8, mode=0, sclk=pin13, mosi=pin15, miso=pin14)
 
-    Initialize SPI communication with the specified parameters on the
-    specified ``pins``. Note that for correct communication, the parameters
-    have to be the same on both communicating devices.
+    Инициализировать связь SPI с указанными параметрами на
+    указанные ``pin``. Обратите внимание, что для правильной связи параметры
+    должны быть одинаковыми на обоих взаимодействующих устройствах.
 
-    The ``baudrate`` defines the speed of communication.
+    ``baudrate`` определяет скорость общения.
 
-    The ``bits`` defines the size of bytes being transmitted. Currently only
-    ``bits=8`` is supported. However, this may change in the future.
+    ``bits`` определяет размер передаваемых байтов. В настоящее время только ``bits=8`` 
+    поддерживается. Однако это может измениться в будущем.
 
-    The ``mode`` determines the combination of clock polarity and phase
-    according to the following convention, with polarity as the high order bit
-    and phase as the low order bit:
+    ``mode`` определяет комбинацию тактовых часов и фазы
+    согласно следующему соглашению, с тактом в качестве старшего бита
+    и фаза как младший бит:
 
     +----------+-----------------+--------------+
     | SPI Mode | Polarity (CPOL) | Phase (CPHA) |
@@ -43,26 +42,25 @@ for three signals:
     | 3        | 1               | 1            |
     +----------+-----------------+--------------+
 
-    Polarity (aka CPOL) 0 means that the clock is at logic value 0 when idle
-    and goes high (logic value 1) when active; polarity 1 means the clock is
-    at logic value 1 when idle and goes low (logic value 0) when active. Phase
-    (aka CPHA) 0 means that data is sampled on the leading edge of the clock,
-    and 1 means on the trailing edge
+    Полярность (также известная как CPOL) 0 означает, что часы находятся на логическом значении 0 в режиме ожидания.
+    и становится высоким (логическое значение 1), когда активен; полярность 1 означает, что часы
+    на логическом значении 1 в режиме ожидания и становится низким (логический 0) в активном состоянии. Фаза
+    (он же CPHA) 0 означает, что выборка данных производится по переднему фронту тактового сигнала,
+    и 1 означает на задней кромке
     (viz. https://en.wikipedia.org/wiki/Signal_edge).
 
-    The ``sclk``, ``mosi`` and ``miso`` arguments specify the pins to use for
-    each type of signal.
+    Аргументы ``sclk``, ``mosi`` и ``miso`` определяют контакты, которые будут использоваться для
+    каждый тип сигнала.
 
 .. method:: spi.read(nbytes)
 
-   Read at most ``nbytes``. Returns what was read.
+   Читать не более ``nbytes``. Возвращает прочитанное.
 
 .. method:: spi.write(buffer)
 
-   Write the ``buffer`` of bytes to the bus.
+   Запишите ``буфер`` байтов на шину.
 
 .. method:: spi.write_readinto(out, in)
 
-   Write the ``out`` buffer to the bus and read any response into the ``in``
-   buffer. The length of the buffers should be the same. The buffers can be
-   the same object.
+   Запишите буфер ``out`` на шину и прочитайте любой ответ в ``in`` буфер. 
+   Длина буфера должна быть одинаковой.

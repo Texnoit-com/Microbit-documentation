@@ -52,12 +52,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/direction.html">Компас</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/speech.html">Речь</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/radio.html">Радиосигнал</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/NeoPixel.html">Адресная светодиодная лента</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">Microbit Micropython API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Модуль Microbit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
 <li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
@@ -65,7 +66,8 @@
 <li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
 <li class="toctree-l2"><a class="reference internal" href="display.html">Дисплей</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filesystem.html">Файловая система</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">Протокол I²C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html#id2">Подключение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Микроконтроллер</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2">Функции</a></li>
@@ -120,74 +122,73 @@
              
   <section id="id1">
 <h1>Микроконтроллер<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
-<span class="target" id="module-machine"></span><p>The machine module contains specific functions related to the micro:bit
-hardware. Most functions in this module allow to achieve direct and
-unrestricted access to and control of hardware blocks on a system (like CPU,
-timers, buses, etc.). Used incorrectly, this can lead to malfunction, lockups,
-crashes of your board, and in extreme cases, hardware damage.</p>
+<p>Модуль машины содержит специальные функции, связанные с micro:bit аппаратное обеспечение.
+Большинство функций этого модуля позволяют добиться прямого и неограниченный доступ и управление
+аппаратными блоками в системе (такими как ЦП, таймеры, автобусы и т.д.). При неправильном использовании
+это может привести к неисправности, зависаниям, сбои вашей платы и, в крайних случаях, повреждение оборудования.</p>
 <section id="id2">
 <h2>Функции<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py method">
-<dt class="sig sig-object py" id="machine.machine.unique_id">
-<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">unique_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#machine.machine.unique_id" title="Ссылка на это определение"></a></dt>
-<dd><p>Returns a byte string with a unique identifier of a board. It will vary
-from one board instance to another.</p>
+<dt class="sig sig-object py" id="machine.unique_id">
+<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">unique_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#machine.unique_id" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает байтовую строку с уникальным идентификатором доски. Это будет варьироваться
+от одного экземпляра платы к другому.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="machine.machine.reset">
-<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#machine.machine.reset" title="Ссылка на это определение"></a></dt>
-<dd><p>Resets the device in a manner similar to pushing the external RESET button.</p>
+<dt class="sig sig-object py" id="machine.reset">
+<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#machine.reset" title="Ссылка на это определение"></a></dt>
+<dd><p>Сбрасывает устройство аналогично нажатию внешней кнопки RESET.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="machine.machine.freq">
-<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">freq</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#machine.machine.freq" title="Ссылка на это определение"></a></dt>
-<dd><p>Returns CPU frequency in hertz.</p>
+<dt class="sig sig-object py" id="machine.freq">
+<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">freq</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#machine.freq" title="Ссылка на это определение"></a></dt>
+<dd><p>Возвращает частоту процессора в герцах.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="machine.machine.disable_irq">
-<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">disable_irq</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#machine.machine.disable_irq" title="Ссылка на это определение"></a></dt>
-<dd><p>Disable interrupt requests. Returns the previous IRQ state which should be
-considered an opaque value. This return value should be passed to the
-<a class="reference internal" href="#machine.machine.enable_irq" title="machine.machine.enable_irq"><code class="xref py py-func docutils literal notranslate"><span class="pre">machine.enable_irq()</span></code></a> function to restore interrupts to their
-original state, before <a class="reference internal" href="#machine.machine.disable_irq" title="machine.machine.disable_irq"><code class="xref py py-func docutils literal notranslate"><span class="pre">machine.disable_irq()</span></code></a> was called.</p>
+<dt class="sig sig-object py" id="machine.disable_irq">
+<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">disable_irq</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#machine.disable_irq" title="Ссылка на это определение"></a></dt>
+<dd><p>Отключите запросы на прерывание. Возвращает предыдущее состояние IRQ, которое должно быть
+считается непрозрачным значением. Это возвращаемое значение должно быть передано в
+<a class="reference internal" href="#machine.enable_irq" title="machine.enable_irq"><code class="xref py py-func docutils literal notranslate"><span class="pre">machine.enable_irq()</span></code></a> действия по восстановлению прерываний до их
+исходное состояние, до <a class="reference internal" href="#machine.disable_irq" title="machine.disable_irq"><code class="xref py py-func docutils literal notranslate"><span class="pre">machine.disable_irq()</span></code></a> was called.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="machine.machine.enable_irq">
-<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">enable_irq</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#machine.machine.enable_irq" title="Ссылка на это определение"></a></dt>
-<dd><p>Re-enable interrupt requests. The <em>state</em> parameter should be the value
-that was returned from the most recent call to the
-<a class="reference internal" href="#machine.machine.disable_irq" title="machine.machine.disable_irq"><code class="xref py py-func docutils literal notranslate"><span class="pre">machine.disable_irq()</span></code></a> function.</p>
+<dt class="sig sig-object py" id="machine.enable_irq">
+<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">enable_irq</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#machine.enable_irq" title="Ссылка на это определение"></a></dt>
+<dd><p>Повторно включите запросы на прерывание. Параметр <em>state</em> должен быть значением
+которое было возвращено с самого последнего звонка в
+<a class="reference internal" href="#machine.disable_irq" title="machine.disable_irq"><code class="xref py py-func docutils literal notranslate"><span class="pre">machine.disable_irq()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="machine.machine.time_pulse_us">
-<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">time_pulse_us</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulse_level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout_us</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#machine.machine.time_pulse_us" title="Ссылка на это определение"></a></dt>
-<dd><p>Time a pulse on the given <em>pin</em>, and return the duration of the pulse in
-microseconds. The <em>pulse_level</em> argument should be 0 to time a low pulse or
-1 to time a high pulse.</p>
-<p>If the current input value of the pin is different to <em>pulse_level</em>, the
-function first (*) waits until the pin input becomes equal to
-<em>pulse_level</em>, then (**) times the duration that the pin is equal to
-<em>pulse_level</em>. If the pin is already equal to <em>pulse_level</em> then timing
-starts straight away.</p>
-<p>The function will return -2 if there was timeout waiting for condition
-marked (*) above, and -1 if there was timeout during the main measurement,
-marked (**) above. The timeout is the same for both cases and given by
-<em>timeout_us</em> (which is in microseconds).</p>
+<dt class="sig sig-object py" id="machine.time_pulse_us">
+<span class="sig-prename descclassname"><span class="pre">machine.</span></span><span class="sig-name descname"><span class="pre">time_pulse_us</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulse_level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout_us</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#machine.time_pulse_us" title="Ссылка на это определение"></a></dt>
+<dd><p>Время импульса на заданном <em>pin</em> и возвращение длительности импульса в
+микросекунды. Аргумент <em>pulse_level</em> должен быть равен 0, чтобы отсчитывать низкий импульс или
+1 для определения времени высокого пульса.</p>
+<p>Если текущее входное значение вывода отличается от <em>pulse_level</em>,
+функция сначала (*) ждет, пока ввод вывода не станет равным
+<em>pulse_level</em>, затем (**) умножить на продолжительность, на которую контакт равен
+<em>pulse_level</em>. Если вывод уже равен <em>pulse_level</em>, тогда синхронизация
+начинается сразу.</p>
+<p>Функция вернет -2, если время ожидания условия истекло.
+отмеченный (*) выше, и -1, если во время основного измерения был тайм-аут,
+отмечены (**) выше. Тайм-аут одинаков для обоих случаев и задается
+<em>timeout_us</em> (в микросекундах).</p>
 </dd></dl>
 
 </section>
 <section id="id3">
 <h2>Чтение памяти<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">machine</span></code> module allows you to read from the device’s memory, getting 1
-byte (8 bits; <code class="docutils literal notranslate"><span class="pre">mem8</span></code>), 2 byte (16 bits; <code class="docutils literal notranslate"><span class="pre">mem16</span></code>), or 4 byte (32 bits;
-<code class="docutils literal notranslate"><span class="pre">mem32</span></code>) words from physical addresses. For example: <code class="docutils literal notranslate"><span class="pre">mem8[0x00]</span></code> reads 1
-byte on physical address <code class="docutils literal notranslate"><span class="pre">0x00</span></code>. This has a number of uses, for example if
-you’d like to read data from the nRF51 registers.</p>
+<p>Модуль <code class="docutils literal notranslate"><span class="pre">machine</span></code> позволяет читать из памяти устройства, получая 1
+байт (8 бит; <code class="docutils literal notranslate"><span class="pre">mem8</span></code>), 2 байта (16 бит; <code class="docutils literal notranslate"><span class="pre">mem16</span></code>) или 4 байта (32 бита;
+<code class="docutils literal notranslate"><span class="pre">mem32</span></code>) слов с физических адресов. Например: <code class="docutils literal notranslate"><span class="pre">mem8[0x00]</span></code> читает 1
+байт по физическому адресу <code class="docutils literal notranslate"><span class="pre">0x00</span></code>. Это имеет ряд применений, например, если
+вы хотите прочитать данные из регистров nRF51.</p>
 </section>
 </section>
 

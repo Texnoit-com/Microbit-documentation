@@ -3,50 +3,40 @@ NeoPixel (Адресная светодиодная лента)
 
 .. py:module:: neopixel
 
-The ``neopixel`` module lets you use NeoPixel (WS2812) individually addressable
-RGB and RGBW **V2** LED strips with the micro:bit. Note to use the ``neopixel`` module, you
-need to import it separately with::
+Модуль «neopixel» позволяет использовать NeoPixel (WS2812) с индивидуальной адресацией.
+Обратите внимание, чтобы использовать модуль ``neopixel``, Вам нужно импортировать его отдельно::
 
     import neopixel
 
 .. note::
 
-    From our tests, the Microbit NeoPixel module can drive up to around 256
-    NeoPixels. Anything above that and you may experience weird bugs and
-    issues. The micro:bit can only supply 90mA **V1** or 190mA **V2**  to
-    external devices,larger numbers of NeoPixels require an external power
-    supply with common ground.
+    Судя по нашим тестам, модуль Microbit NeoPixel поддерживает до 256 светодиодов.
+    Micro:bit может подавать только 90 мА **V1** или 190 мА **V2** на
+    внешние устройства, большое количество светодиодов требует внешнего источника питания.
 
-    NeoPixels are designed to work at 5V, but luckily they still function using
-    the 3V supply of the BBC micro:bit. Please note that the micro:bit edge
-    connector should not be connected to anything supplying 5V.
+    NeoPixel рассчитаны на работу при напряжении 5 В, но, к счастью, они по-прежнему работают при
+    источник питания 3В от BBC micro:bit.
 
 
-NeoPixels are fun strips of multi-coloured programmable LEDs. This module
-contains everything to plug them into a micro:bit and create funky displays,
-art and games such as the demo shown below.
-
-.. image:: neopixel.gif
+.. image:: images/neopixel.gif
    :alt: Neopixel flexible tile
+
 Image attribution: `adafruit flexible Neopixel matrix <https://www.adafruit.com/product/2547>`
 
-To connect a strip of neopixels you'll need to attach the micro:bit as shown
-below (assuming you want to drive the pixels from pin 0 - you can connect
-neopixels to pins 1 and 2 too). The label on the crocodile clip tells you where
-to attach the other end on the neopixel strip. The VDD pin may be labelled
-as something else on some variants of neopixels - for example "V+". In some
-cases it may be called "+5V" and it is only safe to use this if you have no
-other 5V devices connected.
+Чтобы соединить ленту светодиодов, вам нужно присоеденить micro:bit, как показано на рисунке.
+ниже (при условии, что Вы хотите управлять пикселями с контакта 0). Вывод VDD может быть помечен
+как-то еще на некоторых вариантах  "V+". В некоторых случаях он может называться «+5V», 
+и его безопасно использовать только в том случае, если у вас нет
+других устройств 5V подключеных к Microbit.
+
 
 .. warning::
 
-    Do not use the 3v connector on the Microbit to power any more than 8
-    Neopixels at a time.
+    Не используйте разъем 3 В на Microbit для питания более 8 светодиодов за раз.
+    Если вы хотите использовать более 8, вы должны использовать отдельный разъем 3v-5v.
+    Желательно иметь блок питания для светодиодной ленты.
 
-    If you wish to use more than 8 Neopixels, you must use a separate 3v-5v
-    power supply for the Neopixel power pin.
-
-.. image:: neopixel-croc.png
+.. image:: images/neopixel-croc.png
 
 Класс
 =======
@@ -55,48 +45,47 @@ other 5V devices connected.
     NeoPixel(pin, n)
     NeoPixel(pin, n, bpp)
 
-    Initialise a new strip of ``n`` number of neopixel LEDs controlled via pin
-    ``pin``. The **V2** micro:bit can also support RGBW neopixels, so a third
-    argument can be passed to ``NeoPixel`` to indicate the number of bytes per
-    pixel (bpp). For RGBW, this is is ``4`` rather than the default of ``3`` for
-    RGB and GRB.
+    Создать новый обект ленты с ``n`` светодиодами, подключенную к контакту
+    ``pin``. Microbit **V2** также поддерживает светодиоды RGBW, поэтому третий
+    аргумент может передавать ``NeoPixel`` количество байтов на пиксель (bpp). 
+    Для RGBW это ``4`` а не по умолчанию ``3`` за RGB и GRB.
     
-    Each pixel is addressed by a position (starting from 0). Neopixels
-    are given RGB (red, green, blue) / RGBW (red, green, blue, white) **V2**
-    values between 0-255 as a tuple. For example, in RGB, ``(255,255,255)`` is
-    white. In RGBW, ``(255,255,255,0)`` or ``(0,0,0,255)`` is white.
+    Каждый пиксель адресуется по положению (начиная с 0). Неопиксели RGB (красный, зеленый, синий) 
+    / RGBW (красный, зеленый, синий, белый) **V2**
+    значения от 0 до 255 в виде кортежа. Например, в RGB, ``(255,255,255)``. 
+    Вариант RGBW, ``(255,255,255,0)`` или ``(0,0,0,255)`` - белый цвет.
 
     .. py:method:: clear()
 
-        Clear all the pixels.
+        Очистить все пиксели.
 
 
     .. py:method:: show()
                    write()
 
-        Show the pixels. Must be called for any updates to become visible.
-        For micro:bit **V2**, an additional ``write()`` method is
-        available and is equivalent to ``show()``
+        Включить светодиоды. Вызывается, чтобы любые обновления стали видимыми.
+            Для micro:bit **V2** есть дополнительная команда``write()`` метод
+            доступен и эквивалентен ``show()``
 
     .. py:method:: fill(colour)
 
-        **V2** Colour all pixels a given RGB/RGBW value. The `colour` argument
-        should be a tuple of the same length as the number of bytes per pixel
-        (bpp). For example ``fill((0,0,255))``. Use in conjunction with
-        ``show()`` to update the Neopixels.
+        **V2** Включает светодиоды заданным значением RGB/RGBW. Параметр `colour` должен 
+        быть кортеж той же длины, что и количество байтов на пиксель
+        (бпп). Например ``fill((0,0,255))``. Используйте вместе с
+        ``show()``, чтобы обновить состояние.
     
 Команды
 ==========
 
-Writing the colour doesn't update the display (use ``show()`` for that).
+Запись цвета не обновляет дисплей (используйте ``show()`` для этого).
 
 .. code::
 
-    np[0] = (255, 0, 128)  # first element
-    np[-1] = (0, 255, 0)  # last element
-    np.show()  # only now will the updated value be shown
+    np[0] = (255, 0, 128)  # первый светодиод
+    np[-1] = (0, 255, 0)  # последний светодиод
+    np.show()  # только после этой команды они поменяют цвет
 
-To read the colour of a specific pixel just reference it.
+Чтобы проверить цвет светодиода (созданного как список) Вызовите команду ``print``.
 
 .. code::
 
@@ -105,43 +94,31 @@ To read the colour of a specific pixel just reference it.
 Использование Neopixels
 =======================
 
-Interact with Neopixels as if they were a list of tuples. Each tuple represents
-the RGB (red, green and blue) / RGBW (red, green,blue and white) mix of colours
-for a specific pixel. The RGBW values can range between 0 to 255.
+Взаимодействуйте с лентой и библиотекой Neopixels, как со списком кортежей. 
+Каждый кортеж представляет смесь цветов RGB (красный, зеленый и синий) / RGBW (красный, зеленый, синий и белый)
+для конкретного светодиода. Значения RGBW могут варьироваться от 0 до 255..
 
-For example, initialise a strip of 8 RGB neopixels on a strip connected to pin0
-like this::
+Например, инициализируйте полосу из 8 светодиодов RGB на полосе, подключенной к контакту 0::
 
     import neopixel
     np = neopixel.NeoPixel(pin0, 8)
 
-Set pixels by indexing them (like with a Python list). For instance, to
-set the first pixel to full brightness red, you would use::
+Установите светодиоды, индексируя их (как со списком Python). Например, чтобы
+установить первый светодиод на полную яркость красного цвета::
 
     np[0] = (255, 0, 0)
 
-Or the final pixel to purple::
+Или последний светодиод в фиолетовый::
 
     np[-1] = (255, 0, 255)
 
-Get the current colour value of a pixel by indexing it. For example, to print
-the first pixel's RGB value use::
-
-    print(np[0])
-
-Finally, to push the new colour data to your Neopixel strip, use the .show()
-function::
+Наконец, чтобы передать новые данные о цвете, используйте метод .show()::
 
     np.show()
 
-If nothing is happening, it's probably because you've forgotten this final
-step..!
-
 .. note::
 
-    If you're not seeing anything change on your Neopixel strip, make sure
-    you have ``show()`` at least somewhere otherwise your updates won't be
-    shown.
+    Если вы не видите никаких изменений на ленте, убедитесь, что у вас есть ``show()`` 
 
 Примеры
 =======

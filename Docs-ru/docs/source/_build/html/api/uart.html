@@ -56,8 +56,8 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="microbit.html">Microbit Module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">Microbit Micropython API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="microbit.html">Модуль Microbit</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="microbit.html#id1">Функции</a></li>
 <li class="toctree-l3"><a class="reference internal" href="microbit.html#id2">Атрибуты</a></li>
 <li class="toctree-l3"><a class="reference internal" href="microbit.html#id3">Класс</a></li>
@@ -66,7 +66,8 @@
 <li class="toctree-l4"><a class="reference internal" href="audio.html">Audio V2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="compass.html">Компас</a></li>
 <li class="toctree-l4"><a class="reference internal" href="display.html">Дисплей</a></li>
-<li class="toctree-l4"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l4"><a class="reference internal" href="i2c.html">Протокол I²C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="i2c.html#id2">Подключение</a></li>
 <li class="toctree-l4"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
 <li class="toctree-l4"><a class="reference internal" href="speaker.html">Генератор речи <strong>V2</strong></a></li>
 <li class="toctree-l4"><a class="reference internal" href="spi.html">Протокол SPI</a></li>
@@ -82,7 +83,8 @@
 <li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
 <li class="toctree-l2"><a class="reference internal" href="display.html">Дисплей</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filesystem.html">Файловая система</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">Протокол I²C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html#id2">Подключение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
@@ -124,7 +126,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../API.html">Справочник по API</a> &raquo;</li>
-          <li><a href="microbit.html">Microbit Module</a> &raquo;</li>
+          <li><a href="microbit.html">Модуль Microbit</a> &raquo;</li>
       <li>Протокол UART</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/uart.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
@@ -137,26 +139,25 @@
              
   <section id="module-microbit.uart">
 <span id="uart"></span><h1>Протокол UART<a class="headerlink" href="#module-microbit.uart" title="Ссылка на этот заголовок"></a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">uart</span></code> module lets you talk to a device connected to your board using
-a serial interface.</p>
+<p>Модуль <code class="docutils literal notranslate"><span class="pre">uart</span></code> позволяет вам общаться с устройством, подключенным к вашей плате, используя
+последовательный интерфейс.</p>
 <section id="id1">
 <h2>Функции<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="microbit.uart.init">
 <span class="sig-prename descclassname"><span class="pre">microbit.uart.</span></span><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">baudrate=9600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits=8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parity=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">\*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tx=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rx=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.uart.init" title="Ссылка на это определение"></a></dt>
-<dd><p>Initialize serial communication with the specified parameters on the
-specified <code class="docutils literal notranslate"><span class="pre">tx</span></code> and <code class="docutils literal notranslate"><span class="pre">rx</span></code> pins. Note that for correct communication, the parameters
-have to be the same on both communicating devices.</p>
+<dd><p>Инициализировать последовательную связь с указанными параметрами на
+указанные выводы <code class="docutils literal notranslate"><span class="pre">tx</span></code> и <code class="docutils literal notranslate"><span class="pre">rx</span></code>. Обратите внимание, что для правильной связи параметры
+должны быть одинаковыми на обоих взаимодействующих устройствах.</p>
 <div class="admonition warning">
 <p class="admonition-title">Предупреждение</p>
-<p>Initializing the UART on external pins will cause the Python console on
-USB to become unaccessible, as it uses the same hardware. To bring the
-console back you must reinitialize the UART without passing anything for
-<code class="docutils literal notranslate"><span class="pre">tx</span></code> or <code class="docutils literal notranslate"><span class="pre">rx</span></code> (or passing <code class="docutils literal notranslate"><span class="pre">None</span></code> to these arguments).  This means
-that calling <code class="docutils literal notranslate"><span class="pre">uart.init(115200)</span></code> is enough to restore the Python console.</p>
+<p>Инициализация UART на внешних контактах вызовет включение консоли Python.
+USB становится недоступным, так как использует то же оборудование. Чтобы настроить
+консоли обратно, Вы должны повторно инициализировать UART, ничего не передавая для
+<code class="docutils literal notranslate"><span class="pre">tx</span></code> или <code class="docutils literal notranslate"><span class="pre">rx</span></code> (или передача <code class="docutils literal notranslate"><span class="pre">None</span></code> этим аргументам). Это означает
+что вызова uart.init(115200) достаточно для восстановления консоли Python.</p>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">baudrate</span></code> defines the speed of communication. Common baud
-rates include:</p>
+<p><code class="docutils literal notranslate"><span class="pre">baudrate</span></code> определяет скорость передачи данных:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>9600</p></li>
@@ -168,101 +169,92 @@ rates include:</p>
 <li><p>115200</p></li>
 </ul>
 </div></blockquote>
-<p>The <code class="docutils literal notranslate"><span class="pre">bits</span></code> defines the size of bytes being transmitted, and the board
-only supports 8. The <code class="docutils literal notranslate"><span class="pre">parity</span></code> parameter defines how parity is checked,
-and it can be <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">microbit.uart.ODD</span></code> or <code class="docutils literal notranslate"><span class="pre">microbit.uart.EVEN</span></code>.
-The <code class="docutils literal notranslate"><span class="pre">stop</span></code> parameter tells the number of stop bits, and has to be 1 for
-this board.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">tx</span></code> and <code class="docutils literal notranslate"><span class="pre">rx</span></code> are not specified then the internal USB-UART TX/RX pins
-are used which connect to the USB serial converter on the micro:bit, thus
-connecting the UART to your PC.  You can specify any other pins you want by
-passing the desired pin objects to the <code class="docutils literal notranslate"><span class="pre">tx</span></code> and <code class="docutils literal notranslate"><span class="pre">rx</span></code> parameters.</p>
+<p><code class="docutils literal notranslate"><span class="pre">bits</span></code> определяет размер передаваемых байтов, плата
+поддерживает только 8. Параметр <code class="docutils literal notranslate"><span class="pre">parity</span></code> определяет, как проверяется четность,
+Параметр <code class="docutils literal notranslate"><span class="pre">stop</span></code> указывает количество стоповых битов и должен быть равен 1 для
+эта доска.</p>
+<p>Если <code class="docutils literal notranslate"><span class="pre">tx</span></code> и <code class="docutils literal notranslate"><span class="pre">rx</span></code> не указаны, то внутренние контакты USB-UART TX/RX
+используются, они подключаются к последовательному преобразователю USB на micro:bit.
+Вы можете указать любые другие контакты, которые вы хотите,
+передача желаемых объектов вывода в параметры <code class="docutils literal notranslate"><span class="pre">tx</span></code> и <code class="docutils literal notranslate"><span class="pre">rx</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>When connecting the device, make sure you «cross» the wires – the TX
-pin on your board needs to be connected with the RX pin on the device,
-and the RX pin – with the TX pin on the device. Also make sure the
-ground pins of both devices are connected.</p>
+<p>При подключении устройства убедитесь, что вы «перекрестили» провода — TX
+вывод на вашей плате должен быть соединен с выводом RX на устройстве,
+а контакт RX – с контактом TX на устройстве. Также убедитесь, что
+заземление обоих устройств соединено.</p>
 </div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="microbit.uart.uart.any">
 <span class="sig-prename descclassname"><span class="pre">uart.</span></span><span class="sig-name descname"><span class="pre">any</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.uart.uart.any" title="Ссылка на это определение"></a></dt>
-<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if any data is waiting, else <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<dd><p>Возвращает <code class="docutils literal notranslate"><span class="pre">True</span></code> если какие-либо данные ожидаются, иначе <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="microbit.uart.uart.read">
 <span class="sig-prename descclassname"><span class="pre">uart.</span></span><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">nbytes</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.uart.uart.read" title="Ссылка на это определение"></a></dt>
-<dd><p>Read bytes.  If <code class="docutils literal notranslate"><span class="pre">nbytes</span></code> is specified then read at most that many
-bytes, otherwise read as many bytes as possible.</p>
-<p>Return value: a bytes object or <code class="docutils literal notranslate"><span class="pre">None</span></code> on timeout.</p>
-<p>A bytes object contains a sequence of bytes. Because
-<a class="reference external" href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> characters can fit in
-single bytes this type of object is often used to represent simple text
-and offers methods to manipulate it as such, e.g. you can display the text
-using the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function.</p>
-<p>You can also convert this object into a string object, and if there are
-non-ASCII characters present the encoding can be specified:</p>
+<dd><p>Читатет байты. Если указано <code class="docutils literal notranslate"><span class="pre">nbytes</span></code>, тогда можно прочитать не больше этого количества
+байт, в противном случае прочитайте как можно больше байтов.</p>
+<p>Возвращаемое значение: объект bytes или <code class="docutils literal notranslate"><span class="pre">None</span></code> по тайм-ауту.</p>
+<p>Объект bytes содержит последовательность байтов. Так как
+<a class="reference external" href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> персонажи могут вписать
+одиночные байты, этот тип объекта часто используется для представления простого текста
+и предлагает методы манипулирования им как таковым, например. вы можете отобразить текст
+используя функцию <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p>
+<p>Вы также можете преобразовать этот объект в строковый объект, и если есть
+символы, отличные от ASCII, могут быть указаны в кодировке:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">msg_bytes</span> <span class="o">=</span> <span class="n">uart</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">msg_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>The timeout for all UART reads depends on the baudrate and is otherwise
-not changeable via Python. The timeout, in milliseconds, is given by:
+<p>Тайм-аут для всех операций чтения UART зависит от скорости передачи данных и в противном случае
+нельзя изменить через Python. Тайм-аут в миллисекундах определяется выражением:
 <code class="docutils literal notranslate"><span class="pre">microbit_uart_timeout_char</span> <span class="pre">=</span> <span class="pre">13000</span> <span class="pre">/</span> <span class="pre">baudrate</span> <span class="pre">+</span> <span class="pre">1</span></code></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Примечание</p>
-<p>The internal UART RX buffer is 64 bytes, so make sure data is read
-before the buffer is full or some of the data might be lost.</p>
+<p>Внутренний буфер UART RX составляет 64 байта, поэтому убедитесь, что данные считываются
+до того, как буфер заполнится или некоторые данные могут быть потеряны.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Предупреждение</p>
-<p>Receiving <code class="docutils literal notranslate"><span class="pre">0x03</span></code> will stop your program by raising a Keyboard
-Interrupt. You can enable or disable this using
+<p>Получение <code class="docutils literal notranslate"><span class="pre">0x03</span></code> остановит вашу программу, подняв клавиатуру.
+Прерывать. Вы можете включить или отключить это, используя
 <code class="xref py py-func docutils literal notranslate"><span class="pre">micropython.kbd_intr()</span></code>.</p>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="microbit.uart.uart.readall">
-<span class="sig-prename descclassname"><span class="pre">uart.</span></span><span class="sig-name descname"><span class="pre">readall</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.uart.uart.readall" title="Ссылка на это определение"></a></dt>
-<dd><p>Removed since version 1.0.</p>
-<p>Instead, use <a class="reference internal" href="#microbit.uart.uart.read" title="microbit.uart.uart.read"><code class="xref py py-func docutils literal notranslate"><span class="pre">uart.read()</span></code></a> with no arguments, which will read as much data
-as possible.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="microbit.uart.uart.readinto">
 <span class="sig-prename descclassname"><span class="pre">uart.</span></span><span class="sig-name descname"><span class="pre">readinto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buf</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">nbytes</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.uart.uart.readinto" title="Ссылка на это определение"></a></dt>
-<dd><p>Read bytes into the <code class="docutils literal notranslate"><span class="pre">buf</span></code>.  If <code class="docutils literal notranslate"><span class="pre">nbytes</span></code> is specified then read at most
-that many bytes.  Otherwise, read at most <code class="docutils literal notranslate"><span class="pre">len(buf)</span></code> bytes.</p>
-<p>Return value: number of bytes read and stored into <code class="docutils literal notranslate"><span class="pre">buf</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code> on
-timeout.</p>
+<dd><p>Считайте байты в <code class="docutils literal notranslate"><span class="pre">buf</span></code>. Если указано <code class="docutils literal notranslate"><span class="pre">nbytes</span></code>, то можно прочитать не более
+столько байтов. В противном случае читать не более <code class="docutils literal notranslate"><span class="pre">len(buf)</span></code> байт.</p>
+<p>Возвращаемое значение: количество байтов, прочитанных и сохраненных в <code class="docutils literal notranslate"><span class="pre">buf</span></code> или <code class="docutils literal notranslate"><span class="pre">None</span></code> на
+тайм-аут.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="microbit.uart.uart.readline">
 <span class="sig-prename descclassname"><span class="pre">uart.</span></span><span class="sig-name descname"><span class="pre">readline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#microbit.uart.uart.readline" title="Ссылка на это определение"></a></dt>
-<dd><p>Read a line, ending in a newline character.</p>
-<p>Return value: the line read or <code class="docutils literal notranslate"><span class="pre">None</span></code> on timeout. The newline character is
-included in the returned bytes.</p>
+<dd><p>Прочитать строку, заканчивающуюся символом новой строки.</p>
+<p>Возвращаемое значение: прочитанная строка или <code class="docutils literal notranslate"><span class="pre">None</span></code> по тайм-ауту. Символ новой строки
+включены в возвращаемые байты.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="microbit.uart.uart.write">
 <span class="sig-prename descclassname"><span class="pre">uart.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.uart.uart.write" title="Ссылка на это определение"></a></dt>
-<dd><p>Write the buffer to the bus, it can be a bytes object or a string:</p>
+<dd><p>Запишите буфер на шину, это может быть байтовый объект или строка:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uart</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
 <span class="n">uart</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
 <span class="n">uart</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
 </pre></div>
 </div>
-<p>Return value: number of bytes written or <code class="docutils literal notranslate"><span class="pre">None</span></code> on timeout.</p>
+<p>Возвращаемое значение: количество записанных байтов или <code class="docutils literal notranslate"><span class="pre">None</span></code> по тайм-ауту..</p>
 </dd></dl>
 
 </section>

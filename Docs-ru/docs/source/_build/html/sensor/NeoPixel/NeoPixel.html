@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Пассивный зуммер &mdash; документация Microbit-Русская документация 0.1</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+            <a href="../../index.html" class="icon icon-home"> Microbit-Русская документация
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Основные команды</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/introduction.html">Инструкция</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/hello.html">Первая программа Hello, World!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/io.html">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/music.html">Мелодии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/random.html">Случайные числа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/movement.html">Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/gestures.html">Жесты - Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/direction.html">Компас</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/speech.html">Речь</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/radio.html">Радиосигнал</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../API.html">Справочник по API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Датчики</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../sensor.html">Датчики</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Microbit-Русская документация</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Пассивный зуммер</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sensor/NeoPixel/NeoPixel.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Пассивный зуммер<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p><a class="reference download internal" download="" href="../../_downloads/8d4a095996e0da80b2ab4d14c801f6ab/NeoPixel.py"><code class="xref download docutils literal notranslate"><span class="pre">Скачать</span> <span class="pre">файл</span> <span class="pre">с</span> <span class="pre">классов</span></code></a></p>
+<a class="reference internal image-reference" href="../../_images/NeoPixel.jpg"><img alt="../../_images/NeoPixel.jpg" class="align-center" src="../../_images/NeoPixel.jpg" style="width: 200px;" /></a>
+<section id="id2">
+<h2>Класс<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Passive_Buzzer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Passive_Buzzer</span></span><a class="headerlink" href="#Passive_Buzzer" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<p>Класс используется для определения объектов, имеющих поведение пассивного зуммера</p>
+<p>Пример объявления объекта:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sound</span><span class="o">=</span><span class="n">Passive_Buzzer</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="sound.sound.play">
+<span class="sig-prename descclassname"><span class="pre">sound.sound.</span></span><span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">music.BLUES</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sound.sound.play" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда позволяет проиграть мелодию. Аналогична команде <strong>music.play(music.BLUES, pin0)</strong></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sound.play_time">
+<span class="sig-prename descclassname"><span class="pre">sound.</span></span><span class="sig-name descname"><span class="pre">play_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">music.BIRTHDAY</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">3000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sound.play_time" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда позволяет проиграть мелодию определенное время. Блокирует Microbit</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sound.stop">
+<span class="sig-prename descclassname"><span class="pre">sound.</span></span><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sound.stop" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда позволяет остановить проигрывание времени.</p>
+</dd></dl>
+
+</section>
+<section id="id3">
+<h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">music</span>
+<span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Passive_Buzzer</span> <span class="kn">import</span> <span class="n">Passive_Buzzer</span>
+
+<span class="n">sound</span><span class="o">=</span><span class="n">Passive_Buzzer</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+<span class="n">sound</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">music</span><span class="o">.</span><span class="n">BLUES</span><span class="p">)</span>
+<span class="n">sound</span><span class="o">.</span><span class="n">play_time</span><span class="p">(</span><span class="n">music</span><span class="o">.</span><span class="n">BIRTHDAY</span><span class="p">,</span> <span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Maxim Bekurin, Read the Docs, Inc. &amp; contributors.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

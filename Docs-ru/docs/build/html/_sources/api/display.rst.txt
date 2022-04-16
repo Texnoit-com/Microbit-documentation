@@ -6,7 +6,7 @@
 Этот модуль управляет светодиодным дисплеем. Класс используется для отображения изображений, 
 анимации и текста.
 
-.. image:: scroll-hello.gif
+.. image:: images/scroll-hello.gif
 
 Функции
 =========
@@ -32,7 +32,7 @@
     Отображает изображение типа ``image``.
 
 
-.. py:function:: show(value, delay=400, \*, wait=True, loop=False, clear=False)
+.. py:function:: show(value, delay=400, , wait=True, loop=False, clear=False)
 
 * ``loop`` - Зацикливание анимации - значение ``True`` (правда), проиграть 1 раз - значение ``False`` (ложь)
 * ``delay`` - время задержки между сменой изображений (милисекунды)

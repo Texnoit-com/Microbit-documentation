@@ -65,7 +65,8 @@
 <li class="toctree-l2"><a class="reference internal" href="api/compass.html">Компас</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/display.html">Дисплей</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/filesystem.html">Файловая система</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/i2c.html">Протокол I²C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/i2c.html#id2">Подключение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/image.html">Изображение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/machine.html">Микроконтроллер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/microphone.html">Микрофон <strong>V2</strong></a></li>
@@ -119,131 +120,32 @@
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Содержание</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="api/microbit_micropython_api.html">Microbit Micropython API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/microbit_micropython_api.html#id1">Модуль</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/microbit.html">Модуль Microbit</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/microbit.html#id1">Функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/microbit.html#id2">Атрибуты</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/microbit.html#id3">Класс</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/microbit.html#id4">Модули</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/accelerometer.html">Акселерометр</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/accelerometer.html#id2">Функции</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/audio.html">Аудио</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/audio.html#id2">Функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/audio.html#id3">Класс</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/audio.html#id4">Использование аудио</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/ble.html">Bluetooth</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/ble.html#microbit-v1">Microbit V1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/ble.html#microbit-v2">Microbit V2</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/button.html">Кнопки</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/button.html#id2">Атрибуты</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/button.html#id3">Класс</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/button.html#id4">Примеры</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/compass.html">Компас</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/compass.html#id2">Функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/compass.html#id3">Примеры</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/display.html">Дисплей</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/display.html#id2">Функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/display.html#id3">Примеры</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="api/microbit_micropython_api.html">Microbit Micropython API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/microbit.html">Модуль Microbit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/accelerometer.html">Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/audio.html">Аудио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ble.html">Bluetooth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/button.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/compass.html">Компас</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/display.html">Дисплей</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/filesystem.html">Файловая система</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api/i2c.html">Функции</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/i2c.html#id6">Подключение</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/image.html">Изображение</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/image.html#id2">Класс</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/image.html#id3">Атрибуты</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/image.html#id4">Команды</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/machine.html">Микроконтроллер</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/machine.html#id2">Функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/machine.html#id3">Чтение памяти</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/microphone.html">Микрофон <strong>V2</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/microphone.html#sound-events">Sound events</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/microphone.html#functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/microphone.html#example">Example</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/micropython.html">MicroPython</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/micropython.html#id1">Функции</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/music.html">Музыка</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/music.html#id2">Музыкальная нотация</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/music.html#id3">Функции</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/neopixel.html">NeoPixel (Адресная светодиодная лента)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/neopixel.html#id1">Класс</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/neopixel.html#id2">Команды</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/neopixel.html#neopixels">Использование Neopixels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/neopixel.html#id3">Примеры</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/os.html">Библиотека OS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/os.html#id1">Команды</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/pin.html">Контакты</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/pin.html#id2">Функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/pin.html#id4">Класс</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/radio.html">Радио</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/radio.html#id2">Константы</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/radio.html#id3">Функции</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/random.html">Random (Генератор случайных чисел)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/random.html#id1">Функции</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/speaker.html">Генератор речи <strong>V2</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/speaker.html#id1">Функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/speaker.html#id2">Примеры</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/speech.html">Генератор речи</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/speech.html#id2">Функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/speech.html#id3">Пунктуация</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/speech.html#id4">Тембр</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/speech.html#id5">Фонемы</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/speech.html#id6">Пение</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/speech.html#id7">Как это работает?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/speech.html#id8">Примеры</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/spi.html">Протокол SPI</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/spi.html#id1">Функции</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/uart.html">Протокол UART</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/uart.html#id1">Функции</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/utime.html">utime (модуль работы со временем)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/utime.html#id1">Функции</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="api/i2c.html">Протокол I²C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/i2c.html#id2">Подключение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/image.html">Изображение</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/machine.html">Микроконтроллер</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/microphone.html">Микрофон <strong>V2</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/micropython.html">MicroPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/music.html">Музыка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/neopixel.html">NeoPixel (Адресная светодиодная лента)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/os.html">Библиотека OS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/pin.html">Контакты</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/radio.html">Радио</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/random.html">Random (Генератор случайных чисел)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/speaker.html">Генератор речи <strong>V2</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/speech.html">Генератор речи</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/spi.html">Протокол SPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/uart.html">Протокол UART</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/utime.html">utime (модуль работы со временем)</a></li>
 </ul>
 </div>
 </section>

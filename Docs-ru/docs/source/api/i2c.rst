@@ -1,5 +1,5 @@
 Протокол I²C
-***
+------------
 
 .. py:module:: microbit.i2c
 
@@ -8,61 +8,58 @@
 одновременно, и каждый из них имеет свой уникальный адрес. Фиксированный
 для устройства или настроен на нем. Ваша плата действует как мастер I²C.
 
-We use 7-bit addressing for devices because of the reasons stated
-`here <http://www.totalphase.com/support/articles/200349176-7-bit-8-bit-and-10-bit-I2C-Slave-Addressing>`_.
+Используется 7-битная адресация для устройства. `<http://www.totalphase.com/support/articles/200349176-7-bit-8-bit-and-10-bit-I2C-Slave-Addressing>`_.
 
-This may be different to other micro:bit related solutions.
+Это может отличаться от других решений, связанных с micro:bit.
 
-How exactly you should communicate with the devices, that is, what bytes to
-send and how to interpret the responses, depends on the device in question and
-should be described separately in that device's documentation.
+Как Вы должны общаться с устройствами (какие байты отправлять и как интерпретировать ответы)
+зависит от рассматриваемого устройства и описаны отдельно в документации к этому устройству.
 
 
 Функции
-=========
+*******
 
 .. py:function:: init(freq=100000, sda=pin20, scl=pin19)
 
-    Re-initialize peripheral with the specified clock frequency ``freq`` on the
-    specified ``sda`` and ``scl`` pins.
+    Повторно инициализируйте периферийное устройство с указанной тактовой частотой ``freq`` на
+    указанные контакты ``sda`` и ``scl``.
 
     .. warning::
-
-        On a micro:bit V1 board, changing the I²C pins from defaults will make
-        the accelerometer and compass stop working, as they are connected
-        internally to those pins. This warning does not apply to the **V2**
-        revision of the micro:bit as this has `separate I²C lines
-        <https://tech.microbit.org/hardware/i2c/>`_
-        for the motion sensors and the edge connector.
+        
+        На плате micro:bit V1 изменение выводов I²C по умолчанию приведет к
+        отключению акселерометра и компаса, так как они подключены
+        внутри этих контактов. Это предупреждение не относится к **V2**
+        пересмотр микро: бита, так как он имеет отдельные линии I²C
+        <https://tech.microbit.org/hardware/i2c/>`
         
 
 
 .. py:function:: scan()
 
-    Scan the bus for devices.  Returns a list of 7-bit addresses corresponding
-    to those devices that responded to the scan.
+    Просканируйте шину на наличие устройств. Возвращает список 7-битных адресов, соответствующих
+    на те устройства, которые ответили на сканирование.
 
 
 .. py:function:: read(addr, n, repeat=False)
 
-    Read ``n`` bytes from the device with 7-bit address ``addr``. If ``repeat``
-    is ``True``, no stop bit will be sent.
+    Прочитать ``n`` байт с устройства с 7-битным адресом ``addr``. Если ``repeat`` равно
+    ``True``, стоповый бит посылаться не будет
 
 
 .. py:function:: write(addr, buf, repeat=False)
 
-    Write bytes from ``buf`` to the device with 7-bit address ``addr``. If
-    ``repeat`` is ``True``, no stop bit will be sent.
+    Записать байты из ``buf`` в устройство с 7-битным адресом ``addr``. Если
+    ``repeat`` имеет значение ``True``, стоп-бит не отправляется.
 
 
 Подключение
-----------
+-----------
 
-You should connect the device's ``SCL`` pin to micro:bit pin 19, and the
-device's ``SDA`` pin to micro:bit pin 20. You also must connect the device's
-ground to the micro:bit ground (pin ``GND``). You may need to power the device
-using an external power supply or the micro:bit.
+Вы должны соединить вывод ``SCL`` устройства с выводом 19 micro:bit, а
+контакт ``SDA`` устройства к контакту micro:bit 20. Вы также должны подключить
+заземление на землю micro:bit (контакт «GND»). Возможно, вам потребуется питание устройства
+с помощью внешнего источника питания или micro:bit.
 
-There are internal pull-up resistors on the I²C lines of the board, but with
-particularly long wires or large number of devices you may need to add
-additional pull-up resistors, to ensure noise-free communication.
+На линиях I²C платы есть внутренние подтягивающие резисторы, но если Вы используете длинные провода
+или большое количество устройств, придется добавить дополнительные подтягивающие резисторы для 
+обеспечения бесшумной связи.

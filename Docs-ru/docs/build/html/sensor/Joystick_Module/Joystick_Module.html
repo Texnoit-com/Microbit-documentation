@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Джойстик &mdash; документация Microbit-Русская документация 0.1</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../search.html" />
+    <link rel="next" title="Модуль отслеживания линии" href="../Line_Tracking_Sensor/Line_Tracking.html" />
+    <link rel="prev" title="ИК - пульт" href="../IR_Remote_Control/IR_Remote_Control.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+            <a href="../../index.html" class="icon icon-home"> Microbit-Русская документация
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Основные команды</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/introduction.html">Инструкция</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/hello.html">Первая программа Hello, World!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/images.html">Изображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/buttons.html">Кнопки</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/io.html">Контакты/Пины</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/music.html">Мелодии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/random.html">Случайные числа</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/movement.html">Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/gestures.html">Жесты - Акселерометр</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/direction.html">Компас</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/speech.html">Речь</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/radio.html">Радиосигнал</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/NeoPixel.html">Адресная светодиодная лента</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../API.html">Справочник по API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Датчики</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../sensor.html">Датчики</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Microbit_Sensor_Shield_V2/Microbit_Shield_V2.html">Шилд для датчиков V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Driver/Driver_Motor.html">Драйвер моторов L298</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3W_LED_Module/3W_LED_Module.html">Сверхяркий светодиод</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1602_I2C_Module/1602_I2C_Module.html">Двухстрочный монитор 1602_I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Active_Buzzer/Active_Buzzer_Module.html">Активный зуммер</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LED_Module/LED_Module.html">Модуль светодиода</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Micro_Servo/Micro_Servo.html">Сервопривод</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Passive_Buzzer_module/Passive_Buzze.html">Пассивный зуммер</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RGB_LED_Module/RGB_LED_Module.html">Модуль светодиода RGB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Single_Relay_Module/Single_Relay_Module.html">Реле</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Traffic_Light_Module/Traffic_Light.html">Модуль светофор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Motor/Motor.html">Мотор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../18B20_Temperature_Sensor/18B20_Temperature.html">Датчик температуры 18B20</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Analog_Alcohol_Sensor/Analog_Alcohol.html">Датчик испарения спиртовых паров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Analog_Gas_Sensor/Analog_Gas.html">Датчик углекислого газа</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Analog_Sound_Sensor/Analog_Sound.html">Аналоговый микрофон</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Analog_Temperature_Sensor/Analog_Temperature.html">Датчик температуры (аналоговый)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Analog_Rotation_Sensor/Analog_Rotation.html">Переменный резистор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Capacitive_Touch_Sensor/Capacitive_Touch.html">Емкостной датчик</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DHT11_Temperature_Humidity_Sensor/DHT11_Temperature.html">Датчик температуры (DHT11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Digital_IR_Receiver/Digital_IR_Receiver.html">Приемник ИК-сигнала</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Digital_Push_Button/Digital_Push_Button.html">Кнопка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Digital_Tilt_Sensor/Digital_Tilt.html">Датчик наклона</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Crash_Sensor/Crash_Sensor.html">Кнопка (концевик)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Flame_Sensor/Flame.html">Датчик огня</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GUVA-S12SD_3528_Ultraviolet/GUVA-S12SD_3528_Ultraviolet.html">Датчик ультрафиолета</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Hall_Magnetic_Sensor/Hall_Magnetic.html">Датчик Холла (магнитное поле)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HC-SR04_Ultrasonic/HC-SR04_Ultrasonic.html">Датчик Ультразвука</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hoto_Interrupter_Module/hoto_Interrupter_Module.html">Датчик Фотопрерыватель</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Infrared_Obstacle_Detector_Sensor/Infrared_Obstacle_Detector.html">Датчик Инфракрасный датчик препятствий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IR_Remote_Control/IR_Remote_Control.html">ИК - пульт</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Джойстик</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Класс</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Пример программы</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Line_Tracking_Sensor/Line_Tracking.html">Модуль отслеживания линии</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LM35_Linear_Temperature_Sensor/LM35_Linear_Temperature.html">Датчик температуры LM35</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Photocell_Sensor/Photocell.html">Фоторезистор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PIR_Motion_Sensor/PIR_Motion.html">Датчик движения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Reed_Switch_Module/Reed_Switch.html">Датчик геркона</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Soil_Humidity_Sensor/Soil_Humidity.html">Датчик влажности</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Steam_Sensor/Steam.html">Датчик пара</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TEMT6000_Ambient_Light/TEMT6000_Ambient_Light.html">Датчик окружающего света</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Thin-film_Pressure/Thin-film_Pressure.html">Датчик давления</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Vibration_Sensor/Vibration.html">Датчик вибрации</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Water_Sensor/Water.html">Датчик протечки</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Microbit-Русская документация</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../sensor.html">Датчики</a> &raquo;</li>
+      <li>Джойстик</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/sensor/Joystick_Module/Joystick_Module.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Джойстик<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p><a class="reference download internal" download="" href="../../_downloads/87e6ee531c040ad3b9f108609cb6844f/Joystick.py"><code class="xref download docutils literal notranslate"><span class="pre">Скачать</span> <span class="pre">файл</span> <span class="pre">с</span> <span class="pre">классов</span></code></a></p>
+<a class="reference internal image-reference" href="../../_images/Joystick_Module.png"><img alt="../../_images/Joystick_Module.png" class="align-center" src="../../_images/Joystick_Module.png" style="width: 100px;" /></a>
+<p>Аналоговый джойстик чувствителен к тому, насколько далеко Вы перемещаете стик в любом
+конкретном направлении. Направление влево/вправо называют горизонтальной осью (осью X).
+Направление вверх/вниз называют вертикальной осью (осью Y).</p>
+<p>При нажатии на стик происходит события нажатия на кнопку, сигнал можно снять с цифрового контакта <strong>SW</strong>.</p>
+<section id="id2">
+<h2>Класс<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Joystick">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Joystick</span></span><a class="headerlink" href="#Joystick" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<p>Класс используется для определения объектов, имеющих поведение джойстика.</p>
+<p>Пример объявления объекта:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">joys</span><span class="o">=</span><span class="n">Joystick</span><span class="p">(</span><span class="n">pin0</span><span class="p">,</span> <span class="n">pin1</span><span class="p">,</span> <span class="n">pin2</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="joys.get_x">
+<span class="sig-prename descclassname"><span class="pre">joys.</span></span><span class="sig-name descname"><span class="pre">get_x</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#joys.get_x" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда возвращает показание по оси X.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="joys.get_y">
+<span class="sig-prename descclassname"><span class="pre">joys.</span></span><span class="sig-name descname"><span class="pre">get_y</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#joys.get_y" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда возвращает показание по оси Y.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="joys.click">
+<span class="sig-prename descclassname"><span class="pre">joys.</span></span><span class="sig-name descname"><span class="pre">click</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#joys.click" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда возвращает сигнал нажатия на кнопку.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="joys.play_cross">
+<span class="sig-prename descclassname"><span class="pre">joys.</span></span><span class="sig-name descname"><span class="pre">play_cross</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#joys.play_cross" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда возвращает сигналы <strong>UP</strong>, <strong>Down</strong>, <strong>Left</strong>, <strong>Right</strong>, <strong>0</strong>.
+Принцип работы цифрового джойстика.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="joys.play_diagonal">
+<span class="sig-prename descclassname"><span class="pre">joys.</span></span><span class="sig-name descname"><span class="pre">play_diagonal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#joys.play_diagonal" title="Ссылка на это определение"></a></dt>
+<dd><p>Команда возвращает сигналы <strong>Up</strong>, <strong>Down</strong>, <strong>Left</strong>, <strong>Right</strong>, <strong>0</strong>.
+Диаганальные сигналы <strong>Up-Left</strong>, <strong>Up-Right</strong>, <strong>Down-Left</strong>, <strong>Down-Right</strong>.
+Принцип работы цифрового джойстика.</p>
+</dd></dl>
+
+</section>
+<section id="id3">
+<h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">neopixel</span> <span class="kn">import</span> <span class="n">NeoPixel</span>
+
+<span class="n">np</span> <span class="o">=</span> <span class="n">NeoPixel</span><span class="p">(</span><span class="n">pin0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">np</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="../IR_Remote_Control/IR_Remote_Control.html" class="btn btn-neutral float-left" title="ИК - пульт" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="../Line_Tracking_Sensor/Line_Tracking.html" class="btn btn-neutral float-right" title="Модуль отслеживания линии" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Maxim Bekurin, Read the Docs, Inc. &amp; contributors.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -52,12 +52,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/direction.html">Компас</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/speech.html">Речь</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/radio.html">Радиосигнал</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/NeoPixel.html">Адресная светодиодная лента</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="microbit.html">Microbit Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">Microbit Micropython API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Модуль Microbit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
 <li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
@@ -65,7 +66,8 @@
 <li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
 <li class="toctree-l2"><a class="reference internal" href="display.html">Дисплей</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Файловая система</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">Протокол I²C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html#id2">Подключение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
@@ -114,36 +116,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="filesystem">
-<span id="id1"></span><h1>Файловая система<a class="headerlink" href="#filesystem" title="Ссылка на этот заголовок"></a></h1>
-<p>It is useful to store data in a persistent manner so that it remains intact
-between restarts of the device. On traditional computers this is often achieved
-by a file system consisting of named files that hold raw data, and named
-directories that contain files. Python supports the various operations needed
-to work with such file systems.</p>
-<p>However, since the micro:bit is a limited device in terms of both hardware and
-storage capacity MicroPython provides a small subset of the functions needed
-to persist data on the device. Because of memory constraints <strong>there is
-approximately 30k of storage available</strong> on the file system.</p>
+  <section id="id1">
+<h1>Файловая система<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Полезно хранить данные так, чтобы они оставались неповрежденными между перезапусками устройства.
+На традиционных компьютерах это  достигается файловой системой, состоящей из именованных файлов, содержащих необработанные данные, и именованные каталоги, содержащие файлы.
+Python поддерживает различные операции, необходимые для работы с такими файловыми системами.</p>
+<p>Поскольку micro:bit является микроконтроллером, емкость хранилища MicroPython предоставляет
+небольшой набор функций, необходимых для сохранения данных на устройство. Из-за ограничений памяти <strong>есть
+приблизительно 30 КБ доступно</strong> в файловой системе.</p>
 <div class="admonition warning">
 <p class="admonition-title">Предупреждение</p>
-<p>Re-flashing the device will DESTROY YOUR DATA.</p>
-<p>Since the file system is stored in the micro:bit’s flash memory and
-flashing the device rewrites all the available flash memory then all your
-data will be lost if you flash your device.</p>
-<p>However, if you switch your device off the data will remain intact until
-you either delete it (see below) or re-flash the device.</p>
+<p>Перепрошивка устройства УНИЧТОЖИТ ВАШИ ДАННЫЕ.</p>
+<p>Поскольку файловая система хранится во флэш-памяти micro:bit и
+перепрошивка устройства перезаписывает всю доступную флэш-память поэтому все ваши
+данные будут потеряны.</p>
+<p>Однако, если вы выключите устройство, данные останутся нетронутыми до тех пор, пока
+Вы либо удаляете их, либо перепрошиваете устройство.</p>
 </div>
-<p>MicroPython on the micro:bit provides a flat file system; i.e. there is no
-notion of a directory hierarchy, the file system is just a list of named
-files. Reading and writing a file is achieved via the standard Python <code class="docutils literal notranslate"><span class="pre">open</span></code>
-function and the resulting file-like object (representing the file) of types
-<code class="docutils literal notranslate"><span class="pre">TextIO</span></code> or <code class="docutils literal notranslate"><span class="pre">BytesIO</span></code>. Operations for working with files on the file system
-(for example, listing or deleting files) are contained within the
-<a class="reference internal" href="os.html#module-os" title="os"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a> module.</p>
-<p>If a file ends in the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file extension then it can be imported. For
-example, a file named <code class="docutils literal notranslate"><span class="pre">hello.py</span></code> can be imported like this: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">hello</span></code>.</p>
-<p>An example session in the MicroPython REPL may look something like this:</p>
+<p>MicroPython на micro:bit обеспечивает простую файловую систему; то есть нет
+понятие иерархии каталогов, файловая система — это просто список именованных
+файлов. Чтение и запись файла осуществляется с помощью стандартной Python команды``open``.
+и результирующий файловый объект типом <code class="docutils literal notranslate"><span class="pre">TextIO</span></code> или <code class="docutils literal notranslate"><span class="pre">BytesIO</span></code>.
+Операции по работе с файлами в файловой системе содержатся в модуле</p>
+<p><a class="reference internal" href="os.html#module-os" title="os"><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a> module.</p>
+<p>Если файл заканчивается расширением <code class="docutils literal notranslate"><span class="pre">.py</span></code>, его можно импортировать.
+Например, файл с именем <code class="docutils literal notranslate"><span class="pre">hello.py</span></code> можно импортировать следующим образом: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">hello</span></code>.</p>
+<p>Пример кода в MicroPython REPL может выглядеть примерно так:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;hello.py&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">hello</span><span class="p">:</span>
 <span class="gp">... </span>   <span class="n">hello</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;print(&#39;Hello&#39;)&quot;</span><span class="p">)</span>
 <span class="gp">...</span>
@@ -164,17 +162,14 @@ example, a file named <code class="docutils literal notranslate"><span class="pr
 <dl class="py function">
 <dt class="sig sig-object py" id="open">
 <span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'r'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#open" title="Ссылка на это определение"></a></dt>
-<dd><p>Returns a file object representing the file named in the argument
-<code class="docutils literal notranslate"><span class="pre">filename</span></code>. The mode defaults to <code class="docutils literal notranslate"><span class="pre">'r'</span></code> which means open for reading in
-text mode. The other common mode is <code class="docutils literal notranslate"><span class="pre">'w'</span></code> for writing (overwriting the
-content of the file if it already exists). Two other modes are available
-to be used in conjunction with the ones describes above: <code class="docutils literal notranslate"><span class="pre">'t'</span></code> means
-text mode (for reading and writing strings) and <code class="docutils literal notranslate"><span class="pre">'b'</span></code> means binary mode
-(for reading and writing bytes). If these are not specified then <code class="docutils literal notranslate"><span class="pre">'t'</span></code>
-(text mode) is assumed. When in text mode the file object will be an
-instance of <code class="docutils literal notranslate"><span class="pre">TextIO</span></code>. When in binary mode the file object will be an
-instance of <code class="docutils literal notranslate"><span class="pre">BytesIO</span></code>. For example, use <code class="docutils literal notranslate"><span class="pre">'rb'</span></code> to read binary data from
-a file.</p>
+<dd><p>Возвращает файловый объект, указанный в аргументе <code class="docutils literal notranslate"><span class="pre">filename</span></code>.  По умолчанию
+используется режим <code class="docutils literal notranslate"><span class="pre">'r'</span></code> - открытие для чтения в текстовый режим.
+Другим распространенным режимом является  <code class="docutils literal notranslate"><span class="pre">'w'</span></code> для записи (перезапись содержимое
+файла, если он уже существует). Доступны два других режима
+для использования в сочетании с описанными выше:  <code class="docutils literal notranslate"><span class="pre">'t'</span></code> означает текстовый режим
+(для чтения и записи строк), а  <code class="docutils literal notranslate"><span class="pre">'b'</span></code> означает двоичный режим (для чтения и записи
+байтов). В текстовом режиме файловый объект будет экземпляр <code class="docutils literal notranslate"><span class="pre">TextIO</span></code>.
+В двоичном режиме файловый объект будет экземпляр <code class="docutils literal notranslate"><span class="pre">BytesIO</span></code>.</p>
 </dd></dl>
 
 <dl class="py class">
@@ -182,72 +177,64 @@ a file.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TextIO</span></span><a class="headerlink" href="#TextIO" title="Ссылка на это определение"></a></dt>
 <dt class="sig sig-object py" id="BytesIO">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BytesIO</span></span><a class="headerlink" href="#BytesIO" title="Ссылка на это определение"></a></dt>
-<dd><p>Instances of these classes represent files in the micro:bit’s flat file
-system. The TextIO class is used to represent text files. The BytesIO
-class is used to represent binary files. They work in exactly the same
-except that TextIO works with strings and BytesIO works with bytes.</p>
-<p>You do not directly instantiate these classes. Rather, an appropriately
-configured instance of the class is returned by the <code class="docutils literal notranslate"><span class="pre">open</span></code> function
-described above.</p>
+<dd><p>Экземпляры этих классов представляют файлы micro:bit. Класс TextIO используется для
+представления текстовых файлов. BytesIO класс используется для представления двоичных файлов.
+Они работают точно так же за исключением того, что TextIO работает со строками, а BytesIO
+работает с байтами.</p>
+<p>Вы не создаете экземпляры этих классов напрямую. Скорее, надлежащим образом
+сконфигурированный экземпляр класса возвращается функцией <code class="docutils literal notranslate"><span class="pre">open</span></code> описано выше</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="BytesIO.close">
 <span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BytesIO.close" title="Ссылка на это определение"></a></dt>
-<dd><p>Flush and close the file. This method has no effect if the file is
-already closed. Once the file is closed, any operation on the file
-(e.g. reading or writing) will raise an exception.</p>
+<dd><p>Закроет файл. После закрытия файла любая операция над файлом вызовет исключение.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BytesIO.name">
 <span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BytesIO.name" title="Ссылка на это определение"></a></dt>
-<dd><p>Returns the name of the file the object represents. This will be the
-same as the <code class="docutils literal notranslate"><span class="pre">filename</span></code> argument passed into the call to the <code class="docutils literal notranslate"><span class="pre">open</span></code>
-function that instantiated the object.</p>
+<dd><p>Возвращает имя файла, который представляет объект. Это будет
+то же, что и аргумент <code class="docutils literal notranslate"><span class="pre">filename</span></code>, переданный в вызов <code class="docutils literal notranslate"><span class="pre">open</span></code>, создавшая экземпляр объекта.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BytesIO.read">
 <span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BytesIO.read" title="Ссылка на это определение"></a></dt>
-<dd><p>Read and return at most <code class="docutils literal notranslate"><span class="pre">size</span></code> characters as a single string or
-<code class="docutils literal notranslate"><span class="pre">size</span></code> bytes from the file. As a convenience, if <code class="docutils literal notranslate"><span class="pre">size</span></code> is
-unspecified or -1, all the data contained in the file is returned.
-Fewer than <code class="docutils literal notranslate"><span class="pre">size</span></code> characters or bytes may be returned if there are
-less than <code class="docutils literal notranslate"><span class="pre">size</span></code> characters or bytes remaining to be read from
-the file.</p>
-<p>If 0 characters or bytes are returned, and <code class="docutils literal notranslate"><span class="pre">size</span></code> was not 0, this
-indicates end of file.</p>
-<p>A <code class="docutils literal notranslate"><span class="pre">MemoryError</span></code> exception will occur if <code class="docutils literal notranslate"><span class="pre">size</span></code> is larger than the
-available RAM.</p>
+<dd><p>Читает и возвращать символов <code class="docutils literal notranslate"><span class="pre">size</span></code> в виде одной строки или
+<code class="docutils literal notranslate"><span class="pre">size</span></code> байтов из файла. Для удобства, если <code class="docutils literal notranslate"><span class="pre">size</span></code> не указано или -1,
+возвращаются все данные, содержащиеся в файле.</p>
+<p>Если возвращается 0 символов или байтов, а <code class="docutils literal notranslate"><span class="pre">size</span></code> не равен 0, это
+указывает на конец файла.</p>
+<p>Исключение <code class="docutils literal notranslate"><span class="pre">MemoryError</span></code> произойдет, если <code class="docutils literal notranslate"><span class="pre">size</span></code> больше, чем
+доступная оперативная память.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BytesIO.readinto">
 <span class="sig-name descname"><span class="pre">readinto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BytesIO.readinto" title="Ссылка на это определение"></a></dt>
-<dd><p>Read characters or bytes into the buffer <code class="docutils literal notranslate"><span class="pre">buf</span></code>. If <code class="docutils literal notranslate"><span class="pre">n</span></code> is supplied,
-read <code class="docutils literal notranslate"><span class="pre">n</span></code> number of bytes or characters into the buffer <code class="docutils literal notranslate"><span class="pre">buf</span></code>.</p>
+<dd><p>Прочитать символы или байты в буфер <code class="docutils literal notranslate"><span class="pre">buf</span></code>. Если указано <code class="docutils literal notranslate"><span class="pre">n</span></code>,
+прочитать <code class="docutils literal notranslate"><span class="pre">n</span></code> байтов или символов в буфер <code class="docutils literal notranslate"><span class="pre">buf</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BytesIO.readline">
 <span class="sig-name descname"><span class="pre">readline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BytesIO.readline" title="Ссылка на это определение"></a></dt>
-<dd><p>Read and return one line from the file. If <code class="docutils literal notranslate"><span class="pre">size</span></code> is specified, at
-most <code class="docutils literal notranslate"><span class="pre">size</span></code> characters will be read.</p>
-<p>The line terminator is always <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> for strings or <code class="docutils literal notranslate"><span class="pre">b'\n'</span></code> for
-bytes.</p>
+<dd><p>Прочитать и вернуть одну строку из файла. Если указан <code class="docutils literal notranslate"><span class="pre">size</span></code>, будут прочтено
+столько строк.</p>
+<p>Ограничитель строки всегда <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> для строк или <code class="docutils literal notranslate"><span class="pre">b'\n'</span></code> для строк.
+байт.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BytesIO.writable">
 <span class="sig-name descname"><span class="pre">writable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BytesIO.writable" title="Ссылка на это определение"></a></dt>
-<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the file supports writing. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">write()</span></code>
-will raise <code class="docutils literal notranslate"><span class="pre">OSError</span></code>.</p>
+<dd><p>Возвратите <code class="docutils literal notranslate"><span class="pre">True</span></code>, если файл поддерживает запись.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="BytesIO.write">
 <span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#BytesIO.write" title="Ссылка на это определение"></a></dt>
-<dd><p>Write the string or bytes <code class="docutils literal notranslate"><span class="pre">buf</span></code> to the file and return the number of
-characters or bytes written.</p>
+<dd><p>Запишите строку или байты <code class="docutils literal notranslate"><span class="pre">buf</span></code> в файл и верните количество
+символов или байтов, записанных.</p>
 </dd></dl>
 
 </dd></dl>

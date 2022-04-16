@@ -56,25 +56,8 @@
 <p class="caption" role="heading"><span class="caption-text">Справочник по API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../API.html">Справочник по API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">micro:bit Micropython API</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="microbit.html">Microbit Module</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="microbit.html#id1">Функции</a></li>
-<li class="toctree-l3"><a class="reference internal" href="microbit.html#id2">Атрибуты</a></li>
-<li class="toctree-l3"><a class="reference internal" href="microbit.html#id3">Класс</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="microbit.html#id4">Модули</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
-<li class="toctree-l4"><a class="reference internal" href="audio.html">Audio V2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="compass.html">Компас</a></li>
-<li class="toctree-l4"><a class="reference internal" href="display.html">Дисплей</a></li>
-<li class="toctree-l4"><a class="reference internal" href="i2c.html">Функции</a></li>
-<li class="toctree-l4"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
-<li class="toctree-l4"><a class="reference internal" href="speaker.html">Генератор речи <strong>V2</strong></a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Протокол SPI</a></li>
-<li class="toctree-l4"><a class="reference internal" href="uart.html">Протокол UART</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="microbit_micropython_api.html">Microbit Micropython API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="microbit.html">Модуль Microbit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="accelerometer.html">Акселерометр</a></li>
 <li class="toctree-l2"><a class="reference internal" href="audio.html">Аудио</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ble.html">Bluetooth</a></li>
@@ -82,7 +65,8 @@
 <li class="toctree-l2"><a class="reference internal" href="compass.html">Компас</a></li>
 <li class="toctree-l2"><a class="reference internal" href="display.html">Дисплей</a></li>
 <li class="toctree-l2"><a class="reference internal" href="filesystem.html">Файловая система</a></li>
-<li class="toctree-l2"><a class="reference internal" href="i2c.html">Функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">Протокол I²C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html#id2">Подключение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="image.html">Изображение</a></li>
 <li class="toctree-l2"><a class="reference internal" href="machine.html">Микроконтроллер</a></li>
 <li class="toctree-l2"><a class="reference internal" href="microphone.html">Микрофон <strong>V2</strong></a></li>
@@ -124,7 +108,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../API.html">Справочник по API</a> &raquo;</li>
-          <li><a href="microbit.html">Microbit Module</a> &raquo;</li>
+          <li><a href="microbit.html">Модуль Microbit</a> &raquo;</li>
       <li>Протокол SPI</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/spi.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
@@ -137,29 +121,28 @@
              
   <section id="module-microbit.spi">
 <span id="spi"></span><h1>Протокол SPI<a class="headerlink" href="#module-microbit.spi" title="Ссылка на этот заголовок"></a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">spi</span></code> module lets you talk to a device connected to your board using
-a serial peripheral interface (SPI) bus. SPI uses a so-called master-slave
-architecture with a single master. You will need to specify the connections
-for three signals:</p>
+<p>Модуль <code class="docutils literal notranslate"><span class="pre">spi</span></code> позволяет вам общаться с устройством, подключенным к плате, используя
+шину последовательного периферийного интерфейса (SPI). SPI использует master-slave - архитектура с одним мастером.
+Вам нужно будет указать соединения для трех сигналов:</p>
 <ul class="simple">
-<li><p>SCLK : Serial Clock (output from master).</p></li>
-<li><p>MOSI : Master Output, Slave Input (output from master).</p></li>
-<li><p>MISO : Master Input, Slave Output (output from slave).</p></li>
+<li><p>SCLK : тактовый сигнал   .</p></li>
+<li><p>MOSI : Master Output, Slave Input (Ведущий передает, Ведомый принимает).</p></li>
+<li><p>MISO : Master Input, Slave Output (Ведущий принимает, Ведомый передает).</p></li>
 </ul>
 <section id="id1">
 <h2>Функции<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="microbit.spi.init">
 <span class="sig-prename descclassname"><span class="pre">microbit.spi.</span></span><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">baudrate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sclk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">pin13</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mosi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">pin15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">miso</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">pin14</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.spi.init" title="Ссылка на это определение"></a></dt>
-<dd><p>Initialize SPI communication with the specified parameters on the
-specified <code class="docutils literal notranslate"><span class="pre">pins</span></code>. Note that for correct communication, the parameters
-have to be the same on both communicating devices.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">baudrate</span></code> defines the speed of communication.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">bits</span></code> defines the size of bytes being transmitted. Currently only
-<code class="docutils literal notranslate"><span class="pre">bits=8</span></code> is supported. However, this may change in the future.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">mode</span></code> determines the combination of clock polarity and phase
-according to the following convention, with polarity as the high order bit
-and phase as the low order bit:</p>
+<dd><p>Инициализировать связь SPI с указанными параметрами на
+указанные <code class="docutils literal notranslate"><span class="pre">pin</span></code>. Обратите внимание, что для правильной связи параметры
+должны быть одинаковыми на обоих взаимодействующих устройствах.</p>
+<p><code class="docutils literal notranslate"><span class="pre">baudrate</span></code> определяет скорость общения.</p>
+<p><code class="docutils literal notranslate"><span class="pre">bits</span></code> определяет размер передаваемых байтов. В настоящее время только <code class="docutils literal notranslate"><span class="pre">bits=8</span></code>
+поддерживается. Однако это может измениться в будущем.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mode</span></code> определяет комбинацию тактовых часов и фазы
+согласно следующему соглашению, с тактом в качестве старшего бита
+и фаза как младший бит:</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 24%" />
@@ -191,34 +174,33 @@ and phase as the low order bit:</p>
 </tr>
 </tbody>
 </table>
-<p>Polarity (aka CPOL) 0 means that the clock is at logic value 0 when idle
-and goes high (logic value 1) when active; polarity 1 means the clock is
-at logic value 1 when idle and goes low (logic value 0) when active. Phase
-(aka CPHA) 0 means that data is sampled on the leading edge of the clock,
-and 1 means on the trailing edge
+<p>Полярность (также известная как CPOL) 0 означает, что часы находятся на логическом значении 0 в режиме ожидания.
+и становится высоким (логическое значение 1), когда активен; полярность 1 означает, что часы
+на логическом значении 1 в режиме ожидания и становится низким (логический 0) в активном состоянии. Фаза
+(он же CPHA) 0 означает, что выборка данных производится по переднему фронту тактового сигнала,
+и 1 означает на задней кромке
 (viz. <a class="reference external" href="https://en.wikipedia.org/wiki/Signal_edge">https://en.wikipedia.org/wiki/Signal_edge</a>).</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">sclk</span></code>, <code class="docutils literal notranslate"><span class="pre">mosi</span></code> and <code class="docutils literal notranslate"><span class="pre">miso</span></code> arguments specify the pins to use for
-each type of signal.</p>
+<p>Аргументы <code class="docutils literal notranslate"><span class="pre">sclk</span></code>, <code class="docutils literal notranslate"><span class="pre">mosi</span></code> и <code class="docutils literal notranslate"><span class="pre">miso</span></code> определяют контакты, которые будут использоваться для
+каждый тип сигнала.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="microbit.spi.spi.read">
 <span class="sig-prename descclassname"><span class="pre">spi.</span></span><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nbytes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.spi.spi.read" title="Ссылка на это определение"></a></dt>
-<dd><p>Read at most <code class="docutils literal notranslate"><span class="pre">nbytes</span></code>. Returns what was read.</p>
+<dd><p>Читать не более <code class="docutils literal notranslate"><span class="pre">nbytes</span></code>. Возвращает прочитанное.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="microbit.spi.spi.write">
 <span class="sig-prename descclassname"><span class="pre">spi.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buffer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.spi.spi.write" title="Ссылка на это определение"></a></dt>
-<dd><p>Write the <code class="docutils literal notranslate"><span class="pre">buffer</span></code> of bytes to the bus.</p>
+<dd><p>Запишите <code class="docutils literal notranslate"><span class="pre">буфер</span></code> байтов на шину.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="microbit.spi.spi.write_readinto">
 <span class="sig-prename descclassname"><span class="pre">spi.</span></span><span class="sig-name descname"><span class="pre">write_readinto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#microbit.spi.spi.write_readinto" title="Ссылка на это определение"></a></dt>
-<dd><p>Write the <code class="docutils literal notranslate"><span class="pre">out</span></code> buffer to the bus and read any response into the <code class="docutils literal notranslate"><span class="pre">in</span></code>
-buffer. The length of the buffers should be the same. The buffers can be
-the same object.</p>
+<dd><p>Запишите буфер <code class="docutils literal notranslate"><span class="pre">out</span></code> на шину и прочитайте любой ответ в <code class="docutils literal notranslate"><span class="pre">in</span></code> буфер.
+Длина буфера должна быть одинаковой.</p>
 </dd></dl>
 
 </section>

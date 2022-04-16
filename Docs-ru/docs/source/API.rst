@@ -4,7 +4,7 @@
 Описание функция расположенных в объектах и классах в библиотеке Microbit.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Содержание
 
    api/microbit_micropython_api
