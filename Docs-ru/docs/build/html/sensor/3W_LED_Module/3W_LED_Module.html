@@ -177,10 +177,11 @@
 </section>
 <section id="id3">
 <h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="n">pin0</span><span class="p">,</span> <span class="n">sleep</span>
+
 <span class="kn">from</span> <span class="nn">LED_3W_Module</span> <span class="kn">import</span> <span class="n">LED_3W_Module</span>
 
-<span class="n">led1</span><span class="o">=</span><span class="n">LED_3W_Module</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+<span class="n">led1</span> <span class="o">=</span> <span class="n">LED_3W_Module</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1023</span><span class="p">):</span>
     <span class="n">led1</span><span class="o">.</span><span class="n">bright</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>

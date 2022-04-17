@@ -182,10 +182,11 @@
 <section id="id3">
 <h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">music</span>
-<span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="n">pin0</span>
+
 <span class="kn">from</span> <span class="nn">Passive_Buzzer</span> <span class="kn">import</span> <span class="n">Passive_Buzzer</span>
 
-<span class="n">sound</span><span class="o">=</span><span class="n">Passive_Buzzer</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
+<span class="n">sound</span> <span class="o">=</span> <span class="n">Passive_Buzzer</span><span class="p">(</span><span class="n">pin0</span><span class="p">)</span>
 <span class="n">sound</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">music</span><span class="o">.</span><span class="n">BLUES</span><span class="p">)</span>
 <span class="n">sound</span><span class="o">.</span><span class="n">play_time</span><span class="p">(</span><span class="n">music</span><span class="o">.</span><span class="n">BIRTHDAY</span><span class="p">,</span> <span class="mi">3000</span><span class="p">)</span>
 </pre></div>

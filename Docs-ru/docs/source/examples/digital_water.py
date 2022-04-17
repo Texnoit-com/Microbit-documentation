@@ -19,12 +19,13 @@ MAX_BRIGHTNESS = 9
 # this is how the accelerometer values 1g of gravity
 ONE_G = 1024
 
-# Some maths functions to help us
 
+# Some maths functions to help us
 def clamp(minimum, n, maximum):
     """Return the nearest value to n, that's within minimum to maximum (incl)
     """
     return max(minimum, min(n, maximum))
+
 
 def rescale(src_scale, dest_scale, x):
     """Map one number scale to another
@@ -43,8 +44,8 @@ def rescale(src_scale, dest_scale, x):
     # apply our proportion to the dest_scale
     return proportion * (dest_end - dest_start) + dest_start
 
-# Helpers for controling the display
 
+# Helpers for controling the display
 def light(brightness, filter):
     """Light up all pixels matching the filter function
     """
@@ -53,6 +54,7 @@ def light(brightness, filter):
         for row in range(DISPLAY_HEIGHT):
             if filter(col, row):
                 microbit.display.set_pixel(col, row, brightness)
+
 
 def fade_display():
     """Reduce every pixel by 1 brightness level
@@ -93,7 +95,7 @@ def paint_water():
         # remember rows count down from the top, so we want to light up all
         # the rows below the water line (when the micro:bit is help up straight)
         # The forumula here is of the form y = m*x + c
-        # We have a couple of "- 2"s to centre the water level in the middle 
+        # We have a couple of "- 2"s to centre the water level in the middle
         # of the display
         return row - 2 > -turn_factor * (col - 2) - spill_factor
 
@@ -107,13 +109,11 @@ def paint_water():
     # light up the pixels when filter returns true, to the given bright level
     light(overall_brightness, filter)
 
+
 # loop forever painting watery pixels, sleeping and then fading as each pixel
 # washes away into the night
-
 while True:
     paint_water()
-
     microbit.sleep(100)
-
     # fade all pixels by one brightness level
     fade_display()

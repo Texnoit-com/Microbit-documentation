@@ -1,10 +1,9 @@
 """
 Dodge game
-
 Get the player back and forth across the screen while dodging the enemy
 """
+from microbit import button_a, button_b, display, running_time, sleep
 
-from microbit import *
 import music
 
 

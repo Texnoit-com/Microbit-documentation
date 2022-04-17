@@ -1,9 +1,9 @@
-from microbit import *
+from microbit import Image, display, sleep
 
 hands = Image.ALL_CLOCKS
 
 #A centre dot of brightness 2.
-ticker_image = Image("2\n").crop(-2,-2,5,5)
+ticker_image = Image("2\n").crop(-2, -2, 5, 5)
 
 #Adjust these to taste
 MINUTE_BRIGHT = 0.1111
@@ -14,9 +14,9 @@ def fiveticks():
     fivemins = 0
     hours = 0
     while True:
-        yield  hands[fivemins]*MINUTE_BRIGHT + hands[hours]*HOUR_BRIGHT
-        fivemins = (fivemins+1)%12
-        hours = (hours + (fivemins == 0))%12
+        yield hands[fivemins]*MINUTE_BRIGHT + hands[hours]*HOUR_BRIGHT
+        fivemins = (fivemins+1) % 12
+        hours = (hours + (fivemins == 0)) % 12
 
 #Generate hands with ticker superimposed for 1 minute intervals.      
 def ticks():

@@ -1,12 +1,13 @@
-from microbit import *
+from microbit import display, pin0, sleep
+
 from Crash_Sensor import Crash_Sensor
 
-crash=Crash_Sensor(pin0)
+crash = Crash_Sensor(pin0)
 
 while True:
     if crash.is_pressed():
         display.show(crash.count_pressed())
-    if crash.count_pressed()>3:
+    if crash.count_pressed() > 3:
         crash.reset_pressed()
         break
     sleep(200)

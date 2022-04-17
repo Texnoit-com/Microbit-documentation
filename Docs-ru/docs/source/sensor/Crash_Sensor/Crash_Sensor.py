@@ -1,27 +1,30 @@
-from microbit import *
+from microbit import MicroBitAnalogDigitalPin, sleep
+
 
 class Crash_Sensor():
 
-    def __init__(self, set:MicroBitAnalogDigitalPin):
-        self.set = set
-        self.count=0
+    PAUSE: int = 10
 
-    def is_pressed(self)->bool:
-        if self.set.read_analog() < 10:
+    def __init__(self, set: MicroBitAnalogDigitalPin):
+        self.set = set
+        self.count = 0
+
+    def is_pressed(self) -> bool:
+        if self.set.read_analog() < self.PAUSE:
             self.count += 1
             return True
         return False
 
-    def click(self, time:int)->bool:
-        if self.set.read_analog() < 10:
+    def click(self, time: int) -> bool:
+        if self.set.read_analog() < self.PAUSE:
             sleep(time)
-            if self.set.read_analog() > 10:
+            if self.set.read_analog() > self.PAUSE:
                 self.count += 1
                 return True
         return False
 
-    def reset_pressed(self)->None:
-        self.count=0
+    def reset_pressed(self) -> None:
+        self.count = 0
 
-    def count_pressed(self)->int:
+    def count_pressed(self) -> int:
         return self.count

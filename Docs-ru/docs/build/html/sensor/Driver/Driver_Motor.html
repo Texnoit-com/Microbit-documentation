@@ -210,13 +210,14 @@
 </section>
 <section id="id3">
 <h2>Пример программы<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="n">pin0</span><span class="p">,</span> <span class="n">pin1</span><span class="p">,</span> <span class="n">pin13</span><span class="p">,</span> <span class="n">pin14</span><span class="p">,</span> <span class="n">pin15</span><span class="p">,</span> <span class="n">pin16</span><span class="p">,</span> <span class="n">sleep</span>
+
 <span class="kn">from</span> <span class="nn">Driver_Motor</span> <span class="kn">import</span> <span class="n">Driver_Motor</span><span class="p">,</span> <span class="n">Motor</span>
 
-<span class="n">l_motor</span><span class="o">=</span><span class="n">Motor</span><span class="p">(</span><span class="n">pin13</span><span class="p">,</span><span class="n">pin14</span><span class="p">,</span><span class="n">pin0</span><span class="p">)</span>
-<span class="n">r_motor</span><span class="o">=</span><span class="n">Motor</span><span class="p">(</span><span class="n">pin15</span><span class="p">,</span><span class="n">pin16</span><span class="p">,</span><span class="n">pin1</span><span class="p">)</span>
+<span class="n">l_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">pin13</span><span class="p">,</span> <span class="n">pin14</span><span class="p">,</span> <span class="n">pin0</span><span class="p">)</span>
+<span class="n">r_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="n">pin15</span><span class="p">,</span> <span class="n">pin16</span><span class="p">,</span> <span class="n">pin1</span><span class="p">)</span>
 
-<span class="n">car</span> <span class="o">=</span> <span class="n">Driver_Motor</span><span class="p">(</span><span class="n">l_motor</span><span class="p">,</span><span class="n">r_motor</span><span class="p">)</span>
+<span class="n">car</span> <span class="o">=</span> <span class="n">Driver_Motor</span><span class="p">(</span><span class="n">l_motor</span><span class="p">,</span> <span class="n">r_motor</span><span class="p">)</span>
 
 <span class="n">speed</span> <span class="o">=</span> <span class="mi">500</span>
 

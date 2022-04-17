@@ -1,4 +1,4 @@
-from microbit import *
+from microbit import pin0, sleep
 from neopixel import NeoPixel
 
 np = NeoPixel(pin0, 5)

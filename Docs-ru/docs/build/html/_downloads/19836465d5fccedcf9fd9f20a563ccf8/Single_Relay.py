@@ -1,13 +1,13 @@
-from microbit import *
+from microbit import MicroBitAnalogDigitalPin
+
 
 class Single_Relay():
 
-    def __init__(self, set:MicroBitAnalogDigitalPin):
+    def __init__(self, set: MicroBitAnalogDigitalPin):
         self.set = set
 
-    def on (self)->None:
+    def on(self) -> None:
         self.set.write_digital(1)
 
-    def off (self)->None:
+    def off(self) -> None:
         self.set.write_digital(0)
-

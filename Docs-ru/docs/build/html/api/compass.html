@@ -211,16 +211,11 @@
 <h2>Примеры<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    compass.py</span>
-<span class="sd">    ~~~~~~~~~~</span>
-
 <span class="sd">    Создает компас.</span>
-
 <span class="sd">    Сначала пользователю необходимо откалибровать компас. В компасе используется</span>
 <span class="sd">    встроенные изображения часов для отображения положения стрелки</span>
-
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
-
+<span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">compass</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">sleep</span>
 
 <span class="c1"># Начало калибровки</span>
 <span class="n">compass</span><span class="o">.</span><span class="n">calibrate</span><span class="p">()</span>

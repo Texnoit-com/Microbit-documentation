@@ -1,8 +1,12 @@
-from microbit import *
+from microbit import (Image, MicroBitAnalogDigitalPin, display, running_time,
+                      sleep)
+
 
 class Analog_Sound:
 
-    def __init__(self, set_pin:MicroBitAnalogDigitalPin):
+    PAUSE: int = 10
+
+    def __init__(self, set_pin: MicroBitAnalogDigitalPin):
         self.set_pin = set_pin
 
     def calibrate(self):
@@ -12,7 +16,7 @@ class Analog_Sound:
         calibrated = False
         while not calibrated:
             r = self.set_pin.read_analog()
-            r = abs(r)/450*5 
+            r = abs(r)/450*5
             r = int(r) if r < 6 else 5
             if (r == 5 and prev != 5) or (r == 0 and prev != 0):
                 t = running_time()
@@ -21,7 +25,7 @@ class Analog_Sound:
                 last_time = running_time()
                 if r == 0:
                     display.show(Image.ARROW_E)
-                else: 
+                else:
                     display.show(Image.ARROW_W)
             else:
                 for y in range(0, 5):
@@ -39,10 +43,10 @@ class Analog_Sound:
                     display.clear()
         return calibrated
 
-    def level_sound(self):
+    def level_sound(self) -> int:
         return self.set_pin.read_analog()
 
-    def count_claps(self,sleep_time=100):
+    def count_claps(self, sleep_time=PAUSE):
         t = running_time()
         lastr = 5
         claps = 0

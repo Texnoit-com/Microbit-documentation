@@ -1,14 +1,15 @@
 '''
 Conway's Game Of Life for the micro:bit
-
 Press button A or tap the micro:bit to generate a fresh layout.
 '''
 
-import microbit
 import random
+
+import microbit
 
 arena1 = bytearray(7 * 7)
 arena2 = bytearray(7 * 7)
+
 
 def show():
     img = microbit.Image(5,5)
@@ -17,20 +18,21 @@ def show():
             img.set_pixel(x, y, arena1[8 + y * 7 + x]*9)
     microbit.display.show(img)
 
+
 # do 1 iteration of Conway's Game of Life
 def conway_step():
     global arena1, arena2
-    for i in range(5 * 5): # loop over pixels
+    for i in range(5 * 5):
         i = 8 + (i // 5) * 7 + i % 5
         # count number of neighbours
         num_neighbours = (arena1[i - 8] +
-                arena1[i - 7] +
-                arena1[i - 6] +
-                arena1[i - 1] +
-                arena1[i + 1] +
-                arena1[i + 6] +
-                arena1[i + 7] +
-                arena1[i + 8])
+                          arena1[i - 7] +
+                          arena1[i - 6] +
+                          arena1[i - 1] +
+                          arena1[i + 1] +
+                          arena1[i + 6] +
+                          arena1[i + 7] +
+                          arena1[i + 8])
         # check if the centre cell is alive or not
         self = arena1[i]
         # apply the rules of life
@@ -42,6 +44,7 @@ def conway_step():
             arena2[i] = self # stay as-is
     # swap the buffers (arena1 is now the new one to display)
     arena1, arena2 = arena2, arena1
+
 
 while True:
     # randomise the start

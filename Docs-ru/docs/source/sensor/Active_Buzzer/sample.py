@@ -1,8 +1,9 @@
-from microbit import *
 import music
+from microbit import pin0, sleep
+
 from Active_Buzzer import Active_Buzzer
 
-sound=Active_Buzzer(pin0)
+sound = Active_Buzzer(pin0)
 
 sound.beep(2000)
 sleep(1000)

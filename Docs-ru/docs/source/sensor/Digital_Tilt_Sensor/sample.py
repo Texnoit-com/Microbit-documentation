@@ -1,8 +1,9 @@
-from microbit import *
-from Digital_Tilt import  Digital_Tilt
+from microbit import Image, display, pin0
 
-tilt= Digital_Tilt(pin0)
+from Digital_Tilt import Digital_Tilt
+
+tilt = Digital_Tilt(pin0)
 
 while True:
-     if tilt.vibration():
-         display.show(Image.YES)
+    if tilt.vibration():
+        display.show(Image.YES)
