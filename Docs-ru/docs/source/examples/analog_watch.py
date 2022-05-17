@@ -18,7 +18,9 @@ def fiveticks():
         fivemins = (fivemins+1) % 12
         hours = (hours + (fivemins == 0)) % 12
 
-#Generate hands with ticker superimposed for 1 minute intervals.      
+#Generate hands with ticker superimposed for 1 minute intervals.
+
+
 def ticks():
     on = True
     for face in fiveticks():
