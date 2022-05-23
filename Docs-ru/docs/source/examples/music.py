@@ -1,12 +1,10 @@
 """
-    music.py
-    ~~~~~~~~
-
-    Plays a simple tune using the Micropython music module.
-    This example requires a speaker/buzzer/headphones connected to P0 and GND,
-    or the latest micro:bit device with built-in speaker.
+    Воспроизведение простой мелодии с помощью музыкального модуля Micropython.
+    В этом примере требуется динамик, подключенные к P0 и GND,
+    или micro:bit V2 со встроенным динамиком.
 """
 from microbit import *
+
 import music
 
 # play Prelude in C.

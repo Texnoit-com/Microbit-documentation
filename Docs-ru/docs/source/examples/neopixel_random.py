@@ -1,28 +1,22 @@
 """
-    neopixel_random.py
-    
-    Repeatedly displays random colours onto the LED strip.
-    This example requires a strip of 8 Neopixels (WS2812) connected to pin0.
-
+    Повторно отображает случайные цвета на светодиодной ленте.
 """
-from microbit import *
-import neopixel
 from random import randint
 
-# Setup the Neopixel strip on pin0 with a length of 8 pixels
+import neopixel
+from microbit import pin0, sleep
+
+# Установите длину ленты
 np = neopixel.NeoPixel(pin0, 8)
 
 while True:
-    #Iterate over each LED in the strip
-    
+    # Включение ленты
     for pixel_id in range(0, len(np)):
         red = randint(0, 60)
         green = randint(0, 60)
         blue = randint(0, 60)
-        
-        # Assign the current LED a random red, green and blue value between 0 and 60
+        # Назначьте текущему светодиоду случайное значение красного, зеленого и синего цветов от 0 до 60
         np[pixel_id] = (red, green, blue)
-        
-        # Display the current pixel data on the Neopixel strip
+        # Отображение светодиодов
         np.show()
         sleep(100)

@@ -2,7 +2,7 @@ from microbit import Image, display, sleep
 
 hands = Image.ALL_CLOCKS
 
-#A centre dot of brightness 2.
+#Центральная точка яркости.
 ticker_image = Image("2\n").crop(-2, -2, 5, 5)
 
 #Adjust these to taste
