@@ -1,9 +1,6 @@
-from microbit import MicroBitAnalogDigitalPin
-
-
 class TEMT():
 
-    def __init__(self, set: MicroBitAnalogDigitalPin):
+    def __init__(self, set_pin):
         self.set = set
 
     def get_signal(self) -> int:

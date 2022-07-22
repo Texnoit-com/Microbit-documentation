@@ -1,11 +1,6 @@
-from microbit import MicroBitAnalogDigitalPin, MicroBitDigitalPin
-
-
 class Joystick:
 
-    def __init__(self, x_axis: MicroBitAnalogDigitalPin,
-                 y_axis: MicroBitAnalogDigitalPin,
-                 button: MicroBitDigitalPin):
+    def __init__(self, x_axis, y_axis, button):
         self.x_axis = x_axis
         self.y_axis = y_axis
         self.button = button

@@ -1,12 +1,11 @@
-from microbit import (Image, MicroBitAnalogDigitalPin, display, running_time,
-                      sleep)
+from microbit import Image, display, running_time, sleep
 
 
 class Analog_Sound:
 
     PAUSE: int = 10
 
-    def __init__(self, set_pin: MicroBitAnalogDigitalPin):
+    def __init__(self, set_pin):
         self.set_pin = set_pin
 
     def calibrate(self):

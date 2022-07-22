@@ -240,31 +240,25 @@ Micro:bit может подавать только 90 мА <strong>V1</strong> �
 <section id="id3">
 <h2>Примеры<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    neopixel_random.py</span>
-
-<span class="sd">    Repeatedly displays random colours onto the LED strip.</span>
-<span class="sd">    This example requires a strip of 8 Neopixels (WS2812) connected to pin0.</span>
-
+<span class="sd">    Повторно отображает случайные цвета на светодиодной ленте.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">neopixel</span>
 <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
 
-<span class="c1"># Setup the Neopixel strip on pin0 with a length of 8 pixels</span>
+<span class="kn">import</span> <span class="nn">neopixel</span>
+<span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="n">pin0</span><span class="p">,</span> <span class="n">sleep</span>
+
+<span class="c1"># Установите длину ленты</span>
 <span class="n">np</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">pin0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="c1">#Iterate over each LED in the strip</span>
-
+    <span class="c1"># Включение ленты</span>
     <span class="k">for</span> <span class="n">pixel_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="p">)):</span>
         <span class="n">red</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
         <span class="n">green</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
         <span class="n">blue</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
-
-        <span class="c1"># Assign the current LED a random red, green and blue value between 0 and 60</span>
+        <span class="c1"># Назначьте текущему светодиоду случайное значение красного, зеленого и синего цветов от 0 до 60</span>
         <span class="n">np</span><span class="p">[</span><span class="n">pixel_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span>
-
-        <span class="c1"># Display the current pixel data on the Neopixel strip</span>
+        <span class="c1"># Отображение светодиодов</span>
         <span class="n">np</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>

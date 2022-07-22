@@ -1,13 +1,12 @@
 from machine import time_pulse_us
-from microbit import MicroBitDigitalPin
 
 
 class Ultrasonic:
 
     SPEED_SOUND: int = 34300
 
-    def __init__(self, trig_pin: MicroBitDigitalPin,
-                 echo_pin: MicroBitDigitalPin,
+    def __init__(self, trig_pin,
+                 echo_pin,
                  speed_sound: int = SPEED_SOUND):
         self.trig_pin = trig_pin
         self.echo_pin = echo_pin

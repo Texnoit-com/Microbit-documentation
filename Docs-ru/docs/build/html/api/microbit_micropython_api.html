@@ -440,61 +440,58 @@
 </section>
 <section id="id7">
 <h3>Акселерометр<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h3>
-<p>The accelerometer is accessed via the <code class="docutils literal notranslate"><span class="pre">accelerometer</span></code> object:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># read the X axis of the device. Measured in milli-g.</span>
+<p>Доступ к акселерометру осуществляется через объект <code class="docutils literal notranslate"><span class="pre">accelerometer</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ось X.</span>
 <span class="n">accelerometer</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span>
-<span class="c1"># read the Y axis of the device. Measured in milli-g.</span>
+<span class="c1"># Ось Y.</span>
 <span class="n">accelerometer</span><span class="o">.</span><span class="n">get_y</span><span class="p">()</span>
-<span class="c1"># read the Z axis of the device. Measured in milli-g.</span>
+<span class="c1"># Ось Z.</span>
 <span class="n">accelerometer</span><span class="o">.</span><span class="n">get_z</span><span class="p">()</span>
-<span class="c1"># get tuple of all three X, Y and Z readings (listed in that order).</span>
+<span class="c1"># Получить показания трех осей X, Y, Z (в указанном порядке).</span>
 <span class="n">accelerometer</span><span class="o">.</span><span class="n">get_values</span><span class="p">()</span>
-<span class="c1"># return the name of the current gesture.</span>
+<span class="c1"># вернуть название текущего жеста.</span>
 <span class="n">accelerometer</span><span class="o">.</span><span class="n">current_gesture</span><span class="p">()</span>
-<span class="c1"># return True or False to indicate if the named gesture is currently active.</span>
+<span class="c1"># вернуть True или False, чтобы указать произошел жест или нет.</span>
 <span class="n">accelerometer</span><span class="o">.</span><span class="n">is_gesture</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="c1"># return True or False to indicate if the named gesture was active since the</span>
-<span class="c1"># last call.</span>
+<span class="c1"># вернуть True или False, чтобы указать произошел ли жест с последнего опроса</span>
 <span class="n">accelerometer</span><span class="o">.</span><span class="n">was_gesture</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="c1"># return a tuple of the gesture history. The most recent is listed last.</span>
+<span class="c1"># вернуть кортеж истории жестов.</span>
 <span class="n">accelerometer</span><span class="o">.</span><span class="n">get_gestures</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The recognised gestures are: <code class="docutils literal notranslate"><span class="pre">up</span></code>, <code class="docutils literal notranslate"><span class="pre">down</span></code>, <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">up</span></code>, <code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">down</span></code>, <code class="docutils literal notranslate"><span class="pre">freefall</span></code>, <code class="docutils literal notranslate"><span class="pre">3g</span></code>, <code class="docutils literal notranslate"><span class="pre">6g</span></code>, <code class="docutils literal notranslate"><span class="pre">8g</span></code>, <code class="docutils literal notranslate"><span class="pre">shake</span></code>.</p>
+<p>Объявленные жесты: <code class="docutils literal notranslate"><span class="pre">up</span></code>, <code class="docutils literal notranslate"><span class="pre">down</span></code>, <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">up</span></code>, <code class="docutils literal notranslate"><span class="pre">face</span> <span class="pre">down</span></code>, <code class="docutils literal notranslate"><span class="pre">freefall</span></code>, <code class="docutils literal notranslate"><span class="pre">3g</span></code>, <code class="docutils literal notranslate"><span class="pre">6g</span></code>, <code class="docutils literal notranslate"><span class="pre">8g</span></code>, <code class="docutils literal notranslate"><span class="pre">shake</span></code>.</p>
 </section>
 <section id="id8">
 <h3>Компас<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h3>
-<p>The compass is accessed via the <cite>compass</cite> object:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># calibrate the compass (this is needed to get accurate readings).</span>
+<p>Доступ к компасу осуществляется через объект <cite>compass</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># каллибровка компаса (это нужно для получения точных показаний).</span>
 <span class="n">compass</span><span class="o">.</span><span class="n">calibrate</span><span class="p">()</span>
-<span class="c1"># return a numeric indication of degrees offset from &quot;north&quot;.</span>
+<span class="c1"># вернуть числовое значение смещения градусов от «севера».</span>
 <span class="n">compass</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>
-<span class="c1"># return an numeric indication of the strength of magnetic field around</span>
-<span class="c1"># the micro:bit.</span>
+<span class="c1"># вернуть числовое значение силы магнитного поля micro:bit.</span>
 <span class="n">compass</span><span class="o">.</span><span class="n">get_field_strength</span><span class="p">()</span>
-<span class="c1"># returns True or False to indicate if the compass is calibrated.</span>
+<span class="c1"># возвращает True или False, чтобы указать, откалиброван ли компас.</span>
 <span class="n">compass</span><span class="o">.</span><span class="n">is_calibrated</span><span class="p">()</span>
-<span class="c1"># resets the compass to a pre-calibration state.</span>
+<span class="c1"># сбрасывает компас в состояние предварительной калибровки.</span>
 <span class="n">compass</span><span class="o">.</span><span class="n">clear_calibration</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
 <section id="i2c">
 <h3>Протокол I2C<a class="headerlink" href="#i2c" title="Ссылка на этот заголовок"></a></h3>
-<p>There is an I2C bus on the micro:bit that is exposed via the <cite>i2c</cite> object.  It has the following methods:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># read n bytes from device with addr; repeat=True means a stop bit won&#39;t</span>
-<span class="c1"># be sent.</span>
+<p>На micro:bit есть шина I2C, доступная через объект <cite>i2c</cite>. Он имеет следующие методы:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># прочитать n байт с устройства с адресом; Repeat=True означает, что стоп-бит не будет отправлен.</span>
 <span class="n">i2c</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="c1"># write buf to device with addr; repeat=True means a stop bit won&#39;t be sent.</span>
+<span class="c1"># записать buf на устройство с адресом; Repeat=True означает, что стоп-бит не будет отправлен.</span>
 <span class="n">i2c</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="id9">
 <h3>Звук <strong>V2</strong><a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h3>
-<p>A set of expressive sounds are available to the micro:bit <strong>V2</strong>. They can be
-accessed via the <code class="docutils literal notranslate"><span class="pre">microbit</span></code> module and played with the <a class="reference internal" href="audio.html"><span class="doc">audio</span></a> module.</p>
-<p><strong>Built-in sounds</strong></p>
+<p>Набор выразительных звуков доступен для micro:bit <strong>V2</strong>. Они могут быть
+доступ через модуль <code class="docutils literal notranslate"><span class="pre">microbit</span></code>.</p>
+<p><strong>Встроенные звуки</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">Sound.GIGGLE</span></code>
 <code class="docutils literal notranslate"><span class="pre">Sound.HAPPY</span></code>
 <code class="docutils literal notranslate"><span class="pre">Sound.HELLO</span></code>

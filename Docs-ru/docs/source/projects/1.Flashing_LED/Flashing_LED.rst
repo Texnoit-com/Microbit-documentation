@@ -6,7 +6,7 @@
 .. image:: Flashing_LED.png
 
 Программа
---------
+---------
 
 .. include:: Flashing_LED.py
     :code: python

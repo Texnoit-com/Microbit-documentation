@@ -1,13 +1,10 @@
-from microbit import MicroBitAnalogDigitalPin
-
-
 class Micro_Servo:
 
     SCALE: int = 1023
     SPAN: int = 20
     AGAIL: int = 60
 
-    def __init__(self, set_pin: MicroBitAnalogDigitalPin, period=20):
+    def __init__(self, set_pin, period=20):
         self.set_pin = set_pin
         self.period = period
         self.set_pin.set_analog_period(self.period)

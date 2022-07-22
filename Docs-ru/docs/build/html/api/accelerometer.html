@@ -221,103 +221,70 @@
 <section id="id3">
 <h3>Примеры<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h3>
 <p>Программа волшебный шар.</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Magic 8 ball by Nicholas Tollervey. February 2016.</span>
-<span class="c1">#</span>
-<span class="c1"># Задайте вопрос, затем встряхните.</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;Программа волшебный шар.&#39;&#39;&#39;</span>
 
-<span class="c1"># This program has been placed into the public domain.</span>
-<span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">random</span>
 
-<span class="n">answers</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s2">&quot;It is certain&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;It is decidedly so&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Without a doubt&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Yes, definitely&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;You may rely on it&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;As I see it, yes&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Most likely&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Outlook good&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Yes&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Signs point to yes&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Reply hazy try again&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Ask again later&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Better not tell you now&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Cannot predict now&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Concentrate and ask again&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Don&#39;t count on it&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;My reply is no&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;My sources say no&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Outlook not so good&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Very doubtful&quot;</span><span class="p">,</span>
-<span class="p">]</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span>
+
+<span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="n">accelerometer</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">sleep</span>
+
+<span class="n">answers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Аsk more&#39;</span><span class="p">]</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s1">&#39;8&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">accelerometer</span><span class="o">.</span><span class="n">was_gesture</span><span class="p">(</span><span class="s1">&#39;shake&#39;</span><span class="p">):</span>
         <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">answers</span><span class="p">))</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="n">choice</span><span class="p">(</span><span class="n">answers</span><span class="p">))</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Перемещайте устройство, чтобы избежать препятствий.</p>
-<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simple Slalom by Larry Hastings, September 2015</span>
-<span class="c1">#</span>
-<span class="c1"># This program has been placed into the public domain.</span>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;Движение пикселя&#39;&#39;&#39;</span>
 
-<span class="kn">import</span> <span class="nn">microbit</span> <span class="k">as</span> <span class="nn">m</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
-<span class="n">p</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">show</span>
+<span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Image</span><span class="p">,</span> <span class="n">accelerometer</span><span class="p">,</span> <span class="n">button_a</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">running_time</span><span class="p">,</span>
+                      <span class="n">sleep</span><span class="p">)</span>
 
-<span class="n">min_x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1024</span>
-<span class="n">max_x</span> <span class="o">=</span> <span class="mi">1024</span>
-<span class="n">range_x</span> <span class="o">=</span> <span class="n">max_x</span> <span class="o">-</span> <span class="n">min_x</span>
-
-<span class="n">wall_min_speed</span> <span class="o">=</span> <span class="mi">400</span>
-<span class="n">player_min_speed</span> <span class="o">=</span> <span class="mi">200</span>
-
-<span class="n">wall_max_speed</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">player_max_speed</span> <span class="o">=</span> <span class="mi">50</span>
-
-<span class="n">speed_max</span> <span class="o">=</span> <span class="mi">12</span>
-
+<span class="n">MIN_X</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1024</span>
+<span class="n">MAX_X</span> <span class="o">=</span> <span class="mi">1024</span>
+<span class="n">WALL_MIN_SPEED</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">PLAYER_MIN_SPEED</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">WAALL_MAX_SPEED</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">PLAYER_MAX_SPEED</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">SPEED_MAX</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">range_x</span> <span class="o">=</span> <span class="n">MAX_X</span> <span class="o">-</span> <span class="n">MIN_X</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 
-    <span class="n">i</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;00000:&#39;</span><span class="o">*</span><span class="mi">5</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">set_pixel</span>
-
+    <span class="n">template</span> <span class="o">=</span> <span class="n">Image</span><span class="p">(</span><span class="s1">&#39;00000:&#39;</span><span class="o">*</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">set_pixel</span>
     <span class="n">player_x</span> <span class="o">=</span> <span class="mi">2</span>
-
     <span class="n">wall_y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
     <span class="n">hole</span> <span class="o">=</span> <span class="mi">0</span>
-
     <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">handled_this_wall</span> <span class="o">=</span> <span class="kc">False</span>
-
-    <span class="n">wall_speed</span> <span class="o">=</span> <span class="n">wall_min_speed</span>
-    <span class="n">player_speed</span> <span class="o">=</span> <span class="n">player_min_speed</span>
-
+    <span class="n">wall_speed</span> <span class="o">=</span> <span class="n">WALL_MIN_SPEED</span>
+    <span class="n">player_speed</span> <span class="o">=</span> <span class="n">PLAYER_MIN_SPEED</span>
     <span class="n">wall_next</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">player_next</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">t</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">running_time</span><span class="p">()</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">running_time</span><span class="p">()</span>
         <span class="n">player_update</span> <span class="o">=</span> <span class="n">t</span> <span class="o">&gt;=</span> <span class="n">player_next</span>
         <span class="n">wall_update</span> <span class="o">=</span> <span class="n">t</span> <span class="o">&gt;=</span> <span class="n">wall_next</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">player_update</span> <span class="ow">or</span> <span class="n">wall_update</span><span class="p">):</span>
             <span class="n">next_event</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">wall_next</span><span class="p">,</span> <span class="n">player_next</span><span class="p">)</span>
             <span class="n">delta</span> <span class="o">=</span> <span class="n">next_event</span> <span class="o">-</span> <span class="n">t</span>
-            <span class="n">m</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
             <span class="k">continue</span>
 
         <span class="k">if</span> <span class="n">wall_update</span><span class="p">:</span>
             <span class="c1"># расчет новой скорости</span>
-            <span class="n">speed</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">speed_max</span><span class="p">)</span>
-            <span class="n">wall_speed</span> <span class="o">=</span> <span class="n">wall_min_speed</span> <span class="o">+</span> <span class="nb">int</span><span class="p">((</span><span class="n">wall_max_speed</span> <span class="o">-</span> <span class="n">wall_min_speed</span><span class="p">)</span> <span class="o">*</span> <span class="n">speed</span> <span class="o">/</span> <span class="n">speed_max</span><span class="p">)</span>
-            <span class="n">player_speed</span> <span class="o">=</span> <span class="n">player_min_speed</span> <span class="o">+</span> <span class="nb">int</span><span class="p">((</span><span class="n">player_max_speed</span> <span class="o">-</span> <span class="n">player_min_speed</span><span class="p">)</span> <span class="o">*</span> <span class="n">speed</span> <span class="o">/</span> <span class="n">speed_max</span><span class="p">)</span>
+            <span class="n">speed</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">SPEED_MAX</span><span class="p">)</span>
+            <span class="n">wall_speed</span> <span class="o">=</span> <span class="n">WALL_MIN_SPEED</span> <span class="o">+</span> <span class="nb">int</span><span class="p">((</span><span class="n">WAALL_MAX_SPEED</span> <span class="o">-</span> <span class="n">WALL_MIN_SPEED</span><span class="p">)</span> <span class="o">*</span> <span class="n">speed</span> <span class="o">/</span> <span class="n">SPEED_MAX</span><span class="p">)</span>
+            <span class="n">player_speed</span> <span class="o">=</span> <span class="n">PLAYER_MIN_SPEED</span> <span class="o">+</span> <span class="nb">int</span><span class="p">((</span><span class="n">PLAYER_MAX_SPEED</span> <span class="o">-</span> <span class="n">PLAYER_MIN_SPEED</span><span class="p">)</span> <span class="o">*</span> <span class="n">speed</span> <span class="o">/</span> <span class="n">SPEED_MAX</span><span class="p">)</span>
 
             <span class="n">wall_next</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">wall_speed</span>
             <span class="k">if</span> <span class="n">wall_y</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
@@ -331,11 +298,11 @@
         <span class="k">if</span> <span class="n">player_update</span><span class="p">:</span>
             <span class="n">player_next</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">player_speed</span>
             <span class="c1"># найти новую координату x</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">accelerometer</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">min_x</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">max_x</span><span class="p">)</span>
-
-            <span class="n">s</span><span class="p">(</span><span class="n">player_x</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># отключить старую позицию (пиксель)</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">min_x</span><span class="p">)</span> <span class="o">/</span> <span class="n">range_x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">accelerometer</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">MIN_X</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">MAX_X</span><span class="p">)</span>
+            <span class="c1"># отключить старую позицию (пиксель)</span>
+            <span class="n">s</span><span class="p">(</span><span class="n">player_x</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">MIN_X</span><span class="p">)</span> <span class="o">/</span> <span class="n">range_x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span>
             <span class="n">x</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
             <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
 
@@ -344,8 +311,6 @@
                     <span class="n">player_x</span> <span class="o">+=</span> <span class="mi">1</span>
                 <span class="k">elif</span> <span class="n">player_x</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">:</span>
                     <span class="n">player_x</span> <span class="o">-=</span> <span class="mi">1</span>
-
-
         <span class="k">if</span> <span class="n">wall_update</span><span class="p">:</span>
             <span class="c1"># обновить положение стены</span>
             <span class="n">wall_y</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -369,18 +334,19 @@
             <span class="n">score</span> <span class="o">+=</span> <span class="mi">1</span>
 
         <span class="k">if</span> <span class="n">player_update</span><span class="p">:</span>
-            <span class="n">s</span><span class="p">(</span><span class="n">player_x</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span> <span class="c1"># включить новый пиксель</span>
+            <span class="c1"># включить новый пиксель</span>
+            <span class="n">s</span><span class="p">(</span><span class="n">player_x</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
 
-        <span class="n">p</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
 
-    <span class="n">p</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">SAD</span><span class="p">)</span>
-    <span class="n">m</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-    <span class="n">m</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s2">&quot;Score:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">score</span><span class="p">))</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">SAD</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">scroll</span><span class="p">(</span><span class="s2">&quot;Score:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">score</span><span class="p">))</span>
 
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">button_a</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">()</span> <span class="ow">and</span> <span class="n">m</span><span class="o">.</span><span class="n">button_a</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">button_a</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">()</span> <span class="ow">and</span> <span class="n">button_a</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">()):</span>
             <span class="k">break</span>
-        <span class="n">m</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

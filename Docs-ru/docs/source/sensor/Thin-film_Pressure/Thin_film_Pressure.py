@@ -1,9 +1,6 @@
-from microbit import MicroBitAnalogDigitalPin
-
-
 class Thin_film_Pressure:
 
-    def __init__(self, set_pin: MicroBitAnalogDigitalPin):
+    def __init__(self, set_pin):
         self.set_pin = set_pin
 
     def get_signal(self) -> int:

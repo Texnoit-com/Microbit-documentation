@@ -229,54 +229,21 @@
 <p>Пример, запускающий некоторые функции микрофона:</p>
 <blockquote>
 <div><p># Базовый тест для микрофона. Этот тест должен обновлять дисплей, когда
-# Нажата кнопка A и <em>pressed</em> громкий или тихий звук, распечатывая
+# Нажата кнопка A и <em>pressed</em> громкий или тихий звук, выводя
 # Результаты. На кнопке B этот тест должен обновлять дисплей при громком или
 # тихий звук <em>is</em> слышен, вывод результатов. При встряхивании это должно печатать
 # последние слышимые звуки, вы должны попробовать этот тест, издавая громкий звук
 # и тихий, прежде чем встряхнуть.</p>
 </div></blockquote>
-<p>Код:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<span class="n">sound</span> <span class="o">=</span> <span class="n">microphone</span><span class="o">.</span><span class="n">current_event</span><span class="p">()</span>
-
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">button_a</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">microphone</span><span class="o">.</span><span class="n">current_event</span><span class="p">()</span> <span class="o">==</span> <span class="n">SoundEvent</span><span class="o">.</span><span class="n">LOUD</span><span class="p">:</span>
-            <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">SQUARE</span><span class="p">)</span>
-            <span class="n">uart</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;isLoud</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">microphone</span><span class="o">.</span><span class="n">current_event</span><span class="p">()</span> <span class="o">==</span> <span class="n">SoundEvent</span><span class="o">.</span><span class="n">QUIET</span><span class="p">:</span>
-            <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">SQUARE_SMALL</span><span class="p">)</span>
-            <span class="n">uart</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;isQuiet</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">button_b</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">microphone</span><span class="o">.</span><span class="n">was_event</span><span class="p">(</span><span class="n">SoundEvent</span><span class="o">.</span><span class="n">LOUD</span><span class="p">):</span>
-            <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">SQUARE</span><span class="p">)</span>
-            <span class="n">uart</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;wasLoud</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">microphone</span><span class="o">.</span><span class="n">was_event</span><span class="p">(</span><span class="n">SoundEvent</span><span class="o">.</span><span class="n">QUIET</span><span class="p">):</span>
-            <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">SQUARE_SMALL</span><span class="p">)</span>
-            <span class="n">uart</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;wasQuiet</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">accelerometer</span><span class="o">.</span><span class="n">was_gesture</span><span class="p">(</span><span class="s1">&#39;shake&#39;</span><span class="p">):</span>
-        <span class="n">sounds</span> <span class="o">=</span> <span class="n">microphone</span><span class="o">.</span><span class="n">get_events</span><span class="p">()</span>
-        <span class="n">soundLevel</span> <span class="o">=</span> <span class="n">microphone</span><span class="o">.</span><span class="n">sound_level</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">soundLevel</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">sound</span> <span class="ow">in</span> <span class="n">sounds</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">sound</span> <span class="o">==</span> <span class="n">SoundEvent</span><span class="o">.</span><span class="n">LOUD</span><span class="p">:</span>
-                <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">SQUARE</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">sound</span> <span class="o">==</span> <span class="n">SoundEvent</span><span class="o">.</span><span class="n">QUIET</span><span class="p">:</span>
-                <span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">SQUARE_SMALL</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">sound</span><span class="p">)</span>
-            <span class="n">sleep</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>Код::
+.. include:: ../examples/microphoneV2.py</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">code</dt>
+<dd class="field-odd"><p>python</p>
+</dd>
+</dl>
+</div></blockquote>
 </section>
 </section>
 

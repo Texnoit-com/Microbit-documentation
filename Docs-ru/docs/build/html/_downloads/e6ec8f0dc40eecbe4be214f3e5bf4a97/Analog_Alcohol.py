@@ -1,11 +1,10 @@
-from microbit import Image, MicroBitAnalogDigitalPin, button_a, display, sleep
+from microbit import Image, button_a, display, sleep
 
 
 class Analog_Alcohol:
-
     ACCOUNT: int = 9
 
-    def __init__(self, set_pin: MicroBitAnalogDigitalPin):
+    def __init__(self, set_pin):
         self.set_pin = set_pin
 
     def calibrate(self) -> None:

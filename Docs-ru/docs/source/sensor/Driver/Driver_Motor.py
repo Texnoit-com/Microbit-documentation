@@ -1,13 +1,11 @@
-from microbit import MicroBitAnalogDigitalPin, sleep
+from microbit import sleep
 
 
 class Motor():
 
     SPEED: int = 1024
 
-    def __init__(self, fw_pin: MicroBitAnalogDigitalPin,
-                 bw_pin: MicroBitAnalogDigitalPin,
-                 sp_pin: MicroBitAnalogDigitalPin):
+    def __init__(self, fw_pin, bw_pin, sp_pin):
         self.fw_pin = fw_pin
         self.bw_pin = bw_pin
         self.sp_pin = sp_pin

@@ -1,12 +1,6 @@
-from microbit import MicroBitDigitalPin
-
-
 class Traffic_Light():
 
-    def __init__(self,
-                 red: MicroBitDigitalPin,
-                 yellow: MicroBitDigitalPin,
-                 green: MicroBitDigitalPin):
+    def __init__(self, red, yellow, green):
         self.red = red
         self.yellow = yellow
         self.green = green

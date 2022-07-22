@@ -1,13 +1,11 @@
 from random import randint
 
-from microbit import MicroBitAnalogDigitalPin, MicroBitDigitalPin, sleep
+from microbit import sleep
 
 
 class RGB_LED_Module():
 
-    def __init__(self, red: MicroBitAnalogDigitalPin,
-                 green: MicroBitAnalogDigitalPin,
-                 blue: MicroBitAnalogDigitalPin):
+    def __init__(self, red, green, blue):
         self.red = red
         self.green = green
         self.blue = blue
@@ -44,9 +42,7 @@ class RGB_LED_Module():
     def bright_blue(self, arg: int) -> None:
         self.blue.write_analog(arg)
 
-    def conversion(self, start: MicroBitDigitalPin,
-                   finish: MicroBitDigitalPin,
-                   time: int) -> None:
+    def conversion(self, start, finish, time: int) -> None:
         for i in range(1023):
             start.write_analog(1023-i)
             finish.write_analog(i)

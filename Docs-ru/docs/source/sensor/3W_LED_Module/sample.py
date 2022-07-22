@@ -1,4 +1,4 @@
-from microbit import pin0, sleep
+from microbit import *
 
 from LED_3W_Module import LED_3W_Module
 

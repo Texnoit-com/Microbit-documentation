@@ -12,10 +12,10 @@
 8. подождать 5 секунд
 9.выключить зеленый светодиод
 
-.. image:: Street_traffic.png
+.. image:: Street_traffic.jpg
     
 Программа
---------
+---------
 
 .. include:: Street_traffic.py
     :code: python

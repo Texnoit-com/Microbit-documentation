@@ -1,9 +1,9 @@
-from microbit import Image, MicroBitAnalogDigitalPin, button_a, display
+from microbit import Image, button_a, display
 
 
 class Flame:
 
-    def __init__(self, set_pin: MicroBitAnalogDigitalPin):
+    def __init__(self, set_pin):
         self.set_pin = set_pin
 
     def calibrate(self):

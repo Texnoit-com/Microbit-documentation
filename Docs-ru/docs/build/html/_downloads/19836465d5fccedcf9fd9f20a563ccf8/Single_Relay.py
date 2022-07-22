@@ -1,9 +1,6 @@
-from microbit import MicroBitAnalogDigitalPin
-
-
 class Single_Relay():
 
-    def __init__(self, set: MicroBitAnalogDigitalPin):
+    def __init__(self, set_pin):
         self.set = set
 
     def on(self) -> None:

@@ -318,64 +318,61 @@ pin_speaker:
 Акселерометр
 -------------
 
-The accelerometer is accessed via the ``accelerometer`` object::
-
-    # read the X axis of the device. Measured in milli-g.
+Доступ к акселерометру осуществляется через объект ``accelerometer``::
+ 
+    # Ось X.
     accelerometer.get_x()
-    # read the Y axis of the device. Measured in milli-g.
+    # Ось Y.
     accelerometer.get_y()
-    # read the Z axis of the device. Measured in milli-g.
+    # Ось Z.
     accelerometer.get_z()
-    # get tuple of all three X, Y and Z readings (listed in that order).
+    # Получить показания трех осей X, Y, Z (в указанном порядке).
     accelerometer.get_values()
-    # return the name of the current gesture.
+    # вернуть название текущего жеста.
     accelerometer.current_gesture()
-    # return True or False to indicate if the named gesture is currently active.
+    # вернуть True или False, чтобы указать произошел жест или нет.
     accelerometer.is_gesture(name)
-    # return True or False to indicate if the named gesture was active since the
-    # last call.
+    # вернуть True или False, чтобы указать произошел ли жест с последнего опроса
     accelerometer.was_gesture(name)
-    # return a tuple of the gesture history. The most recent is listed last.
+    # вернуть кортеж истории жестов.
     accelerometer.get_gestures()
 
-The recognised gestures are: ``up``, ``down``, ``left``, ``right``, ``face up``, ``face down``, ``freefall``, ``3g``, ``6g``, ``8g``, ``shake``.
+Объявленные жесты: ``up``, ``down``, ``left``, ``right``, ``face up``, ``face down``, ``freefall``, ``3g``, ``6g``, ``8g``, ``shake``.
 
 
 Компас
 -------
 
-The compass is accessed via the `compass` object::
+Доступ к компасу осуществляется через объект `compass`::
 
-    # calibrate the compass (this is needed to get accurate readings).
+    # каллибровка компаса (это нужно для получения точных показаний).
     compass.calibrate()
-    # return a numeric indication of degrees offset from "north".
+    # вернуть числовое значение смещения градусов от «севера».
     compass.heading()
-    # return an numeric indication of the strength of magnetic field around
-    # the micro:bit.
+    # вернуть числовое значение силы магнитного поля micro:bit.
     compass.get_field_strength()
-    # returns True or False to indicate if the compass is calibrated.
+    # возвращает True или False, чтобы указать, откалиброван ли компас.
     compass.is_calibrated()
-    # resets the compass to a pre-calibration state.
+    # сбрасывает компас в состояние предварительной калибровки.
     compass.clear_calibration()
 
 Протокол I2C
 ------------
 
-There is an I2C bus on the micro:bit that is exposed via the `i2c` object.  It has the following methods::
+На micro:bit есть шина I2C, доступная через объект `i2c`. Он имеет следующие методы::
 
-    # read n bytes from device with addr; repeat=True means a stop bit won't
-    # be sent.
+    # прочитать n байт с устройства с адресом; Repeat=True означает, что стоп-бит не будет отправлен.
     i2c.read(addr, n, repeat=False)
-    # write buf to device with addr; repeat=True means a stop bit won't be sent.
+    # записать buf на устройство с адресом; Repeat=True означает, что стоп-бит не будет отправлен.
     i2c.write(addr, buf, repeat=False)
 
 Звук **V2**
 ------------
 
-A set of expressive sounds are available to the micro:bit **V2**. They can be
-accessed via the ``microbit`` module and played with the :doc:`audio <audio>` module.
+Набор выразительных звуков доступен для micro:bit **V2**. Они могут быть
+доступ через модуль ``microbit``.
 
-**Built-in sounds**
+**Встроенные звуки**
 
 ``Sound.GIGGLE``
 ``Sound.HAPPY``
